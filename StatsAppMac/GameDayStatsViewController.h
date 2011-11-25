@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Player.h"
 
-
-@interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> {
-    
+@interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> 
+{
+    NSManagedObjectContext* managedObjectContext_;
+    NSMutableArray* players_;
 }
+
+@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
+@property (nonatomic, retain) NSMutableArray* players;
 
 @end

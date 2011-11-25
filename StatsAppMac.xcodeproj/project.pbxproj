@@ -28,6 +28,7 @@
 		288BDE67147FB70D00002F9A /* StatsAppMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE66147FB70D00002F9A /* StatsAppMacTests.m */; };
 		288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */; };
 		288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */; };
+		63845C81147FBE130033426E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C80147FBE130033426E /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		288BDE70147FB95A00002F9A /* GameDayStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDayStatsViewController.h; sourceTree = "<group>"; };
 		288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDayStatsViewController.m; sourceTree = "<group>"; };
 		288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameDayStatsViewController.xib; sourceTree = "<group>"; };
+		63845C7F147FBE130033426E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		63845C80147FBE130033426E /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,8 @@
 		288BDE35147FB70C00002F9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				63845C7F147FBE130033426E /* Player.h */,
+				63845C80147FBE130033426E /* Player.m */,
 				288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */,
 				288BDE37147FB70C00002F9A /* InfoPlist.strings */,
 				288BDE3A147FB70C00002F9A /* StatsAppMac-Prefix.pch */,
@@ -237,6 +242,9 @@
 /* Begin PBXProject section */
 		288BDE1F147FB70B00002F9A /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = 288BDE22147FB70B00002F9A /* Build configuration list for PBXProject "StatsAppMac" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -305,6 +313,7 @@
 				288BDE46147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m in Sources */,
 				288BDE4D147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m in Sources */,
 				288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */,
+				63845C81147FBE130033426E /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +413,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -417,6 +427,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
@@ -435,6 +446,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatsAppMacTests/StatsAppMacTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMacTests/StatsAppMacTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -457,6 +469,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatsAppMacTests/StatsAppMacTests-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMacTests/StatsAppMacTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -487,6 +500,7 @@
 				288BDE6C147FB70D00002F9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		288BDE6D147FB70D00002F9A /* Build configuration list for PBXNativeTarget "StatsAppMacTests" */ = {
 			isa = XCConfigurationList;
@@ -495,6 +509,7 @@
 				288BDE6F147FB70D00002F9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

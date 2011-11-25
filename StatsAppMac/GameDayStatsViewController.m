@@ -11,10 +11,12 @@
 
 @implementation GameDayStatsViewController
 
-
+@synthesize managedObjectContext=managedObjectContext_, players=players_;
 
 - (void)dealloc
 {
+    [managedObjectContext_ release];
+    [players_ release];
     [super dealloc];
 }
 
@@ -31,6 +33,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.players = [[NSMutableArray alloc] init];
+    
+    Player* a = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+    a.firstName = @"David";
+    a.lastName = @"Mackenzie";
+    
+    Player* b = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+    b.firstName = @"Michelle";
+    b.lastName = @"Keane";
+    
+    [self.players addObject:a];
+    [self.players addObject:b];
+    
+    NSLog(@"Number of players in load %i", [self.players count]);
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -85,7 +102,8 @@
 {
 
     // Return the number of rows in the section.
-    return 0;
+    NSLog(@"Number of players %i", [self.players count]);
+    return [self.players count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,6 +116,9 @@
     }
     
     // Configure the cell...
+    Player* theOne = [self.players objectAtIndex:indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
+    
     
     return cell;
 }

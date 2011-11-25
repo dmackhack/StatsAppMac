@@ -19,9 +19,15 @@
 
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
 
+@synthesize statsView=statsView_;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    self.statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
+    self.statsView.managedObjectContext = self.managedObjectContext;
+    self.window.rootViewController = self.statsView;
     [self.window makeKeyAndVisible];
     return YES;
 }
