@@ -26,6 +26,8 @@
 		288BDE62147FB70D00002F9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE60147FB70D00002F9A /* InfoPlist.strings */; };
 		288BDE65147FB70D00002F9A /* StatsAppMacTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE64147FB70D00002F9A /* StatsAppMacTests.h */; };
 		288BDE67147FB70D00002F9A /* StatsAppMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE66147FB70D00002F9A /* StatsAppMacTests.m */; };
+		288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */; };
+		288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,25 +46,28 @@
 		288BDE2E147FB70C00002F9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		288BDE30147FB70C00002F9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		288BDE32147FB70C00002F9A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */ = {isa = PBXFileReference; path = "StatsAppMac-Info.plist"; sourceTree = "<group>"; };
+		288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StatsAppMac-Info.plist"; sourceTree = "<group>"; };
 		288BDE38147FB70C00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		288BDE3A147FB70C00002F9A /* StatsAppMac-Prefix.pch */ = {isa = PBXFileReference; path = "StatsAppMac-Prefix.pch"; sourceTree = "<group>"; };
+		288BDE3A147FB70C00002F9A /* StatsAppMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StatsAppMac-Prefix.pch"; sourceTree = "<group>"; };
 		288BDE3B147FB70C00002F9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		288BDE3D147FB70C00002F9A /* StatsAppMacAppDelegate.h */ = {isa = PBXFileReference; path = StatsAppMacAppDelegate.h; sourceTree = "<group>"; };
+		288BDE3D147FB70C00002F9A /* StatsAppMacAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatsAppMacAppDelegate.h; sourceTree = "<group>"; };
 		288BDE3E147FB70C00002F9A /* StatsAppMacAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacAppDelegate.m; sourceTree = "<group>"; };
 		288BDE41147FB70C00002F9A /* StatsAppMac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StatsAppMac.xcdatamodel; sourceTree = "<group>"; };
-		288BDE44147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.h */ = {isa = PBXFileReference; name = StatsAppMacAppDelegate_iPhone.h; path = iPhone/StatsAppMacAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		288BDE44147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StatsAppMacAppDelegate_iPhone.h; path = iPhone/StatsAppMacAppDelegate_iPhone.h; sourceTree = "<group>"; };
 		288BDE45147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StatsAppMacAppDelegate_iPhone.m; path = iPhone/StatsAppMacAppDelegate_iPhone.m; sourceTree = "<group>"; };
 		288BDE48147FB70C00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
-		288BDE4B147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.h */ = {isa = PBXFileReference; name = StatsAppMacAppDelegate_iPad.h; path = iPad/StatsAppMacAppDelegate_iPad.h; sourceTree = "<group>"; };
+		288BDE4B147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StatsAppMacAppDelegate_iPad.h; path = iPad/StatsAppMacAppDelegate_iPad.h; sourceTree = "<group>"; };
 		288BDE4C147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StatsAppMacAppDelegate_iPad.m; path = iPad/StatsAppMacAppDelegate_iPad.m; sourceTree = "<group>"; };
 		288BDE4F147FB70C00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
 		288BDE56147FB70C00002F9A /* StatsAppMacTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatsAppMacTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		288BDE5F147FB70D00002F9A /* StatsAppMacTests-Info.plist */ = {isa = PBXFileReference; path = "StatsAppMacTests-Info.plist"; sourceTree = "<group>"; };
+		288BDE5F147FB70D00002F9A /* StatsAppMacTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StatsAppMacTests-Info.plist"; sourceTree = "<group>"; };
 		288BDE61147FB70D00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		288BDE63147FB70D00002F9A /* StatsAppMacTests-Prefix.pch */ = {isa = PBXFileReference; path = "StatsAppMacTests-Prefix.pch"; sourceTree = "<group>"; };
+		288BDE63147FB70D00002F9A /* StatsAppMacTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StatsAppMacTests-Prefix.pch"; sourceTree = "<group>"; };
 		288BDE64147FB70D00002F9A /* StatsAppMacTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatsAppMacTests.h; sourceTree = "<group>"; };
 		288BDE66147FB70D00002F9A /* StatsAppMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacTests.m; sourceTree = "<group>"; };
+		288BDE70147FB95A00002F9A /* GameDayStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDayStatsViewController.h; sourceTree = "<group>"; };
+		288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDayStatsViewController.m; sourceTree = "<group>"; };
+		288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameDayStatsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +166,9 @@
 				288BDE4B147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.h */,
 				288BDE4C147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m */,
 				288BDE4E147FB70C00002F9A /* MainWindow_iPad.xib */,
+				288BDE70147FB95A00002F9A /* GameDayStatsViewController.h */,
+				288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */,
+				288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -255,6 +263,7 @@
 				288BDE39147FB70C00002F9A /* InfoPlist.strings in Resources */,
 				288BDE49147FB70C00002F9A /* MainWindow_iPhone.xib in Resources */,
 				288BDE50147FB70C00002F9A /* MainWindow_iPad.xib in Resources */,
+				288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +304,7 @@
 				288BDE42147FB70C00002F9A /* StatsAppMac.xcdatamodeld in Sources */,
 				288BDE46147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m in Sources */,
 				288BDE4D147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m in Sources */,
+				288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
