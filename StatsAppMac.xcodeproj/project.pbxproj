@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		288BDE2D147FB70C00002F9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2C147FB70C00002F9A /* UIKit.framework */; };
+		288BDE2F147FB70C00002F9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2E147FB70C00002F9A /* Foundation.framework */; };
+		288BDE31147FB70C00002F9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE30147FB70C00002F9A /* CoreGraphics.framework */; };
+		288BDE33147FB70C00002F9A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE32147FB70C00002F9A /* CoreData.framework */; };
+		288BDE39147FB70C00002F9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE37147FB70C00002F9A /* InfoPlist.strings */; };
+		288BDE3C147FB70C00002F9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE3B147FB70C00002F9A /* main.m */; };
+		288BDE3F147FB70C00002F9A /* StatsAppMacAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE3E147FB70C00002F9A /* StatsAppMacAppDelegate.m */; };
+		288BDE42147FB70C00002F9A /* StatsAppMac.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE40147FB70C00002F9A /* StatsAppMac.xcdatamodeld */; };
+		288BDE46147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE45147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m */; };
+		288BDE49147FB70C00002F9A /* MainWindow_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE47147FB70C00002F9A /* MainWindow_iPhone.xib */; };
+		288BDE4D147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE4C147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m */; };
+		288BDE50147FB70C00002F9A /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE4E147FB70C00002F9A /* MainWindow_iPad.xib */; };
+		288BDE57147FB70D00002F9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2C147FB70C00002F9A /* UIKit.framework */; };
+		288BDE58147FB70D00002F9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2E147FB70C00002F9A /* Foundation.framework */; };
+		288BDE59147FB70D00002F9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE30147FB70C00002F9A /* CoreGraphics.framework */; };
+		288BDE5A147FB70D00002F9A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE32147FB70C00002F9A /* CoreData.framework */; };
+		288BDE62147FB70D00002F9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE60147FB70D00002F9A /* InfoPlist.strings */; };
+		288BDE65147FB70D00002F9A /* StatsAppMacTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE64147FB70D00002F9A /* StatsAppMacTests.h */; };
+		288BDE67147FB70D00002F9A /* StatsAppMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE66147FB70D00002F9A /* StatsAppMacTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		288BDE5B147FB70D00002F9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 288BDE1F147FB70B00002F9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 288BDE27147FB70C00002F9A;
+			remoteInfo = StatsAppMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		288BDE28147FB70C00002F9A /* StatsAppMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsAppMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		288BDE2C147FB70C00002F9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		288BDE2E147FB70C00002F9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		288BDE30147FB70C00002F9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		288BDE32147FB70C00002F9A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */ = {isa = PBXFileReference; path = "StatsAppMac-Info.plist"; sourceTree = "<group>"; };
+		288BDE38147FB70C00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		288BDE3A147FB70C00002F9A /* StatsAppMac-Prefix.pch */ = {isa = PBXFileReference; path = "StatsAppMac-Prefix.pch"; sourceTree = "<group>"; };
+		288BDE3B147FB70C00002F9A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		288BDE3D147FB70C00002F9A /* StatsAppMacAppDelegate.h */ = {isa = PBXFileReference; path = StatsAppMacAppDelegate.h; sourceTree = "<group>"; };
+		288BDE3E147FB70C00002F9A /* StatsAppMacAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacAppDelegate.m; sourceTree = "<group>"; };
+		288BDE41147FB70C00002F9A /* StatsAppMac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StatsAppMac.xcdatamodel; sourceTree = "<group>"; };
+		288BDE44147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.h */ = {isa = PBXFileReference; name = StatsAppMacAppDelegate_iPhone.h; path = iPhone/StatsAppMacAppDelegate_iPhone.h; sourceTree = "<group>"; };
+		288BDE45147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StatsAppMacAppDelegate_iPhone.m; path = iPhone/StatsAppMacAppDelegate_iPhone.m; sourceTree = "<group>"; };
+		288BDE48147FB70C00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPhone/en.lproj/MainWindow_iPhone.xib; sourceTree = "<group>"; };
+		288BDE4B147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.h */ = {isa = PBXFileReference; name = StatsAppMacAppDelegate_iPad.h; path = iPad/StatsAppMacAppDelegate_iPad.h; sourceTree = "<group>"; };
+		288BDE4C147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StatsAppMacAppDelegate_iPad.m; path = iPad/StatsAppMacAppDelegate_iPad.m; sourceTree = "<group>"; };
+		288BDE4F147FB70C00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = iPad/en.lproj/MainWindow_iPad.xib; sourceTree = "<group>"; };
+		288BDE56147FB70C00002F9A /* StatsAppMacTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatsAppMacTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		288BDE5F147FB70D00002F9A /* StatsAppMacTests-Info.plist */ = {isa = PBXFileReference; path = "StatsAppMacTests-Info.plist"; sourceTree = "<group>"; };
+		288BDE61147FB70D00002F9A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		288BDE63147FB70D00002F9A /* StatsAppMacTests-Prefix.pch */ = {isa = PBXFileReference; path = "StatsAppMacTests-Prefix.pch"; sourceTree = "<group>"; };
+		288BDE64147FB70D00002F9A /* StatsAppMacTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatsAppMacTests.h; sourceTree = "<group>"; };
+		288BDE66147FB70D00002F9A /* StatsAppMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		288BDE25147FB70C00002F9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288BDE2D147FB70C00002F9A /* UIKit.framework in Frameworks */,
+				288BDE2F147FB70C00002F9A /* Foundation.framework in Frameworks */,
+				288BDE31147FB70C00002F9A /* CoreGraphics.framework in Frameworks */,
+				288BDE33147FB70C00002F9A /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		288BDE52147FB70C00002F9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288BDE57147FB70D00002F9A /* UIKit.framework in Frameworks */,
+				288BDE58147FB70D00002F9A /* Foundation.framework in Frameworks */,
+				288BDE59147FB70D00002F9A /* CoreGraphics.framework in Frameworks */,
+				288BDE5A147FB70D00002F9A /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		288BDE1D147FB70B00002F9A = {
+			isa = PBXGroup;
+			children = (
+				288BDE34147FB70C00002F9A /* StatsAppMac */,
+				288BDE5D147FB70D00002F9A /* StatsAppMacTests */,
+				288BDE2B147FB70C00002F9A /* Frameworks */,
+				288BDE29147FB70C00002F9A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		288BDE29147FB70C00002F9A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE28147FB70C00002F9A /* StatsAppMac.app */,
+				288BDE56147FB70C00002F9A /* StatsAppMacTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		288BDE2B147FB70C00002F9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE2C147FB70C00002F9A /* UIKit.framework */,
+				288BDE2E147FB70C00002F9A /* Foundation.framework */,
+				288BDE30147FB70C00002F9A /* CoreGraphics.framework */,
+				288BDE32147FB70C00002F9A /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		288BDE34147FB70C00002F9A /* StatsAppMac */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE3D147FB70C00002F9A /* StatsAppMacAppDelegate.h */,
+				288BDE3E147FB70C00002F9A /* StatsAppMacAppDelegate.m */,
+				288BDE40147FB70C00002F9A /* StatsAppMac.xcdatamodeld */,
+				288BDE43147FB70C00002F9A /* iPhone */,
+				288BDE4A147FB70C00002F9A /* iPad */,
+				288BDE35147FB70C00002F9A /* Supporting Files */,
+			);
+			path = StatsAppMac;
+			sourceTree = "<group>";
+		};
+		288BDE35147FB70C00002F9A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */,
+				288BDE37147FB70C00002F9A /* InfoPlist.strings */,
+				288BDE3A147FB70C00002F9A /* StatsAppMac-Prefix.pch */,
+				288BDE3B147FB70C00002F9A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		288BDE43147FB70C00002F9A /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE44147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.h */,
+				288BDE45147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m */,
+				288BDE47147FB70C00002F9A /* MainWindow_iPhone.xib */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
+		288BDE4A147FB70C00002F9A /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE4B147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.h */,
+				288BDE4C147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m */,
+				288BDE4E147FB70C00002F9A /* MainWindow_iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		288BDE5D147FB70D00002F9A /* StatsAppMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE64147FB70D00002F9A /* StatsAppMacTests.h */,
+				288BDE66147FB70D00002F9A /* StatsAppMacTests.m */,
+				288BDE5E147FB70D00002F9A /* Supporting Files */,
+			);
+			path = StatsAppMacTests;
+			sourceTree = "<group>";
+		};
+		288BDE5E147FB70D00002F9A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				288BDE5F147FB70D00002F9A /* StatsAppMacTests-Info.plist */,
+				288BDE60147FB70D00002F9A /* InfoPlist.strings */,
+				288BDE63147FB70D00002F9A /* StatsAppMacTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		288BDE27147FB70C00002F9A /* StatsAppMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "StatsAppMac" */;
+			buildPhases = (
+				288BDE24147FB70C00002F9A /* Sources */,
+				288BDE25147FB70C00002F9A /* Frameworks */,
+				288BDE26147FB70C00002F9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StatsAppMac;
+			productName = StatsAppMac;
+			productReference = 288BDE28147FB70C00002F9A /* StatsAppMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		288BDE55147FB70C00002F9A /* StatsAppMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 288BDE6D147FB70D00002F9A /* Build configuration list for PBXNativeTarget "StatsAppMacTests" */;
+			buildPhases = (
+				288BDE51147FB70C00002F9A /* Sources */,
+				288BDE52147FB70C00002F9A /* Frameworks */,
+				288BDE53147FB70C00002F9A /* Resources */,
+				288BDE54147FB70C00002F9A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				288BDE5C147FB70D00002F9A /* PBXTargetDependency */,
+			);
+			name = StatsAppMacTests;
+			productName = StatsAppMacTests;
+			productReference = 288BDE56147FB70C00002F9A /* StatsAppMacTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		288BDE1F147FB70B00002F9A /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 288BDE22147FB70B00002F9A /* Build configuration list for PBXProject "StatsAppMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 288BDE1D147FB70B00002F9A;
+			productRefGroup = 288BDE29147FB70C00002F9A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				288BDE27147FB70C00002F9A /* StatsAppMac */,
+				288BDE55147FB70C00002F9A /* StatsAppMacTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		288BDE26147FB70C00002F9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288BDE39147FB70C00002F9A /* InfoPlist.strings in Resources */,
+				288BDE49147FB70C00002F9A /* MainWindow_iPhone.xib in Resources */,
+				288BDE50147FB70C00002F9A /* MainWindow_iPad.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		288BDE53147FB70C00002F9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288BDE62147FB70D00002F9A /* InfoPlist.strings in Resources */,
+				288BDE65147FB70D00002F9A /* StatsAppMacTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		288BDE54147FB70C00002F9A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		288BDE24147FB70C00002F9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288BDE3C147FB70C00002F9A /* main.m in Sources */,
+				288BDE3F147FB70C00002F9A /* StatsAppMacAppDelegate.m in Sources */,
+				288BDE42147FB70C00002F9A /* StatsAppMac.xcdatamodeld in Sources */,
+				288BDE46147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m in Sources */,
+				288BDE4D147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		288BDE51147FB70C00002F9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				288BDE67147FB70D00002F9A /* StatsAppMacTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		288BDE5C147FB70D00002F9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 288BDE27147FB70C00002F9A /* StatsAppMac */;
+			targetProxy = 288BDE5B147FB70D00002F9A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		288BDE37147FB70C00002F9A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				288BDE38147FB70C00002F9A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		288BDE47147FB70C00002F9A /* MainWindow_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				288BDE48147FB70C00002F9A /* en */,
+			);
+			name = MainWindow_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		288BDE4E147FB70C00002F9A /* MainWindow_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				288BDE4F147FB70C00002F9A /* en */,
+			);
+			name = MainWindow_iPad.xib;
+			sourceTree = "<group>";
+		};
+		288BDE60147FB70D00002F9A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				288BDE61147FB70D00002F9A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		288BDE68147FB70D00002F9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		288BDE69147FB70D00002F9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		288BDE6B147FB70D00002F9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
+				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		288BDE6C147FB70D00002F9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
+				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		288BDE6E147FB70D00002F9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatsAppMac.app/StatsAppMac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatsAppMacTests/StatsAppMacTests-Prefix.pch";
+				INFOPLIST_FILE = "StatsAppMacTests/StatsAppMacTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		288BDE6F147FB70D00002F9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatsAppMac.app/StatsAppMac";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "StatsAppMacTests/StatsAppMacTests-Prefix.pch";
+				INFOPLIST_FILE = "StatsAppMacTests/StatsAppMacTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		288BDE22147FB70B00002F9A /* Build configuration list for PBXProject "StatsAppMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				288BDE68147FB70D00002F9A /* Debug */,
+				288BDE69147FB70D00002F9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "StatsAppMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				288BDE6B147FB70D00002F9A /* Debug */,
+				288BDE6C147FB70D00002F9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		288BDE6D147FB70D00002F9A /* Build configuration list for PBXNativeTarget "StatsAppMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				288BDE6E147FB70D00002F9A /* Debug */,
+				288BDE6F147FB70D00002F9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		288BDE40147FB70C00002F9A /* StatsAppMac.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				288BDE41147FB70C00002F9A /* StatsAppMac.xcdatamodel */,
+			);
+			currentVersion = 288BDE41147FB70C00002F9A /* StatsAppMac.xcdatamodel */;
+			path = StatsAppMac.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 288BDE1F147FB70B00002F9A /* Project object */;
+}
