@@ -29,6 +29,8 @@
 		288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */; };
 		288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */; };
 		63845C81147FBE130033426E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C80147FBE130033426E /* Player.m */; };
+		63845C91147FC7980033426E /* StatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C8F147FC7980033426E /* StatsCell.m */; };
+		63845C92147FC7980033426E /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63845C90147FC7980033426E /* StatsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,9 @@
 		288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameDayStatsViewController.xib; sourceTree = "<group>"; };
 		63845C7F147FBE130033426E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		63845C80147FBE130033426E /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		63845C8E147FC7980033426E /* StatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsCell.h; path = ../StatsCell.h; sourceTree = "<group>"; };
+		63845C8F147FC7980033426E /* StatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsCell.m; path = ../StatsCell.m; sourceTree = "<group>"; };
+		63845C90147FC7980033426E /* StatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsCell.xib; path = ../StatsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +173,9 @@
 		288BDE4A147FB70C00002F9A /* iPad */ = {
 			isa = PBXGroup;
 			children = (
+				63845C8E147FC7980033426E /* StatsCell.h */,
+				63845C8F147FC7980033426E /* StatsCell.m */,
+				63845C90147FC7980033426E /* StatsCell.xib */,
 				288BDE4B147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.h */,
 				288BDE4C147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m */,
 				288BDE4E147FB70C00002F9A /* MainWindow_iPad.xib */,
@@ -272,6 +280,7 @@
 				288BDE49147FB70C00002F9A /* MainWindow_iPhone.xib in Resources */,
 				288BDE50147FB70C00002F9A /* MainWindow_iPad.xib in Resources */,
 				288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */,
+				63845C92147FC7980033426E /* StatsCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,6 +323,7 @@
 				288BDE4D147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m in Sources */,
 				288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */,
 				63845C81147FBE130033426E /* Player.m in Sources */,
+				63845C91147FC7980033426E /* StatsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

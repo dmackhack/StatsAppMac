@@ -108,16 +108,67 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"StatsCell";
+    static NSString *CellNib = @"StatsCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    StatsCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellNib owner:self options:nil];
+        cell = (StatsCell *)[nib objectAtIndex:0];
+        
+        /*NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"StatsCell" owner:nil options:nil];
+        
+        for (id currentObject in array)
+        {
+            if ([currentObject isKindOfClass:[UITableViewCell class]])
+            {
+                cell = (StatsCell*) currentObject;
+                break;
+            }
+        }*/
+        
+        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        
+        
+        
+        //StatsCell* statsView = [[StatsCell alloc] initWithNibName:@"StatsCell" bundle:nil];
+        
+        
+        //[cell.contentView addSubview:statsView.view];
+        
+        //[statsView release];
     }
+    
+    
     
     // Configure the cell...
     Player* theOne = [self.players objectAtIndex:indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
+    
+    cell.player = theOne;
+    cell.playerName.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
+    
+    /*StatsCell* statsView;
+    for (id currentView in cell.contentView.subviews)
+    {
+        if ([currentView isKindOfClass:[StatsCell class]])
+        {
+            statsView = (StatsCell*) currentView;
+            break;
+        }
+    }
+    
+    if (statsView != nil)
+    {
+        statsView.player = theOne;
+        statsView.playerName.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
+    }
+    else
+    {
+        cell.textLabel.text = @"no player";
+    }*/
+    //cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
     
     
     return cell;

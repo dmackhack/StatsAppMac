@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "StatsCell.h"
 
 @interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> 
 {
