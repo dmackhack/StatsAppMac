@@ -27,8 +27,12 @@
 
 - (IBAction)addKick:(id)sender 
 {
+    
     int value = [self.player.kicks intValue];
-    self.player.kicks = [NSNumber numberWithInt:value + 1];
+    NSNumber* newValue = [NSNumber numberWithInt:value + 1];
+    self.player.kicks = newValue;
+    
+    NSLog(@"kick event recieved: %i", [newValue intValue]);
 }
 
 - (IBAction)addMark:(id)sender 

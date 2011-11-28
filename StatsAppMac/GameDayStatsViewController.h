@@ -10,6 +10,8 @@
 #import "Player.h"
 #import "StatsCell.h"
 
+@class StatsCell;
+
 @interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> 
 {
     NSManagedObjectContext* managedObjectContext_;

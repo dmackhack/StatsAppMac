@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+
+@class Player;
+
 @interface StatsCell : UITableViewCell
 {
     Player* player_;

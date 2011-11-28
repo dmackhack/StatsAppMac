@@ -115,7 +115,8 @@
     
     if (cell == nil) {
         
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellNib owner:self options:nil];
+        StatsCell* statsCellViewController = [[StatsCell alloc] init];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellNib owner:statsCellViewController options:nil];
         cell = (StatsCell *)[nib objectAtIndex:0];
         
         /*NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"StatsCell" owner:nil options:nil];
@@ -146,8 +147,16 @@
     // Configure the cell...
     Player* theOne = [self.players objectAtIndex:indexPath.row];
     
-    cell.player = theOne;
-    cell.playerName.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
+    if ([cell isKindOfClass:[StatsCell class]])
+    {
+        NSLog(@"Found StatsCell: %@", [cell.class description]);
+        cell.player = theOne;
+        cell.playerName.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
+    }
+    else
+    { 
+        NSLog(@"INVALID cell class: %@", [cell.class description]);
+    }
     
     /*StatsCell* statsView;
     for (id currentView in cell.contentView.subviews)
