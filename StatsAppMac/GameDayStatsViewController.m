@@ -119,6 +119,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellNib owner:statsCellViewController options:nil];
         cell = (StatsCell *)[nib objectAtIndex:0];
         
+        [statsCellViewController release];
         /*NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"StatsCell" owner:nil options:nil];
         
         for (id currentObject in array)
