@@ -94,7 +94,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    
     return 1;
 }
 
@@ -112,75 +111,24 @@
     static NSString *CellNib = @"StatsCell";
     
     StatsCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        
+    if (cell == nil) 
+    {
         StatsCell* statsCellViewController = [[StatsCell alloc] init];
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellNib owner:statsCellViewController options:nil];
         cell = (StatsCell *)[nib objectAtIndex:0];
-        
-        [statsCellViewController release];
-        /*NSArray* array = [[NSBundle mainBundle] loadNibNamed:@"StatsCell" owner:nil options:nil];
-        
-        for (id currentObject in array)
-        {
-            if ([currentObject isKindOfClass:[UITableViewCell class]])
-            {
-                cell = (StatsCell*) currentObject;
-                break;
-            }
-        }*/
-        
-        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        
-        
-        
-        //StatsCell* statsView = [[StatsCell alloc] initWithNibName:@"StatsCell" bundle:nil];
-        
-        
-        //[cell.contentView addSubview:statsView.view];
-        
-        //[statsView release];
     }
     
-    
-    
     // Configure the cell...
-    Player* theOne = [self.players objectAtIndex:indexPath.row];
-    
     if ([cell isKindOfClass:[StatsCell class]])
     {
         NSLog(@"Found StatsCell: %@", [cell.class description]);
-        cell.player = theOne;
-        cell.playerName.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
+        cell.player = [self.players objectAtIndex:indexPath.row];
+        cell.playerName.text = [NSString stringWithFormat:@"%@, %@", cell.player.lastName, cell.player.firstName];
     }
     else
     { 
         NSLog(@"INVALID cell class: %@", [cell.class description]);
     }
-    
-    /*StatsCell* statsView;
-    for (id currentView in cell.contentView.subviews)
-    {
-        if ([currentView isKindOfClass:[StatsCell class]])
-        {
-            statsView = (StatsCell*) currentView;
-            break;
-        }
-    }
-    
-    if (statsView != nil)
-    {
-        statsView.player = theOne;
-        statsView.playerName.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
-    }
-    else
-    {
-        cell.textLabel.text = @"no player";
-    }*/
-    //cell.textLabel.text = [NSString stringWithFormat:@"%@, %@", theOne.lastName, theOne.firstName];
-    
-    
     return cell;
 }
 
