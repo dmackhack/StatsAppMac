@@ -15,15 +15,11 @@
 
 @interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> 
 {
-    NSManagedObjectContext* managedObjectContext_;
-    NSMutableArray* players_;
     NSFetchedResultsController* resultsController_;
     NSString* cache_;
 }
 
 @property (nonatomic, readonly) NSFetchedResultsController* resultsController;
-@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, retain) NSMutableArray* players;
 @property (nonatomic, retain) NSString* cache;
 
 - (StatsAppMacAppDelegate *) appDelegate;

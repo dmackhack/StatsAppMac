@@ -24,13 +24,13 @@
 {
     NSFileManager* fileManager = [NSFileManager defaultManager];
     NSURL* documentdDir = [self applicationDocumentsDirectory];
-    NSURL* writableDBPath = [documentdDir URLByAppendingPathComponent:@"iBountyHunter.sqlite"];
+    NSURL* writableDBPath = [documentdDir URLByAppendingPathComponent:@"StatsAppMac.sqlite"];
     
     BOOL dbexists = [fileManager fileExistsAtPath:[writableDBPath path]];
     if (!dbexists)
     {
         NSLog(@"Writeable DB NOT found at path %@", [writableDBPath path]);
-        NSURL* defaultDBPath = [[NSBundle mainBundle] URLForResource:@"iBountyHunter" withExtension:@"sqlite"];
+        NSURL* defaultDBPath = [[NSBundle mainBundle] URLForResource:@"StatsAppMac" withExtension:@"sqlite"];
         
         if ([fileManager fileExistsAtPath:[defaultDBPath path]])
         {
@@ -122,6 +122,7 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    [self saveContext];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

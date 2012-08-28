@@ -11,12 +11,10 @@
 
 @implementation GameDayStatsViewController
 
-@synthesize managedObjectContext=managedObjectContext_, players=players_, cache=cache_;
+@synthesize cache=cache_;
 
 - (void)dealloc
 {
-    [managedObjectContext_ release];
-    [players_ release];
     [resultsController_ release];
     [cache_ release];
     [super dealloc];
@@ -85,29 +83,10 @@
 {
     [super viewDidLoad];
     
-    self.players = [[NSMutableArray alloc] init];
-
     // fetch players
     NSUInteger count = [[self.resultsController fetchedObjects] count];
     NSLog(@"Number of players in viewDidLoad %i", count);
     
-    // if no players then create a couple for testing
-    
-    
-    //Player* a = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
-    //a.firstName = @"David";
-    //a.lastName = @"Mackenzie";
-    
-    //Player* b = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
-    //b.firstName = @"Michelle";
-    //b.lastName = @"Keane";
-    
-    //[self.players addObject:a];
-    //[self.players addObject:b];
-    
-    
-    //NSLog(@"Number of players in load %i", [self.players count]);
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -172,9 +151,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    //NSLog(@"Number of players %i", [self.players count]);
-    //return [self.players count];
-    
     NSLog(@"Number of players in table %i", [[self.resultsController fetchedObjects] count]);
     return [[self.resultsController fetchedObjects] count];
 }
@@ -195,9 +171,7 @@
     // Configure the cell...
     if ([cell isKindOfClass:[StatsCell class]])
     {
-        //NSLog(@"Found StatsCell: %@", [cell.class description]);
         cell.player = [self.resultsController objectAtIndexPath:indexPath];
-        //cell.player = [self.players objectAtIndex:indexPath.row];
         [cell reloadData];
     }
     else

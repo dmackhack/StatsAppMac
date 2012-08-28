@@ -83,7 +83,6 @@
     GameDayStatsViewController* statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
     
     // TODO figure out a way to get a reference to the managedObjectContext other than passing it around everywhere.
-    statsView.managedObjectContext = self.managedObjectContext;
     [self.navigationController pushViewController:statsView animated:YES];
     [statsView release];
     NSLog(@"Game Day Clicked END...");
