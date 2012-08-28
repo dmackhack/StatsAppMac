@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 287FCFC715DCE9E700854148 /* afl-logo.jpg */; };
+		2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883173C148E08990066D319 /* MainMenuViewController.m */; };
+		2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2883173D148E08990066D319 /* MainMenuViewController.xib */; };
 		288BDE2D147FB70C00002F9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2C147FB70C00002F9A /* UIKit.framework */; };
 		288BDE2F147FB70C00002F9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2E147FB70C00002F9A /* Foundation.framework */; };
 		288BDE31147FB70C00002F9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE30147FB70C00002F9A /* CoreGraphics.framework */; };
@@ -44,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		287FCFC715DCE9E700854148 /* afl-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "afl-logo.jpg"; sourceTree = "<group>"; };
+		2883173B148E08990066D319 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
+		2883173C148E08990066D319 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
+		2883173D148E08990066D319 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
 		288BDE28147FB70C00002F9A /* StatsAppMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsAppMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288BDE2C147FB70C00002F9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288BDE2E147FB70C00002F9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		287FCFC515DCE98800854148 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				287FCFC715DCE9E700854148 /* afl-logo.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		288BDE1D147FB70B00002F9A = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +165,7 @@
 		288BDE35147FB70C00002F9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				287FCFC515DCE98800854148 /* images */,
 				63845C7F147FBE130033426E /* Player.h */,
 				63845C80147FBE130033426E /* Player.m */,
 				288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */,
@@ -182,6 +198,9 @@
 				288BDE70147FB95A00002F9A /* GameDayStatsViewController.h */,
 				288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */,
 				288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */,
+				2883173B148E08990066D319 /* MainMenuViewController.h */,
+				2883173C148E08990066D319 /* MainMenuViewController.m */,
+				2883173D148E08990066D319 /* MainMenuViewController.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -281,6 +300,8 @@
 				288BDE50147FB70C00002F9A /* MainWindow_iPad.xib in Resources */,
 				288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */,
 				63845C92147FC7980033426E /* StatsCell.xib in Resources */,
+				2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */,
+				287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +345,7 @@
 				288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */,
 				63845C81147FBE130033426E /* Player.m in Sources */,
 				63845C91147FC7980033426E /* StatsCell.m in Sources */,
+				2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

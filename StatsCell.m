@@ -12,6 +12,8 @@
 
 @synthesize player=player_, playerName=playerName_, kicksLabel=kicksLabel_, marksLabel=marksLabel_, handballsLabel=handballsLabel_, tacklesLabel=tacklesLabel_;
 
+
+
 -(void)dealloc
 {
     [player_ release];
@@ -29,7 +31,7 @@
 {
     int value = [self.player.kicks intValue];
     self.player.kicks = [NSNumber numberWithInt:value + 1];
-    self.kicksLabel.text = [self.player.kicks stringValue];
+    [self reloadData];
     NSLog(@"kick event recieved for %@: %i", self.player.firstName, [self.player.kicks intValue]);
 }
 
@@ -37,7 +39,7 @@
 {
     int value = [self.player.marks intValue];
     self.player.marks = [NSNumber numberWithInt:value + 1];
-    self.marksLabel.text = [self.player.marks stringValue];
+    [self reloadData];
     NSLog(@"mark event recieved for %@: %i", self.player.firstName, [self.player.marks intValue]);
 }
 
@@ -45,7 +47,7 @@
 {
     int value = [self.player.handballs intValue];
     self.player.handballs = [NSNumber numberWithInt:value + 1];
-    self.handballsLabel.text = [self.player.handballs stringValue];
+    [self reloadData];
     NSLog(@"handball event recieved for %@: %i", self.player.firstName, [self.player.handballs intValue]);
 }
 
@@ -53,8 +55,18 @@
 {
     int value = [self.player.tackles intValue];
     self.player.tackles = [NSNumber numberWithInt:value + 1];
-    self.tacklesLabel.text = [self.player.tackles stringValue];
+    [self reloadData];
     NSLog(@"tackle event recieved for %@: %i", self.player.firstName, [self.player.tackles intValue]);
 }
+
+- (void) reloadData
+{
+    self.playerName.text = [NSString stringWithFormat:@"%@, %@", self.player.lastName, self.player.firstName];
+    self.kicksLabel.text = [self.player.kicks stringValue];
+    self.marksLabel.text = [self.player.marks stringValue];
+    self.handballsLabel.text = [self.player.handballs stringValue];
+    self.tacklesLabel.text = [self.player.tackles stringValue];
+}
+
 
 @end

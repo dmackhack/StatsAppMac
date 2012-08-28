@@ -11,12 +11,14 @@
 
 @implementation GameDayStatsViewController
 
-@synthesize managedObjectContext=managedObjectContext_, players=players_;
+@synthesize managedObjectContext=managedObjectContext_, players=players_, cache=cache_;
 
 - (void)dealloc
 {
     [managedObjectContext_ release];
     [players_ release];
+    [resultsController_ release];
+    [cache_ release];
     [super dealloc];
 }
 
@@ -28,6 +30,55 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (NSFetchedResultsController *) resultsController
+{
+    if (resultsController_ != nil)
+    {
+        return resultsController_;
+    }
+    
+    StatsAppMacAppDelegate* appDelegate = self.appDelegate;
+    [appDelegate managedObjectContext];
+    
+    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+    NSFetchRequest* fetchPlayers = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription* playerEntityDescription = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
+    [fetchPlayers setEntity:playerEntityDescription];
+    
+    // no predicate required. we are fetching everything
+    
+    //NSLog(@"Captured: %i", [self captured]);
+    //NSLog(@"Cache: %@", [self cache]);
+    
+    //NSPredicate* fugitivesPredicate = [NSPredicate predicateWithFormat:@"captured == %i", captured_];
+    //[fetchFugitives setPredicate:fugitivesPredicate];                                             
+    
+    NSSortDescriptor* playersSD = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
+    [fetchPlayers setSortDescriptors:[NSArray arrayWithObject:playersSD]];
+    
+    resultsController_ = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchPlayers managedObjectContext:context sectionNameKeyPath:nil cacheName:[self cache]];
+    
+    resultsController_.delegate = self;
+    
+    NSError* error;
+    BOOL success = [resultsController_ performFetch:&error];
+    
+    if (!success)
+    {
+        NSLog(@"Error fetching results");
+    }
+    [fetchPlayers release];
+    return resultsController_;
+    
+}
+
+
+- (StatsAppMacAppDelegate *) appDelegate
+{
+    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -35,19 +86,27 @@
     [super viewDidLoad];
     
     self.players = [[NSMutableArray alloc] init];
+
+    // fetch players
+    NSUInteger count = [[self.resultsController fetchedObjects] count];
+    NSLog(@"Number of players in viewDidLoad %i", count);
     
-    Player* a = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
-    a.firstName = @"David";
-    a.lastName = @"Mackenzie";
+    // if no players then create a couple for testing
     
-    Player* b = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
-    b.firstName = @"Michelle";
-    b.lastName = @"Keane";
     
-    [self.players addObject:a];
-    [self.players addObject:b];
+    //Player* a = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+    //a.firstName = @"David";
+    //a.lastName = @"Mackenzie";
     
-    NSLog(@"Number of players in load %i", [self.players count]);
+    //Player* b = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+    //b.firstName = @"Michelle";
+    //b.lastName = @"Keane";
+    
+    //[self.players addObject:a];
+    //[self.players addObject:b];
+    
+    
+    //NSLog(@"Number of players in load %i", [self.players count]);
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,8 +122,12 @@
     // e.g. self.myOutlet = nil;
 }
 
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSUInteger count = [[self.resultsController fetchedObjects] count];
+    NSLog(@"Number of players in viewWillAppear %i", count);
     [super viewWillAppear:animated];
 }
 
@@ -75,6 +138,15 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    // save the players.
+    NSLog(@"Saving players");
+    
+    StatsAppMacAppDelegate* delegate = self.appDelegate;
+    [delegate saveContext];
+    
+    
+    //NSError *error = nil;
+    //[self.managedObjectContext save:&error];
     [super viewWillDisappear:animated];
 }
 
@@ -99,10 +171,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
     // Return the number of rows in the section.
-    NSLog(@"Number of players %i", [self.players count]);
-    return [self.players count];
+    //NSLog(@"Number of players %i", [self.players count]);
+    //return [self.players count];
+    
+    NSLog(@"Number of players in table %i", [[self.resultsController fetchedObjects] count]);
+    return [[self.resultsController fetchedObjects] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,9 +195,10 @@
     // Configure the cell...
     if ([cell isKindOfClass:[StatsCell class]])
     {
-        NSLog(@"Found StatsCell: %@", [cell.class description]);
-        cell.player = [self.players objectAtIndex:indexPath.row];
-        cell.playerName.text = [NSString stringWithFormat:@"%@, %@", cell.player.lastName, cell.player.firstName];
+        //NSLog(@"Found StatsCell: %@", [cell.class description]);
+        cell.player = [self.resultsController objectAtIndexPath:indexPath];
+        //cell.player = [self.players objectAtIndex:indexPath.row];
+        [cell reloadData];
     }
     else
     { 

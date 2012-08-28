@@ -19,16 +19,92 @@
 
 @synthesize persistentStoreCoordinator=__persistentStoreCoordinator;
 
-@synthesize statsView=statsView_;
+
+- (void) createEditableCopyOfDatabaseIfNeeded
+{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSURL* documentdDir = [self applicationDocumentsDirectory];
+    NSURL* writableDBPath = [documentdDir URLByAppendingPathComponent:@"iBountyHunter.sqlite"];
+    
+    BOOL dbexists = [fileManager fileExistsAtPath:[writableDBPath path]];
+    if (!dbexists)
+    {
+        NSLog(@"Writeable DB NOT found at path %@", [writableDBPath path]);
+        NSURL* defaultDBPath = [[NSBundle mainBundle] URLForResource:@"iBountyHunter" withExtension:@"sqlite"];
+        
+        if ([fileManager fileExistsAtPath:[defaultDBPath path]])
+        {
+            NSLog(@"FOUND default DB at path %@", [defaultDBPath path]);
+            NSError* error;
+            BOOL success = [fileManager copyItemAtURL:defaultDBPath toURL:writableDBPath error:&error];
+            
+            if (!success)
+            {
+                NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+            }
+        }
+        else
+        {
+            NSLog(@"Can't find default DB at path %@", [defaultDBPath path]);
+        }
+    }
+    else
+    {
+        NSLog(@"Writeable db FOUND at path %@", [writableDBPath path]);
+    }
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     
-    self.statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
-    self.statsView.managedObjectContext = self.managedObjectContext;
-    self.window.rootViewController = self.statsView;
+    NSLog(@"start didFinishLaunchingWithOptions");
+    [self createEditableCopyOfDatabaseIfNeeded];
+    
+    //self.statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
+    //self.statsView.managedObjectContext = self.managedObjectContext;
+    
+    // add a navigation view controller programmatically
+    MainMenuViewController* mainView = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
+    mainView.managedObjectContext = self.managedObjectContext;
+    
+    UINavigationController* mainMenuNav = [[UINavigationController alloc] initWithRootViewController:mainView];
+    mainMenuNav.title = @"Main Menu";
+    
+    self.window.rootViewController = mainMenuNav;
+    //self.window.rootViewController = self.statsView;
     [self.window makeKeyAndVisible];
+    
+    [mainView release];
+    //[statsView release];
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Player" inManagedObjectContext:self.managedObjectContext]];
+    
+    NSArray* players = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSLog(@"Number of existing players is: %i", [players count]);
+    
+    if ([players count] < 1)
+    {
+        // loop to create 22 players.
+        //for ()
+        //{
+            
+        //}
+    
+        Player* a = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+        a.firstName = @"David";
+        a.lastName = @"Mackenzie";
+    
+        Player* b = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
+        b.firstName = @"Michelle";
+        b.lastName = @"Keane";
+        [self saveContext];
+    }
+    
+    NSLog(@"end didFinishLaunchingWithOptions");
+    
     return YES;
 }
 
@@ -84,6 +160,9 @@
      self.<#View controller#>.managedObjectContext = self.managedObjectContext;
     */
 }
+     
+     
+//- (NSFetchedResultsController *) 
 
 - (void)saveContext
 {

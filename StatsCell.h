@@ -34,5 +34,7 @@
 - (IBAction)addHandball:(id)sender;
 - (IBAction)addTackle:(id)sender;
 
+- (void) reloadData;
+
 
 @end

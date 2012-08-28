@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "GameDayStatsViewController.h"
+#import "MainMenuViewController.h"
 
 @interface StatsAppMacAppDelegate : NSObject <UIApplicationDelegate> 
 {
     GameDayStatsViewController* statsView_;
+    MainMenuViewController* mainView_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -20,9 +22,7 @@
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, retain) GameDayStatsViewController* statsView;
-
-- (void)saveContext;
-- (NSURL *)applicationDocumentsDirectory;
+- (void) saveContext;
+- (NSURL *) applicationDocumentsDirectory;
 
 @end
