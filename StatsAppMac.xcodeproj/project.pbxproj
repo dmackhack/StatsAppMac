@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 287FCFC715DCE9E700854148 /* afl-logo.jpg */; };
+		28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28813A4415EF73EF00417416 /* TeamSelectionViewController.m */; };
+		28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */; };
 		2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883173C148E08990066D319 /* MainMenuViewController.m */; };
 		2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2883173D148E08990066D319 /* MainMenuViewController.xib */; };
 		288BDE2D147FB70C00002F9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2C147FB70C00002F9A /* UIKit.framework */; };
@@ -48,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		287FCFC715DCE9E700854148 /* afl-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "afl-logo.jpg"; sourceTree = "<group>"; };
+		28813A4315EF73EF00417416 /* TeamSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSelectionViewController.h; sourceTree = "<group>"; };
+		28813A4415EF73EF00417416 /* TeamSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamSelectionViewController.m; sourceTree = "<group>"; };
+		28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamSelectionViewController.xib; sourceTree = "<group>"; };
 		2883173B148E08990066D319 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		2883173C148E08990066D319 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		2883173D148E08990066D319 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -201,6 +206,9 @@
 				2883173B148E08990066D319 /* MainMenuViewController.h */,
 				2883173C148E08990066D319 /* MainMenuViewController.m */,
 				2883173D148E08990066D319 /* MainMenuViewController.xib */,
+				28813A4315EF73EF00417416 /* TeamSelectionViewController.h */,
+				28813A4415EF73EF00417416 /* TeamSelectionViewController.m */,
+				28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -302,6 +310,7 @@
 				63845C92147FC7980033426E /* StatsCell.xib in Resources */,
 				2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */,
 				287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */,
+				28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +355,7 @@
 				63845C81147FBE130033426E /* Player.m in Sources */,
 				63845C91147FC7980033426E /* StatsCell.m in Sources */,
 				2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */,
+				28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

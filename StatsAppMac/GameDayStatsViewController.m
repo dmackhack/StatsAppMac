@@ -87,6 +87,18 @@
     NSUInteger count = [[self.resultsController fetchedObjects] count];
     NSLog(@"Number of players in viewDidLoad %i", count);
     
+    
+    //CGRect fullScreenRect = [[UIScreen mainScreen] applicationFrame];
+    
+    
+    
+    //self.scrollView.contentSize = CGSizeMake(fullScreenRect.size.width * 3, fullScreenRect.size.height);
+    //self.scrollView.contentSize.height = fullScreenRect.size.height;
+    //self.scrollView.contentSize.width = fullScreenRect.size.width * 3;
+    
+    //self.scrollView = 
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
