@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 287FCFC715DCE9E700854148 /* afl-logo.jpg */; };
+		2880707E15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880707D15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m */; };
+		28807CEA15F92EEA00E5C58B /* Club.m in Sources */ = {isa = PBXBuildFile; fileRef = 28807CE915F92EEA00E5C58B /* Club.m */; };
+		28807CEE15F92F9000E5C58B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 28807CED15F92F9000E5C58B /* Team.m */; };
+		28807CF115F92F9100E5C58B /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 28807CF015F92F9100E5C58B /* League.m */; };
 		28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28813A4415EF73EF00417416 /* TeamSelectionViewController.m */; };
 		28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */; };
 		2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883173C148E08990066D319 /* MainMenuViewController.m */; };
 		2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2883173D148E08990066D319 /* MainMenuViewController.xib */; };
+		2884575C15F5D9A300D452D3 /* SearchGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2884575A15F5D9A300D452D3 /* SearchGamesViewController.m */; };
+		2884575D15F5D9A300D452D3 /* SearchGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2884575B15F5D9A300D452D3 /* SearchGamesViewController.xib */; };
 		288BDE2D147FB70C00002F9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2C147FB70C00002F9A /* UIKit.framework */; };
 		288BDE2F147FB70C00002F9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2E147FB70C00002F9A /* Foundation.framework */; };
 		288BDE31147FB70C00002F9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE30147FB70C00002F9A /* CoreGraphics.framework */; };
@@ -50,12 +56,23 @@
 
 /* Begin PBXFileReference section */
 		287FCFC715DCE9E700854148 /* afl-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "afl-logo.jpg"; sourceTree = "<group>"; };
+		2880707C15FE6A2F00FD2BD2 /* FixtureSearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureSearchDelegate.h; sourceTree = "<group>"; };
+		2880707D15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureSearchDelegate.m; sourceTree = "<group>"; };
+		28807CE815F92EEA00E5C58B /* Club.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Club.h; sourceTree = "<group>"; };
+		28807CE915F92EEA00E5C58B /* Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Club.m; sourceTree = "<group>"; };
+		28807CEC15F92F9000E5C58B /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		28807CED15F92F9000E5C58B /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		28807CEF15F92F9100E5C58B /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
+		28807CF015F92F9100E5C58B /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		28813A4315EF73EF00417416 /* TeamSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSelectionViewController.h; sourceTree = "<group>"; };
 		28813A4415EF73EF00417416 /* TeamSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamSelectionViewController.m; sourceTree = "<group>"; };
 		28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamSelectionViewController.xib; sourceTree = "<group>"; };
 		2883173B148E08990066D319 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		2883173C148E08990066D319 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		2883173D148E08990066D319 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
+		2884575915F5D9A300D452D3 /* SearchGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchGamesViewController.h; sourceTree = "<group>"; };
+		2884575A15F5D9A300D452D3 /* SearchGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchGamesViewController.m; sourceTree = "<group>"; };
+		2884575B15F5D9A300D452D3 /* SearchGamesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchGamesViewController.xib; sourceTree = "<group>"; };
 		288BDE28147FB70C00002F9A /* StatsAppMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsAppMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288BDE2C147FB70C00002F9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288BDE2E147FB70C00002F9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -171,12 +188,18 @@
 			isa = PBXGroup;
 			children = (
 				287FCFC515DCE98800854148 /* images */,
+				28807CE815F92EEA00E5C58B /* Club.h */,
+				28807CE915F92EEA00E5C58B /* Club.m */,
 				63845C7F147FBE130033426E /* Player.h */,
 				63845C80147FBE130033426E /* Player.m */,
 				288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */,
 				288BDE37147FB70C00002F9A /* InfoPlist.strings */,
 				288BDE3A147FB70C00002F9A /* StatsAppMac-Prefix.pch */,
 				288BDE3B147FB70C00002F9A /* main.m */,
+				28807CEF15F92F9100E5C58B /* League.h */,
+				28807CF015F92F9100E5C58B /* League.m */,
+				28807CEC15F92F9000E5C58B /* Team.h */,
+				28807CED15F92F9000E5C58B /* Team.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -209,6 +232,11 @@
 				28813A4315EF73EF00417416 /* TeamSelectionViewController.h */,
 				28813A4415EF73EF00417416 /* TeamSelectionViewController.m */,
 				28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */,
+				2884575915F5D9A300D452D3 /* SearchGamesViewController.h */,
+				2884575A15F5D9A300D452D3 /* SearchGamesViewController.m */,
+				2884575B15F5D9A300D452D3 /* SearchGamesViewController.xib */,
+				2880707C15FE6A2F00FD2BD2 /* FixtureSearchDelegate.h */,
+				2880707D15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -311,6 +339,7 @@
 				2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */,
 				287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */,
 				28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */,
+				2884575D15F5D9A300D452D3 /* SearchGamesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +385,11 @@
 				63845C91147FC7980033426E /* StatsCell.m in Sources */,
 				2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */,
 				28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */,
+				2884575C15F5D9A300D452D3 /* SearchGamesViewController.m in Sources */,
+				28807CEA15F92EEA00E5C58B /* Club.m in Sources */,
+				28807CEE15F92F9000E5C58B /* Team.m in Sources */,
+				28807CF115F92F9100E5C58B /* League.m in Sources */,
+				2880707E15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

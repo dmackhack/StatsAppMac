@@ -79,6 +79,21 @@
     [mainView release];
     //[statsView release];
     
+    [self populatePlayerData];
+    [self populateTeamData];
+        
+    [self saveContext];
+    
+    NSLog(@"end didFinishLaunchingWithOptions");
+    
+    return YES;
+}
+
+
+- (void)populatePlayerData
+{
+    NSLog(@"Populating Player Data");
+    
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Player" inManagedObjectContext:self.managedObjectContext]];
     
@@ -90,7 +105,7 @@
         Player* a = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
         a.firstName = @"David";
         a.lastName = @"Mackenzie";
-    
+        
         Player* b = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:self.managedObjectContext];
         b.firstName = @"Michelle";
         b.lastName = @"Keane";
@@ -101,14 +116,35 @@
             temp.firstName = [NSString stringWithFormat:@"FirstName%i", i];
             temp.lastName = [NSString stringWithFormat:@"LastName%i", i];
         }
-        
-        [self saveContext];
     }
-    
-    NSLog(@"end didFinishLaunchingWithOptions");
-    
-    return YES;
 }
+
+- (void)populateTeamData
+{
+    NSLog(@"Populating Team Data");
+    
+    NSFetchRequest* request = [[NSFetchRequest alloc] init];
+    [request setEntity:[NSEntityDescription entityForName:@"Club" inManagedObjectContext:self.managedObjectContext]];
+    
+    NSArray* clubs = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSLog(@"Number of existing clubs is: %i", [clubs count]);
+    
+    if ([clubs count] < 4)
+    {  
+        Club* a = [NSEntityDescription insertNewObjectForEntityForName:@"Club" inManagedObjectContext:self.managedObjectContext];
+        a.name = @"Old Haileybury Amateur Football Club";
+        
+        Club* b = [NSEntityDescription insertNewObjectForEntityForName:@"Club" inManagedObjectContext:self.managedObjectContext];
+        b.name = @"Melbourne Demons Football Club";
+
+        for (int i = 0; i < 4; i++) 
+        {
+            Club* temp = [NSEntityDescription insertNewObjectForEntityForName:@"Club" inManagedObjectContext:self.managedObjectContext];
+            temp.name = [NSString stringWithFormat:@"Club%i", i];
+        }
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

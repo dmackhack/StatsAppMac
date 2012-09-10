@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "GameDayStatsViewController.h"
 #import "MainMenuViewController.h"
+#import "Player.h"
+#import "Club.h"
+#import "Team.h"
+#import "League.h"
 
 @interface StatsAppMacAppDelegate : NSObject <UIApplicationDelegate> 
 {
@@ -24,5 +28,7 @@
 
 - (void) saveContext;
 - (NSURL *) applicationDocumentsDirectory;
+- (void) populatePlayerData;
+- (void) populateTeamData;
 
 @end
