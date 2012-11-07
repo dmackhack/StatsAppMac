@@ -105,21 +105,56 @@
     int rows = 0;
     if (self.selectedClub != nil)
     {
-        rows = 1;
+        rows = [self.selectedClub.teams count];
     }
     return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MultiColumnCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MultiColumnTableCell *cell = (MultiColumnTableCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[MultiColumnTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+        [cell initialize];
+        
+        Team* team = [[self.selectedClub.teams allObjects] objectAtIndex:indexPath.row];
+        
+        // CGRectMake(x, y, width, height)
+        UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0, 80.0, tableView.rowHeight)] autorelease];
+        [cell addColumn:100];
+        label.font = [UIFont systemFontOfSize:12.0];
+        label.text = [NSString stringWithFormat:@"%@", team.name];
+        label.textAlignment = UITextAlignmentLeft;
+        label.textColor = [UIColor blueColor];
+        label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+        UIViewAutoresizingFlexibleHeight;
+        [cell.contentView addSubview:label];
+        
+        
+        label = [[[UILabel alloc] initWithFrame:CGRectMake(110.0, 0, 80.0, tableView.rowHeight)] autorelease];
+        [cell addColumn:200];
+        label.font = [UIFont systemFontOfSize:12.0];
+        label.text = [NSString stringWithFormat:@"%@", team.club.name];
+        label.textAlignment = UITextAlignmentLeft;
+        label.textColor = [UIColor blueColor];
+        label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+        UIViewAutoresizingFlexibleHeight;
+        [cell.contentView addSubview:label];
+        
+        label = [[[UILabel alloc] initWithFrame:CGRectMake(210.0, 0, 120.0, tableView.rowHeight)] autorelease];
+        [cell addColumn:350];
+        label.font = [UIFont systemFontOfSize:12.0];
+        label.text = [NSString stringWithFormat:@"%@", @"Third Column"];
+        label.textAlignment = UITextAlignmentLeft;
+        label.textColor = [UIColor blueColor];
+        label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+        UIViewAutoresizingFlexibleHeight;
+        [cell.contentView addSubview:label];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Fixture Game One for %@", self.selectedClub.name];
+    //cell.textLabel.text = [NSString stringWithFormat:@"Fixture Game One for %@", self.selectedClub.name];
     
     return cell;
 }
@@ -175,6 +210,9 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    
+    Team* team = [[self.selectedClub.teams allObjects] objectAtIndex:indexPath.row];
+    NSLog(@"selected team: %@", [team name]);
 }
 
 @end

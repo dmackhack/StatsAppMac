@@ -7,11 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		287CBB121641D26D00A3606A /* CClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 287CBB111641D26D00A3606A /* CClub.m */; };
+		287D0860160B11A100328B65 /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D085F160B11A100328B65 /* League.m */; };
+		287D0863160B11A200328B65 /* TeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0862160B11A200328B65 /* TeamParticipant.m */; };
+		287D0866160B11A200328B65 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0865160B11A200328B65 /* Player.m */; };
+		287D0869160B11A200328B65 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0868160B11A200328B65 /* Participant.m */; };
+		287D086C160B11A200328B65 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D086B160B11A200328B65 /* Team.m */; };
+		287D086F160B11A200328B65 /* Club.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D086E160B11A200328B65 /* Club.m */; };
+		287D0872160B11A200328B65 /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0871160B11A200328B65 /* Season.m */; };
+		287D0875160B11A200328B65 /* PlayerParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0874160B11A200328B65 /* PlayerParticipant.m */; };
+		287D0878160B11A200328B65 /* Division.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0877160B11A200328B65 /* Division.m */; };
+		287D087B160B11A300328B65 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D087A160B11A300328B65 /* Match.m */; };
+		287D087E160B11A300328B65 /* ParticipantStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D087D160B11A300328B65 /* ParticipantStatistics.m */; };
+		287D0881160B11A300328B65 /* PlayerClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0880160B11A300328B65 /* PlayerClub.m */; };
+		287D0884160B11A300328B65 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0883160B11A300328B65 /* User.m */; };
+		287D0887160B11A300328B65 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0886160B11A300328B65 /* Round.m */; };
+		287D088A160B11A300328B65 /* FootyPlayerStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0889160B11A300328B65 /* FootyPlayerStatistics.m */; };
+		287DF7F815FFDC5700D4F82B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287DF7F715FFDC5700D4F82B /* QuartzCore.framework */; };
+		287E2AEF160C5E08002734FE /* InitalData.sql in Resources */ = {isa = PBXBuildFile; fileRef = 287E2AEE160C5E08002734FE /* InitalData.sql */; };
+		287E490C15FF64F800A830D1 /* MultiColumnTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287E490B15FF64F800A830D1 /* MultiColumnTableCell.m */; };
+		287EA8CB160B500E00D46241 /* Sport.m in Sources */ = {isa = PBXBuildFile; fileRef = 287EA8CA160B500D00D46241 /* Sport.m */; };
+		287ED209164AE14C00048D18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287ED208164AE14C00048D18 /* QuartzCore.framework */; };
+		287ED210164AE14C00048D18 /* SqlLiteRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 287ED20F164AE14C00048D18 /* SqlLiteRepository.m */; };
+		287ED212164AE14C00048D18 /* StatsAppMac.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 287ED211164AE14C00048D18 /* StatsAppMac.sqlite */; };
 		287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 287FCFC715DCE9E700854148 /* afl-logo.jpg */; };
 		2880707E15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880707D15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m */; };
-		28807CEA15F92EEA00E5C58B /* Club.m in Sources */ = {isa = PBXBuildFile; fileRef = 28807CE915F92EEA00E5C58B /* Club.m */; };
-		28807CEE15F92F9000E5C58B /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 28807CED15F92F9000E5C58B /* Team.m */; };
-		28807CF115F92F9100E5C58B /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 28807CF015F92F9100E5C58B /* League.m */; };
 		28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28813A4415EF73EF00417416 /* TeamSelectionViewController.m */; };
 		28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */; };
 		2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883173C148E08990066D319 /* MainMenuViewController.m */; };
@@ -39,7 +59,6 @@
 		288BDE67147FB70D00002F9A /* StatsAppMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE66147FB70D00002F9A /* StatsAppMacTests.m */; };
 		288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */; };
 		288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */; };
-		63845C81147FBE130033426E /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C80147FBE130033426E /* Player.m */; };
 		63845C91147FC7980033426E /* StatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C8F147FC7980033426E /* StatsCell.m */; };
 		63845C92147FC7980033426E /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63845C90147FC7980033426E /* StatsCell.xib */; };
 /* End PBXBuildFile section */
@@ -55,15 +74,51 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		287CBB101641D26D00A3606A /* CClub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CClub.h; sourceTree = "<group>"; };
+		287CBB111641D26D00A3606A /* CClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CClub.m; sourceTree = "<group>"; };
+		287D085E160B11A100328B65 /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
+		287D085F160B11A100328B65 /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
+		287D0861160B11A200328B65 /* TeamParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamParticipant.h; sourceTree = "<group>"; };
+		287D0862160B11A200328B65 /* TeamParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamParticipant.m; sourceTree = "<group>"; };
+		287D0864160B11A200328B65 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		287D0865160B11A200328B65 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		287D0867160B11A200328B65 /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Participant.h; sourceTree = "<group>"; };
+		287D0868160B11A200328B65 /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Participant.m; sourceTree = "<group>"; };
+		287D086A160B11A200328B65 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		287D086B160B11A200328B65 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		287D086D160B11A200328B65 /* Club.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Club.h; sourceTree = "<group>"; };
+		287D086E160B11A200328B65 /* Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Club.m; sourceTree = "<group>"; };
+		287D0870160B11A200328B65 /* Season.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Season.h; sourceTree = "<group>"; };
+		287D0871160B11A200328B65 /* Season.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Season.m; sourceTree = "<group>"; };
+		287D0873160B11A200328B65 /* PlayerParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerParticipant.h; sourceTree = "<group>"; };
+		287D0874160B11A200328B65 /* PlayerParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerParticipant.m; sourceTree = "<group>"; };
+		287D0876160B11A200328B65 /* Division.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Division.h; sourceTree = "<group>"; };
+		287D0877160B11A200328B65 /* Division.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Division.m; sourceTree = "<group>"; };
+		287D0879160B11A300328B65 /* Match.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Match.h; sourceTree = "<group>"; };
+		287D087A160B11A300328B65 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Match.m; sourceTree = "<group>"; };
+		287D087C160B11A300328B65 /* ParticipantStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticipantStatistics.h; sourceTree = "<group>"; };
+		287D087D160B11A300328B65 /* ParticipantStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticipantStatistics.m; sourceTree = "<group>"; };
+		287D087F160B11A300328B65 /* PlayerClub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerClub.h; sourceTree = "<group>"; };
+		287D0880160B11A300328B65 /* PlayerClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerClub.m; sourceTree = "<group>"; };
+		287D0882160B11A300328B65 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		287D0883160B11A300328B65 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		287D0885160B11A300328B65 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
+		287D0886160B11A300328B65 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
+		287D0888160B11A300328B65 /* FootyPlayerStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootyPlayerStatistics.h; sourceTree = "<group>"; };
+		287D0889160B11A300328B65 /* FootyPlayerStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootyPlayerStatistics.m; sourceTree = "<group>"; };
+		287DF7F715FFDC5700D4F82B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		287E2AEE160C5E08002734FE /* InitalData.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InitalData.sql; sourceTree = "<group>"; };
+		287E490A15FF64F800A830D1 /* MultiColumnTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiColumnTableCell.h; sourceTree = "<group>"; };
+		287E490B15FF64F800A830D1 /* MultiColumnTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiColumnTableCell.m; sourceTree = "<group>"; };
+		287EA8C9160B500D00D46241 /* Sport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sport.h; sourceTree = "<group>"; };
+		287EA8CA160B500D00D46241 /* Sport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sport.m; sourceTree = "<group>"; };
+		287ED208164AE14C00048D18 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		287ED20E164AE14C00048D18 /* SqlLiteRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SqlLiteRepository.h; sourceTree = "<group>"; };
+		287ED20F164AE14C00048D18 /* SqlLiteRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SqlLiteRepository.m; sourceTree = "<group>"; };
+		287ED211164AE14C00048D18 /* StatsAppMac.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatsAppMac.sqlite; sourceTree = "<group>"; };
 		287FCFC715DCE9E700854148 /* afl-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "afl-logo.jpg"; sourceTree = "<group>"; };
 		2880707C15FE6A2F00FD2BD2 /* FixtureSearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureSearchDelegate.h; sourceTree = "<group>"; };
 		2880707D15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureSearchDelegate.m; sourceTree = "<group>"; };
-		28807CE815F92EEA00E5C58B /* Club.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Club.h; sourceTree = "<group>"; };
-		28807CE915F92EEA00E5C58B /* Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Club.m; sourceTree = "<group>"; };
-		28807CEC15F92F9000E5C58B /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
-		28807CED15F92F9000E5C58B /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
-		28807CEF15F92F9100E5C58B /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
-		28807CF015F92F9100E5C58B /* League.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = League.m; sourceTree = "<group>"; };
 		28813A4315EF73EF00417416 /* TeamSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSelectionViewController.h; sourceTree = "<group>"; };
 		28813A4415EF73EF00417416 /* TeamSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamSelectionViewController.m; sourceTree = "<group>"; };
 		28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamSelectionViewController.xib; sourceTree = "<group>"; };
@@ -100,8 +155,6 @@
 		288BDE70147FB95A00002F9A /* GameDayStatsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameDayStatsViewController.h; sourceTree = "<group>"; };
 		288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameDayStatsViewController.m; sourceTree = "<group>"; };
 		288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameDayStatsViewController.xib; sourceTree = "<group>"; };
-		63845C7F147FBE130033426E /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		63845C80147FBE130033426E /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		63845C8E147FC7980033426E /* StatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsCell.h; path = ../StatsCell.h; sourceTree = "<group>"; };
 		63845C8F147FC7980033426E /* StatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsCell.m; path = ../StatsCell.m; sourceTree = "<group>"; };
 		63845C90147FC7980033426E /* StatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsCell.xib; path = ../StatsCell.xib; sourceTree = "<group>"; };
@@ -116,6 +169,7 @@
 				288BDE2F147FB70C00002F9A /* Foundation.framework in Frameworks */,
 				288BDE31147FB70C00002F9A /* CoreGraphics.framework in Frameworks */,
 				288BDE33147FB70C00002F9A /* CoreData.framework in Frameworks */,
+				287DF7F815FFDC5700D4F82B /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287ED209164AE14C00048D18 /* QuartzCore.framework in Frameworks */,
 				288BDE57147FB70D00002F9A /* UIKit.framework in Frameworks */,
 				288BDE58147FB70D00002F9A /* Foundation.framework in Frameworks */,
 				288BDE59147FB70D00002F9A /* CoreGraphics.framework in Frameworks */,
@@ -133,6 +188,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2879EF1816086EC90027D798 /* domain */ = {
+			isa = PBXGroup;
+			children = (
+				287D0873160B11A200328B65 /* PlayerParticipant.h */,
+				287D0874160B11A200328B65 /* PlayerParticipant.m */,
+				287D0888160B11A300328B65 /* FootyPlayerStatistics.h */,
+				287D0889160B11A300328B65 /* FootyPlayerStatistics.m */,
+				287D0885160B11A300328B65 /* Round.h */,
+				287D0886160B11A300328B65 /* Round.m */,
+				287D0882160B11A300328B65 /* User.h */,
+				287D0883160B11A300328B65 /* User.m */,
+				287D0880160B11A300328B65 /* PlayerClub.m */,
+				287D087F160B11A300328B65 /* PlayerClub.h */,
+				287D087C160B11A300328B65 /* ParticipantStatistics.h */,
+				287D087D160B11A300328B65 /* ParticipantStatistics.m */,
+				287D0879160B11A300328B65 /* Match.h */,
+				287D087A160B11A300328B65 /* Match.m */,
+				287D0876160B11A200328B65 /* Division.h */,
+				287D0877160B11A200328B65 /* Division.m */,
+				287D0870160B11A200328B65 /* Season.h */,
+				287D0871160B11A200328B65 /* Season.m */,
+				287D086D160B11A200328B65 /* Club.h */,
+				287D086E160B11A200328B65 /* Club.m */,
+				287CBB101641D26D00A3606A /* CClub.h */,
+				287CBB111641D26D00A3606A /* CClub.m */,
+				287D086A160B11A200328B65 /* Team.h */,
+				287D086B160B11A200328B65 /* Team.m */,
+				287D0867160B11A200328B65 /* Participant.h */,
+				287D0868160B11A200328B65 /* Participant.m */,
+				287D0864160B11A200328B65 /* Player.h */,
+				287D0865160B11A200328B65 /* Player.m */,
+				287D0861160B11A200328B65 /* TeamParticipant.h */,
+				287D0862160B11A200328B65 /* TeamParticipant.m */,
+				287D085E160B11A100328B65 /* League.h */,
+				287D085F160B11A100328B65 /* League.m */,
+				287EA8C9160B500D00D46241 /* Sport.h */,
+				287EA8CA160B500D00D46241 /* Sport.m */,
+			);
+			name = domain;
+			sourceTree = "<group>";
+		};
+		287EA8CE160BBC0900D46241 /* db */ = {
+			isa = PBXGroup;
+			children = (
+				287ED211164AE14C00048D18 /* StatsAppMac.sqlite */,
+				287E2AEE160C5E08002734FE /* InitalData.sql */,
+			);
+			name = db;
+			sourceTree = "<group>";
+		};
+		287ED20A164AE14C00048D18 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				287ED20E164AE14C00048D18 /* SqlLiteRepository.h */,
+				287ED20F164AE14C00048D18 /* SqlLiteRepository.m */,
+			);
+			name = repository;
+			sourceTree = "<group>";
+		};
 		287FCFC515DCE98800854148 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +277,8 @@
 		288BDE2B147FB70C00002F9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				287ED208164AE14C00048D18 /* QuartzCore.framework */,
+				287DF7F715FFDC5700D4F82B /* QuartzCore.framework */,
 				288BDE2C147FB70C00002F9A /* UIKit.framework */,
 				288BDE2E147FB70C00002F9A /* Foundation.framework */,
 				288BDE30147FB70C00002F9A /* CoreGraphics.framework */,
@@ -187,19 +303,14 @@
 		288BDE35147FB70C00002F9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				287ED20A164AE14C00048D18 /* repository */,
+				287EA8CE160BBC0900D46241 /* db */,
+				2879EF1816086EC90027D798 /* domain */,
 				287FCFC515DCE98800854148 /* images */,
-				28807CE815F92EEA00E5C58B /* Club.h */,
-				28807CE915F92EEA00E5C58B /* Club.m */,
-				63845C7F147FBE130033426E /* Player.h */,
-				63845C80147FBE130033426E /* Player.m */,
 				288BDE36147FB70C00002F9A /* StatsAppMac-Info.plist */,
 				288BDE37147FB70C00002F9A /* InfoPlist.strings */,
 				288BDE3A147FB70C00002F9A /* StatsAppMac-Prefix.pch */,
 				288BDE3B147FB70C00002F9A /* main.m */,
-				28807CEF15F92F9100E5C58B /* League.h */,
-				28807CF015F92F9100E5C58B /* League.m */,
-				28807CEC15F92F9000E5C58B /* Team.h */,
-				28807CED15F92F9000E5C58B /* Team.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -218,8 +329,10 @@
 			isa = PBXGroup;
 			children = (
 				63845C8E147FC7980033426E /* StatsCell.h */,
-				63845C8F147FC7980033426E /* StatsCell.m */,
+				287E490A15FF64F800A830D1 /* MultiColumnTableCell.h */,
+				287E490B15FF64F800A830D1 /* MultiColumnTableCell.m */,
 				63845C90147FC7980033426E /* StatsCell.xib */,
+				63845C8F147FC7980033426E /* StatsCell.m */,
 				288BDE4B147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.h */,
 				288BDE4C147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m */,
 				288BDE4E147FB70C00002F9A /* MainWindow_iPad.xib */,
@@ -340,6 +453,8 @@
 				287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */,
 				28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */,
 				2884575D15F5D9A300D452D3 /* SearchGamesViewController.xib in Resources */,
+				287E2AEF160C5E08002734FE /* InitalData.sql in Resources */,
+				287ED212164AE14C00048D18 /* StatsAppMac.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,15 +496,30 @@
 				288BDE46147FB70C00002F9A /* StatsAppMacAppDelegate_iPhone.m in Sources */,
 				288BDE4D147FB70C00002F9A /* StatsAppMacAppDelegate_iPad.m in Sources */,
 				288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */,
-				63845C81147FBE130033426E /* Player.m in Sources */,
 				63845C91147FC7980033426E /* StatsCell.m in Sources */,
 				2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */,
 				28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */,
 				2884575C15F5D9A300D452D3 /* SearchGamesViewController.m in Sources */,
-				28807CEA15F92EEA00E5C58B /* Club.m in Sources */,
-				28807CEE15F92F9000E5C58B /* Team.m in Sources */,
-				28807CF115F92F9100E5C58B /* League.m in Sources */,
 				2880707E15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m in Sources */,
+				287E490C15FF64F800A830D1 /* MultiColumnTableCell.m in Sources */,
+				287D0860160B11A100328B65 /* League.m in Sources */,
+				287D0863160B11A200328B65 /* TeamParticipant.m in Sources */,
+				287D0866160B11A200328B65 /* Player.m in Sources */,
+				287D0869160B11A200328B65 /* Participant.m in Sources */,
+				287D086C160B11A200328B65 /* Team.m in Sources */,
+				287D086F160B11A200328B65 /* Club.m in Sources */,
+				287D0872160B11A200328B65 /* Season.m in Sources */,
+				287D0875160B11A200328B65 /* PlayerParticipant.m in Sources */,
+				287D0878160B11A200328B65 /* Division.m in Sources */,
+				287D087B160B11A300328B65 /* Match.m in Sources */,
+				287D087E160B11A300328B65 /* ParticipantStatistics.m in Sources */,
+				287D0881160B11A300328B65 /* PlayerClub.m in Sources */,
+				287D0884160B11A300328B65 /* User.m in Sources */,
+				287D0887160B11A300328B65 /* Round.m in Sources */,
+				287D088A160B11A300328B65 /* FootyPlayerStatistics.m in Sources */,
+				287EA8CB160B500E00D46241 /* Sport.m in Sources */,
+				287CBB121641D26D00A3606A /* CClub.m in Sources */,
+				287ED210164AE14C00048D18 /* SqlLiteRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

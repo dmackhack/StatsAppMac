@@ -1,5 +1,5 @@
 //
-//  League.h
+//  Round.h
 //  StatsAppMac
 //
 //  Created by David Mackenzie on 20/09/12.
@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Division, Sport;
+@class Match, Season;
 
-@interface League : NSManagedObject {
+@interface Round : NSManagedObject {
 @private
 }
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet* divisions;
-@property (nonatomic, retain) Sport * sport;
+@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) Season * season;
+@property (nonatomic, retain) NSSet* matches;
 
 @end

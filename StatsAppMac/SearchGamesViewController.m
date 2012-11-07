@@ -101,10 +101,10 @@ Club* selectedClub;
         return nil;
     }
     
-    StatsAppMacAppDelegate* appDelegate = self.appDelegate;
-    [appDelegate managedObjectContext];
+    StatsAppMacAppDelegate* appDel = self.appDelegate;
+    SqlLiteRepository* repo = [appDel repo];
     
-    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+    NSManagedObjectContext* context = [repo managedObjectContext];
     NSFetchRequest* fetchClubsByName = [[NSFetchRequest alloc] init];
     
     NSEntityDescription* playerEntityDescription = [NSEntityDescription entityForName:@"Club" inManagedObjectContext:context];

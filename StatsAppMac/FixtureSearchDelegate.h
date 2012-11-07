@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Club.h"
+#import "MultiColumnTableCell.h"
+#import "Team.h"
 
 @interface FixtureSearchDelegate : UITableViewController {
     Club* selectedClub_;

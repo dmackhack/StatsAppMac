@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SqlLiteRepository.h"
 #import "GameDayStatsViewController.h"
 #import "TeamSelectionViewController.h"
 #import "SearchGamesViewController.h"
 
 @interface MainMenuViewController : UIViewController {
     
-    NSManagedObjectContext* managedObjectContext_;
     UIWebView* gameDayIcon_;
     UIWebView* playersIcon_;
     UIWebView* clubsIcon_;
@@ -22,7 +22,6 @@
     UIWebView* settingsIcon_;
 }
 
-@property (nonatomic, retain) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) IBOutlet UIWebView* gameDayIcon;
 @property (nonatomic, retain) IBOutlet UIWebView* playesIcon;
 @property (nonatomic, retain) IBOutlet UIWebView* clubsIcon;

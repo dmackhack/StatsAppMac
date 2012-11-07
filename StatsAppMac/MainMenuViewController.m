@@ -19,7 +19,7 @@
 @implementation MainMenuViewController
 
 
-@synthesize gameDayIcon=gameDayIcon_, playesIcon=playersIcon_, clubsIcon=clubsIcon_, statsArchivesIcon=statsArchivesIcon_, anotherIcon=anotherIcon_, settingsIcon=settingsIcon_, managedObjectContext=managedObjectContext_;
+@synthesize gameDayIcon=gameDayIcon_, playesIcon=playersIcon_, clubsIcon=clubsIcon_, statsArchivesIcon=statsArchivesIcon_, anotherIcon=anotherIcon_, settingsIcon=settingsIcon_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

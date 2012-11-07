@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Player.h"
 #import "StatsCell.h"
+#import "SqlLiteRepository.h"
 
 @class StatsAppMacAppDelegate;
 @class StatsCell;

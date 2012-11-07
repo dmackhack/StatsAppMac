@@ -9,25 +9,30 @@
 #import <UIKit/UIKit.h>
 #import "GameDayStatsViewController.h"
 #import "MainMenuViewController.h"
+#import "SqlLiteRepository.h"
 #import "Player.h"
 #import "Club.h"
 #import "Team.h"
 #import "League.h"
+#import "Division.h"
+#import "Season.h"
+#import "Round.h"
+
 
 @interface StatsAppMacAppDelegate : NSObject <UIApplicationDelegate> 
 {
     GameDayStatsViewController* statsView_;
     MainMenuViewController* mainView_;
+    SqlLiteRepository* repo_;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet UIWindow* window;
+@property (nonatomic, retain, readonly) SqlLiteRepository* repo;
 
-@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
-@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
 
 - (void) saveContext;
-- (NSURL *) applicationDocumentsDirectory;
+
 - (void) populatePlayerData;
 - (void) populateTeamData;
 

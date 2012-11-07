@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Club.h"
 #import "FixtureSearchDelegate.h"
+#import "SqlLiteRepository.h"
 
 @class StatsAppMacAppDelegate;
 
@@ -22,6 +23,7 @@
     NSString* cache_;
     
     FixtureSearchDelegate* fixtureSearchDelegate_;
+
 }
 
 @property (retain, nonatomic) IBOutlet UITableView* tableView;

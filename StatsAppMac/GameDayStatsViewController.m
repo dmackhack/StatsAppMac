@@ -36,9 +36,9 @@
     }
     
     StatsAppMacAppDelegate* appDelegate = self.appDelegate;
-    [appDelegate managedObjectContext];
+    SqlLiteRepository* repo = [appDelegate repo];
     
-    NSManagedObjectContext* context = [appDelegate managedObjectContext];
+    NSManagedObjectContext* context = [repo managedObjectContext];
     NSFetchRequest* fetchPlayers = [[NSFetchRequest alloc] init];
     
     NSEntityDescription* playerEntityDescription = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];

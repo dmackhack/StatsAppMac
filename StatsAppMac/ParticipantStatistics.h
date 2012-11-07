@@ -1,5 +1,5 @@
 //
-//  League.h
+//  ParticipantStatistics.h
 //  StatsAppMac
 //
 //  Created by David Mackenzie on 20/09/12.
@@ -9,13 +9,12 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Division, Sport;
+@class Participant, User;
 
-@interface League : NSManagedObject {
+@interface ParticipantStatistics : NSManagedObject {
 @private
 }
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSSet* divisions;
-@property (nonatomic, retain) Sport * sport;
+@property (nonatomic, retain) Participant * participant;
+@property (nonatomic, retain) User * user;
 
 @end
