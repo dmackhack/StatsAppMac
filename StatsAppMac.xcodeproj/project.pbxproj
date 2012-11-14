@@ -12,7 +12,6 @@
 		287D0863160B11A200328B65 /* TeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0862160B11A200328B65 /* TeamParticipant.m */; };
 		287D0866160B11A200328B65 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0865160B11A200328B65 /* Player.m */; };
 		287D0869160B11A200328B65 /* Participant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0868160B11A200328B65 /* Participant.m */; };
-		287D086C160B11A200328B65 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D086B160B11A200328B65 /* Team.m */; };
 		287D086F160B11A200328B65 /* Club.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D086E160B11A200328B65 /* Club.m */; };
 		287D0872160B11A200328B65 /* Season.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0871160B11A200328B65 /* Season.m */; };
 		287D0875160B11A200328B65 /* PlayerParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0874160B11A200328B65 /* PlayerParticipant.m */; };
@@ -23,8 +22,8 @@
 		287D0884160B11A300328B65 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0883160B11A300328B65 /* User.m */; };
 		287D0887160B11A300328B65 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0886160B11A300328B65 /* Round.m */; };
 		287D088A160B11A300328B65 /* FootyPlayerStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0889160B11A300328B65 /* FootyPlayerStatistics.m */; };
+		287D5F12164FC95B00A7573F /* InitalData.sql in Resources */ = {isa = PBXBuildFile; fileRef = 287D5F11164FC95B00A7573F /* InitalData.sql */; };
 		287DF7F815FFDC5700D4F82B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287DF7F715FFDC5700D4F82B /* QuartzCore.framework */; };
-		287E2AEF160C5E08002734FE /* InitalData.sql in Resources */ = {isa = PBXBuildFile; fileRef = 287E2AEE160C5E08002734FE /* InitalData.sql */; };
 		287E490C15FF64F800A830D1 /* MultiColumnTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287E490B15FF64F800A830D1 /* MultiColumnTableCell.m */; };
 		287EA8CB160B500E00D46241 /* Sport.m in Sources */ = {isa = PBXBuildFile; fileRef = 287EA8CA160B500D00D46241 /* Sport.m */; };
 		287ED209164AE14C00048D18 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287ED208164AE14C00048D18 /* QuartzCore.framework */; };
@@ -32,6 +31,7 @@
 		287ED212164AE14C00048D18 /* StatsAppMac.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 287ED211164AE14C00048D18 /* StatsAppMac.sqlite */; };
 		287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 287FCFC715DCE9E700854148 /* afl-logo.jpg */; };
 		2880707E15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2880707D15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m */; };
+		2881148116546BED006C2D8D /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 2881148016546BED006C2D8D /* Team.m */; };
 		28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28813A4415EF73EF00417416 /* TeamSelectionViewController.m */; };
 		28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */; };
 		2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883173C148E08990066D319 /* MainMenuViewController.m */; };
@@ -84,8 +84,6 @@
 		287D0865160B11A200328B65 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		287D0867160B11A200328B65 /* Participant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Participant.h; sourceTree = "<group>"; };
 		287D0868160B11A200328B65 /* Participant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Participant.m; sourceTree = "<group>"; };
-		287D086A160B11A200328B65 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
-		287D086B160B11A200328B65 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		287D086D160B11A200328B65 /* Club.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Club.h; sourceTree = "<group>"; };
 		287D086E160B11A200328B65 /* Club.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Club.m; sourceTree = "<group>"; };
 		287D0870160B11A200328B65 /* Season.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Season.h; sourceTree = "<group>"; };
@@ -106,8 +104,8 @@
 		287D0886160B11A300328B65 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		287D0888160B11A300328B65 /* FootyPlayerStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootyPlayerStatistics.h; sourceTree = "<group>"; };
 		287D0889160B11A300328B65 /* FootyPlayerStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootyPlayerStatistics.m; sourceTree = "<group>"; };
+		287D5F11164FC95B00A7573F /* InitalData.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InitalData.sql; sourceTree = "<group>"; };
 		287DF7F715FFDC5700D4F82B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		287E2AEE160C5E08002734FE /* InitalData.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InitalData.sql; sourceTree = "<group>"; };
 		287E490A15FF64F800A830D1 /* MultiColumnTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiColumnTableCell.h; sourceTree = "<group>"; };
 		287E490B15FF64F800A830D1 /* MultiColumnTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiColumnTableCell.m; sourceTree = "<group>"; };
 		287EA8C9160B500D00D46241 /* Sport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sport.h; sourceTree = "<group>"; };
@@ -119,6 +117,8 @@
 		287FCFC715DCE9E700854148 /* afl-logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "afl-logo.jpg"; sourceTree = "<group>"; };
 		2880707C15FE6A2F00FD2BD2 /* FixtureSearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureSearchDelegate.h; sourceTree = "<group>"; };
 		2880707D15FE6A2F00FD2BD2 /* FixtureSearchDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureSearchDelegate.m; sourceTree = "<group>"; };
+		2881147F16546BED006C2D8D /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		2881148016546BED006C2D8D /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		28813A4315EF73EF00417416 /* TeamSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamSelectionViewController.h; sourceTree = "<group>"; };
 		28813A4415EF73EF00417416 /* TeamSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamSelectionViewController.m; sourceTree = "<group>"; };
 		28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamSelectionViewController.xib; sourceTree = "<group>"; };
@@ -213,8 +213,6 @@
 				287D086E160B11A200328B65 /* Club.m */,
 				287CBB101641D26D00A3606A /* CClub.h */,
 				287CBB111641D26D00A3606A /* CClub.m */,
-				287D086A160B11A200328B65 /* Team.h */,
-				287D086B160B11A200328B65 /* Team.m */,
 				287D0867160B11A200328B65 /* Participant.h */,
 				287D0868160B11A200328B65 /* Participant.m */,
 				287D0864160B11A200328B65 /* Player.h */,
@@ -225,6 +223,8 @@
 				287D085F160B11A100328B65 /* League.m */,
 				287EA8C9160B500D00D46241 /* Sport.h */,
 				287EA8CA160B500D00D46241 /* Sport.m */,
+				2881147F16546BED006C2D8D /* Team.h */,
+				2881148016546BED006C2D8D /* Team.m */,
 			);
 			name = domain;
 			sourceTree = "<group>";
@@ -232,8 +232,8 @@
 		287EA8CE160BBC0900D46241 /* db */ = {
 			isa = PBXGroup;
 			children = (
+				287D5F11164FC95B00A7573F /* InitalData.sql */,
 				287ED211164AE14C00048D18 /* StatsAppMac.sqlite */,
-				287E2AEE160C5E08002734FE /* InitalData.sql */,
 			);
 			name = db;
 			sourceTree = "<group>";
@@ -453,8 +453,8 @@
 				287FCFC815DCE9E700854148 /* afl-logo.jpg in Resources */,
 				28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */,
 				2884575D15F5D9A300D452D3 /* SearchGamesViewController.xib in Resources */,
-				287E2AEF160C5E08002734FE /* InitalData.sql in Resources */,
 				287ED212164AE14C00048D18 /* StatsAppMac.sqlite in Resources */,
+				287D5F12164FC95B00A7573F /* InitalData.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,7 +506,6 @@
 				287D0863160B11A200328B65 /* TeamParticipant.m in Sources */,
 				287D0866160B11A200328B65 /* Player.m in Sources */,
 				287D0869160B11A200328B65 /* Participant.m in Sources */,
-				287D086C160B11A200328B65 /* Team.m in Sources */,
 				287D086F160B11A200328B65 /* Club.m in Sources */,
 				287D0872160B11A200328B65 /* Season.m in Sources */,
 				287D0875160B11A200328B65 /* PlayerParticipant.m in Sources */,
@@ -520,6 +519,7 @@
 				287EA8CB160B500E00D46241 /* Sport.m in Sources */,
 				287CBB121641D26D00A3606A /* CClub.m in Sources */,
 				287ED210164AE14C00048D18 /* SqlLiteRepository.m in Sources */,
+				2881148116546BED006C2D8D /* Team.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

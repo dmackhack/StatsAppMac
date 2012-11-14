@@ -133,7 +133,7 @@
     NSLog(@"Saving players");
     
     StatsAppMacAppDelegate* delegate = self.appDelegate;
-    [delegate saveContext];
+    [[delegate repo] saveContext];
     
     
     //NSError *error = nil;

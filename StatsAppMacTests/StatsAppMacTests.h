@@ -9,8 +9,11 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import <CoreData/CoreData.h>
 #import "SqlLiteRepository.h"
+#import "Team.h"
 #import "Club.h"
 #import "CClub.h"
+#import "Match.h"
+#import "TeamParticipant.h"
 
 
 

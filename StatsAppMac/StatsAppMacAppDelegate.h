@@ -30,9 +30,6 @@
 @property (nonatomic, retain, readonly) SqlLiteRepository* repo;
 
 
-
-- (void) saveContext;
-
 - (void) populatePlayerData;
 - (void) populateTeamData;
 
