@@ -87,9 +87,8 @@ NSString* searchTerm;
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
     NSLog(@"Cancel");
-    StatsAppMacSession* session = [[self appDelegate] session];
-    session.selectedClub = nil;
-    [self.fixtureSearchDelegate updateFixture:nil];
+    [self session].selectedClub = nil;
+    [self.fixtureSearchDelegate updateFixture];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
