@@ -13,6 +13,43 @@
 
 @synthesize cache=cache_;
 
+- (StatsAppMacAppDelegate *) appDelegate
+{
+    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (StatsAppMacSession*) session
+{
+    return [[self appDelegate] session];
+}
+
+- (Match*) selectedMatch
+{
+    return [[self session] selectedMatch];
+}
+
+- (Club*) selectedClub
+{
+    return [[self session] selectedClub];
+}
+
+- (NSArray*) selectedPlayers
+{
+    if ([self selectedMatch] != nil)
+    {
+        NSArray* parts = [[[self selectedMatch] participants] allObjects];
+        for (int i = 0; i<[parts count]; i++)
+        {
+            if ([[[parts objectAtIndex:i] team] club] == [self selectedClub])
+            {
+                return [[[[parts objectAtIndex:i] team] club] currentPlayers];
+            }
+        }
+    }
+    return nil;
+}
+
+
 - (void)dealloc
 {
     [resultsController_ release];
@@ -35,8 +72,7 @@
         return resultsController_;
     }
     
-    StatsAppMacAppDelegate* appDelegate = self.appDelegate;
-    SqlLiteRepository* repo = [appDelegate repo];
+    SqlLiteRepository* repo = [[self appDelegate] repo];
     
     NSManagedObjectContext* context = [repo managedObjectContext];
     NSFetchRequest* fetchPlayers = [[NSFetchRequest alloc] init];
@@ -72,10 +108,6 @@
 }
 
 
-- (StatsAppMacAppDelegate *) appDelegate
-{
-    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
-}
 
 #pragma mark - View lifecycle
 
@@ -84,7 +116,17 @@
     [super viewDidLoad];
     
     // fetch players
-    NSUInteger count = [[self.resultsController fetchedObjects] count];
+    NSUInteger count;
+    
+    if ([self selectedPlayers] != nil)
+    {
+        count = [[self selectedPlayers] count];
+    }
+    else
+    {
+        count = [[self.resultsController fetchedObjects] count];
+    }
+    
     NSLog(@"Number of players in viewDidLoad %i", count);
     
     
@@ -117,8 +159,6 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSUInteger count = [[self.resultsController fetchedObjects] count];
-    NSLog(@"Number of players in viewWillAppear %i", count);
     [super viewWillAppear:animated];
 }
 
@@ -135,9 +175,6 @@
     StatsAppMacAppDelegate* delegate = self.appDelegate;
     [[delegate repo] saveContext];
     
-    
-    //NSError *error = nil;
-    //[self.managedObjectContext save:&error];
     [super viewWillDisappear:animated];
 }
 
@@ -163,8 +200,18 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSLog(@"Number of players in table %i", [[self.resultsController fetchedObjects] count]);
-    return [[self.resultsController fetchedObjects] count];
+    int rows = 0;
+    if ([self selectedPlayers] != nil)
+    {
+        rows = [[self selectedPlayers] count];
+    }
+    else
+    {
+        NSLog(@"Number of players in table %i", [[self.resultsController fetchedObjects] count]);
+        rows = [[self.resultsController fetchedObjects] count];
+    }
+    
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -181,9 +228,20 @@
     }
     
     // Configure the cell...
+    
+    Player* player = nil;
+    if ([self selectedPlayers] != nil)
+    {
+        player = [[self selectedPlayers] objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        player = [self.resultsController objectAtIndexPath:indexPath];
+    }
+    
     if ([cell isKindOfClass:[StatsCell class]])
     {
-        cell.player = [self.resultsController objectAtIndexPath:indexPath];
+        cell.player = player;
         [cell reloadData];
     }
     else

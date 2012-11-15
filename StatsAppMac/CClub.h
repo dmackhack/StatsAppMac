@@ -10,10 +10,13 @@
 #import "Club.h"
 #import "Team.h"
 #import "TeamParticipant.h"
+#import "PlayerClub.h"
+#import "Player.h"
 
 
 @interface Club (CClub)
 
 - (NSMutableArray*) combinedClubFixture;
+- (NSMutableArray*) currentPlayers;
 
 @end

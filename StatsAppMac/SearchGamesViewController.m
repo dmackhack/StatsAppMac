@@ -12,9 +12,18 @@
 @implementation SearchGamesViewController
 
 NSString* searchTerm;
-Club* selectedClub;
 
 @synthesize tableView=tableView_, searchBar=searchBar_, resultsController=resultsController_, cache=cache_, fixturesTableView=fixturesTableView_, fixtureSearchDelegate=fixtureSearchDelegate_;
+
+- (StatsAppMacAppDelegate *) appDelegate
+{
+    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (StatsAppMacSession*) session
+{
+    return [[self appDelegate] session];
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -78,7 +87,8 @@ Club* selectedClub;
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
     NSLog(@"Cancel");
-    selectedClub = nil;
+    StatsAppMacSession* session = [[self appDelegate] session];
+    session.selectedClub = nil;
     [self.fixtureSearchDelegate updateFixture:nil];
 }
 
@@ -87,11 +97,6 @@ Club* selectedClub;
     NSLog(searchText);
     searchTerm = searchText;
     [self.tableView reloadData];
-}
-
-- (StatsAppMacAppDelegate *) appDelegate
-{
-    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 - (NSFetchedResultsController *) resultsController
@@ -217,10 +222,10 @@ Club* selectedClub;
      [detailViewController release];
      */
     
-    selectedClub = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
-    [self.fixtureSearchDelegate updateFixture:selectedClub];
+    [self session].selectedClub = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
+    [self.fixtureSearchDelegate updateFixture];
     
-    NSLog(@"Selected Club: %@", selectedClub.name);
+    NSLog(@"Selected Club: %@", [[self session] selectedClub].name);
     
 }
 

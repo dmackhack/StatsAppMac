@@ -10,6 +10,12 @@
 #import "Player.h"
 #import "StatsCell.h"
 #import "SqlLiteRepository.h"
+#import "Match.h"
+#import "StatsAppMacSession.h"
+#import "TeamParticipant.h"
+#import "Team.h"
+#import "Club.h"
+#import "CClub.h"
 
 @class StatsAppMacAppDelegate;
 @class StatsCell;
@@ -23,6 +29,5 @@
 @property (nonatomic, readonly) NSFetchedResultsController* resultsController;
 @property (nonatomic, retain) NSString* cache;
 
-- (StatsAppMacAppDelegate *) appDelegate;
 
 @end

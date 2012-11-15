@@ -11,7 +11,16 @@
 
 @implementation FixtureSearchDelegate
 
-@synthesize selectedClub=selectedClub_;
+
+- (StatsAppMacAppDelegate *) appDelegate
+{
+    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (StatsAppMacSession*) session
+{
+    return [[self appDelegate] session];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -24,7 +33,6 @@
 
 - (void)dealloc
 {
-    [selectedClub_ release];
     [super dealloc];
 }
 
@@ -36,9 +44,8 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void) updateFixture: (Club*) selectedClub;
+- (void) updateFixture;
 {
-    self.selectedClub = selectedClub;
     [self.tableView reloadData];
 }
 
@@ -103,9 +110,9 @@
 
     // Return the number of rows in the section.
     int rows = 0;
-    if (self.selectedClub != nil)
+    if ([[self session] selectedClub] != nil)
     {
-        rows = [self.selectedClub.teams count];
+        rows = [[[[self session] selectedClub] combinedClubFixture] count];
     }
     return rows;
 }
@@ -119,13 +126,27 @@
         cell = [[[MultiColumnTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
         [cell initialize];
         
-        Team* team = [[self.selectedClub.teams allObjects] objectAtIndex:indexPath.row];
+        Match* match = [[[[self session] selectedClub] combinedClubFixture] objectAtIndex:indexPath.row];
+        NSArray* participants = [[match participants] allObjects];
+        
+        NSString* label1 = [[match date] description];
+        NSString* label2 = [[[self session] selectedClub] name];
+        NSString* label3 = @"N/A";
+        
+        if ([participants count] == 2)
+        {
+            TeamParticipant* team1 = [participants objectAtIndex:0];
+            TeamParticipant* team2 = [participants objectAtIndex:1];
+                
+            label2 = [[[team1 team] club] name];
+            label3 = [[[team2 team] club] name];
+        }
         
         // CGRectMake(x, y, width, height)
         UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0, 80.0, tableView.rowHeight)] autorelease];
         [cell addColumn:100];
         label.font = [UIFont systemFontOfSize:12.0];
-        label.text = [NSString stringWithFormat:@"%@", team.name];
+        label.text = [NSString stringWithFormat:@"%@", label1];
         label.textAlignment = UITextAlignmentLeft;
         label.textColor = [UIColor blueColor];
         label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
@@ -136,7 +157,7 @@
         label = [[[UILabel alloc] initWithFrame:CGRectMake(110.0, 0, 80.0, tableView.rowHeight)] autorelease];
         [cell addColumn:200];
         label.font = [UIFont systemFontOfSize:12.0];
-        label.text = [NSString stringWithFormat:@"%@", team.club.name];
+        label.text = [NSString stringWithFormat:@"%@", label2];
         label.textAlignment = UITextAlignmentLeft;
         label.textColor = [UIColor blueColor];
         label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
@@ -146,7 +167,7 @@
         label = [[[UILabel alloc] initWithFrame:CGRectMake(210.0, 0, 120.0, tableView.rowHeight)] autorelease];
         [cell addColumn:350];
         label.font = [UIFont systemFontOfSize:12.0];
-        label.text = [NSString stringWithFormat:@"%@", @"Third Column"];
+        label.text = [NSString stringWithFormat:@"%@", label3];
         label.textAlignment = UITextAlignmentLeft;
         label.textColor = [UIColor blueColor];
         label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
@@ -211,8 +232,10 @@
      [detailViewController release];
      */
     
-    Team* team = [[self.selectedClub.teams allObjects] objectAtIndex:indexPath.row];
-    NSLog(@"selected team: %@", [team name]);
+    Match* match = [[[[self session] selectedClub] combinedClubFixture] objectAtIndex:indexPath.row];
+    [self session].selectedMatch = match;
+    
+    NSLog(@"selected match date: %@", [[match date] description]);
 }
 
 @end

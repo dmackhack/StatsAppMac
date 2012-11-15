@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "Club.h"
+#import "CClub.h"
 #import "MultiColumnTableCell.h"
 #import "Team.h"
+#import "Match.h"
+#import "StatsAppMacSession.h"
+
+@class StatsAppMacAppDelegate;
 
 @interface FixtureSearchDelegate : UITableViewController {
-    Club* selectedClub_;
 }
 
-@property (nonatomic, retain) Club* selectedClub;
-
-
-- (void) updateFixture: (Club*) selectedClub;
+- (void) updateFixture;
 
 @end

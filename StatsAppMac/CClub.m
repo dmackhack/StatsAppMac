@@ -24,4 +24,17 @@
     return fixture;
 }
 
+- (NSMutableArray*) currentPlayers
+{
+    NSMutableArray* players = [[NSMutableArray alloc] init];
+    for (PlayerClub* playerClub in [[self players] allObjects])
+    {
+        if ([[playerClub active] intValue] == 1)
+        {
+            [players addObject:[playerClub player]];
+        }
+    }
+    return players;
+}
+
 @end

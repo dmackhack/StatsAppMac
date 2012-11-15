@@ -11,7 +11,7 @@
 @implementation StatsAppMacAppDelegate
 
 
-@synthesize window=_window, repo=repo_;
+@synthesize window=_window, repo=repo_, session=session_;
 
 
 - (SqlLiteRepository*) repo
@@ -21,6 +21,15 @@
         repo_ = [[SqlLiteRepository alloc] init];
     }
     return repo_;
+}
+
+- (StatsAppMacSession*) session
+{
+    if (session_ == nil)
+    {
+        session_ = [[StatsAppMacSession alloc] init];
+    }
+    return session_;
 }
 
 
@@ -181,6 +190,7 @@
 {
     [_window release];
     [repo_ release];
+    [session_ release];
 
     [super dealloc];
 }

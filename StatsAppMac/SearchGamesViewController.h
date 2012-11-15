@@ -10,6 +10,7 @@
 #import "Club.h"
 #import "FixtureSearchDelegate.h"
 #import "SqlLiteRepository.h"
+#import "StatsAppMacSession.h"
 
 @class StatsAppMacAppDelegate;
 
