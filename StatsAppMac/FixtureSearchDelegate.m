@@ -117,6 +117,20 @@
     return rows;
 }
 
+- (void) addColumnToCell:(MultiColumnTableCell*)cell withStart:(int)start withWidth:(int)width withEnd:(int)end withText:(NSString*)text withHeight:(int)height
+{
+    UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(start, 0, width, height)] autorelease];
+    // draws a vertical line at the position specified by this value i.e. the end of the column
+    [cell addColumn:end];
+    label.font = [UIFont systemFontOfSize:12.0];
+    label.text = [NSString stringWithFormat:@"%@", text];
+    label.textAlignment = UITextAlignmentLeft;
+    label.textColor = [UIColor blueColor];
+    label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
+    UIViewAutoresizingFlexibleHeight;
+    [cell.contentView addSubview:label];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MultiColumnCell";
@@ -143,36 +157,21 @@
         }
         
         // CGRectMake(x, y, width, height)
-        UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(0.0, 0, 80.0, tableView.rowHeight)] autorelease];
-        [cell addColumn:100];
-        label.font = [UIFont systemFontOfSize:12.0];
-        label.text = [NSString stringWithFormat:@"%@", label1];
-        label.textAlignment = UITextAlignmentLeft;
-        label.textColor = [UIColor blueColor];
-        label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-        UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:label];
+        int margin = 10;
+        int col1start=0.0;
+        int col1width=90;
+        int col1end=col1start+col1width+margin;
+        [self addColumnToCell:cell withStart:col1start withWidth:col1width withEnd:col1end withText:label1 withHeight:tableView.rowHeight];
         
+        int col2start=col1end+margin;
+        int col2width=220;
+        int col2end=col2start+col2width+margin;
+        [self addColumnToCell:cell withStart:col2start withWidth:col2width withEnd:col2end withText:label2 withHeight:tableView.rowHeight];
         
-        label = [[[UILabel alloc] initWithFrame:CGRectMake(110.0, 0, 80.0, tableView.rowHeight)] autorelease];
-        [cell addColumn:200];
-        label.font = [UIFont systemFontOfSize:12.0];
-        label.text = [NSString stringWithFormat:@"%@", label2];
-        label.textAlignment = UITextAlignmentLeft;
-        label.textColor = [UIColor blueColor];
-        label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-        UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:label];
-        
-        label = [[[UILabel alloc] initWithFrame:CGRectMake(210.0, 0, 120.0, tableView.rowHeight)] autorelease];
-        [cell addColumn:350];
-        label.font = [UIFont systemFontOfSize:12.0];
-        label.text = [NSString stringWithFormat:@"%@", label3];
-        label.textAlignment = UITextAlignmentLeft;
-        label.textColor = [UIColor blueColor];
-        label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-        UIViewAutoresizingFlexibleHeight;
-        [cell.contentView addSubview:label];
+        int col3start=col2end+margin;
+        int col3width=220;
+        int col3end=col3start+col3width+margin;
+        [self addColumnToCell:cell withStart:col3start withWidth:col3width withEnd:col3end withText:label3 withHeight:tableView.rowHeight];
     }
     
     //cell.textLabel.text = [NSString stringWithFormat:@"Fixture Game One for %@", self.selectedClub.name];
@@ -236,6 +235,21 @@
     [self session].selectedMatch = match;
     
     NSLog(@"selected match date: %@", [[match date] description]);
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSLog(@"Section %i", section);
+    if (section == 0)
+    {
+        NSLog(@"Setting section header to FIXTURE");
+        return @"FIXTURE";
+    }
+    else
+    {
+        NSLog(@"Setting section header to ");
+        return @"";
+    }
 }
 
 @end

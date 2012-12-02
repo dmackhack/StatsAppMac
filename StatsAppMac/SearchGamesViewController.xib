@@ -12,11 +12,10 @@
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>IBUIDatePicker</string>
+			<string>IBUISearchBar</string>
 			<string>IBUIView</string>
 			<string>IBUITableView</string>
 			<string>IBProxyObject</string>
-			<string>IBUISearchBar</string>
 			<string>IBUILabel</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -45,59 +44,18 @@
 				<int key="NSvFlags">260</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIDatePicker" id="1021427097">
-						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{386, 20}, {298, 216}}</string>
-						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="143409913"/>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<int key="IBUIContentHorizontalAlignment">0</int>
-						<int key="IBUIContentVerticalAlignment">0</int>
-						<int key="IBUIDatePickerMode">1</int>
-						<object class="NSLocale" key="IBUILocale">
-							<string key="NS.identifier">en_US</string>
-						</object>
-						<object class="NSTimeZone" key="IBUITimeZone">
-							<string key="NS.name">America/Los_Angeles</string>
-							<object class="NSMutableData" key="NS.data">
-								<bytes key="NS.bytes">VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
-y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
-5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
-8n/BkPNvwKD0X6OQ9U+ioPY/hZD3L4Sg+CiiEPkPZqD6CIQQ+viDIPvoZhD82GUg/chIEP64RyD/qCoQ
-AJgpIAGIDBACeAsgA3EokARhJ6AFUQqQBkEJoAcw7JAHjUOgCRDOkAmtvyAK8LCQC+CvoAzZzRANwJGg
-DrmvEA+priAQmZEQEYmQIBJ5cxATaXIgFFlVEBVJVCAWOTcQFyk2IBgiU5AZCRggGgI1kBryNKAb4heQ
-HNIWoB3B+ZAesfigH6HbkCB2KyAhgb2QIlYNICNq2hAkNe8gJUq8ECYV0SAnKp4QJ/7toCkKgBAp3s+g
-KupiECu+saAs036QLZ6ToC6zYJAvfnWgMJNCkDFnkiAycySQM0d0IDRTBpA1J1YgNjLokDcHOCA4HAUQ
-OOcaIDn75xA6xvwgO9vJEDywGKA9u6sQPo/6oD+bjRBAb9ygQYSpkEJPvqBDZIuQRC+goEVEbZBF89Mg
-Ry2KEEfTtSBJDWwQSbOXIErtThBLnLOgTNZqkE18laBOtkyQT1x3oFCWLpBRPFmgUnYQkFMcO6BUVfKQ
-VPwdoFY11JBW5TogWB7xEFjFHCBZ/tMQWqT+IFvetRBchOAgXb6XEF5kwiBfnnkQYE3eoGGHlZBiLcCg
-Y2d3kGQNoqBlR1mQZe2EoGcnO5BnzWagaQcdkGmtSKBq5v+Qa5ZlIGzQHBBtdkcgbq/+EG9WKSBwj+AQ
-cTYLIHJvwhBzFe0gdE+kEHT/CaB2OMCQdt7roHgYopB4vs2gefiEkHqer6B72GaQfH6RoH24SJB+XnOg
-f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
-AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</bytes>
-							</object>
-						</object>
-						<object class="NSDate" key="IBUIDate">
-							<double key="NS.time">368434258.831559</double>
-						</object>
-						<int key="IBUIMinuteInterval">1</int>
-					</object>
 					<object class="IBUITableView" id="647053851">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">290</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUISearchBar" id="541049947">
 								<reference key="NSNextResponder" ref="647053851"/>
 								<int key="NSvFlags">290</int>
-								<string key="NSFrameSize">{340, 44}</string>
+								<string key="NSFrameSize">{948, 44}</string>
 								<reference key="NSSuperview" ref="647053851"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1021427097"/>
+								<reference key="NSNextKeyView" ref="143409913"/>
 								<int key="IBUIContentMode">3</int>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBText"/>
@@ -109,7 +67,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 								</object>
 							</object>
 						</object>
-						<string key="NSFrame">{{20, 20}, {340, 224}}</string>
+						<string key="NSFrame">{{20, 20}, {948, 263}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="541049947"/>
@@ -130,8 +88,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					</object>
 					<object class="IBUILabel" id="143409913">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{20, 291}, {107, 21}}</string>
+						<int key="NSvFlags">290</int>
+						<string key="NSFrame">{{20, 297}, {948, 39}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="925499732"/>
@@ -140,9 +98,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<int key="IBUIContentMode">7</int>
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-						<string key="IBUIText">Fixture</string>
+						<string key="IBUIText">FIXTURE</string>
 						<object class="NSFont" key="IBUIFont">
-							<string key="NSName">Helvetica</string>
+							<string key="NSName">Helvetica-Bold</string>
 							<double key="NSSize">17</double>
 							<int key="NSfFlags">16</int>
 						</object>
@@ -157,7 +115,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<object class="IBUITableView" id="925499732">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 326}, {948, 247}}</string>
+						<string key="NSFrame">{{20, 349}, {948, 247}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -281,18 +239,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="647053851"/>
-							<reference ref="1021427097"/>
-							<reference ref="925499732"/>
 							<reference ref="143409913"/>
+							<reference ref="925499732"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">selectGameView</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">5</int>
-						<reference key="object" ref="1021427097"/>
-						<reference key="parent" ref="766721923"/>
-						<string key="objectName">datePicker</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">39</int>
@@ -317,6 +268,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<int key="objectID">46</int>
 						<reference key="object" ref="925499732"/>
 						<reference key="parent" ref="766721923"/>
+						<string key="objectName">Fixture</string>
 					</object>
 				</object>
 			</object>
@@ -331,7 +283,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<string>39.IBPluginDependency</string>
 					<string>46.IBPluginDependency</string>
 					<string>47.IBPluginDependency</string>
-					<string>5.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -339,7 +290,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<string>SearchGamesViewController</string>
 					<string>UIResponder</string>
 					<string>{{353, 156}, {1024, 768}}</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
