@@ -16,7 +16,10 @@
 
 @property (nonatomic, retain) NSMutableArray* columns;
 
-- (void) addColumn:(CGFloat) position;
+- (void) addColumnWithStart:(int)start withWidth:(int)width withEnd:(int)end withText:(NSString*)text withHeight:(int)height;
 - (void) initialize;
+
+
+
 
 @end

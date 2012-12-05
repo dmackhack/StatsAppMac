@@ -10,6 +10,7 @@
 #import "Club.h"
 #import "CClub.h"
 #import "MultiColumnTableCell.h"
+#import "MultiColumnHeader.h"
 #import "Team.h"
 #import "Match.h"
 #import "StatsAppMacSession.h"

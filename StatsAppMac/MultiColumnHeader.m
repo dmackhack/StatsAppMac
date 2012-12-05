@@ -1,52 +1,45 @@
 //
-//  MultiColumnTableCell.m
+//  MultiColumnHeader.m
 //  StatsAppMac
 //
-//  Created by David Mackenzie on 11/09/12.
+//  Created by David Mackenzie on 4/12/12.
 //  Copyright 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "MultiColumnTableCell.h"
+#import "MultiColumnHeader.h"
 
 
-@implementation MultiColumnTableCell
+@implementation MultiColumnHeader
 
+@synthesize columnSizes=columnSizes_, columnValues=columnValues_;
 
-@synthesize columns=columns_;
+int margin=10;
+
+- (void) addColumn:(int) end withText:(NSString*) text
+{
+    [self.columnSizes addObject:[NSNumber numberWithInt:end]];
+    [self.columnValues addObject:text];
+    
+}
+
 
 - (void) initialize
 {
-    NSLog(@"Allocating columns array");
-    self.columns = [[NSMutableArray alloc] init];
     self.backgroundColor = [UIColor whiteColor];
+    self.columnSizes = [[NSMutableArray alloc] init];
+    self.columnValues = [[NSMutableArray alloc] init];
 }
-
-- (void) addColumnWithStart:(int)start withWidth:(int)width withEnd:(int)end withText:(NSString*)text withHeight:(int)height
-{
-    UILabel* label = [[[UILabel alloc] initWithFrame:CGRectMake(start, 0, width, height - 4)] autorelease];
-    label.backgroundColor = self.backgroundColor;
-    // draws a vertical line at the position specified by this value i.e. the end of the column
-    [self.columns addObject:[NSNumber numberWithFloat:end]];
-    label.font = [UIFont systemFontOfSize:12.0];
-    label.text = [NSString stringWithFormat:@"%@", text];
-    label.textAlignment = UITextAlignmentLeft;
-    label.textColor = [UIColor blackColor];
-    label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
-    UIViewAutoresizingFlexibleHeight;
-    [self.contentView addSubview:label];
-}
-
 
 - (void) drawRect:(CGRect)rect
 {
-    NSLog(@"In draw rect. Number Columns: %i", [self.columns count]);
+    NSLog(@"In draw rect. Number Columns: %i", [self.columnSizes count]);
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetRGBStrokeColor(ctx, 0.5, 0.5, 0.5, 1);
     CGContextSetLineWidth(ctx, 0.25);
     
-    for (int i=0; i<[self.columns count]; i++)
+    for (int i=0; i<[self.columnSizes count]; i++)
     {
-        CGFloat f = [((NSNumber*) [self.columns objectAtIndex:i]) floatValue];
+        CGFloat f = [((NSNumber*) [self.columnSizes objectAtIndex:i]) floatValue];
         
         NSLog(@"Float %f", f);
         
@@ -58,20 +51,21 @@
     [super drawRect:rect];
 }
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        //NSLog(@"Allocating columns array");
-        //self.columns = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [self.columns release];
+    [columnSizes_ release];
+    [columnValues_ release];
     [super dealloc];
 }
 

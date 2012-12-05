@@ -61,7 +61,7 @@
     
 - (NSString *)prepareGameDayText
 {
-    return @"<html><body><h2>GAME DAY</h2></body></html>";
+    return @"<html><body style='background-color: #003366'><h2 style='font: 15px verdana,arial,helvetica,sans-serif; color: #FFFFFF;'>Game Day</h2></body></html>";
 }
 
 - (void)viewDidUnload
@@ -98,6 +98,15 @@
     [self.navigationController pushViewController:searchGamesView animated:YES];
     [searchGamesView release];
     
+}
+
+- (IBAction)selectTeamClicked:(id)sender
+{
+    NSLog(@"Select Team Clicked");
+    SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:selectTeamView animated:YES];
+    [selectTeamView release];
 }
 
 @end

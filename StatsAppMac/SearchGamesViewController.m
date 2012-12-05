@@ -93,7 +93,7 @@ NSString* searchTerm;
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    NSLog(searchText);
+    // NSLog(searchText);
     searchTerm = searchText;
     [self.tableView reloadData];
 }
@@ -226,6 +226,18 @@ NSString* searchTerm;
     
     NSLog(@"Selected Club: %@", [[self session] selectedClub].name);
     
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return @"Club Search Results";
+    }
+    else
+    {
+        return @"";
+    }
 }
 
 

@@ -11,6 +11,7 @@
 #import "GameDayStatsViewController.h"
 #import "TeamSelectionViewController.h"
 #import "SearchGamesViewController.h"
+#import "SelectTeamViewController.h"
 
 @interface MainMenuViewController : UIViewController {
     
@@ -31,6 +32,7 @@
 
 - (IBAction)gameDayClicked:(id)sender;
 - (IBAction)teamSearchClicked:(id)sender;
+- (IBAction)selectTeamClicked:(id)sender;
 
 
 @end
