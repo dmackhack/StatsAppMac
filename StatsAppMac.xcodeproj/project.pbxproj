@@ -63,6 +63,8 @@
 		288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */; };
 		28A9B475166E82320008B8A5 /* SelectTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A9B473166E82310008B8A5 /* SelectTeamViewController.m */; };
 		28A9B476166E82320008B8A5 /* SelectTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A9B474166E82320008B8A5 /* SelectTeamViewController.xib */; };
+		28C9A8421670061100BF8717 /* CMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A8411670061100BF8717 /* CMatch.m */; };
+		28C9A84616700B6700BF8717 /* CPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A84516700B6700BF8717 /* CPlayer.m */; };
 		63845C91147FC7980033426E /* StatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C8F147FC7980033426E /* StatsCell.m */; };
 		63845C92147FC7980033426E /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63845C90147FC7980033426E /* StatsCell.xib */; };
 /* End PBXBuildFile section */
@@ -166,6 +168,10 @@
 		28A9B472166E82310008B8A5 /* SelectTeamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectTeamViewController.h; sourceTree = "<group>"; };
 		28A9B473166E82310008B8A5 /* SelectTeamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectTeamViewController.m; sourceTree = "<group>"; };
 		28A9B474166E82320008B8A5 /* SelectTeamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTeamViewController.xib; sourceTree = "<group>"; };
+		28C9A8401670061100BF8717 /* CMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMatch.h; sourceTree = "<group>"; };
+		28C9A8411670061100BF8717 /* CMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMatch.m; sourceTree = "<group>"; };
+		28C9A84416700B6600BF8717 /* CPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPlayer.h; sourceTree = "<group>"; };
+		28C9A84516700B6700BF8717 /* CPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPlayer.m; sourceTree = "<group>"; };
 		63845C8E147FC7980033426E /* StatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsCell.h; path = ../StatsCell.h; sourceTree = "<group>"; };
 		63845C8F147FC7980033426E /* StatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsCell.m; path = ../StatsCell.m; sourceTree = "<group>"; };
 		63845C90147FC7980033426E /* StatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsCell.xib; path = ../StatsCell.xib; sourceTree = "<group>"; };
@@ -216,6 +222,8 @@
 				287D087D160B11A300328B65 /* ParticipantStatistics.m */,
 				287D0879160B11A300328B65 /* Match.h */,
 				287D087A160B11A300328B65 /* Match.m */,
+				28C9A8401670061100BF8717 /* CMatch.h */,
+				28C9A8411670061100BF8717 /* CMatch.m */,
 				287D0876160B11A200328B65 /* Division.h */,
 				287D0877160B11A200328B65 /* Division.m */,
 				287D0870160B11A200328B65 /* Season.h */,
@@ -228,6 +236,8 @@
 				287D0868160B11A200328B65 /* Participant.m */,
 				287D0864160B11A200328B65 /* Player.h */,
 				287D0865160B11A200328B65 /* Player.m */,
+				28C9A84416700B6600BF8717 /* CPlayer.h */,
+				28C9A84516700B6700BF8717 /* CPlayer.m */,
 				287D0861160B11A200328B65 /* TeamParticipant.h */,
 				287D0862160B11A200328B65 /* TeamParticipant.m */,
 				287D085E160B11A100328B65 /* League.h */,
@@ -542,6 +552,8 @@
 				288145611655709100813E90 /* StatsAppMacSession.m in Sources */,
 				287F28BA166D4A030008A9D3 /* MultiColumnHeader.m in Sources */,
 				28A9B475166E82320008B8A5 /* SelectTeamViewController.m in Sources */,
+				28C9A8421670061100BF8717 /* CMatch.m in Sources */,
+				28C9A84616700B6700BF8717 /* CPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

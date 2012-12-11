@@ -51,7 +51,7 @@
 							<object class="IBUISearchBar" id="541049947">
 								<reference key="NSNextResponder" ref="647053851"/>
 								<int key="NSvFlags">290</int>
-								<string key="NSFrameSize">{948, 44}</string>
+								<string key="NSFrameSize">{1024, 44}</string>
 								<reference key="NSSuperview" ref="647053851"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="925499732"/>
@@ -66,7 +66,7 @@
 								</object>
 							</object>
 						</object>
-						<string key="NSFrame">{{20, 20}, {948, 263}}</string>
+						<string key="NSFrameSize">{1024, 267}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="541049947"/>
@@ -88,10 +88,9 @@
 					<object class="IBUITableView" id="925499732">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{20, 302}, {948, 247}}</string>
+						<string key="NSFrame">{{0, 302}, {1024, 247}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="195686759"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
