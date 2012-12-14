@@ -32,6 +32,14 @@
     return self;
 }
 
+- (void) reloadData
+{
+    [self.checkedAvailablePlayers removeAllObjects];
+    [self.checkedSelectedPlayers removeAllObjects];
+    [[self availablePlayersTableView] reloadData];
+    [[self selectedTeamTableView] reloadData];
+}
+
 - (void)dealloc
 {
     [availablePlayersTableView_ release];
@@ -78,6 +86,7 @@
     [super viewWillAppear:animated];
     
     NSLog(@"ViewWillAppear");
+    [self reloadData];
     
 }
 
@@ -85,9 +94,7 @@
 {
     // save the players.
     NSLog(@"Clear checked lists");
-    
-    [self.checkedAvailablePlayers removeAllObjects];
-    [self.checkedSelectedPlayers removeAllObjects];
+    [self reloadData];
     
     [super viewWillDisappear:animated];
 }
@@ -143,6 +150,14 @@
     {
         static NSString *CellIdentifier = @"AvailablePlayerCell";
         cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if ([self.checkedAvailablePlayers containsObject:indexPath])
+        {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
         if (cell == nil) 
         {
             cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
@@ -155,10 +170,18 @@
     {
         static NSString *CellIdentifier = @"SelectedPlayerCell";
         cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if ([self.checkedSelectedPlayers containsObject:indexPath])
+        {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
         if (cell == nil) 
         {
             cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-            
+            cell.accessoryType = UITableViewCellAccessoryNone;
             PlayerParticipant* participant = [[[[self selectedTeamParticipant] playerParticipants] allObjects] objectAtIndex:indexPath.row];
             cell.textLabel.text = [[participant player] displayName];
         }
@@ -213,17 +236,36 @@
 - (IBAction)addPlayersToTeam:(id)sender
 {
     NSLog(@"Add the following players: %@ ", [self checkedAvailablePlayers]);
+    SqlLiteRepository* repo = [[self appDelegate] repo];   
     for (NSIndexPath* index in [self checkedAvailablePlayers])
     {
         Player* player = [[[[self session] selectedClub] currentPlayers] objectAtIndex:index.row];
         NSLog(@"Add the following player: %@ ", [player displayName]);
-    }
         
+        [[self selectedTeamParticipant] addPlayerToTeamParticipant:player withRepository:repo];
+    }
+    [repo saveContext];
+    [self reloadData];
 }
 
 - (IBAction)removePlayersFromTeam:(id)sender
 {
     NSLog(@"Remove the following players: %@ ", [self checkedSelectedPlayers]);
+    SqlLiteRepository* repo = [[self appDelegate] repo];   
+    NSMutableArray* toRemove = [[NSMutableArray alloc] init];
+    for (NSIndexPath* index in [self checkedSelectedPlayers])
+    {
+        PlayerParticipant* participant = [[[[self selectedTeamParticipant] playerParticipants] allObjects] objectAtIndex:index.row];
+        [toRemove addObject:participant];
+    }
+    for (PlayerParticipant* participant in toRemove)
+    {
+        NSLog(@"Removing the following player: %@ ", [participant.player displayName]);
+        [[self selectedTeamParticipant] removePlayerParticipantsObject:participant];
+    }
+    [toRemove release];
+    [repo saveContext];
+    [self reloadData];
 }
 
 @end

@@ -2,7 +2,7 @@
 //  User.h
 //  StatsAppMac
 //
-//  Created by David Mackenzie on 20/09/12.
+//  Created by David Mackenzie on 14/12/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,7 +15,7 @@
 @private
 }
 @property (nonatomic, retain) NSString * username;
-@property (nonatomic, retain) NSNumber * id;
+@property (nonatomic, retain) NSNumber * userId;
 @property (nonatomic, retain) NSSet* participantStatistics;
 
 @end

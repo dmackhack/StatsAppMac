@@ -11,11 +11,13 @@
 #import "Match.h"
 #import "CMatch.h"
 #import "TeamParticipant.h"
+#import "CTeamParticipant.h"
 #import "PlayerParticipant.h"
 #import "Player.h"
 #import "CPlayer.h"
 #import "CClub.h"
 #import "Club.h"
+#import "SqlLiteRepository.h"
 
 @class StatsAppMacAppDelegate;
 

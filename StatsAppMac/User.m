@@ -2,7 +2,7 @@
 //  User.m
 //  StatsAppMac
 //
-//  Created by David Mackenzie on 20/09/12.
+//  Created by David Mackenzie on 14/12/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @implementation User
 @dynamic username;
-@dynamic id;
+@dynamic userId;
 @dynamic participantStatistics;
 
 - (void)addParticipantStatisticsObject:(ParticipantStatistics *)value {    
