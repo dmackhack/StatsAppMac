@@ -20,14 +20,8 @@
 @class StatsAppMacAppDelegate;
 @class StatsCell;
 
-@interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate> 
+@interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> 
 {
-    NSFetchedResultsController* resultsController_;
-    NSString* cache_;
 }
-
-@property (nonatomic, readonly) NSFetchedResultsController* resultsController;
-@property (nonatomic, retain) NSString* cache;
-
 
 @end

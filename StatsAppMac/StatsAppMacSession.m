@@ -21,4 +21,18 @@
     [super dealloc];
 }
 
+- (TeamParticipant*) selectedTeamParticipant
+{
+    if ([self selectedMatch] != nil && [self selectedClub] != nil)
+    {
+        NSLog(@"Found Team Part");
+        return [[self selectedMatch] teamParticipantForClub:[self selectedClub]];
+    }
+    else
+    {
+        NSLog(@"Found Team Part Nil");
+        return nil;
+    }
+}
+
 @end

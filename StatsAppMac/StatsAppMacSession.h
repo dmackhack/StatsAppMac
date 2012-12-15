@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Club.h"
 #import "Match.h"
+#import "CMatch.h"
+#import "TeamParticipant.h"
 
 @interface StatsAppMacSession : NSObject {
     
@@ -19,5 +21,7 @@
 
 @property (nonatomic, retain) Club* selectedClub;
 @property (nonatomic, retain) Match* selectedMatch;
+
+- (TeamParticipant*) selectedTeamParticipant;
 
 @end

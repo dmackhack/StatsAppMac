@@ -23,6 +23,11 @@
     return [[self appDelegate] session];
 }
 
+- (TeamParticipant*) selectedTeamParticipant
+{
+    return [[self session] selectedTeamParticipant];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -105,19 +110,7 @@
 	return YES;
 }
 
-- (TeamParticipant*) selectedTeamParticipant
-{
-    if ([[self session] selectedMatch] != nil && [[self session] selectedClub] != nil)
-    {
-        NSLog(@"Found Team Part");
-        return [[[self session] selectedMatch] teamParticipantForClub:[[self session] selectedClub]];
-    }
-    else
-    {
-        NSLog(@"Found Team Part Nil");
-        return nil;
-    }
-}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

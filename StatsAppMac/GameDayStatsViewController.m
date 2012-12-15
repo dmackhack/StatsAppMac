@@ -11,7 +11,6 @@
 
 @implementation GameDayStatsViewController
 
-@synthesize cache=cache_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -23,28 +22,16 @@
     return [[self appDelegate] session];
 }
 
-- (Match*) selectedMatch
+- (TeamParticipant*) selectedTeamParticipant
 {
-    return [[self session] selectedMatch];
+    return [[self session] selectedTeamParticipant];
 }
 
-- (Club*) selectedClub
+- (NSArray*) selectedPlayerParticipants
 {
-    return [[self session] selectedClub];
-}
-
-- (NSArray*) selectedPlayers
-{
-    if ([self selectedMatch] != nil)
+    if ([self selectedTeamParticipant] != nil)
     {
-        NSArray* parts = [[[self selectedMatch] participants] allObjects];
-        for (int i = 0; i<[parts count]; i++)
-        {
-            if ([[[parts objectAtIndex:i] team] club] == [self selectedClub])
-            {
-                return [[[[parts objectAtIndex:i] team] club] currentPlayers];
-            }
-        }
+        return [[[self selectedTeamParticipant] playerParticipants] allObjects];
     }
     return nil;
 }
@@ -52,8 +39,6 @@
 
 - (void)dealloc
 {
-    [resultsController_ release];
-    [cache_ release];
     [super dealloc];
 }
 
@@ -65,47 +50,7 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (NSFetchedResultsController *) resultsController
-{
-    if (resultsController_ != nil)
-    {
-        return resultsController_;
-    }
-    
-    SqlLiteRepository* repo = [[self appDelegate] repo];
-    
-    NSManagedObjectContext* context = [repo managedObjectContext];
-    NSFetchRequest* fetchPlayers = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription* playerEntityDescription = [NSEntityDescription entityForName:@"Player" inManagedObjectContext:context];
-    [fetchPlayers setEntity:playerEntityDescription];
-    
-    // no predicate required. we are fetching everything
-    
-    //NSLog(@"Captured: %i", [self captured]);
-    //NSLog(@"Cache: %@", [self cache]);
-    
-    //NSPredicate* fugitivesPredicate = [NSPredicate predicateWithFormat:@"captured == %i", captured_];
-    //[fetchFugitives setPredicate:fugitivesPredicate];                                             
-    
-    NSSortDescriptor* playersSD = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
-    [fetchPlayers setSortDescriptors:[NSArray arrayWithObject:playersSD]];
-    
-    resultsController_ = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchPlayers managedObjectContext:context sectionNameKeyPath:nil cacheName:[self cache]];
-    
-    resultsController_.delegate = self;
-    
-    NSError* error;
-    BOOL success = [resultsController_ performFetch:&error];
-    
-    if (!success)
-    {
-        NSLog(@"Error fetching results");
-    }
-    [fetchPlayers release];
-    return resultsController_;
-    
-}
+
 
 
 
@@ -116,24 +61,18 @@
     [super viewDidLoad];
     
     // fetch players
-    NSUInteger count;
-    
-    if ([self selectedPlayers] != nil)
+    int count = 0;
+    if ([self selectedPlayerParticipants] != nil)
     {
-        count = [[self selectedPlayers] count];
+        count = [[self selectedPlayerParticipants] count];
     }
-    else
-    {
-        count = [[self.resultsController fetchedObjects] count];
-    }
-    
+        
     NSLog(@"Number of players in viewDidLoad %i", count);
     
     
     //CGRect fullScreenRect = [[UIScreen mainScreen] applicationFrame];
     
-    
-    
+
     //self.scrollView.contentSize = CGSizeMake(fullScreenRect.size.width * 3, fullScreenRect.size.height);
     //self.scrollView.contentSize.height = fullScreenRect.size.height;
     //self.scrollView.contentSize.width = fullScreenRect.size.width * 3;
@@ -171,7 +110,6 @@
 {
     // save the players.
     NSLog(@"Saving players");
-    
     StatsAppMacAppDelegate* delegate = self.appDelegate;
     [[delegate repo] saveContext];
     
@@ -200,18 +138,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    int rows = 0;
-    if ([self selectedPlayers] != nil)
+    int count = 0;
+    if ([self selectedPlayerParticipants] != nil)
     {
-        rows = [[self selectedPlayers] count];
+        count = [[self selectedPlayerParticipants] count];
     }
-    else
-    {
-        NSLog(@"Number of players in table %i", [[self.resultsController fetchedObjects] count]);
-        rows = [[self.resultsController fetchedObjects] count];
-    }
-    
-    return rows;
+    NSLog(@"Number of players in table %i", count);
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -228,15 +161,10 @@
     }
     
     // Configure the cell...
-    
     Player* player = nil;
-    if ([self selectedPlayers] != nil)
+    if ([self selectedPlayerParticipants] != nil)
     {
-        player = [[self selectedPlayers] objectAtIndex:indexPath.row];
-    }
-    else
-    {
-        player = [self.resultsController objectAtIndexPath:indexPath];
+        player = [[[self selectedPlayerParticipants] objectAtIndex:indexPath.row] player];
     }
     
     if ([cell isKindOfClass:[StatsCell class]])
