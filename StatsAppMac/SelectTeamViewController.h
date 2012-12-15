@@ -25,6 +25,9 @@
     UITableView* availablePlayersTableView_;
     UITableView* selectedTeamTableView_;
     
+    NSMutableArray* availablePlayers_;
+    NSMutableArray* selectedPlayers_;
+    
     NSMutableArray* checkedAvailablePlayers_;
     NSMutableArray* checkedSelectedPlayers_;
     
@@ -34,6 +37,8 @@
 @property (nonatomic, retain) IBOutlet UITableView* selectedTeamTableView;
 @property (nonatomic, retain) NSMutableArray* checkedAvailablePlayers;
 @property (nonatomic, retain) NSMutableArray* checkedSelectedPlayers;
+@property (nonatomic, retain) NSMutableArray* availablePlayers;
+@property (nonatomic, retain) NSMutableArray* selectedPlayers;
 
 - (IBAction)addPlayersToTeam:(id)sender;
 - (IBAction)removePlayersFromTeam:(id)sender;

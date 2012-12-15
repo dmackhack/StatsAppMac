@@ -11,7 +11,7 @@
 
 @implementation SelectTeamViewController
 
-@synthesize availablePlayersTableView=availablePlayersTableView_, selectedTeamTableView=selectedTeamTableView_, checkedAvailablePlayers=checkedAvailablePlayers_, checkedSelectedPlayers=checkedSelectedPlayers_;
+@synthesize availablePlayersTableView=availablePlayersTableView_, selectedTeamTableView=selectedTeamTableView_, checkedAvailablePlayers=checkedAvailablePlayers_, checkedSelectedPlayers=checkedSelectedPlayers_, availablePlayers=availablePlayers_, selectedPlayers=selectedPlayers_;
 
 - (StatsAppMacAppDelegate*) appDelegate
 {
@@ -41,6 +41,13 @@
 {
     [self.checkedAvailablePlayers removeAllObjects];
     [self.checkedSelectedPlayers removeAllObjects];
+
+    [self.availablePlayers removeAllObjects];
+    [self.availablePlayers addObjectsFromArray:[[[self session] selectedClub] currentPlayers]];
+    
+    [self.selectedPlayers removeAllObjects];
+    [self.selectedPlayers addObjectsFromArray:[[[self selectedTeamParticipant] playerParticipants] allObjects]];
+    
     [[self availablePlayersTableView] reloadData];
     [[self selectedTeamTableView] reloadData];
 }
@@ -51,6 +58,8 @@
     [selectedTeamTableView_ release];
     [checkedAvailablePlayers_ release];
     [checkedSelectedPlayers_ release];
+    [selectedPlayers_ release];
+    [availablePlayers_ release];
     [super dealloc];
 }
 
@@ -76,6 +85,14 @@
     {
         self.checkedSelectedPlayers = [[NSMutableArray alloc] init];
     }
+    if (self.availablePlayers == nil)
+    {
+        self.availablePlayers = [[NSMutableArray alloc] init];
+    }
+    if (self.selectedPlayers == nil)
+    {
+        self.selectedPlayers = [[NSMutableArray alloc] init];
+    }
 }
 
 - (void)viewDidUnload
@@ -88,11 +105,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"ViewWillAppear");
     [super viewWillAppear:animated];
     
-    NSLog(@"ViewWillAppear");
     [self reloadData];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -117,21 +133,15 @@
     int count = 0;
     if (tableView == self.availablePlayersTableView)
     {
-        count = [[[[self session] selectedClub] currentPlayers] count];
+        count = [[self availablePlayers] count];
+        NSLog(@"Number of available players: %i", count);
     }
     else
     {
-        if ([self selectedTeamParticipant] != nil)
-        {
-            int numPlayers = [[[self selectedTeamParticipant] playerParticipants] count];
-            NSLog(@"Number of players in team: %i", numPlayers);
-            count = [[[self selectedTeamParticipant] playerParticipants] count];
-        }
-        else
-        {
-            count = 0;
-        }
+        count = [[self selectedPlayers] count];
+        NSLog(@"Number of selected players: %i", count);
     }
+    
     return count;
 }
 
@@ -153,11 +163,10 @@
         }
         if (cell == nil) 
         {
-            cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-            
-            Player* player = [[[[self session] selectedClub] currentPlayers] objectAtIndex:indexPath.row];
-            cell.textLabel.text = [player displayName];
+            cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];      
         }
+        Player* player = [[self availablePlayers] objectAtIndex:indexPath.row];
+        cell.textLabel.text = [player displayName];
     }
     else
     {
@@ -175,9 +184,9 @@
         {
             cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
             cell.accessoryType = UITableViewCellAccessoryNone;
-            PlayerParticipant* participant = [[[[self selectedTeamParticipant] playerParticipants] allObjects] objectAtIndex:indexPath.row];
-            cell.textLabel.text = [[participant player] displayName];
         }
+        PlayerParticipant* participant = [[self selectedPlayers] objectAtIndex:indexPath.row];
+        cell.textLabel.text = [[participant player] displayName];
     }
     return cell;
 }
@@ -232,7 +241,7 @@
     SqlLiteRepository* repo = [[self appDelegate] repo];   
     for (NSIndexPath* index in [self checkedAvailablePlayers])
     {
-        Player* player = [[[[self session] selectedClub] currentPlayers] objectAtIndex:index.row];
+        Player* player = [[self availablePlayers] objectAtIndex:index.row];
         NSLog(@"Add the following player: %@ ", [player displayName]);
         
         [[self selectedTeamParticipant] addPlayerToTeamParticipant:player withRepository:repo];
