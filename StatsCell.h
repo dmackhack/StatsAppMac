@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "PlayerParticipant.h"
+#import "CParticipant.h"
+#import "FootyPlayerStatistics.h"
+#import "SqlLiteRepository.h"
 
 @class Player;
+@class StatsAppMacAppDelegate;
 
 @interface StatsCell : UITableViewCell
 {
-    Player* player_;
+    
+    PlayerParticipant* playerParticipant_;
+    
     UILabel* playerName_;
     UILabel* kicksLabel_;
     UILabel* handballsLabel_;
@@ -21,7 +28,7 @@
     UILabel* tacklesLabel_;
 }
 
-@property (nonatomic, retain) Player* player;
+@property (nonatomic, retain) PlayerParticipant* playerParticipant;
 @property (nonatomic, retain) IBOutlet UILabel* playerName;
 @property (nonatomic, retain) IBOutlet UILabel* kicksLabel;
 @property (nonatomic, retain) IBOutlet UILabel* handballsLabel;

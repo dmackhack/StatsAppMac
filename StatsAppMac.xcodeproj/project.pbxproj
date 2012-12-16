@@ -10,6 +10,7 @@
 		28141FF91678ABEB00EBF46C /* CTeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 28141FF81678ABEB00EBF46C /* CTeamParticipant.m */; };
 		28141FFD167B4E8300EBF46C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 28141FFC167B4E8200EBF46C /* User.m */; };
 		28143A9F167B519A00EBF46C /* StatsAppMac.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 28143A9E167B519A00EBF46C /* StatsAppMac.sqlite */; };
+		287BC901167D7F550025E997 /* CParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC900167D7F550025E997 /* CParticipant.m */; };
 		287CBB121641D26D00A3606A /* CClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 287CBB111641D26D00A3606A /* CClub.m */; };
 		287D0860160B11A100328B65 /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D085F160B11A100328B65 /* League.m */; };
 		287D0863160B11A200328B65 /* TeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0862160B11A200328B65 /* TeamParticipant.m */; };
@@ -86,6 +87,8 @@
 		28141FFB167B4E8100EBF46C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		28141FFC167B4E8200EBF46C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		28143A9E167B519A00EBF46C /* StatsAppMac.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatsAppMac.sqlite; sourceTree = "<group>"; };
+		287BC8FF167D7F540025E997 /* CParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CParticipant.h; sourceTree = "<group>"; };
+		287BC900167D7F550025E997 /* CParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CParticipant.m; sourceTree = "<group>"; };
 		287CBB101641D26D00A3606A /* CClub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CClub.h; sourceTree = "<group>"; };
 		287CBB111641D26D00A3606A /* CClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CClub.m; sourceTree = "<group>"; };
 		287D085E160B11A100328B65 /* League.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = League.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				287CBB111641D26D00A3606A /* CClub.m */,
 				287D0867160B11A200328B65 /* Participant.h */,
 				287D0868160B11A200328B65 /* Participant.m */,
+				287BC8FF167D7F540025E997 /* CParticipant.h */,
+				287BC900167D7F550025E997 /* CParticipant.m */,
 				287D0864160B11A200328B65 /* Player.h */,
 				287D0865160B11A200328B65 /* Player.m */,
 				28C9A84416700B6600BF8717 /* CPlayer.h */,
@@ -560,6 +565,7 @@
 				28C9A84616700B6700BF8717 /* CPlayer.m in Sources */,
 				28141FF91678ABEB00EBF46C /* CTeamParticipant.m in Sources */,
 				28141FFD167B4E8300EBF46C /* User.m in Sources */,
+				287BC901167D7F550025E997 /* CParticipant.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

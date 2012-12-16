@@ -158,15 +158,15 @@
     }
     
     // Configure the cell...
-    Player* player = nil;
+    PlayerParticipant* playerParticipant = nil;
     if ([self selectedPlayerParticipants] != nil)
     {
-        player = [[[self selectedPlayerParticipants] objectAtIndex:indexPath.row] player];
+        playerParticipant = [[self selectedPlayerParticipants] objectAtIndex:indexPath.row];
     }
     
     if ([cell isKindOfClass:[StatsCell class]])
     {
-        cell.player = player;
+        cell.playerParticipant = playerParticipant;
         [cell reloadData];
     }
     else

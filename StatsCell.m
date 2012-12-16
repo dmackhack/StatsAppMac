@@ -10,14 +10,36 @@
 
 @implementation StatsCell
 
-@synthesize player=player_, playerName=playerName_, kicksLabel=kicksLabel_, marksLabel=marksLabel_, handballsLabel=handballsLabel_, tacklesLabel=tacklesLabel_;
+@synthesize playerParticipant=playerParticipant_, playerName=playerName_, kicksLabel=kicksLabel_, marksLabel=marksLabel_, handballsLabel=handballsLabel_, tacklesLabel=tacklesLabel_;
+
+- (StatsAppMacAppDelegate*) appDelegate
+{
+    return (StatsAppMacAppDelegate*)[[UIApplication sharedApplication] delegate];
+}
+
+- (SqlLiteRepository*) repo
+{
+    return (SqlLiteRepository*)[[self appDelegate] repo];
+}
 
 
+- (FootyPlayerStatistics*) playerStatistics
+{
+    if ([[self playerParticipant] participantStatistics] == nil)
+    {
+        [[self playerParticipant] createFootyPlayerStatisticsToParticipantWithRepository:self.repo];
+    }
+    return (FootyPlayerStatistics*)[[self playerParticipant] participantStatistics];
+}
 
 -(void)dealloc
 {
-    [player_ release];
+    [playerParticipant_ release];
     [playerName_ release];
+    [kicksLabel_ release];
+    [marksLabel_ release];
+    [handballsLabel_ release];
+    [tacklesLabel_ release];
     [super dealloc];
 }
 
@@ -29,43 +51,43 @@
 
 - (IBAction)addKick:(id)sender 
 {
-    int value = [self.player.kicks intValue];
-    self.player.kicks = [NSNumber numberWithInt:value + 1];
+    int value = [self.playerStatistics.kicks intValue];
+    self.playerStatistics.kicks = [NSNumber numberWithInt:value + 1];
     [self reloadData];
-    NSLog(@"kick event recieved for %@: %i", self.player.firstName, [self.player.kicks intValue]);
+    NSLog(@"kick event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.kicks intValue]);
 }
 
 - (IBAction)addMark:(id)sender 
 {
-    int value = [self.player.marks intValue];
-    self.player.marks = [NSNumber numberWithInt:value + 1];
+    int value = [self.playerStatistics.marks intValue];
+    self.playerStatistics.marks = [NSNumber numberWithInt:value + 1];
     [self reloadData];
-    NSLog(@"mark event recieved for %@: %i", self.player.firstName, [self.player.marks intValue]);
+    NSLog(@"mark event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.marks intValue]);
 }
 
 - (IBAction)addHandball:(id)sender 
 {
-    int value = [self.player.handballs intValue];
-    self.player.handballs = [NSNumber numberWithInt:value + 1];
+    int value = [self.playerStatistics.handballs intValue];
+    self.playerStatistics.handballs = [NSNumber numberWithInt:value + 1];
     [self reloadData];
-    NSLog(@"handball event recieved for %@: %i", self.player.firstName, [self.player.handballs intValue]);
+    NSLog(@"handball event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerParticipant.player.handballs intValue]);
 }
 
 - (IBAction)addTackle:(id)sender 
 {
-    int value = [self.player.tackles intValue];
-    self.player.tackles = [NSNumber numberWithInt:value + 1];
+    int value = [self.playerStatistics.tackles intValue];
+    self.playerStatistics.tackles = [NSNumber numberWithInt:value + 1];
     [self reloadData];
-    NSLog(@"tackle event recieved for %@: %i", self.player.firstName, [self.player.tackles intValue]);
+    NSLog(@"tackle event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerParticipant.player.tackles intValue]);
 }
 
 - (void) reloadData
 {
-    self.playerName.text = [NSString stringWithFormat:@"%@, %@", self.player.lastName, self.player.firstName];
-    self.kicksLabel.text = [self.player.kicks stringValue];
-    self.marksLabel.text = [self.player.marks stringValue];
-    self.handballsLabel.text = [self.player.handballs stringValue];
-    self.tacklesLabel.text = [self.player.tackles stringValue];
+    self.playerName.text = [NSString stringWithFormat:@"%@, %@", self.playerParticipant.player.lastName, self.playerParticipant.player.firstName];
+    self.kicksLabel.text = [self.playerStatistics.kicks stringValue];
+    self.marksLabel.text = [self.playerStatistics.marks stringValue];
+    self.handballsLabel.text = [self.playerStatistics.handballs stringValue];
+    self.tacklesLabel.text = [self.playerStatistics.tackles stringValue];
 }
 
 
