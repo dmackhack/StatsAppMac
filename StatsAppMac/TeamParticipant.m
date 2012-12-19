@@ -2,7 +2,7 @@
 //  TeamParticipant.m
 //  StatsAppMac
 //
-//  Created by David Mackenzie on 20/09/12.
+//  Created by David Mackenzie on 19/12/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 
 
 @implementation TeamParticipant
+@dynamic home;
 @dynamic team;
 @dynamic playerParticipants;
 

@@ -70,7 +70,7 @@
     int value = [self.playerStatistics.handballs intValue];
     self.playerStatistics.handballs = [NSNumber numberWithInt:value + 1];
     [self reloadData];
-    NSLog(@"handball event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerParticipant.player.handballs intValue]);
+    NSLog(@"handball event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.handballs intValue]);
 }
 
 - (IBAction)addTackle:(id)sender 
@@ -78,7 +78,7 @@
     int value = [self.playerStatistics.tackles intValue];
     self.playerStatistics.tackles = [NSNumber numberWithInt:value + 1];
     [self reloadData];
-    NSLog(@"tackle event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerParticipant.player.tackles intValue]);
+    NSLog(@"tackle event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.tackles intValue]);
 }
 
 - (void) reloadData

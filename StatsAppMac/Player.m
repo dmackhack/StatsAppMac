@@ -2,27 +2,20 @@
 //  Player.m
 //  StatsAppMac
 //
-//  Created by David Mackenzie on 20/09/12.
+//  Created by David Mackenzie on 19/12/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Player.h"
+#import "PlayerClub.h"
 #import "PlayerParticipant.h"
 
 
 @implementation Player
-@dynamic lastName;
-@dynamic tackles;
-@dynamic kicks;
-@dynamic behinds;
-@dynamic firstName;
-@dynamic goals;
-@dynamic handballs;
-@dynamic marks;
 @dynamic clubs;
 @dynamic playerParticipants;
 
-- (void)addClubsObject:(NSManagedObject *)value {    
+- (void)addClubsObject:(PlayerClub *)value {    
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"clubs" withSetMutation:NSKeyValueUnionSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"clubs"] addObject:value];
@@ -30,7 +23,7 @@
     [changedObjects release];
 }
 
-- (void)removeClubsObject:(NSManagedObject *)value {
+- (void)removeClubsObject:(PlayerClub *)value {
     NSSet *changedObjects = [[NSSet alloc] initWithObjects:&value count:1];
     [self willChangeValueForKey:@"clubs" withSetMutation:NSKeyValueMinusSetMutation usingObjects:changedObjects];
     [[self primitiveValueForKey:@"clubs"] removeObject:value];

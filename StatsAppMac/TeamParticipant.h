@@ -2,7 +2,7 @@
 //  TeamParticipant.h
 //  StatsAppMac
 //
-//  Created by David Mackenzie on 20/09/12.
+//  Created by David Mackenzie on 19/12/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @interface TeamParticipant : Participant {
 @private
 }
+@property (nonatomic, retain) NSNumber * home;
 @property (nonatomic, retain) Team * team;
 @property (nonatomic, retain) NSSet* playerParticipants;
 
