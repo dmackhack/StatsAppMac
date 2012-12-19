@@ -82,7 +82,7 @@
     NSFetchRequest* request = [[NSFetchRequest alloc] init];
     [request setEntity:[NSEntityDescription entityForName:@"Club" inManagedObjectContext:self.repo.managedObjectContext]];
     
-    NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", @"Old Haileybury"];
+    NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", @"Old Haileybury Amat"];
     [request setPredicate:clubsByNamePredicate];
     
     NSArray* clubs = [self.repo.managedObjectContext executeFetchRequest:request error:nil];
@@ -170,6 +170,8 @@
     
     Match* a = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:self.repo.managedObjectContext];
     a.date = [[NSDate alloc] init];
+    
+    NSLog(@"Date: %@", a.date);
     
     p1.match = a;
     p2.match = a;
