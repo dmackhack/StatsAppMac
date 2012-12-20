@@ -10,10 +10,8 @@
 		28141FF91678ABEB00EBF46C /* CTeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 28141FF81678ABEB00EBF46C /* CTeamParticipant.m */; };
 		287BC901167D7F550025E997 /* CParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC900167D7F550025E997 /* CParticipant.m */; };
 		287BC905167E72600025E997 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC904167E725F0025E997 /* Round.m */; };
-		287BC9191681CCF90025E997 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC9181681CCF70025E997 /* Player.m */; };
 		287BC91F1681CCFE0025E997 /* TeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC91E1681CCFD0025E997 /* TeamParticipant.m */; };
 		287BC9221681CD4D0025E997 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC9211681CD4B0025E997 /* User.m */; };
-		287BC9281681D0EF0025E997 /* players-vafa-b-grade.sql in Resources */ = {isa = PBXBuildFile; fileRef = 287BC9261681D0EF0025E997 /* players-vafa-b-grade.sql */; };
 		287BC92A1681D2350025E997 /* StatsAppMac.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 287BC9291681D2350025E997 /* StatsAppMac.sqlite */; };
 		287CBB121641D26D00A3606A /* CClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 287CBB111641D26D00A3606A /* CClub.m */; };
 		287D0860160B11A100328B65 /* League.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D085F160B11A100328B65 /* League.m */; };
@@ -40,6 +38,8 @@
 		28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */; };
 		288145611655709100813E90 /* StatsAppMacSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 288145601655709100813E90 /* StatsAppMacSession.m */; };
 		2881F51E1682776D00569778 /* fixture-vafa-premier-b-2013.sql in Resources */ = {isa = PBXBuildFile; fileRef = 2881F51D1682776D00569778 /* fixture-vafa-premier-b-2013.sql */; };
+		2881F5231682A1E900569778 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2881F5221682A1E900569778 /* Player.m */; };
+		2881F5271682A3B100569778 /* players-vafa-b-grade.sql in Resources */ = {isa = PBXBuildFile; fileRef = 2881F5261682A3B100569778 /* players-vafa-b-grade.sql */; };
 		2883173E148E089A0066D319 /* MainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2883173C148E08990066D319 /* MainMenuViewController.m */; };
 		2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2883173D148E08990066D319 /* MainMenuViewController.xib */; };
 		2884575C15F5D9A300D452D3 /* SearchGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2884575A15F5D9A300D452D3 /* SearchGamesViewController.m */; };
@@ -90,13 +90,10 @@
 		287BC900167D7F550025E997 /* CParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CParticipant.m; sourceTree = "<group>"; };
 		287BC903167E725E0025E997 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
 		287BC904167E725F0025E997 /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
-		287BC9171681CCF60025E997 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		287BC9181681CCF70025E997 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 		287BC91D1681CCFD0025E997 /* TeamParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamParticipant.h; sourceTree = "<group>"; };
 		287BC91E1681CCFD0025E997 /* TeamParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamParticipant.m; sourceTree = "<group>"; };
 		287BC9201681CD490025E997 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		287BC9211681CD4B0025E997 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		287BC9261681D0EF0025E997 /* players-vafa-b-grade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "players-vafa-b-grade.sql"; sourceTree = "<group>"; };
 		287BC9291681D2350025E997 /* StatsAppMac.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatsAppMac.sqlite; sourceTree = "<group>"; };
 		287CBB101641D26D00A3606A /* CClub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CClub.h; sourceTree = "<group>"; };
 		287CBB111641D26D00A3606A /* CClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CClub.m; sourceTree = "<group>"; };
@@ -142,6 +139,9 @@
 		2881455F1655709100813E90 /* StatsAppMacSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsAppMacSession.h; sourceTree = "<group>"; };
 		288145601655709100813E90 /* StatsAppMacSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacSession.m; sourceTree = "<group>"; };
 		2881F51D1682776D00569778 /* fixture-vafa-premier-b-2013.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fixture-vafa-premier-b-2013.sql"; sourceTree = "<group>"; };
+		2881F5211682A1E900569778 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		2881F5221682A1E900569778 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		2881F5261682A3B100569778 /* players-vafa-b-grade.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "players-vafa-b-grade.sql"; sourceTree = "<group>"; };
 		2883173B148E08990066D319 /* MainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuViewController.h; sourceTree = "<group>"; };
 		2883173C148E08990066D319 /* MainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuViewController.m; sourceTree = "<group>"; };
 		2883173D148E08990066D319 /* MainMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenuViewController.xib; sourceTree = "<group>"; };
@@ -256,10 +256,10 @@
 				287BC904167E725F0025E997 /* Round.m */,
 				287BC91D1681CCFD0025E997 /* TeamParticipant.h */,
 				287BC91E1681CCFD0025E997 /* TeamParticipant.m */,
-				287BC9171681CCF60025E997 /* Player.h */,
-				287BC9181681CCF70025E997 /* Player.m */,
 				287BC9201681CD490025E997 /* User.h */,
 				287BC9211681CD4B0025E997 /* User.m */,
+				2881F5211682A1E900569778 /* Player.h */,
+				2881F5221682A1E900569778 /* Player.m */,
 			);
 			name = domain;
 			sourceTree = "<group>";
@@ -267,9 +267,9 @@
 		287EA8CE160BBC0900D46241 /* db */ = {
 			isa = PBXGroup;
 			children = (
+				2881F5261682A3B100569778 /* players-vafa-b-grade.sql */,
 				2881F51D1682776D00569778 /* fixture-vafa-premier-b-2013.sql */,
 				287BC9291681D2350025E997 /* StatsAppMac.sqlite */,
-				287BC9261681D0EF0025E997 /* players-vafa-b-grade.sql */,
 				287D5F11164FC95B00A7573F /* InitalData.sql */,
 			);
 			name = db;
@@ -499,9 +499,9 @@
 				2884575D15F5D9A300D452D3 /* SearchGamesViewController.xib in Resources */,
 				287D5F12164FC95B00A7573F /* InitalData.sql in Resources */,
 				28A9B476166E82320008B8A5 /* SelectTeamViewController.xib in Resources */,
-				287BC9281681D0EF0025E997 /* players-vafa-b-grade.sql in Resources */,
 				287BC92A1681D2350025E997 /* StatsAppMac.sqlite in Resources */,
 				2881F51E1682776D00569778 /* fixture-vafa-premier-b-2013.sql in Resources */,
+				2881F5271682A3B100569778 /* players-vafa-b-grade.sql in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,9 +571,9 @@
 				28141FF91678ABEB00EBF46C /* CTeamParticipant.m in Sources */,
 				287BC901167D7F550025E997 /* CParticipant.m in Sources */,
 				287BC905167E72600025E997 /* Round.m in Sources */,
-				287BC9191681CCF90025E997 /* Player.m in Sources */,
 				287BC91F1681CCFE0025E997 /* TeamParticipant.m in Sources */,
 				287BC9221681CD4D0025E997 /* User.m in Sources */,
+				2881F5231682A1E900569778 /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

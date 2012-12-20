@@ -2,7 +2,7 @@
 //  Player.h
 //  StatsAppMac
 //
-//  Created by David Mackenzie on 19/12/12.
+//  Created by David Mackenzie on 20/12/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -15,6 +15,7 @@
 @interface Player : User {
 @private
 }
+@property (nonatomic, retain) NSNumber * number;
 @property (nonatomic, retain) NSSet* clubs;
 @property (nonatomic, retain) NSSet* playerParticipants;
 

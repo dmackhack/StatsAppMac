@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "CPlayer.h"
 #import "PlayerParticipant.h"
 #import "CParticipant.h"
 #import "FootyPlayerStatistics.h"
 #import "SqlLiteRepository.h"
 
-@class Player;
 @class StatsAppMacAppDelegate;
 
 @interface StatsCell : UITableViewCell

@@ -13,7 +13,7 @@
 
 - (NSString*) displayName
 {
-    return [NSString stringWithFormat:@"%@, %@", self.lastName, self.firstName];
+    return [NSString stringWithFormat:@"%@. %@, %@", self.number, self.lastName, self.firstName];
 }
 
 @end

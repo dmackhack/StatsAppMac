@@ -83,7 +83,7 @@
 
 - (void) reloadData
 {
-    self.playerName.text = [NSString stringWithFormat:@"%@, %@", self.playerParticipant.player.lastName, self.playerParticipant.player.firstName];
+    self.playerName.text = [NSString stringWithFormat:@"%@", [self.playerParticipant.player displayName]];
     self.kicksLabel.text = [self.playerStatistics.kicks stringValue];
     self.marksLabel.text = [self.playerStatistics.marks stringValue];
     self.handballsLabel.text = [self.playerStatistics.handballs stringValue];
