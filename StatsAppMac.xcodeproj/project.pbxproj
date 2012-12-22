@@ -69,6 +69,8 @@
 		28A9B476166E82320008B8A5 /* SelectTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A9B474166E82320008B8A5 /* SelectTeamViewController.xib */; };
 		28C9A8421670061100BF8717 /* CMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A8411670061100BF8717 /* CMatch.m */; };
 		28C9A84616700B6700BF8717 /* CPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A84516700B6700BF8717 /* CPlayer.m */; };
+		28D35D4B1683447600BC74F1 /* FixtureMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D35D491683447600BC74F1 /* FixtureMatchViewController.m */; };
+		28D35D4C1683447600BC74F1 /* FixtureMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D35D4A1683447600BC74F1 /* FixtureMatchViewController.xib */; };
 		63845C91147FC7980033426E /* StatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C8F147FC7980033426E /* StatsCell.m */; };
 		63845C92147FC7980033426E /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63845C90147FC7980033426E /* StatsCell.xib */; };
 /* End PBXBuildFile section */
@@ -182,6 +184,9 @@
 		28C9A8411670061100BF8717 /* CMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMatch.m; sourceTree = "<group>"; };
 		28C9A84416700B6600BF8717 /* CPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPlayer.h; sourceTree = "<group>"; };
 		28C9A84516700B6700BF8717 /* CPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPlayer.m; sourceTree = "<group>"; };
+		28D35D481683447600BC74F1 /* FixtureMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureMatchViewController.h; sourceTree = "<group>"; };
+		28D35D491683447600BC74F1 /* FixtureMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureMatchViewController.m; sourceTree = "<group>"; };
+		28D35D4A1683447600BC74F1 /* FixtureMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FixtureMatchViewController.xib; sourceTree = "<group>"; };
 		63845C8E147FC7980033426E /* StatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsCell.h; path = ../StatsCell.h; sourceTree = "<group>"; };
 		63845C8F147FC7980033426E /* StatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsCell.m; path = ../StatsCell.m; sourceTree = "<group>"; };
 		63845C90147FC7980033426E /* StatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsCell.xib; path = ../StatsCell.xib; sourceTree = "<group>"; };
@@ -394,6 +399,9 @@
 				28A9B472166E82310008B8A5 /* SelectTeamViewController.h */,
 				28A9B473166E82310008B8A5 /* SelectTeamViewController.m */,
 				28A9B474166E82320008B8A5 /* SelectTeamViewController.xib */,
+				28D35D481683447600BC74F1 /* FixtureMatchViewController.h */,
+				28D35D491683447600BC74F1 /* FixtureMatchViewController.m */,
+				28D35D4A1683447600BC74F1 /* FixtureMatchViewController.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -502,6 +510,7 @@
 				287BC92A1681D2350025E997 /* StatsAppMac.sqlite in Resources */,
 				2881F51E1682776D00569778 /* fixture-vafa-premier-b-2013.sql in Resources */,
 				2881F5271682A3B100569778 /* players-vafa-b-grade.sql in Resources */,
+				28D35D4C1683447600BC74F1 /* FixtureMatchViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +583,7 @@
 				287BC91F1681CCFE0025E997 /* TeamParticipant.m in Sources */,
 				287BC9221681CD4D0025E997 /* User.m in Sources */,
 				2881F5231682A1E900569778 /* Player.m in Sources */,
+				28D35D4B1683447600BC74F1 /* FixtureMatchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -33,6 +33,7 @@
 - (IBAction)gameDayClicked:(id)sender;
 - (IBAction)teamSearchClicked:(id)sender;
 - (IBAction)selectTeamClicked:(id)sender;
+- (IBAction)adminPlayersClicked:(id)sender;
 
 
 @end

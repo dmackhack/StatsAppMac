@@ -116,22 +116,38 @@
     return rows;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 120.00;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MultiColumnCell";
+    static NSString *CellIdentifier = @"FixtureMatchCell";
     
-    MultiColumnTableCell *cell = (MultiColumnTableCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[MultiColumnTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+    FixtureMatchViewController* matchViewController = nil;
+    UITableViewCell *cell = (UITableViewCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil)
+    {
+        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+        NSLog(@"height: %f width: %f", cell.contentView.bounds.size.height, cell.contentView.bounds.size.width);
+        CGRect viewFrame = CGRectMake(0.0, 0.0, tableView.bounds.size.width, 120);
+        matchViewController = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil]; 
+        matchViewController.view.frame = viewFrame;
+        [cell.contentView addSubview:matchViewController.view];
     }
     
-    [cell initialize];
+    //MultiColumnTableCell *cell = (MultiColumnTableCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    //if (cell == nil) {
+    //    cell = [[[MultiColumnTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+    //}
+    
+    //[cell initialize];
         
     Match* match = [[[[self session] selectedClub] combinedClubFixture] objectAtIndex:indexPath.row];
     NSArray* participants = [[match participants] allObjects];
         
-    NSString* label1 = [[match date] description];
+    NSString* label1 = [NSString stringWithFormat:@"Date: %@", [[match date] description]];
     NSString* label2 = [[[self session] selectedClub] name];
     NSString* label3 = @"N/A";
         
@@ -143,23 +159,33 @@
         label2 = [[[team1 team] club] name];
         label3 = [[[team2 team] club] name];
     }
+    
+    NSLog(@"Setting values for round: %i", [match.round.number intValue]);
+    UIView* subview = [cell.contentView.subviews objectAtIndex:0];
+    
+    matchViewController = (FixtureMatchViewController*) [subview nextResponder] ;
+    matchViewController.dateLabel.text = label1;
+    matchViewController.homeTeamLabel.text = label2;
+    matchViewController.awayTeamLabel.text = label3;
+    matchViewController.roundLabel.text = [NSString stringWithFormat:@"Round: %i", [match.round.number intValue]];
+    
+    // Don't uncomment CGRectMake(x, y, width, height)
+    
+    //int margin = 10;
+    //int col1start=0.0;
+    //int col1width=90;
+    //int col1end=col1start+col1width+margin;
+    //[cell addColumnWithStart:col1start withWidth:col1width withEnd:col1end withText:label1 withHeight:tableView.rowHeight];
         
-    // CGRectMake(x, y, width, height)
-    int margin = 10;
-    int col1start=0.0;
-    int col1width=90;
-    int col1end=col1start+col1width+margin;
-    [cell addColumnWithStart:col1start withWidth:col1width withEnd:col1end withText:label1 withHeight:tableView.rowHeight];
+    //int col2start=col1end+margin;
+    //int col2width=220;
+    //int col2end=col2start+col2width+margin;
+    //[cell addColumnWithStart:col2start withWidth:col2width withEnd:col2end withText:label2 withHeight:tableView.rowHeight];
         
-    int col2start=col1end+margin;
-    int col2width=220;
-    int col2end=col2start+col2width+margin;
-    [cell addColumnWithStart:col2start withWidth:col2width withEnd:col2end withText:label2 withHeight:tableView.rowHeight];
-        
-    int col3start=col2end+margin;
-    int col3width=220;
-    int col3end=col3start+col3width+margin;
-    [cell addColumnWithStart:col3start withWidth:col3width withEnd:col3end withText:label3 withHeight:tableView.rowHeight];
+    //int col3start=col2end+margin;
+    //int col3width=220;
+    //int col3end=col3start+col3width+margin;
+    //[cell addColumnWithStart:col3start withWidth:col3width withEnd:col3end withText:label3 withHeight:tableView.rowHeight];
     
     
     //cell.textLabel.text = [NSString stringWithFormat:@"Fixture Game One for %@", self.selectedClub.name];
@@ -237,51 +263,51 @@
     }
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    static NSString *CellIdentifier = @"MultiColumnCell";
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    static NSString *CellIdentifier = @"MultiColumnCell";
     
-    MultiColumnTableCell* cell = [[[MultiColumnTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
-    [cell initialize];
-    cell.backgroundColor = [UIColor lightGrayColor];
+//    MultiColumnTableCell* cell = [[[MultiColumnTableCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+//    [cell initialize];
+//    cell.backgroundColor = [UIColor lightGrayColor];
     
-    int margin = 10;
-    int col1start=0.0;
-    int col1width=90;
-    int col1end=col1start+col1width+margin;
-    [cell addColumnWithStart:col1start withWidth:col1width withEnd:col1end withText:@"Date" withHeight:tableView.rowHeight];
+//    int margin = 10;
+//    int col1start=0.0;
+//    int col1width=90;
+//    int col1end=col1start+col1width+margin;
+//    [cell addColumnWithStart:col1start withWidth:col1width withEnd:col1end withText:@"Date" withHeight:tableView.rowHeight];
     
-    int col2start=col1end+margin;
-    int col2width=220;
-    int col2end=col2start+col2width+margin;
-    [cell addColumnWithStart:col2start withWidth:col2width withEnd:col2end withText:@"Home Team" withHeight:tableView.rowHeight];
+//    int col2start=col1end+margin;
+//    int col2width=220;
+//    int col2end=col2start+col2width+margin;
+//    [cell addColumnWithStart:col2start withWidth:col2width withEnd:col2end withText:@"Home Team" withHeight:tableView.rowHeight];
     
-    int col3start=col2end+margin;
-    int col3width=220;
-    int col3end=col3start+col3width+margin;
-    [cell addColumnWithStart:col3start withWidth:col3width withEnd:col3end withText:@"Away Team" withHeight:tableView.rowHeight];
+//    int col3start=col2end+margin;
+//    int col3width=220;
+//    int col3end=col3start+col3width+margin;
+//    [cell addColumnWithStart:col3start withWidth:col3width withEnd:col3end withText:@"Away Team" withHeight:tableView.rowHeight];
 
-    if (section == 0)
-    {
-        return cell;
-    }
-    else
-    {
-        return nil;
-    }
-}
+//    if (section == 0)
+//    {
+//        return cell;
+//    }
+//    else
+//    {
+//        return nil;
+//    }
+//}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    if (section == 0)
-    {
-        return tableView.rowHeight;
-    }
-    else
-    {
-        return 0.0;
-    }
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    if (section == 0)
+//    {
+//        return tableView.rowHeight;
+//    }
+//    else
+//    {
+//        return 0.0;
+//    }
+//}
 
 
 @end

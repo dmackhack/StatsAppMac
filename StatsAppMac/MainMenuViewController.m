@@ -109,4 +109,13 @@
     [selectTeamView release];
 }
 
+- (IBAction)adminPlayersClicked:(id)sender
+{
+    FixtureMatchViewController* fixture = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:fixture animated:YES];
+    [fixture release];
+    
+}
+
 @end
