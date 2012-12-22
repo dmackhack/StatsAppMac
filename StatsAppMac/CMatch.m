@@ -24,4 +24,28 @@
     return nil;
 }
 
+- (TeamParticipant*) homeTeam
+{
+    for (TeamParticipant* part in [self.participants allObjects])
+    {
+        if ([[part home] intValue] == 1)
+        {
+            return part;
+        }
+    }
+    return nil;
+}
+
+- (TeamParticipant*) awayTeam
+{
+    for (TeamParticipant* part in [self.participants allObjects])
+    {
+        if ([[part home] intValue] != 1)
+        {
+            return part;
+        }
+    }
+    return nil;
+}
+
 @end

@@ -150,26 +150,26 @@
         
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
-    NSString* label1 = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[match date]]];
-    NSString* label2 = [[[self session] selectedClub] name];
-    NSString* label3 = @"N/A";
+    NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[match date]]];
+    NSString* homeTeamLabel = [[[self session] selectedClub] name];
+    NSString* awayTeamLabel = @"N/A";
         
     if ([participants count] == 2)
     {
-        TeamParticipant* team1 = [participants objectAtIndex:0];
-        TeamParticipant* team2 = [participants objectAtIndex:1];
+        TeamParticipant* homeTeam = [match homeTeam];
+        TeamParticipant* awayTeam = [match awayTeam];
                 
-        label2 = [[[team1 team] club] name];
-        label3 = [[[team2 team] club] name];
+        homeTeamLabel = [[[homeTeam team] club] name];
+        awayTeamLabel = [[[awayTeam team] club] name];
     }
     
     NSLog(@"Setting values for round: %i", [match.round.number intValue]);
     UIView* subview = [cell.contentView.subviews objectAtIndex:0];
     
     matchViewController = (FixtureMatchViewController*) [subview nextResponder] ;
-    matchViewController.dateLabel.text = label1;
-    matchViewController.homeTeamLabel.text = label2;
-    matchViewController.awayTeamLabel.text = label3;
+    matchViewController.dateLabel.text = dateLabel;
+    matchViewController.homeTeamLabel.text = homeTeamLabel;
+    matchViewController.awayTeamLabel.text = awayTeamLabel;
     matchViewController.roundLabel.text = [NSString stringWithFormat:@"Round: %i", [match.round.number intValue]];
     
     // Don't uncomment CGRectMake(x, y, width, height)

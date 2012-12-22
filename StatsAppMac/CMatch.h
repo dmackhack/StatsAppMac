@@ -16,5 +16,7 @@
 @interface Match (CMatch)
 
 - (TeamParticipant*) teamParticipantForClub:(Club*) club;
+- (TeamParticipant*) homeTeam;
+- (TeamParticipant*) awayTeam;
 
 @end
