@@ -147,7 +147,9 @@
     Match* match = [[[[self session] selectedClub] combinedClubFixture] objectAtIndex:indexPath.row];
     NSArray* participants = [[match participants] allObjects];
         
-    NSString* label1 = [NSString stringWithFormat:@"Date: %@", [[match date] description]];
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+    NSString* label1 = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[match date]]];
     NSString* label2 = [[[self session] selectedClub] name];
     NSString* label3 = @"N/A";
         

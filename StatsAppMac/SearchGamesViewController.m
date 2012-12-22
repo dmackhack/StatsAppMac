@@ -87,8 +87,10 @@ NSString* searchTerm;
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
 {
     NSLog(@"Cancel");
+    searchTerm = nil;
     [self session].selectedClub = nil;
     [self.fixtureSearchDelegate updateFixture];
+    [self.tableView reloadData];
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -100,10 +102,7 @@ NSString* searchTerm;
 
 - (NSFetchedResultsController *) resultsController
 {
-    if (searchTerm == nil)
-    {
-        return nil;
-    }
+    
     
     StatsAppMacAppDelegate* appDel = self.appDelegate;
     SqlLiteRepository* repo = [appDel repo];
@@ -115,9 +114,11 @@ NSString* searchTerm;
     [fetchClubsByName setEntity:playerEntityDescription];
 
     NSLog(@"Search Term: %@", searchTerm);
-    
-    NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchTerm];
-    [fetchClubsByName setPredicate:clubsByNamePredicate];                                             
+    if (searchTerm != nil)
+    {    
+        NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchTerm];
+        [fetchClubsByName setPredicate:clubsByNamePredicate];
+    }
     
     NSSortDescriptor* clubsByNameSD = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
     [fetchClubsByName setSortDescriptors:[NSArray arrayWithObject:clubsByNameSD]];
