@@ -46,7 +46,8 @@
     [self.availablePlayers addObjectsFromArray:[[[self session] selectedClub] currentPlayers]];
     
     [self.selectedPlayers removeAllObjects];
-    [self.selectedPlayers addObjectsFromArray:[[[self selectedTeamParticipant] playerParticipants] allObjects]];
+    //[self.selectedPlayers addObjectsFromArray:[[[self selectedTeamParticipant] playerParticipants] allObjects]];
+    [self.selectedPlayers addObjectsFromArray:[[self selectedTeamParticipant] playerParticipantsByLastName]];
     
     [[self availablePlayersTableView] reloadData];
     [[self selectedTeamTableView] reloadData];

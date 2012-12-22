@@ -13,6 +13,7 @@
 #import "Match.h"
 #import "StatsAppMacSession.h"
 #import "TeamParticipant.h"
+#import "CTeamParticipant.h"
 #import "Team.h"
 #import "Club.h"
 #import "CClub.h"

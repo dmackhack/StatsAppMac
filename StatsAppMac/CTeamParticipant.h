@@ -16,5 +16,6 @@
 @interface TeamParticipant (CTeamParticipant)
 
 - (void) addPlayerToTeamParticipant:(Player*)player withRepository:(SqlLiteRepository*)repo;
+- (NSMutableArray*) playerParticipantsByLastName;
 
 @end

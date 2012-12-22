@@ -31,7 +31,7 @@
 {
     if ([self selectedTeamParticipant] != nil)
     {
-        return [[[self selectedTeamParticipant] playerParticipants] allObjects];
+        return [[self selectedTeamParticipant] playerParticipantsByLastName];
     }
     return nil;
 }

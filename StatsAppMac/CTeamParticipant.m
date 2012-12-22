@@ -34,5 +34,11 @@
     }
 }
 
+- (NSMutableArray*) playerParticipantsByLastName
+{
+    NSSortDescriptor* sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"player.lastName" ascending:YES] autorelease];
+    NSMutableArray* sortDescriptors = [NSMutableArray arrayWithObject:sortDescriptor];
+    return (NSMutableArray*)[[[self playerParticipants] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+}
 
 @end
