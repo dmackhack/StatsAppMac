@@ -21,7 +21,9 @@
             [fixture addObject:[participant match]];
         }
     }
-    return fixture;
+    NSSortDescriptor* sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES] autorelease];
+    NSMutableArray* sortDescriptors = [NSMutableArray arrayWithObject:sortDescriptor];
+    return (NSMutableArray*)[fixture sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 - (NSMutableArray*) currentPlayers
