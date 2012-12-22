@@ -153,6 +153,7 @@
     NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[match date]]];
     NSString* homeTeamLabel = [[[self session] selectedClub] name];
     NSString* awayTeamLabel = @"N/A";
+    NSString* divisionLabel = @"N/A";
         
     if ([participants count] == 2)
     {
@@ -161,6 +162,7 @@
                 
         homeTeamLabel = [[[homeTeam team] club] name];
         awayTeamLabel = [[[awayTeam team] club] name];
+        divisionLabel = [NSString stringWithFormat:@"%@ - %@", match.round.season.division.name,  homeTeam.team.name];
     }
     
     NSLog(@"Setting values for round: %i", [match.round.number intValue]);
@@ -170,6 +172,7 @@
     matchViewController.dateLabel.text = dateLabel;
     matchViewController.homeTeamLabel.text = homeTeamLabel;
     matchViewController.awayTeamLabel.text = awayTeamLabel;
+    matchViewController.divisionLabel.text = divisionLabel;
     matchViewController.roundLabel.text = [NSString stringWithFormat:@"Round: %i", [match.round.number intValue]];
     
     // Don't uncomment CGRectMake(x, y, width, height)

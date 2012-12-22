@@ -11,7 +11,7 @@
 
 @implementation FixtureMatchViewController
 
-@synthesize roundLabel=roundLabel_, round=round_, dateLabel=dateLabel_, date=date_, homeTeamLabel=homeTeamLabel_, homeTeam=homeTeam_, awayTeamLabel=awayTeamLabel_, awayTeam=awayTeam_;
+@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, divisionLabel=divisionLabel_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,14 +24,11 @@
 
 - (void)dealloc
 {
-    [round_ release];
     [roundLabel_ release];
     [dateLabel_ release];
-    [date_ release];
-    [homeTeam_ release];
     [homeTeamLabel_ release];
-    [awayTeam_ release];
     [awayTeamLabel_ release];
+    [divisionLabel_ release];
     
     [super dealloc];
 }

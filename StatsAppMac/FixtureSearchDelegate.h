@@ -16,6 +16,8 @@
 #import "StatsAppMacSession.h"
 #import "FixtureMatchViewController.h"
 #import "Round.h"
+#import "Season.h"
+#import "Division.h"
 
 @class StatsAppMacAppDelegate;
 
