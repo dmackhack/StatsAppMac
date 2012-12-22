@@ -39,8 +39,8 @@
         NSLog(@"Writeable DB NOT found at path %@", [writableDBPath path]);
         // get the inital db and copy from the Resources. This is the one pre-popluated with data. read-only in the resources directory
         // Set to nil if don't want to over-write the existing DB
-        NSURL* defaultDBPath = nil;
-        //NSURL* defaultDBPath = [[NSBundle mainBundle] URLForResource:@"StatsAppMac" withExtension:@"sqlite"];
+        //NSURL* defaultDBPath = nil;
+        NSURL* defaultDBPath = [[NSBundle mainBundle] URLForResource:@"StatsAppMac" withExtension:@"sqlite"];
         
         if ([fileManager fileExistsAtPath:[defaultDBPath path]])
         {
