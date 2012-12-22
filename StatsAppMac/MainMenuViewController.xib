@@ -50,6 +50,7 @@
 						<string key="NSFrame">{{381, 429}, {256, 143}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
 							<bytes key="NSRGB">MCAwLjI1MDk4MDQwNyAwLjUwMTk2MDgxNAA</bytes>
@@ -115,7 +116,7 @@
 						<string key="NSFrame">{{381, 89}, {256, 144}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="239372587"/>
+						<reference key="NSNextKeyView" ref="285291547"/>
 						<reference key="IBUIBackgroundColor" ref="716876356"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -157,14 +158,14 @@
 						<string key="NSFrame">{{381, 260}, {256, 143}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="355500404"/>
+						<reference key="NSNextKeyView" ref="239372587"/>
 						<reference key="IBUIBackgroundColor" ref="716876356"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="286875847"/>
-						<string key="IBUINormalTitle">Add Players to Club</string>
+						<string key="IBUINormalTitle">Add/Edit Players</string>
 						<reference key="IBUIHighlightedTitleColor" ref="14336322"/>
 						<reference key="IBUINormalTitleColor" ref="14336322"/>
 						<reference key="IBUINormalTitleShadowColor" ref="337722816"/>
@@ -175,7 +176,7 @@
 						<string key="NSFrame">{{292, 8}, {173, 66}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="285291547"/>
+						<reference key="NSNextKeyView" ref="355500404"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
