@@ -136,6 +136,7 @@
         matchViewController.view.frame = viewFrame;
         [cell.contentView addSubview:matchViewController.view];
     }
+    cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     //MultiColumnTableCell *cell = (MultiColumnTableCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     //if (cell == nil) {

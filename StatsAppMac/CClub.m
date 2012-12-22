@@ -36,7 +36,9 @@
             [players addObject:[playerClub player]];
         }
     }
-    return players;
+    NSSortDescriptor* sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"lastName" ascending:YES] autorelease];
+    NSMutableArray* sortDescriptors = [NSMutableArray arrayWithObject:sortDescriptor];
+    return (NSMutableArray*)[players sortedArrayUsingDescriptors:sortDescriptors];
 }
 
 @end
