@@ -111,6 +111,7 @@
 
 - (IBAction)adminPlayersClicked:(id)sender
 {
+    NSLog(@"Admin Players Clicked");
     FixtureMatchViewController* fixture = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil];
     
     [self.navigationController pushViewController:fixture animated:YES];
