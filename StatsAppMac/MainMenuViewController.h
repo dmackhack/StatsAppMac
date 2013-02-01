@@ -12,6 +12,7 @@
 #import "TeamSelectionViewController.h"
 #import "SearchGamesViewController.h"
 #import "SelectTeamViewController.h"
+#import "AdminPlayersViewController.h"
 
 @interface MainMenuViewController : UIViewController {
     

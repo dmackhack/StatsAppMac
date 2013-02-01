@@ -17,10 +17,13 @@
     Club* selectedClub_;
     Match* selectedMatch_;
     
+    Club* selectedClubForEdit_;
+    
 }
 
 @property (nonatomic, retain) Club* selectedClub;
 @property (nonatomic, retain) Match* selectedMatch;
+@property (nonatomic, retain) Club* selectedClubForEdit;
 
 - (TeamParticipant*) selectedTeamParticipant;
 

@@ -18,5 +18,6 @@
 
 - (NSMutableArray*) combinedClubFixture;
 - (NSMutableArray*) currentPlayers;
+- (NSMutableArray*) allPlayers;
 
 @end

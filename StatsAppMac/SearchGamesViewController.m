@@ -162,7 +162,7 @@ NSString* searchTerm;
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) 
     {
-        cell = [[UITableViewCell alloc] init];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     Club* club = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:club.name];

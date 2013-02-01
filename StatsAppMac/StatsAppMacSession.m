@@ -11,12 +11,13 @@
 
 @implementation StatsAppMacSession
 
-@synthesize selectedClub=selectedClub_, selectedMatch=selectedMatch_;
+@synthesize selectedClub=selectedClub_, selectedMatch=selectedMatch_, selectedClubForEdit=selectedClubForEdit_;
 
 - (void)dealloc
 {
     [selectedClub_ release];
     [selectedMatch_ release];
+    [selectedClubForEdit_ release];
     
     [super dealloc];
 }
