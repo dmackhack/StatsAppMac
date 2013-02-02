@@ -18,6 +18,8 @@
 #import "Club.h"
 #import "CClub.h"
 #import "Round.h"
+#import "Season.h"
+#import "Division.h"
 
 @class StatsAppMacAppDelegate;
 @class StatsCell;
@@ -26,12 +28,14 @@
 {
     UILabel* roundLabel_;
     UILabel* dateLabel_;
+    UILabel* divisionLabel_;
     UILabel* homeTeamLabel_;
     UILabel* awayTeamLabel_;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* roundLabel;
 @property (nonatomic, retain) IBOutlet UILabel* dateLabel;
+@property (nonatomic, retain) IBOutlet UILabel* divisionLabel;
 @property (nonatomic, retain) IBOutlet UILabel* homeTeamLabel;
 @property (nonatomic, retain) IBOutlet UILabel* awayTeamLabel;
 

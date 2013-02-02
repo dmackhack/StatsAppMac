@@ -36,6 +36,12 @@ NSString* searchTerm;
 
 - (void)dealloc
 {
+    [tableView_ release];
+    [searchBar_ release];
+    [resultsController_ release];
+    [cache_ release];
+    [fixturesTableView_ release];
+    [fixtureSearchDelegate_ release];
     [super dealloc];
 }
 
@@ -62,6 +68,8 @@ NSString* searchTerm;
     
     [fixtureSearchDelegate release];
     
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
 }
 
 - (void)viewDidUnload
@@ -69,6 +77,11 @@ NSString* searchTerm;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

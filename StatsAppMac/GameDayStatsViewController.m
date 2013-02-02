@@ -11,7 +11,7 @@
 
 @implementation GameDayStatsViewController
 
-@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_;
+@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -47,6 +47,7 @@
 {
     [roundLabel_ release];
     [dateLabel_ release];
+    [divisionLabel_ release];
     [homeTeamLabel_ release];
     [awayTeamLabel_ release];
     [super dealloc];
@@ -107,7 +108,12 @@
     if ([self selectedMatch] != nil)
     {
         self.roundLabel.text = [NSString stringWithFormat:@"%@",  [[[self selectedMatch] round] number]];
-        self.dateLabel.text = [NSString stringWithFormat:@"%@",  [[[self selectedMatch] date] description]];
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
+        NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[[self selectedMatch] date]]];
+        self.dateLabel.text = dateLabel;
+        self.divisionLabel.text = [NSString stringWithFormat:@"%@ - %@", [self selectedMatch].round.season.division.name,  [[self selectedMatch] homeTeam].team.name];
         self.homeTeamLabel.text = [[[[[self selectedMatch] homeTeam] team] club] name];
         self.awayTeamLabel.text = [[[[[self selectedMatch] awayTeam] team] club] name];
     }

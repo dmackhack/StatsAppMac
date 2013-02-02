@@ -46,11 +46,11 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="IBUILabel" id="370096543">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{259, 8}, {225, 46}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="965174263"/>
+						<reference key="NSNextKeyView" ref="494938424"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -72,7 +72,7 @@
 					</object>
 					<object class="IBUITableView" id="774293308">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">275</int>
 						<string key="NSFrame">{{425, 80}, {343, 871}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -93,7 +93,7 @@
 					</object>
 					<object class="IBUITableView" id="156657018">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">274</int>
+						<int key="NSvFlags">278</int>
 						<string key="NSFrame">{{0, 80}, {319, 871}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -111,7 +111,7 @@
 					</object>
 					<object class="IBUIButton" id="115719497">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{335, 291}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -139,7 +139,7 @@
 					</object>
 					<object class="IBUIButton" id="798133105">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">293</int>
 						<string key="NSFrame">{{335, 360}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -158,9 +158,9 @@
 						</object>
 						<reference key="IBUINormalTitleShadowColor" ref="844265412"/>
 					</object>
-					<object class="IBUIButton" id="965174263">
+					<object class="IBUIButton" id="494938424">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">292</int>
+						<int key="NSvFlags">289</int>
 						<string key="NSFrame">{{673, 12}, {75, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
@@ -278,7 +278,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">next:</string>
-						<reference key="source" ref="965174263"/>
+						<reference key="source" ref="494938424"/>
 						<reference key="destination" ref="841351856"/>
 						<int key="IBEventType">7</int>
 					</object>
@@ -315,7 +315,7 @@
 							<reference ref="774293308"/>
 							<reference ref="115719497"/>
 							<reference ref="798133105"/>
-							<reference ref="965174263"/>
+							<reference ref="494938424"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -346,7 +346,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">22</int>
-						<reference key="object" ref="965174263"/>
+						<reference key="object" ref="494938424"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</object>

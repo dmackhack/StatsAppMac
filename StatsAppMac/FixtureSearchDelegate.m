@@ -150,6 +150,7 @@
         
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
     NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[match date]]];
     NSString* homeTeamLabel = [[[self session] selectedClub] name];
     NSString* awayTeamLabel = @"N/A";
@@ -173,7 +174,7 @@
     matchViewController.homeTeamLabel.text = homeTeamLabel;
     matchViewController.awayTeamLabel.text = awayTeamLabel;
     matchViewController.divisionLabel.text = divisionLabel;
-    matchViewController.roundLabel.text = [NSString stringWithFormat:@"Round: %i", [match.round.number intValue]];
+    matchViewController.roundLabel.text = [NSString stringWithFormat:@"%i", [match.round.number intValue]];
     
     // Don't uncomment CGRectMake(x, y, width, height)
     
