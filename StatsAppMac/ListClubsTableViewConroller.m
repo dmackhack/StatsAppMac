@@ -224,6 +224,9 @@
     NSLog(@"Selected Club For Edit: %@", club.name);
     [self session].selectedClubForEdit = club;
     
+    StatsAppMacNotificationCentre* noticicationCentre = [[self appDelegate] notificationCentre];
+    [noticicationCentre onChange];
+    
 }
 
 @end

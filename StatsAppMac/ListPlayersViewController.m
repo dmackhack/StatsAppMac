@@ -122,7 +122,6 @@
     }
     
     // Configure the cell...
-    
     Club* club = [self session].selectedClubForEdit;
     if (club != nil)
     {
@@ -194,5 +193,6 @@
     [editPlayerViewController release];
      
 }
+
 
 @end

@@ -14,6 +14,7 @@
 #import "Player.h"
 #import "CPlayer.h"
 #import "EditPlayerViewController.h"
+#import "SelectedClubForEditChangedListener.h"
 
 @class StatsAppMacAppDelegate;
 
@@ -23,5 +24,6 @@
 }
 
 @property (retain, nonatomic) NSString* cache;
+
 
 @end

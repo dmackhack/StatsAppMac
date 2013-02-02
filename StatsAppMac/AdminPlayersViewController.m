@@ -70,12 +70,16 @@
     
     ListPlayersViewController* listPlayersTableViewController = [[ListPlayersViewController alloc] init];
     
+    StatsAppMacNotificationCentre* noticicationCentre = [[self appDelegate] notificationCentre];
+    
     self.rightViewController = listPlayersTableViewController;
     self.rightTableView.delegate = listPlayersTableViewController;
     self.rightTableView.dataSource = listPlayersTableViewController;
     listPlayersTableViewController.tableView = self.rightTableView;
     
     [listPlayersTableViewController release];
+    
+    [noticicationCentre addSelectClubForEditChangeListener:self];
 }
 
 - (void)viewDidUnload
@@ -83,6 +87,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    StatsAppMacNotificationCentre* noticicationCentre = [[self appDelegate] notificationCentre];
+    [noticicationCentre removeSelectClubForEditChangeListener:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -106,6 +112,11 @@
     [[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
 
     [editPlayerViewController release];
+}
+
+- (void)onChange
+{
+    [self.rightTableView reloadData];
 }
 
 @end

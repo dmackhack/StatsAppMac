@@ -49,6 +49,7 @@
 		2884575D15F5D9A300D452D3 /* SearchGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2884575B15F5D9A300D452D3 /* SearchGamesViewController.xib */; };
 		28885AAE16B2429300079599 /* EditPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28885AAC16B2429300079599 /* EditPlayerViewController.m */; };
 		28885AAF16B2429300079599 /* EditPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28885AAD16B2429300079599 /* EditPlayerViewController.xib */; };
+		28894B7316BCD3430074E4A6 /* StatsAppMacNotificationCentre.m in Sources */ = {isa = PBXBuildFile; fileRef = 28894B7216BCD3410074E4A6 /* StatsAppMacNotificationCentre.m */; };
 		288BDE2D147FB70C00002F9A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2C147FB70C00002F9A /* UIKit.framework */; };
 		288BDE2F147FB70C00002F9A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2E147FB70C00002F9A /* Foundation.framework */; };
 		288BDE31147FB70C00002F9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE30147FB70C00002F9A /* CoreGraphics.framework */; };
@@ -164,6 +165,9 @@
 		28885AAB16B2429300079599 /* EditPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPlayerViewController.h; sourceTree = "<group>"; };
 		28885AAC16B2429300079599 /* EditPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPlayerViewController.m; sourceTree = "<group>"; };
 		28885AAD16B2429300079599 /* EditPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPlayerViewController.xib; sourceTree = "<group>"; };
+		28894B7116BCD3400074E4A6 /* StatsAppMacNotificationCentre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsAppMacNotificationCentre.h; sourceTree = "<group>"; };
+		28894B7216BCD3410074E4A6 /* StatsAppMacNotificationCentre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacNotificationCentre.m; sourceTree = "<group>"; };
+		28894B7416BCD53D0074E4A6 /* SelectedClubForEditChangedListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedClubForEditChangedListener.h; sourceTree = "<group>"; };
 		288BDE28147FB70C00002F9A /* StatsAppMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsAppMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288BDE2C147FB70C00002F9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288BDE2E147FB70C00002F9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -313,6 +317,14 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		28894B7016BCD2180074E4A6 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				28894B7416BCD53D0074E4A6 /* SelectedClubForEditChangedListener.h */,
+			);
+			name = events;
+			sourceTree = "<group>";
+		};
 		288BDE1D147FB70B00002F9A = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +360,8 @@
 		288BDE34147FB70C00002F9A /* StatsAppMac */ = {
 			isa = PBXGroup;
 			children = (
+				28894B7116BCD3400074E4A6 /* StatsAppMacNotificationCentre.h */,
+				28894B7216BCD3410074E4A6 /* StatsAppMacNotificationCentre.m */,
 				2881455F1655709100813E90 /* StatsAppMacSession.h */,
 				288145601655709100813E90 /* StatsAppMacSession.m */,
 				288BDE3D147FB70C00002F9A /* StatsAppMacAppDelegate.h */,
@@ -363,6 +377,7 @@
 		288BDE35147FB70C00002F9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				28894B7016BCD2180074E4A6 /* events */,
 				287ED20A164AE14C00048D18 /* repository */,
 				287EA8CE160BBC0900D46241 /* db */,
 				2879EF1816086EC90027D798 /* domain */,
@@ -616,6 +631,7 @@
 				280B9A4216A4BAB000F066DE /* ListClubsTableViewConroller.m in Sources */,
 				28885AAE16B2429300079599 /* EditPlayerViewController.m in Sources */,
 				28C20E3D16B7311100AE28C6 /* ListPlayersViewController.m in Sources */,
+				28894B7316BCD3430074E4A6 /* StatsAppMacNotificationCentre.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

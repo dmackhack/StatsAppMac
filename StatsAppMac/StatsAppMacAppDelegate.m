@@ -11,7 +11,7 @@
 @implementation StatsAppMacAppDelegate
 
 
-@synthesize window=_window, repo=repo_, session=session_;
+@synthesize window=_window, repo=repo_, session=session_, notificationCentre=notificationCentre_;
 
 
 - (SqlLiteRepository*) repo
@@ -30,6 +30,15 @@
         session_ = [[StatsAppMacSession alloc] init];
     }
     return session_;
+}
+
+- (StatsAppMacNotificationCentre*) notificationCentre
+{
+    if (notificationCentre_ == nil)
+    {
+        notificationCentre_ = [[StatsAppMacNotificationCentre alloc] init];
+    }
+    return notificationCentre_;
 }
 
 
@@ -191,6 +200,7 @@
     [_window release];
     [repo_ release];
     [session_ release];
+    [notificationCentre_ release];
 
     [super dealloc];
 }

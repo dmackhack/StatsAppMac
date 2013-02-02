@@ -16,11 +16,12 @@
 #import "Player.h"
 #import "CPlayer.h"
 #import "EditPlayerViewController.h"
+#import "StatsAppMacNotificationCentre.h"
 
 @class StatsAppMacAppDelegate;
 
 
-@interface AdminPlayersViewController : UIViewController {
+@interface AdminPlayersViewController : UIViewController <SelectedClubForEditChangedListener> {
     
     ListClubsTableViewConroller* leftViewController_;
     UITableView* leftTableView_;

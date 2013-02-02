@@ -18,6 +18,7 @@
 #import "Season.h"
 #import "Round.h"
 #import "StatsAppMacSession.h"
+#import "StatsAppMacNotificationCentre.h"
 
 
 @interface StatsAppMacAppDelegate : NSObject <UIApplicationDelegate> 
@@ -26,11 +27,13 @@
     MainMenuViewController* mainView_;
     SqlLiteRepository* repo_;
     StatsAppMacSession* session_;
+    StatsAppMacNotificationCentre* notificationCentre_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow* window;
 @property (nonatomic, retain, readonly) SqlLiteRepository* repo;
 @property (nonatomic, retain) StatsAppMacSession* session;
+@property (nonatomic, retain) StatsAppMacNotificationCentre* notificationCentre;
 
 
 - (void) populatePlayerData;
