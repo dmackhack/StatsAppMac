@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "Player.h"
+#import "Club.h"
+#import "PlayerClub.h"
 
 @interface Player (CPlayer)
 
 - (NSString*) displayName;
+- (PlayerClub*) playerClubForClub:(Club*) club;
 
 @end

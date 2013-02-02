@@ -53,4 +53,27 @@
     return (NSMutableArray*)[players sortedArrayUsingDescriptors:sortDescriptors];
 }
 
+- (Player*) addNewPlayerWithRepositoryWithRepository:(SqlLiteRepository *)repo
+{
+    Player* playerEntity = nil;
+    
+    PlayerClub* playerClub = [NSEntityDescription insertNewObjectForEntityForName:@"PlayerClub" inManagedObjectContext:repo.managedObjectContext];
+    playerEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:repo.managedObjectContext];
+        
+    playerEntity.firstName = @"";
+    playerEntity.lastName = @"";
+    playerEntity.number = 0;
+        
+    playerClub.club = self;
+    playerClub.player = playerEntity;
+    playerClub.active = [NSNumber numberWithInt:1];
+        
+    [playerEntity addClubsObject:playerClub];
+        
+    NSLog(@"Adding player %@", [playerEntity displayName]);
+    [self addPlayersObject:playerClub];
+    
+    return playerEntity;
+}
+
 @end

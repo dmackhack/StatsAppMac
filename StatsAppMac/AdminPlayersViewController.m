@@ -14,6 +14,16 @@
 @synthesize leftViewController=leftViewController_, leftTableView=leftTableView_, rightViewController=rightViewContoller_, rightTableView=rightTableView_;
 
 
+- (StatsAppMacAppDelegate *) appDelegate
+{
+    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (StatsAppMacSession*) session
+{
+    return [[self appDelegate] session];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -87,6 +97,15 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (IBAction)addPlayer:(id)sender
+{
+    EditPlayerViewController *editPlayerViewController = [[EditPlayerViewController alloc] initWithNibName:@"EditPlayerViewController" bundle:nil];
+    editPlayerViewController.player = nil;
+    [[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
+
+    [editPlayerViewController release];
 }
 
 @end

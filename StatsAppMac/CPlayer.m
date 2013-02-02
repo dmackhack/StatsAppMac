@@ -21,4 +21,20 @@
     return displayName;
 }
 
+- (PlayerClub*) playerClubForClub:(Club*) club
+{
+    PlayerClub* playerClub = nil;
+    
+    for (PlayerClub* currentPlayerClub in self.clubs)
+    {
+        if ([currentPlayerClub.club.name compare:club.name] == 0)
+        {
+            NSLog(@"Clubs match...");
+            return currentPlayerClub;
+        }
+    }
+    
+    return playerClub;
+}
+
 @end

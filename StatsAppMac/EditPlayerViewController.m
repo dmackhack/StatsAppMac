@@ -11,22 +11,67 @@
 
 @implementation EditPlayerViewController
 
-@synthesize player=player_, firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_;
+@synthesize player=player_, firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_, activeTextView=activeTextView_;
 
+- (StatsAppMacAppDelegate *) appDelegate
+{
+    return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (StatsAppMacSession*) session
+{
+    return [[self appDelegate] session];
+}
 
 - (void)reloadData
 {
     if (self.player != nil)
     {
-        self.firstNameTextView.text = self.player.firstName;
-        self.lastNameTextView.text = self.player.lastName;
-        self.numberTextView.text = [NSString stringWithFormat:@"%@", self.player.number];
+        if (self.player.firstName != nil)
+        {
+            self.firstNameTextView.text = self.player.firstName;
+        }
+        else
+        {
+            self.firstNameTextView.text = @"";
+        }
+        
+        if (self.player.lastName != nil)
+        {
+            self.lastNameTextView.text = self.player.lastName;
+        }
+        else
+        {
+            self.lastNameTextView.text = @"";
+        }
+        
+        if (self.player.number != nil)
+        {
+            self.numberTextView.text = [NSString stringWithFormat:@"%@", self.player.number];
+        }
+        else
+        {
+            self.numberTextView.text = @"";
+        }
+        Club* club = [[self session] selectedClubForEdit];
+        PlayerClub* playerClub = [self.player playerClubForClub:club];
+        if (playerClub != nil && playerClub.active != nil)
+        {
+            NSLog(@"Active: %@", playerClub.active);
+            self.activeTextView.text = [NSString stringWithFormat:@"%@", playerClub.active];
+        }
+        else
+        {
+            NSLog(@"Active nil");
+            self.activeTextView.text = @"";
+        }
     }
     else
     {
         self.firstNameTextView.text = @"";
         self.lastNameTextView.text = @"";
         self.numberTextView.text = @"";
+        self.activeTextView.text = @"";
     }
     
 }
@@ -43,6 +88,10 @@
 - (void)dealloc
 {
     [player_ release];
+    [firstNameTextView_ release];
+    [lastNameTextView_ release];
+    [numberTextView_ release];
+    [activeTextView_ release];
     [super dealloc];
 }
 
@@ -100,6 +149,22 @@
 - (IBAction)save:(id)sender
 {
     // update player object and save
+    SqlLiteRepository* repo = [[self appDelegate] repo];
+    Club* club = [[self session] selectedClubForEdit];
+    if (self.player == nil)
+    {
+        self.player = [club addNewPlayerWithRepositoryWithRepository:repo];
+    }
+        
+    self.player.firstName = self.firstNameTextView.text;
+    self.player.lastName = self.lastNameTextView.text;
+    self.player.number = [NSNumber numberWithInt:[self.numberTextView.text intValue]];
+    PlayerClub* playerClub = [self.player playerClubForClub:club];
+    playerClub.active = [NSNumber numberWithInt:[self.activeTextView.text intValue]];
+    
+    // call saveContext
+    [repo saveContext];
+    
     [self dismissModalViewControllerAnimated:YES];
 }
 

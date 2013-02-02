@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Player.h"
+#import "Club.h"
+#import "CClub.h"
+#import "SqlLiteRepository.h"
+#import "StatsAppMacSession.h"
+
+@class StatsAppMacAppDelegate;
+
 
 @interface EditPlayerViewController : UIViewController {
     
@@ -16,6 +23,7 @@
     UITextField* firstNameTextView_;
     UITextField* lastNameTextView_;
     UITextField* numberTextView_;
+    UITextField* activeTextView_;
     
     
 }
@@ -25,6 +33,7 @@
 @property (nonatomic, retain) IBOutlet UITextField* firstNameTextView;
 @property (nonatomic, retain) IBOutlet UITextField* lastNameTextView;
 @property (nonatomic, retain) IBOutlet UITextField* numberTextView;
+@property (nonatomic, retain) IBOutlet UITextField* activeTextView;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
