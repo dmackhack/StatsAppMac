@@ -253,8 +253,11 @@
     
     Match* match = [[[[self session] selectedClub] combinedClubFixture] objectAtIndex:indexPath.row];
     [self session].selectedMatch = match;
-    
     NSLog(@"selected match date: %@", [[match date] description]);
+    
+    SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
+    [[[[self appDelegate] window] rootViewController] pushViewController:selectTeamView animated:YES];
+    [selectTeamView release];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

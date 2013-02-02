@@ -271,4 +271,12 @@
     [self reloadData];
 }
 
+- (IBAction)next:(id)sender
+{
+    GameDayStatsViewController* statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];    
+    [self.navigationController pushViewController:statsView animated:YES];
+    [statsView release];
+
+}
+
 @end

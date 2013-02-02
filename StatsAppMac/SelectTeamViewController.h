@@ -18,6 +18,7 @@
 #import "CClub.h"
 #import "Club.h"
 #import "SqlLiteRepository.h"
+#import "GameDayStatsViewController.h"
 
 @class StatsAppMacAppDelegate;
 
@@ -42,5 +43,6 @@
 
 - (IBAction)addPlayersToTeam:(id)sender;
 - (IBAction)removePlayersFromTeam:(id)sender;
+- (IBAction)next:(id)sender;
 
 @end

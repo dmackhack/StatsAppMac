@@ -20,6 +20,7 @@
     
     Player* player_;
     
+    UITextField* userIdTextView_;
     UITextField* firstNameTextView_;
     UITextField* lastNameTextView_;
     UITextField* numberTextView_;
@@ -30,6 +31,7 @@
 
 @property (nonatomic, retain) Player* player;
 
+@property (nonatomic, retain) IBOutlet UITextField* userIdTextView;
 @property (nonatomic, retain) IBOutlet UITextField* firstNameTextView;
 @property (nonatomic, retain) IBOutlet UITextField* lastNameTextView;
 @property (nonatomic, retain) IBOutlet UITextField* numberTextView;

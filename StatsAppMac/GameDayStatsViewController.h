@@ -17,12 +17,22 @@
 #import "Team.h"
 #import "Club.h"
 #import "CClub.h"
+#import "Round.h"
 
 @class StatsAppMacAppDelegate;
 @class StatsCell;
 
 @interface GameDayStatsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate> 
 {
+    UILabel* roundLabel_;
+    UILabel* dateLabel_;
+    UILabel* homeTeamLabel_;
+    UILabel* awayTeamLabel_;
 }
+
+@property (nonatomic, retain) IBOutlet UILabel* roundLabel;
+@property (nonatomic, retain) IBOutlet UILabel* dateLabel;
+@property (nonatomic, retain) IBOutlet UILabel* homeTeamLabel;
+@property (nonatomic, retain) IBOutlet UILabel* awayTeamLabel;
 
 @end

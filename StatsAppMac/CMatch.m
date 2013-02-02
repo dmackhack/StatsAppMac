@@ -17,7 +17,7 @@
     {
         if ([[[[part team] club] name] isEqualToString:[club name]])
         {
-            NSLog(@"Found team participant");
+            // NSLog(@"Found team participant");
             return part;
         }
     }

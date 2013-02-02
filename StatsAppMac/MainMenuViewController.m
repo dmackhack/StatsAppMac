@@ -80,13 +80,14 @@
 - (IBAction)gameDayClicked:(id)sender 
 {
     NSLog(@"Game Day Clicked");
-    //GameDayStatsViewController* statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
-    TeamSelectionViewController* teamSelectionView = [[TeamSelectionViewController alloc] initWithNibName:@"TeamSelectionViewController" bundle:nil];
+    GameDayStatsViewController* statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
+    //TeamSelectionViewController* teamSelectionView = [[TeamSelectionViewController alloc] initWithNibName:@"TeamSelectionViewController" bundle:nil];
     
-    // TODO figure out a way to get a reference to the managedObjectContext other than passing it around everywhere.
-    [self.navigationController pushViewController:teamSelectionView animated:YES];
-    //[statsView release];
-    [teamSelectionView release];
+    //[self.navigationController pushViewController:teamSelectionView animated:YES];
+    //[teamSelectionView release];
+    
+    [self.navigationController pushViewController:statsView animated:YES];
+    [statsView release];
     NSLog(@"Game Day Clicked END...");
 }
 

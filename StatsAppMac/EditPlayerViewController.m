@@ -11,7 +11,7 @@
 
 @implementation EditPlayerViewController
 
-@synthesize player=player_, firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_, activeTextView=activeTextView_;
+@synthesize player=player_, userIdTextView=userIdTextView_ ,firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_, activeTextView=activeTextView_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -27,6 +27,15 @@
 {
     if (self.player != nil)
     {
+        if (self.player.userId != nil)
+        {
+            self.userIdTextView.text = [NSString stringWithFormat:@"%@", self.player.userId];
+        }
+        else
+        {
+            self.userIdTextView.text = @"";
+        }
+        
         if (self.player.firstName != nil)
         {
             self.firstNameTextView.text = self.player.firstName;
@@ -155,7 +164,8 @@
     {
         self.player = [club addNewPlayerWithRepositoryWithRepository:repo];
     }
-        
+     
+    self.player.userId = [NSNumber numberWithInt:[self.userIdTextView.text intValue]];
     self.player.firstName = self.firstNameTextView.text;
     self.player.lastName = self.lastNameTextView.text;
     self.player.number = [NSNumber numberWithInt:[self.numberTextView.text intValue]];

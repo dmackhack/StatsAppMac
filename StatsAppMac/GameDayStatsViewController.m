@@ -11,6 +11,7 @@
 
 @implementation GameDayStatsViewController
 
+@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -27,6 +28,11 @@
     return [[self session] selectedTeamParticipant];
 }
 
+- (Match*) selectedMatch
+{
+    return [[self session] selectedMatch];
+}
+
 - (NSArray*) selectedPlayerParticipants
 {
     if ([self selectedTeamParticipant] != nil)
@@ -39,6 +45,10 @@
 
 - (void)dealloc
 {
+    [roundLabel_ release];
+    [dateLabel_ release];
+    [homeTeamLabel_ release];
+    [awayTeamLabel_ release];
     [super dealloc];
 }
 
@@ -56,16 +66,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // fetch players
-    int count = 0;
-    if ([self selectedPlayerParticipants] != nil)
-    {
-        count = [[self selectedPlayerParticipants] count];
-    }
-        
-    NSLog(@"Number of players in viewDidLoad %i", count);
-    
     
     //CGRect fullScreenRect = [[UIScreen mainScreen] applicationFrame];
     
@@ -96,6 +96,24 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // fetch players
+    int count = 0;
+    if ([self selectedPlayerParticipants] != nil)
+    {
+        count = [[self selectedPlayerParticipants] count];
+    }
+    
+    if ([self selectedMatch] != nil)
+    {
+        self.roundLabel.text = [NSString stringWithFormat:@"%@",  [[[self selectedMatch] round] number]];
+        self.dateLabel.text = [NSString stringWithFormat:@"%@",  [[[self selectedMatch] date] description]];
+        self.homeTeamLabel.text = [[[[[self selectedMatch] homeTeam] team] club] name];
+        self.awayTeamLabel.text = [[[[[self selectedMatch] awayTeam] team] club] name];
+    }
+    
+    
+    NSLog(@"Number of players in viewWillAppear %i", count);
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -227,6 +245,18 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if ([self selectedTeamParticipant] != nil)
+    {
+        return [[[[self selectedTeamParticipant] team] club] name];
+    }
+    else
+    {
+        return @"%@";
+    }
 }
 
 @end
