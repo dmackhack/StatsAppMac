@@ -15,6 +15,7 @@
 			<string>IBUITextField</string>
 			<string>IBUIView</string>
 			<string>IBProxyObject</string>
+			<string>IBUISwitch</string>
 			<string>IBUILabel</string>
 			<string>IBUIButton</string>
 		</object>
@@ -133,7 +134,6 @@
 						<string key="NSFrame">{{20, 238}, {47, 21}}</string>
 						<reference key="NSSuperview" ref="1067508998"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="623451555"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">7</int>
@@ -183,7 +183,6 @@
 						<string key="NSFrame">{{290, 299}, {72, 37}}</string>
 						<reference key="NSSuperview" ref="1067508998"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -296,29 +295,18 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBUITextField" id="623451555">
+					<object class="IBUISwitch" id="996911116">
 						<reference key="NSNextResponder" ref="1067508998"/>
 						<int key="NSvFlags">292</int>
-						<string key="NSFrame">{{171, 233}, {49, 31}}</string>
+						<string key="NSFrame">{{171, 238}, {94, 27}}</string>
 						<reference key="NSSuperview" ref="1067508998"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="69989124"/>
 						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUIText"/>
-						<int key="IBUIBorderStyle">3</int>
-						<object class="NSColor" key="IBUITextColor">
-							<int key="NSColorSpace">3</int>
-							<bytes key="NSWhite">MAA</bytes>
-							<reference key="NSCustomColorSpace" ref="158497481"/>
-						</object>
-						<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
-						<float key="IBUIMinimumFontSize">17</float>
-						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
-							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						</object>
+						<bool key="IBUIOn">YES</bool>
 					</object>
 				</object>
 				<string key="NSFrameSize">{768, 1004}</string>
@@ -343,14 +331,6 @@
 						<reference key="destination" ref="1067508998"/>
 					</object>
 					<int key="connectionID">22</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">activeTextView</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="623451555"/>
-					</object>
-					<int key="connectionID">35</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -402,6 +382,14 @@
 					</object>
 					<int key="connectionID">41</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">activeSwitch</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="996911116"/>
+					</object>
+					<int key="connectionID">43</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -438,8 +426,8 @@
 							<reference ref="942585896"/>
 							<reference ref="896068225"/>
 							<reference ref="941004501"/>
-							<reference ref="623451555"/>
 							<reference ref="148995082"/>
+							<reference ref="996911116"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -499,8 +487,8 @@
 						<reference key="parent" ref="1067508998"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">34</int>
-						<reference key="object" ref="623451555"/>
+						<int key="objectID">42</int>
+						<reference key="object" ref="996911116"/>
 						<reference key="parent" ref="1067508998"/>
 					</object>
 				</object>
@@ -523,7 +511,7 @@
 					<string>31.IBPluginDependency</string>
 					<string>32.IBPluginDependency</string>
 					<string>33.IBPluginDependency</string>
-					<string>34.IBPluginDependency</string>
+					<string>42.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -556,7 +544,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">41</int>
+			<int key="maxID">45</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -600,6 +588,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>activeSwitch</string>
 							<string>activeTextView</string>
 							<string>firstNameTextView</string>
 							<string>lastNameTextView</string>
@@ -608,6 +597,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UISwitch</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
@@ -619,6 +609,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>activeSwitch</string>
 							<string>activeTextView</string>
 							<string>firstNameTextView</string>
 							<string>lastNameTextView</string>
@@ -627,6 +618,10 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">activeSwitch</string>
+								<string key="candidateClassName">UISwitch</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">activeTextView</string>
 								<string key="candidateClassName">UITextField</string>

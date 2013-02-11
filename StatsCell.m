@@ -81,8 +81,30 @@
     NSLog(@"tackle event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.tackles intValue]);
 }
 
+- (void) styleLabels
+{
+    self.kicksLabel.backgroundColor = [UIColor clearColor];
+    self.kicksLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
+    self.kicksLabel.layer.borderWidth = 1.0;
+    
+    self.handballsLabel.backgroundColor = [UIColor clearColor];
+    self.handballsLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
+    self.handballsLabel.layer.borderWidth = 1.0;
+    
+    self.tacklesLabel.backgroundColor = [UIColor clearColor];
+    self.tacklesLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
+    self.tacklesLabel.layer.borderWidth = 1.0;
+    
+    self.marksLabel.backgroundColor = [UIColor clearColor];
+    self.marksLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
+    self.marksLabel.layer.borderWidth = 1.0;
+}
+
 - (void) reloadData
 {
+    [self styleLabels];
+    
+    
     self.playerName.text = [NSString stringWithFormat:@"%@", [self.playerParticipant.player displayName]];
     self.kicksLabel.text = [self.playerStatistics.kicks stringValue];
     self.marksLabel.text = [self.playerStatistics.marks stringValue];

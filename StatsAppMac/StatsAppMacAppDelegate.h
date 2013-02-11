@@ -28,9 +28,11 @@
     SqlLiteRepository* repo_;
     StatsAppMacSession* session_;
     StatsAppMacNotificationCentre* notificationCentre_;
+    UINavigationController* mainMenuNav_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow* window;
+@property (nonatomic, retain) IBOutlet UINavigationController* mainMenuNav;
 @property (nonatomic, retain, readonly) SqlLiteRepository* repo;
 @property (nonatomic, retain) StatsAppMacSession* session;
 @property (nonatomic, retain) StatsAppMacNotificationCentre* notificationCentre;

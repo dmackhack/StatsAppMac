@@ -25,6 +25,7 @@
     UITextField* lastNameTextView_;
     UITextField* numberTextView_;
     UITextField* activeTextView_;
+    UISwitch* activeSwitch_;
     
     
 }
@@ -36,6 +37,7 @@
 @property (nonatomic, retain) IBOutlet UITextField* lastNameTextView;
 @property (nonatomic, retain) IBOutlet UITextField* numberTextView;
 @property (nonatomic, retain) IBOutlet UITextField* activeTextView;
+@property (nonatomic, retain) IBOutlet UISwitch* activeSwitch;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;

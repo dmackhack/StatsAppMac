@@ -11,7 +11,7 @@
 
 @implementation EditPlayerViewController
 
-@synthesize player=player_, userIdTextView=userIdTextView_ ,firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_, activeTextView=activeTextView_;
+@synthesize player=player_, userIdTextView=userIdTextView_ ,firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_, activeTextView=activeTextView_, activeSwitch=activeSwitch_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -74,6 +74,16 @@
             NSLog(@"Active nil");
             self.activeTextView.text = @"";
         }
+        if (playerClub != nil && playerClub.active != nil && [playerClub.active isEqualToNumber:[NSNumber numberWithInt:1]])
+        {
+            NSLog(@"Active: %@", playerClub.active);
+            self.activeSwitch.on = YES;
+        }
+        else
+        {
+            NSLog(@"Active nil");
+            self.activeSwitch.on = NO;
+        }
     }
     else
     {
@@ -81,6 +91,7 @@
         self.lastNameTextView.text = @"";
         self.numberTextView.text = @"";
         self.activeTextView.text = @"";
+        self.activeSwitch.on = NO;
     }
     
 }
@@ -101,6 +112,7 @@
     [lastNameTextView_ release];
     [numberTextView_ release];
     [activeTextView_ release];
+    [activeSwitch_ release];
     [super dealloc];
 }
 
@@ -170,7 +182,16 @@
     self.player.lastName = self.lastNameTextView.text;
     self.player.number = [NSNumber numberWithInt:[self.numberTextView.text intValue]];
     PlayerClub* playerClub = [self.player playerClubForClub:club];
-    playerClub.active = [NSNumber numberWithInt:[self.activeTextView.text intValue]];
+    //playerClub.active = [NSNumber numberWithInt:[self.activeTextView.text intValue]];
+    if (self.activeSwitch.on == YES)
+    {
+        playerClub.active = [NSNumber numberWithInt:1];
+    }
+    else
+    {
+        playerClub.active = [NSNumber numberWithInt:0];
+    }
+    
     
     // call saveContext
     [repo saveContext];

@@ -55,8 +55,14 @@
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSURL *baseURL = [NSURL fileURLWithPath:path];
     [gameDayIcon_ loadHTMLString:[self prepareGameDayText] baseURL:baseURL];
+    
+    
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
 
     
 - (NSString *)prepareGameDayText
@@ -105,9 +111,10 @@
 {
     NSLog(@"Select Team Clicked");
     SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
-    
+
     [self.navigationController pushViewController:selectTeamView animated:YES];
     [selectTeamView release];
+
 }
 
 - (IBAction)adminPlayersClicked:(id)sender

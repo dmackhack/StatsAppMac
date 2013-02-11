@@ -70,6 +70,8 @@ NSString* searchTerm;
     
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    
+    //self.navigationController.navigationBar.topItem.title = @"Select Match";
 }
 
 - (void)viewDidUnload

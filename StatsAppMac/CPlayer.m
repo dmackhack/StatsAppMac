@@ -16,7 +16,14 @@
     NSString* displayName = [NSString stringWithFormat:@"%@, %@", self.lastName, self.firstName];
     if (self.number != nil)
     {
-        displayName = [NSString stringWithFormat:@"%@. %@", self.number, displayName];
+        if ([self.number intValue] < 10 && [self.number intValue] >= 0)
+        {
+            displayName = [NSString stringWithFormat:@"%@.  %@", self.number, displayName];
+        }
+        else
+        {
+            displayName = [NSString stringWithFormat:@"%@. %@", self.number, displayName];
+        }
     }
     return displayName;
 }

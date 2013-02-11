@@ -11,7 +11,7 @@
 @implementation StatsAppMacAppDelegate
 
 
-@synthesize window=_window, repo=repo_, session=session_, notificationCentre=notificationCentre_;
+@synthesize window=_window, repo=repo_, session=session_, notificationCentre=notificationCentre_, mainMenuNav=mainMenuNav_;
 
 
 - (SqlLiteRepository*) repo
@@ -54,10 +54,10 @@
     // add a navigation view controller programmatically
     MainMenuViewController* mainView = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
     
-    UINavigationController* mainMenuNav = [[UINavigationController alloc] initWithRootViewController:mainView];
-    mainMenuNav.title = @"Main Menu";
+    self.mainMenuNav = [[UINavigationController alloc] initWithRootViewController:mainView];
+    //self.mainMenuNav.navigationBar.topItem.title = @"Main Menu";
     
-    self.window.rootViewController = mainMenuNav;
+    self.window.rootViewController = self.mainMenuNav;
     //self.window.rootViewController = self.statsView;
     [self.window makeKeyAndVisible];
     
@@ -198,6 +198,7 @@
 - (void)dealloc
 {
     [_window release];
+    [mainMenuNav_ release];
     [repo_ release];
     [session_ release];
     [notificationCentre_ release];

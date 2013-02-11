@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Player.h"
 #import "CPlayer.h"
 #import "PlayerParticipant.h"
