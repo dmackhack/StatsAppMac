@@ -110,8 +110,16 @@ NSString* searchTerm;
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    // NSLog(searchText);
-    searchTerm = searchText;
+    NSLog(@"Text changed: [%@]", searchText);
+    if (searchText != nil && [searchText length] > 0)
+    {
+        searchTerm = searchText;
+    }
+    else
+    {
+        searchTerm = @"";
+    }    
+    
     [self.tableView reloadData];
 }
 
@@ -128,9 +136,10 @@ NSString* searchTerm;
     NSEntityDescription* playerEntityDescription = [NSEntityDescription entityForName:@"Club" inManagedObjectContext:context];
     [fetchClubsByName setEntity:playerEntityDescription];
 
-    NSLog(@"Search Term: %@", searchTerm);
-    if (searchTerm != nil)
-    {    
+    // && [searchTerm length] != 0
+    NSLog(@"Search Term: [%@]", searchTerm);
+    if (searchTerm != nil && [searchTerm length] > 0)
+    {
         NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchTerm];
         [fetchClubsByName setPredicate:clubsByNamePredicate];
     }
@@ -179,7 +188,8 @@ NSString* searchTerm;
     {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
-    Club* club = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
+    NSArray* clubs = [self resultsController].fetchedObjects;
+    Club* club = [clubs objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:club.name];
     
     return cell;
@@ -237,7 +247,9 @@ NSString* searchTerm;
      [detailViewController release];
      */
     
-    [self session].selectedClub = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
+    NSArray* clubs = [self resultsController].fetchedObjects;
+    Club* selectedClub = [clubs objectAtIndex:indexPath.row];
+    [self session].selectedClub = selectedClub;
     [self.fixtureSearchDelegate updateFixture];
     
     NSLog(@"Selected Club: %@", [[self session] selectedClub].name);
