@@ -118,18 +118,18 @@
     [super viewWillAppear:animated];
     
     //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back2" style:UIBarButtonItemStylePlain target:nil action:nil];
-    NSLog(@"View contollers: %i",[[self.navigationController viewControllers] count]);
-    self.navigationItem.hidesBackButton = NO;
-    UIBarButtonItem* backButton = self.navigationItem.backBarButtonItem;
-    if (backButton == nil)
-    {
-        NSLog(@"back is nil");
-    }
-    else
-    {
-        NSLog(@"back is NOT nil [%@]", backButton.title);
-    }
+    //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back2" style:UIBarButtonItemStylePlain target:nil action:nil];
+    //NSLog(@"View contollers: %i",[[self.navigationController viewControllers] count]);
+    //self.navigationItem.hidesBackButton = NO;
+    //UIBarButtonItem* backButton = self.navigationItem.backBarButtonItem;
+    //if (backButton == nil)
+    //{
+    //    NSLog(@"back is nil");
+    //}
+    //else
+    //{
+    //    NSLog(@"back is NOT nil [%@]", backButton.title);
+    //}
     
     [self reloadData];
 }

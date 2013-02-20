@@ -147,8 +147,8 @@
     [fetchClubsByName setEntity:playerEntityDescription];
     
     //NSString* searchTerm = nil;
-    NSLog(@"Search Term: %@", self.searchTerm);
-    if (self.searchTerm != nil)
+    NSLog(@"Search Term: [%@]", self.searchTerm);
+    if (self.searchTerm != nil && [self.searchTerm length] > 0)
     {    
         NSLog(@"Appending Predicate");
         NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", self.searchTerm];

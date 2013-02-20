@@ -221,19 +221,6 @@
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 					</object>
-					<object class="IBUIToolbar" key="IBUIToolbar" id="952921924">
-						<reference key="NSNextResponder"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{0, 704}, {703, 44}}</string>
-						<reference key="NSSuperview"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
-						<bool key="IBUIOpaque">NO</bool>
-						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">4</int>
-						<bool key="IBUIMultipleTouchEnabled">YES</bool>
-						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-					</object>
 					<object class="NSArray" key="IBUIViewControllers">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="IBUIViewController" id="299265473">
@@ -241,12 +228,12 @@
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="597158952">
 								<reference key="IBUINavigationBar"/>
 								<string key="IBUITitle">Fixture</string>
-								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="542131370">
+								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="512156868">
 									<string key="IBUITitle">Fixture</string>
 									<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 									<int key="IBUIStyle">1</int>
 								</object>
-								<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="74254139">
+								<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="365914777">
 									<string key="IBUITitle">Players</string>
 									<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 									<int key="IBUIStyle">1</int>
@@ -263,7 +250,6 @@
 							<bool key="IBUIHorizontal">NO</bool>
 						</object>
 					</object>
-					<bool key="IBUIToolbarHidden">NO</bool>
 				</object>
 			</object>
 		</object>
@@ -353,7 +339,7 @@
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">editPlayers:</string>
-						<reference key="source" ref="74254139"/>
+						<reference key="source" ref="365914777"/>
 						<reference key="destination" ref="299265473"/>
 					</object>
 					<int key="connectionID">70</int>
@@ -482,7 +468,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="898954674"/>
 							<reference ref="299265473"/>
-							<reference ref="952921924"/>
 						</object>
 						<reference key="parent" ref="2679209"/>
 					</object>
@@ -505,26 +490,21 @@
 						<reference key="object" ref="597158952"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="74254139"/>
-							<reference ref="542131370"/>
+							<reference ref="365914777"/>
+							<reference ref="512156868"/>
 						</object>
 						<reference key="parent" ref="299265473"/>
 						<string key="objectName">Navigation Item</string>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">66</int>
-						<reference key="object" ref="74254139"/>
+						<reference key="object" ref="365914777"/>
 						<reference key="parent" ref="597158952"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">71</int>
-						<reference key="object" ref="542131370"/>
+						<reference key="object" ref="512156868"/>
 						<reference key="parent" ref="597158952"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">72</int>
-						<reference key="object" ref="952921924"/>
-						<reference key="parent" ref="492231033"/>
 					</object>
 				</object>
 			</object>
