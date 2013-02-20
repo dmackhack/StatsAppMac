@@ -57,6 +57,10 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    UIBarButtonItem *addPlayerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayer:)];
+    self.navigationItem.rightBarButtonItem = addPlayerButton;
+    [addPlayerButton release];
 }
 
 - (void)viewDidUnload
@@ -211,6 +215,15 @@
     NSLog(@"hide button");
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.popOver = nil;
+}
+
+- (IBAction)addPlayer:(id)sender
+{
+    EditPlayerViewController *editPlayerViewController = [[EditPlayerViewController alloc] initWithNibName:@"EditPlayerViewController" bundle:nil];
+    editPlayerViewController.player = nil;
+    [[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
+    
+    [editPlayerViewController release];
 }
 
 

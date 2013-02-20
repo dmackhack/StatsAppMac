@@ -26,6 +26,6 @@
 
 @property (retain, nonatomic) NSString* cache;
 @property (nonatomic, retain) UIPopoverController* popOver;
-
+- (IBAction)addPlayer:(id)sender;
 
 @end
