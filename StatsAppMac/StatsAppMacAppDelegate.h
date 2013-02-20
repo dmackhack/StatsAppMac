@@ -19,6 +19,7 @@
 #import "Round.h"
 #import "StatsAppMacSession.h"
 #import "StatsAppMacNotificationCentre.h"
+#import "MainSplitViewController.h"
 
 
 @interface StatsAppMacAppDelegate : NSObject <UIApplicationDelegate> 

@@ -48,21 +48,22 @@
     
     NSLog(@"start didFinishLaunchingWithOptions");
     
-    //self.statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
-    //self.statsView.managedObjectContext = self.managedObjectContext;
-    
     // add a navigation view controller programmatically
-    MainMenuViewController* mainView = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
-    
-    self.mainMenuNav = [[UINavigationController alloc] initWithRootViewController:mainView];
+    //MainMenuViewController* mainView = [[MainMenuViewController alloc] initWithNibName:@"MainMenuViewController" bundle:nil];
+    //self.mainMenuNav = [[UINavigationController alloc] initWithRootViewController:mainView];
     //self.mainMenuNav.navigationBar.topItem.title = @"Main Menu";
     
-    self.window.rootViewController = self.mainMenuNav;
-    //self.window.rootViewController = self.statsView;
+    //MainSplitViewController* mainSplitView = [[MainSplitViewController alloc] initWithNibName:@"MainSplitViewController" bundle:nil];
+    //self.window = mainSplitView.window;
+    //self.window.rootViewController = mainSplitView.window.rootViewController;
+    
+    
+    //self.window.rootViewController = self.mainMenuNav;
     [self.window makeKeyAndVisible];
     
-    [mainView release];
-    //[statsView release];
+    //[mainSplitView release];
+    
+    //[mainView release];
     
     [self populatePlayerData];
     [self populateTeamData];

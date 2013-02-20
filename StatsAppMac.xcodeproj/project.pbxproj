@@ -78,6 +78,8 @@
 		28C9A84616700B6700BF8717 /* CPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A84516700B6700BF8717 /* CPlayer.m */; };
 		28D35D4B1683447600BC74F1 /* FixtureMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D35D491683447600BC74F1 /* FixtureMatchViewController.m */; };
 		28D35D4C1683447600BC74F1 /* FixtureMatchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28D35D4A1683447600BC74F1 /* FixtureMatchViewController.xib */; };
+		28EBB99B16D254C600A2A25E /* MainSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28EBB99916D254C400A2A25E /* MainSplitViewController.m */; };
+		28EBB99C16D254C600A2A25E /* MainSplitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28EBB99A16D254C500A2A25E /* MainSplitViewController.xib */; };
 		63845C91147FC7980033426E /* StatsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63845C8F147FC7980033426E /* StatsCell.m */; };
 		63845C92147FC7980033426E /* StatsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63845C90147FC7980033426E /* StatsCell.xib */; };
 /* End PBXBuildFile section */
@@ -207,6 +209,9 @@
 		28D35D481683447600BC74F1 /* FixtureMatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureMatchViewController.h; sourceTree = "<group>"; };
 		28D35D491683447600BC74F1 /* FixtureMatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureMatchViewController.m; sourceTree = "<group>"; };
 		28D35D4A1683447600BC74F1 /* FixtureMatchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FixtureMatchViewController.xib; sourceTree = "<group>"; };
+		28EBB99816D254C300A2A25E /* MainSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSplitViewController.h; sourceTree = "<group>"; };
+		28EBB99916D254C400A2A25E /* MainSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSplitViewController.m; sourceTree = "<group>"; };
+		28EBB99A16D254C500A2A25E /* MainSplitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainSplitViewController.xib; sourceTree = "<group>"; };
 		63845C8E147FC7980033426E /* StatsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsCell.h; path = ../StatsCell.h; sourceTree = "<group>"; };
 		63845C8F147FC7980033426E /* StatsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsCell.m; path = ../StatsCell.m; sourceTree = "<group>"; };
 		63845C90147FC7980033426E /* StatsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatsCell.xib; path = ../StatsCell.xib; sourceTree = "<group>"; };
@@ -443,6 +448,9 @@
 				28885AAB16B2429300079599 /* EditPlayerViewController.h */,
 				28885AAC16B2429300079599 /* EditPlayerViewController.m */,
 				28885AAD16B2429300079599 /* EditPlayerViewController.xib */,
+				28EBB99816D254C300A2A25E /* MainSplitViewController.h */,
+				28EBB99916D254C400A2A25E /* MainSplitViewController.m */,
+				28EBB99A16D254C500A2A25E /* MainSplitViewController.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -554,6 +562,7 @@
 				283F32B91685D93D006F4610 /* StatsAppMac.sqlite in Resources */,
 				283F32BE16A4B480006F4610 /* AdminPlayersViewController.xib in Resources */,
 				28885AAF16B2429300079599 /* EditPlayerViewController.xib in Resources */,
+				28EBB99C16D254C600A2A25E /* MainSplitViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +641,7 @@
 				28885AAE16B2429300079599 /* EditPlayerViewController.m in Sources */,
 				28C20E3D16B7311100AE28C6 /* ListPlayersViewController.m in Sources */,
 				28894B7316BCD3430074E4A6 /* StatsAppMacNotificationCentre.m in Sources */,
+				28EBB99B16D254C600A2A25E /* MainSplitViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

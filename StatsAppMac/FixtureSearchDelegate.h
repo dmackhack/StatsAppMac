@@ -19,12 +19,21 @@
 #import "Season.h"
 #import "Division.h"
 #import "SelectTeamViewController.h"
+#import "ListPlayersViewController.h"
 
 @class StatsAppMacAppDelegate;
 
-@interface FixtureSearchDelegate : UITableViewController {
+@interface FixtureSearchDelegate : UITableViewController <UISplitViewControllerDelegate> {
+    
+    UIPopoverController* popOver_;
+    UINavigationController* navBar_;
+    
 }
 
+@property (nonatomic, retain) UIPopoverController* popOver;
+@property (nonatomic, retain) IBOutlet UINavigationController* navBar;
+
 - (void) updateFixture;
+- (IBAction)editPlayers:(id)sender;
 
 @end

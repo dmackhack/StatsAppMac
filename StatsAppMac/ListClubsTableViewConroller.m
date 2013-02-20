@@ -11,7 +11,8 @@
 
 @implementation ListClubsTableViewConroller
 
-@synthesize cache=cache_;
+
+@synthesize cache=cache_, searchBar=searchBar_, listPlayersView=listPlayersView_, searchTerm=searchTerm_, fixtureSearchDelegate=fixtureSearchDelegate_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -34,6 +35,10 @@
 
 - (void)dealloc
 {
+    [cache_ release];
+    [listPlayersView_ release];
+    [searchBar_ release];
+    [searchTerm_ release];
     [super dealloc];
 }
 
@@ -56,6 +61,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)viewDidUnload
@@ -87,8 +93,44 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) 
+    {
+        return YES;
+    }
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString* msg = [NSString stringWithFormat:@"Search Clicked: %@", [searchBar text]];
+    NSLog(msg);
+    self.searchTerm = self.searchBar.text;
+    [self.tableView reloadData];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
+{
+    NSLog(@"Cancel");
+    self.searchTerm = nil;
+    [self session].selectedClub = nil;
+    //[self.fixtureSearchDelegate updateFixture];
+    [self.tableView reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    NSLog(@"Text changed: [%@]", searchText);
+    if (searchText != nil && [searchText length] > 0)
+    {        
+        self.searchTerm = searchText;
+        NSLog(@"Setting search term [%@]", self.searchTerm);
+    }
+    else
+    {
+        self.searchTerm = @"";
+    }    
+    
+    [self.tableView reloadData];
 }
 
 - (NSFetchedResultsController *) resultsController
@@ -104,12 +146,12 @@
     NSEntityDescription* playerEntityDescription = [NSEntityDescription entityForName:@"Club" inManagedObjectContext:context];
     [fetchClubsByName setEntity:playerEntityDescription];
     
-    NSString* searchTerm = nil;
-    NSLog(@"Search Term: %@", searchTerm);
-    if (searchTerm != nil)
+    //NSString* searchTerm = nil;
+    NSLog(@"Search Term: %@", self.searchTerm);
+    if (self.searchTerm != nil)
     {    
         NSLog(@"Appending Predicate");
-        NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchTerm];
+        NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", self.searchTerm];
         [fetchClubsByName setPredicate:clubsByNamePredicate];
     }
     
@@ -222,7 +264,17 @@
     
     Club* club = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
     NSLog(@"Selected Club For Edit: %@", club.name);
+    
     [self session].selectedClubForEdit = club;
+    [self session].selectedClub = club;
+    if (self.listPlayersView != nil)
+    {
+        [self.listPlayersView.tableView reloadData];
+    }
+    if (self.fixtureSearchDelegate != nil)
+    {
+        [self.fixtureSearchDelegate updateFixture];
+    }
     
     StatsAppMacNotificationCentre* noticicationCentre = [[self appDelegate] notificationCentre];
     [noticicationCentre onChange];

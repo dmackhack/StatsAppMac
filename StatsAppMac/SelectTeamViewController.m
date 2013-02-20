@@ -100,6 +100,7 @@
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Take Stats" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
     
+    
     [anotherButton release];
 }
 
@@ -115,6 +116,20 @@
 {
     NSLog(@"ViewWillAppear");
     [super viewWillAppear:animated];
+    
+    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back2" style:UIBarButtonItemStylePlain target:nil action:nil];
+    NSLog(@"View contollers: %i",[[self.navigationController viewControllers] count]);
+    self.navigationItem.hidesBackButton = NO;
+    UIBarButtonItem* backButton = self.navigationItem.backBarButtonItem;
+    if (backButton == nil)
+    {
+        NSLog(@"back is nil");
+    }
+    else
+    {
+        NSLog(@"back is NOT nil [%@]", backButton.title);
+    }
     
     [self reloadData];
 }

@@ -11,6 +11,7 @@
 
 @implementation FixtureSearchDelegate
 
+@synthesize popOver=popOver_, navBar=navBar_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -33,6 +34,7 @@
 
 - (void)dealloc
 {
+    [popOver_ release];
     [super dealloc];
 }
 
@@ -47,6 +49,11 @@
 - (void) updateFixture;
 {
     [self.tableView reloadData];
+    
+    if (self.popOver != nil)
+    {
+        [self.popOver dismissPopoverAnimated:YES];
+    }
 }
 
 
@@ -83,6 +90,8 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+    
+    self.navigationItem.hidesBackButton = NO;
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -93,7 +102,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    return YES;
 }
 
 #pragma mark - Table view data source
@@ -257,7 +266,9 @@
     NSLog(@"selected match date: %@", [[match date] description]);
     
     SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
-    [[[[self appDelegate] window] rootViewController] pushViewController:selectTeamView animated:YES];
+    //[[[[self appDelegate] window] rootViewController] pushViewController:selectTeamView animated:YES];
+    //[self.navigationController pushViewController:selectTeamView animated:YES];
+    [self.navBar pushViewController:selectTeamView animated:YES];
     [selectTeamView release];
 }
 
@@ -271,6 +282,31 @@
     {
         return @"";
     }
+}
+
+#pragma mark - UISplitViewControllerDelegate methods
+
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
+    
+    NSLog(@"show button");
+    barButtonItem.title = @"Clubs";
+    
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.popOver = pc;
+}
+
+- (void) splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+    
+    NSLog(@"hide button");
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.popOver = nil;
+}
+
+- (IBAction)editPlayers:(id)sender
+{
+    ListPlayersViewController* listPlayersView = [[ListPlayersViewController alloc] initWithStyle:UITableViewStylePlain];
+    [self.navigationController pushViewController:listPlayersView animated:YES];
+    [listPlayersView release];
 }
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

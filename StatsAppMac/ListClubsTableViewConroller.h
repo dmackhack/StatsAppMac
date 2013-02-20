@@ -11,14 +11,27 @@
 #import "StatsAppMacSession.h"
 #import "Club.h"
 #import "StatsAppMacNotificationCentre.h"
+#import "ListPlayersViewController.h"
+#import "FixtureSearchDelegate.h"
 
 @class StatsAppMacAppDelegate;
 
-@interface ListClubsTableViewConroller : UITableViewController {
+@interface ListClubsTableViewConroller : UITableViewController <UISearchBarDelegate> {
     NSString* cache_;
     NSFetchedResultsController* resultsController_;
+    UISearchBar* searchBar_;
+    
+    ListPlayersViewController* listPlayersView_;
+    FixtureSearchDelegate* fixtureSearchDelegate_;
+    
+    
+    NSString* searchTerm_;
 }
 
 @property (retain, nonatomic) NSString* cache;
+@property (nonatomic, retain) IBOutlet UISearchBar* searchBar;
+@property (nonatomic, retain) IBOutlet ListPlayersViewController* listPlayersView;
+@property (nonatomic, retain) IBOutlet FixtureSearchDelegate* fixtureSearchDelegate;
+@property (nonatomic, retain) NSString* searchTerm;
 
 @end

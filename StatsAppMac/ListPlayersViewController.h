@@ -18,12 +18,14 @@
 
 @class StatsAppMacAppDelegate;
 
-@interface ListPlayersViewController : UITableViewController {
+@interface ListPlayersViewController : UITableViewController <UISplitViewControllerDelegate> {
     NSString* cache_;
     NSFetchedResultsController* resultsController_;
+    UIPopoverController* popOver_;
 }
 
 @property (retain, nonatomic) NSString* cache;
+@property (nonatomic, retain) UIPopoverController* popOver;
 
 
 @end

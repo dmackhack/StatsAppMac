@@ -11,7 +11,7 @@
 
 @implementation ListPlayersViewController
 
-@synthesize cache=cache_;
+@synthesize cache=cache_, popOver=popOver_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -34,6 +34,7 @@
 
 - (void)dealloc
 {
+    [popOver_ dealloc];
     [super dealloc];
 }
 
@@ -192,6 +193,24 @@
     //[self.navigationController presentModalViewController:editPlayerViewController animated:YES];
     [editPlayerViewController release];
      
+}
+
+#pragma mark - UISplitViewControllerDelegate methods
+
+- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)pc {
+    
+    NSLog(@"show button");
+    barButtonItem.title = @"Clubs";
+    
+    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
+    self.popOver = pc;
+}
+
+- (void) splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+    
+    NSLog(@"hide button");
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
+    self.popOver = nil;
 }
 
 
