@@ -127,7 +127,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120.00;
+    return 100.00;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,12 +140,21 @@
     {
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
         NSLog(@"height: %f width: %f", cell.contentView.bounds.size.height, cell.contentView.bounds.size.width);
-        CGRect viewFrame = CGRectMake(0.0, 0.0, tableView.bounds.size.width, 120);
+        CGRect viewFrame = CGRectMake(0.0, 0.0, tableView.bounds.size.width, 100);
         matchViewController = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil]; 
         matchViewController.view.frame = viewFrame;
         [cell.contentView addSubview:matchViewController.view];
     }
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    
+    UIView* subview = [cell.contentView.subviews objectAtIndex:0];
+    matchViewController = (FixtureMatchViewController*) [subview nextResponder];
+    
+    Match* match = [[[[self session] selectedClub] combinedClubFixture] objectAtIndex:indexPath.row];
+    matchViewController.match = match;
+    matchViewController.club = [[self session] selectedClub];
+    
+    [matchViewController reloadData];
     
     //MultiColumnTableCell *cell = (MultiColumnTableCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     //if (cell == nil) {
@@ -154,36 +163,7 @@
     
     //[cell initialize];
         
-    Match* match = [[[[self session] selectedClub] combinedClubFixture] objectAtIndex:indexPath.row];
-    NSArray* participants = [[match participants] allObjects];
-        
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
-    NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[match date]]];
-    NSString* homeTeamLabel = [[[self session] selectedClub] name];
-    NSString* awayTeamLabel = @"N/A";
-    NSString* divisionLabel = @"N/A";
-        
-    if ([participants count] == 2)
-    {
-        TeamParticipant* homeTeam = [match homeTeam];
-        TeamParticipant* awayTeam = [match awayTeam];
-                
-        homeTeamLabel = [[[homeTeam team] club] name];
-        awayTeamLabel = [[[awayTeam team] club] name];
-        divisionLabel = [NSString stringWithFormat:@"%@ - %@", match.round.season.division.name,  homeTeam.team.name];
-    }
     
-    NSLog(@"Setting values for round: %i", [match.round.number intValue]);
-    UIView* subview = [cell.contentView.subviews objectAtIndex:0];
-    
-    matchViewController = (FixtureMatchViewController*) [subview nextResponder] ;
-    matchViewController.dateLabel.text = dateLabel;
-    matchViewController.homeTeamLabel.text = homeTeamLabel;
-    matchViewController.awayTeamLabel.text = awayTeamLabel;
-    matchViewController.divisionLabel.text = divisionLabel;
-    matchViewController.roundLabel.text = [NSString stringWithFormat:@"%i", [match.round.number intValue]];
     
     // Don't uncomment CGRectMake(x, y, width, height)
     

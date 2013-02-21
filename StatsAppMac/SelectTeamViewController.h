@@ -19,6 +19,7 @@
 #import "Club.h"
 #import "SqlLiteRepository.h"
 #import "GameDayStatsViewController.h"
+#import "FixtureMatchViewController.h"
 
 @class StatsAppMacAppDelegate;
 
@@ -32,6 +33,8 @@
     NSMutableArray* checkedAvailablePlayers_;
     NSMutableArray* checkedSelectedPlayers_;
     
+    UIView* matchView_;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UITableView* availablePlayersTableView;
@@ -40,6 +43,8 @@
 @property (nonatomic, retain) NSMutableArray* checkedSelectedPlayers;
 @property (nonatomic, retain) NSMutableArray* availablePlayers;
 @property (nonatomic, retain) NSMutableArray* selectedPlayers;
+
+@property (nonatomic, retain) IBOutlet UIView* matchView;
 
 - (IBAction)addPlayersToTeam:(id)sender;
 - (IBAction)removePlayersFromTeam:(id)sender;

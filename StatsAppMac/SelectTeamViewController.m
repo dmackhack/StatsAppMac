@@ -11,7 +11,7 @@
 
 @implementation SelectTeamViewController
 
-@synthesize availablePlayersTableView=availablePlayersTableView_, selectedTeamTableView=selectedTeamTableView_, checkedAvailablePlayers=checkedAvailablePlayers_, checkedSelectedPlayers=checkedSelectedPlayers_, availablePlayers=availablePlayers_, selectedPlayers=selectedPlayers_;
+@synthesize availablePlayersTableView=availablePlayersTableView_, selectedTeamTableView=selectedTeamTableView_, checkedAvailablePlayers=checkedAvailablePlayers_, checkedSelectedPlayers=checkedSelectedPlayers_, availablePlayers=availablePlayers_, selectedPlayers=selectedPlayers_, matchView=matchView_;
 
 - (StatsAppMacAppDelegate*) appDelegate
 {
@@ -99,6 +99,21 @@
     //UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(next:)];
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Take Stats" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
     self.navigationItem.rightBarButtonItem = anotherButton;
+    self.navigationItem.title = @"Select Team";
+    
+    
+    FixtureMatchViewController* matchViewController = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil];
+    CGRect viewFrame = CGRectMake(0.0, 0.0, self.matchView.bounds.size.width, 100);
+    matchViewController = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil]; 
+    matchViewController.view.frame = viewFrame;
+    
+    [self.matchView addSubview:matchViewController.view];
+    
+    matchViewController.match = [[self session] selectedMatch];
+    matchViewController.club = [[self session] selectedClub];
+    [matchViewController reloadData];
+    
+    [matchViewController release];
     
     
     [anotherButton release];

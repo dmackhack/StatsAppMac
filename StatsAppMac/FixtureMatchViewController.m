@@ -11,7 +11,7 @@
 
 @implementation FixtureMatchViewController
 
-@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, divisionLabel=divisionLabel_;
+@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, divisionLabel=divisionLabel_, match=match_, club=club_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +29,8 @@
     [homeTeamLabel_ release];
     [awayTeamLabel_ release];
     [divisionLabel_ release];
+    [match_ release];
+    [club_ release];
     
     [super dealloc];
 }
@@ -60,6 +62,38 @@
 {
     // Return YES for supported orientations
 	return YES;
+}
+
+- (void) reloadData
+{
+    
+    NSArray* participants = [[self.match participants] allObjects];
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
+    NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[self.match date]]];
+    NSString* homeTeamLabel = [self.club name];
+    NSString* awayTeamLabel = @"N/A";
+    NSString* divisionLabel = @"N/A";
+    
+    if ([participants count] == 2)
+    {
+        TeamParticipant* homeTeam = [self.match homeTeam];
+        TeamParticipant* awayTeam = [self.match awayTeam];
+        
+        homeTeamLabel = [[[homeTeam team] club] name];
+        awayTeamLabel = [[[awayTeam team] club] name];
+        divisionLabel = [NSString stringWithFormat:@"%@ - %@", self.match.round.season.division.name,  homeTeam.team.name];
+    }
+    
+    NSLog(@"Setting values for round: %i", [self.match.round.number intValue]);
+    
+    self.dateLabel.text = dateLabel;
+    self.homeTeamLabel.text = homeTeamLabel;
+    self.awayTeamLabel.text = awayTeamLabel;
+    self.divisionLabel.text = divisionLabel;
+    self.roundLabel.text = [NSString stringWithFormat:@"%i", [self.match.round.number intValue]];
 }
 
 @end

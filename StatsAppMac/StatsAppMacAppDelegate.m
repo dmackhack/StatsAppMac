@@ -41,6 +41,25 @@
     return notificationCentre_;
 }
 
+- (void) setDefaultClub
+{
+    if ([self.session selectedClub] == nil)
+    {
+        NSFetchRequest* fetchClubsByName = [[NSFetchRequest alloc] init];
+        [fetchClubsByName setEntity:[NSEntityDescription entityForName:@"Club" inManagedObjectContext:self.repo.managedObjectContext]];
+        
+        NSSortDescriptor* clubsByNameSD = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [fetchClubsByName setSortDescriptors:[NSArray arrayWithObject:clubsByNameSD]];
+        
+        NSArray* clubs = [self.repo.managedObjectContext executeFetchRequest:fetchClubsByName error:nil];
+        NSLog(@"Number of existing clubs is: %i", [clubs count]);
+        
+        self.session.selectedClub = [clubs objectAtIndex:0];
+        self.session.selectedClubForEdit = [clubs objectAtIndex:0];
+         
+    }
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -57,6 +76,7 @@
     //self.window = mainSplitView.window;
     //self.window.rootViewController = mainSplitView.window.rootViewController;
     
+    [self setDefaultClub];
     
     //self.window.rootViewController = self.mainMenuNav;
     [self.window makeKeyAndVisible];
