@@ -43,7 +43,7 @@
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIView" id="422384972">
+					<object class="IBUIView" id="112204895">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">294</int>
 						<string key="NSFrameSize">{768, 103}</string>
@@ -53,7 +53,7 @@
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
-							<object class="NSColorSpace" key="NSCustomColorSpace" id="225814887">
+							<object class="NSColorSpace" key="NSCustomColorSpace">
 								<int key="NSID">2</int>
 							</object>
 						</object>
@@ -62,7 +62,7 @@
 					<object class="IBUITableView" id="774293308">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">275</int>
-						<string key="NSFrame">{{425, 106}, {343, 845}}</string>
+						<string key="NSFrame">{{417, 128}, {331, 856}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView"/>
@@ -83,7 +83,7 @@
 					<object class="IBUITableView" id="156657018">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">278</int>
-						<string key="NSFrame">{{0, 106}, {319, 845}}</string>
+						<string key="NSFrame">{{20, 128}, {309, 856}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="115719497"/>
@@ -100,8 +100,8 @@
 					</object>
 					<object class="IBUIButton" id="115719497">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{335, 291}, {72, 37}}</string>
+						<int key="NSvFlags">301</int>
+						<string key="NSFrame">{{342, 417}, {62, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="798133105"/>
@@ -128,8 +128,8 @@
 					</object>
 					<object class="IBUIButton" id="798133105">
 						<reference key="NSNextResponder" ref="766721923"/>
-						<int key="NSvFlags">293</int>
-						<string key="NSFrame">{{335, 360}, {72, 37}}</string>
+						<int key="NSvFlags">301</int>
+						<string key="NSFrame">{{342, 483}, {62, 37}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="774293308"/>
@@ -151,11 +151,10 @@
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="422384972"/>
+				<reference key="NSNextKeyView" ref="112204895"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MQA</bytes>
-					<reference key="NSCustomColorSpace" ref="225814887"/>
+					<int key="NSColorSpace">2</int>
+					<bytes key="NSRGB">MC45NjA3ODQzNzU3IDAuOTYwNzg0Mzc1NyAxAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
@@ -245,7 +244,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">matchView</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="422384972"/>
+						<reference key="destination" ref="112204895"/>
 					</object>
 					<int key="connectionID">25</int>
 				</object>
@@ -277,9 +276,9 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="156657018"/>
 							<reference ref="774293308"/>
+							<reference ref="112204895"/>
 							<reference ref="115719497"/>
 							<reference ref="798133105"/>
-							<reference ref="422384972"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -305,7 +304,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
-						<reference key="object" ref="422384972"/>
+						<reference key="object" ref="112204895"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</object>
