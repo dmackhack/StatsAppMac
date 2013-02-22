@@ -130,12 +130,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //self.playerDetailsView.layer.cornerRadius = 10;
+    //self.playerDetailsView.layer.masksToBounds = YES;
+    //self.playerDetailsView.layer.shadowOffset = CGSizeMake(1, 0);
+    //self.playerDetailsView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    //self.playerDetailsView.layer.shadowRadius = 5;
+    //self.playerDetailsView.layer.shadowOpacity = 0.25;
+    
+    self.playerDetailsView.layer.masksToBounds = NO;
     self.playerDetailsView.layer.cornerRadius = 10;
-    self.playerDetailsView.layer.masksToBounds = YES;
-    self.playerDetailsView.layer.shadowOffset = CGSizeMake(1, 0);
-    self.playerDetailsView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.playerDetailsView.layer.shadowOffset = CGSizeMake(-15, 20);
     self.playerDetailsView.layer.shadowRadius = 5;
-    self.playerDetailsView.layer.shadowOpacity = 0.25;
+    self.playerDetailsView.layer.shadowOpacity = 0.5;
 }
 
 - (void)viewDidUnload

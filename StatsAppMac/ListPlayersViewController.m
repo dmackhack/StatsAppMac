@@ -193,7 +193,7 @@
     // ...
     // Pass the selected object to the new view controller.
     //[[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
-    [self.navigationController pushViewController:editPlayerViewController animated:YES];
+    [self.navigationController presentModalViewController:editPlayerViewController animated:YES];
     
     //[self.navigationController presentModalViewController:editPlayerViewController animated:YES];
     [editPlayerViewController release];
