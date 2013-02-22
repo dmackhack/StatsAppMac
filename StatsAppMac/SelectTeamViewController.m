@@ -97,10 +97,13 @@
     
     //UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(next:)];
     //UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(next:)];
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Take Stats" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
-    self.navigationItem.rightBarButtonItem = anotherButton;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Take Stats" style:UIBarButtonItemStylePlain target:self action:@selector(next:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+    
     self.navigationItem.title = @"Select Team";
     
+    self.view.autoresizesSubviews = YES;
+    self.matchView.autoresizesSubviews = YES;
     
     FixtureMatchViewController* matchViewController = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil];
     CGRect viewFrame = CGRectMake(0.0, 0.0, self.matchView.bounds.size.width, 100);
@@ -114,9 +117,7 @@
     [matchViewController reloadData];
     
     [matchViewController release];
-    
-    
-    [anotherButton release];
+
 }
 
 - (void)viewDidUnload
@@ -132,19 +133,9 @@
     NSLog(@"ViewWillAppear");
     [super viewWillAppear:animated];
     
-    //self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];
-    //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back2" style:UIBarButtonItemStylePlain target:nil action:nil];
-    //NSLog(@"View contollers: %i",[[self.navigationController viewControllers] count]);
-    //self.navigationItem.hidesBackButton = NO;
-    //UIBarButtonItem* backButton = self.navigationItem.backBarButtonItem;
-    //if (backButton == nil)
-    //{
-    //    NSLog(@"back is nil");
-    //}
-    //else
-    //{
-    //    NSLog(@"back is NOT nil [%@]", backButton.title);
-    //}
+    NSLog(@"matchView.width %@", self.matchView.bounds.size.width);
+    UIView* subview = [self.matchView.subviews objectAtIndex:0];
+    NSLog(@"matchView.subview.width %@", subview.bounds.size.width);
     
     [self reloadData];
 }
@@ -314,6 +305,11 @@
     [self.navigationController pushViewController:statsView animated:YES];
     [statsView release];
 
+}
+
+- (IBAction)dismiss:(id)sender
+{
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
 @end

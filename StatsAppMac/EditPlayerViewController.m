@@ -11,7 +11,7 @@
 
 @implementation EditPlayerViewController
 
-@synthesize player=player_, userIdTextView=userIdTextView_ ,firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_, activeTextView=activeTextView_, activeSwitch=activeSwitch_;
+@synthesize player=player_, userIdTextView=userIdTextView_ ,firstNameTextView=firstNameTextView_, lastNameTextView=lastNameTextView_, numberTextView=numberTextView_, activeTextView=activeTextView_, activeSwitch=activeSwitch_, backgroundView=backgroundView_, playerDetailsView=playerDetailsView_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -130,6 +130,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.playerDetailsView.layer.cornerRadius = 10;
+    self.playerDetailsView.layer.masksToBounds = YES;
+    self.playerDetailsView.layer.shadowOffset = CGSizeMake(1, 0);
+    self.playerDetailsView.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.playerDetailsView.layer.shadowRadius = 5;
+    self.playerDetailsView.layer.shadowOpacity = 0.25;
 }
 
 - (void)viewDidUnload

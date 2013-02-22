@@ -58,9 +58,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    UIBarButtonItem *addPlayerButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayer:)];
-    self.navigationItem.rightBarButtonItem = addPlayerButton;
-    [addPlayerButton release];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addPlayer:)];
+
 }
 
 - (void)viewDidUnload
@@ -192,7 +192,8 @@
     
     // ...
     // Pass the selected object to the new view controller.
-    [[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
+    //[[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
+    [self.navigationController pushViewController:editPlayerViewController animated:YES];
     
     //[self.navigationController presentModalViewController:editPlayerViewController animated:YES];
     [editPlayerViewController release];
@@ -221,9 +222,15 @@
 {
     EditPlayerViewController *editPlayerViewController = [[EditPlayerViewController alloc] initWithNibName:@"EditPlayerViewController" bundle:nil];
     editPlayerViewController.player = nil;
-    [[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
+    //[[[[self appDelegate] window] rootViewController] presentModalViewController:editPlayerViewController animated:YES];
+    [self.navigationController presentModalViewController:editPlayerViewController animated:YES];
     
     [editPlayerViewController release];
+}
+
+- (IBAction)dismiss:(id)sender
+{
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
 

@@ -11,7 +11,7 @@
 @implementation StatsAppMacAppDelegate
 
 
-@synthesize window=_window, repo=repo_, session=session_, notificationCentre=notificationCentre_, mainMenuNav=mainMenuNav_;
+@synthesize window=_window, repo=repo_, session=session_, notificationCentre=notificationCentre_, mainMenuNav=mainMenuNav_, modalNavBar=modalNavBar_;
 
 
 - (SqlLiteRepository*) repo
@@ -75,6 +75,8 @@
     //MainSplitViewController* mainSplitView = [[MainSplitViewController alloc] initWithNibName:@"MainSplitViewController" bundle:nil];
     //self.window = mainSplitView.window;
     //self.window.rootViewController = mainSplitView.window.rootViewController;
+    
+    self.modalNavBar = [[UINavigationController alloc] init];
     
     [self setDefaultClub];
     

@@ -30,6 +30,7 @@
     StatsAppMacSession* session_;
     StatsAppMacNotificationCentre* notificationCentre_;
     UINavigationController* mainMenuNav_;
+    UINavigationController* modalNavBar_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow* window;
@@ -37,6 +38,7 @@
 @property (nonatomic, retain, readonly) SqlLiteRepository* repo;
 @property (nonatomic, retain) StatsAppMacSession* session;
 @property (nonatomic, retain) StatsAppMacNotificationCentre* notificationCentre;
+@property (nonatomic, retain) UINavigationController* modalNavBar;
 
 
 - (void) populatePlayerData;

@@ -246,9 +246,18 @@
     NSLog(@"selected match date: %@", [[match date] description]);
     
     SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
+    
+    UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
+    [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    [modalNavBar pushViewController:selectTeamView animated:YES];
+    
+    
     //[[[[self appDelegate] window] rootViewController] pushViewController:selectTeamView animated:YES];
     //[self.navigationController pushViewController:selectTeamView animated:YES];
-    [self.navBar pushViewController:selectTeamView animated:YES];
+    
+
+    
+    //[self.navBar pushViewController:selectTeamView animated:YES];
     [selectTeamView release];
 }
 
@@ -284,8 +293,11 @@
 
 - (IBAction)editPlayers:(id)sender
 {
+    UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
     ListPlayersViewController* listPlayersView = [[ListPlayersViewController alloc] initWithStyle:UITableViewStylePlain];
-    [self.navigationController pushViewController:listPlayersView animated:YES];
+    [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    [modalNavBar pushViewController:listPlayersView animated:YES];
+    //[self.navigationController pushViewController:listPlayersView animated:YES];
     [listPlayersView release];
 }
 

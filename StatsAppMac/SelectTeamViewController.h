@@ -49,5 +49,6 @@
 - (IBAction)addPlayersToTeam:(id)sender;
 - (IBAction)removePlayersFromTeam:(id)sender;
 - (IBAction)next:(id)sender;
+- (IBAction)dismiss:(id)sender;
 
 @end

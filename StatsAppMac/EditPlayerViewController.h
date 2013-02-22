@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "Player.h"
 #import "Club.h"
 #import "CClub.h"
@@ -27,6 +28,9 @@
     UITextField* activeTextView_;
     UISwitch* activeSwitch_;
     
+    UIView* backgroundView_;
+    UIView* playerDetailsView_;
+    
     
 }
 
@@ -38,6 +42,9 @@
 @property (nonatomic, retain) IBOutlet UITextField* numberTextView;
 @property (nonatomic, retain) IBOutlet UITextField* activeTextView;
 @property (nonatomic, retain) IBOutlet UISwitch* activeSwitch;
+
+@property (nonatomic, retain) IBOutlet UIView* backgroundView;
+@property (nonatomic, retain) IBOutlet UIView* playerDetailsView;
 
 - (IBAction)cancel:(id)sender;
 - (IBAction)save:(id)sender;
