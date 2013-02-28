@@ -74,6 +74,9 @@
 		28A9B475166E82320008B8A5 /* SelectTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A9B473166E82310008B8A5 /* SelectTeamViewController.m */; };
 		28A9B476166E82320008B8A5 /* SelectTeamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28A9B474166E82320008B8A5 /* SelectTeamViewController.xib */; };
 		28C20E3D16B7311100AE28C6 /* ListPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C20E3C16B7311000AE28C6 /* ListPlayersViewController.m */; };
+		28C9697316E00D4200F1AD3C /* StatsAppIcon_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697216E00D4200F1AD3C /* StatsAppIcon_72x72.png */; };
+		28C9697616E00E0800F1AD3C /* StatsAppIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697516E00E0800F1AD3C /* StatsAppIcon_57x57.png */; };
+		28C9697816E00E2800F1AD3C /* StatsAppIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697716E00E2800F1AD3C /* StatsAppIcon_57x57.png */; };
 		28C9A8421670061100BF8717 /* CMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A8411670061100BF8717 /* CMatch.m */; };
 		28C9A84616700B6700BF8717 /* CPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A84516700B6700BF8717 /* CPlayer.m */; };
 		28D35D4B1683447600BC74F1 /* FixtureMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D35D491683447600BC74F1 /* FixtureMatchViewController.m */; };
@@ -202,6 +205,9 @@
 		28A9B474166E82320008B8A5 /* SelectTeamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectTeamViewController.xib; sourceTree = "<group>"; };
 		28C20E3B16B7310F00AE28C6 /* ListPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListPlayersViewController.h; sourceTree = "<group>"; };
 		28C20E3C16B7311000AE28C6 /* ListPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListPlayersViewController.m; sourceTree = "<group>"; };
+		28C9697216E00D4200F1AD3C /* StatsAppIcon_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatsAppIcon_72x72.png; sourceTree = "<group>"; };
+		28C9697516E00E0800F1AD3C /* StatsAppIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatsAppIcon_57x57.png; sourceTree = "<group>"; };
+		28C9697716E00E2800F1AD3C /* StatsAppIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatsAppIcon_57x57.png; sourceTree = "<group>"; };
 		28C9A8401670061100BF8717 /* CMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMatch.h; sourceTree = "<group>"; };
 		28C9A8411670061100BF8717 /* CMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMatch.m; sourceTree = "<group>"; };
 		28C9A84416700B6600BF8717 /* CPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPlayer.h; sourceTree = "<group>"; };
@@ -317,6 +323,8 @@
 		287FCFC515DCE98800854148 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				28C9697516E00E0800F1AD3C /* StatsAppIcon_57x57.png */,
+				28C9697216E00D4200F1AD3C /* StatsAppIcon_72x72.png */,
 				287FCFC715DCE9E700854148 /* afl-logo.jpg */,
 			);
 			name = images;
@@ -333,6 +341,7 @@
 		288BDE1D147FB70B00002F9A = {
 			isa = PBXGroup;
 			children = (
+				28C9697716E00E2800F1AD3C /* StatsAppIcon_57x57.png */,
 				288BDE34147FB70C00002F9A /* StatsAppMac */,
 				288BDE5D147FB70D00002F9A /* StatsAppMacTests */,
 				288BDE2B147FB70C00002F9A /* Frameworks */,
@@ -563,6 +572,9 @@
 				283F32BE16A4B480006F4610 /* AdminPlayersViewController.xib in Resources */,
 				28885AAF16B2429300079599 /* EditPlayerViewController.xib in Resources */,
 				28EBB99C16D254C600A2A25E /* MainSplitViewController.xib in Resources */,
+				28C9697316E00D4200F1AD3C /* StatsAppIcon_72x72.png in Resources */,
+				28C9697616E00E0800F1AD3C /* StatsAppIcon_57x57.png in Resources */,
+				28C9697816E00E2800F1AD3C /* StatsAppIcon_57x57.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
