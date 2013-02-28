@@ -43,7 +43,7 @@
 				<int key="NSvFlags">292</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIView" id="24401359">
+					<object class="IBUIView" id="256863885">
 						<reference key="NSNextResponder" ref="766721923"/>
 						<int key="NSvFlags">294</int>
 						<string key="NSFrameSize">{768, 103}</string>
@@ -151,10 +151,10 @@
 				<string key="NSFrame">{{0, 20}, {768, 1004}}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="24401359"/>
+				<reference key="NSNextKeyView" ref="256863885"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">2</int>
-					<bytes key="NSRGB">MC45NjA3ODQzNzU3IDAuOTYwNzg0Mzc1NyAxAA</bytes>
+					<int key="NSColorSpace">1</int>
+					<bytes key="NSRGB">MC45MzgyMzA0NTQ5IDAuOTQ2MDE5ODI4MyAwLjk2OTM4Nzc2OTcAA</bytes>
 				</object>
 				<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics">
@@ -244,7 +244,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">matchView</string>
 						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="24401359"/>
+						<reference key="destination" ref="256863885"/>
 					</object>
 					<int key="connectionID">25</int>
 				</object>
@@ -276,7 +276,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="156657018"/>
 							<reference ref="774293308"/>
-							<reference ref="24401359"/>
+							<reference ref="256863885"/>
 							<reference ref="115719497"/>
 							<reference ref="798133105"/>
 						</object>
@@ -304,7 +304,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">24</int>
-						<reference key="object" ref="24401359"/>
+						<reference key="object" ref="256863885"/>
 						<reference key="parent" ref="766721923"/>
 					</object>
 				</object>
@@ -361,11 +361,13 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addPlayersToTeam:</string>
+							<string>dismiss:</string>
 							<string>next:</string>
 							<string>removePlayersFromTeam:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -376,6 +378,7 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addPlayersToTeam:</string>
+							<string>dismiss:</string>
 							<string>next:</string>
 							<string>removePlayersFromTeam:</string>
 						</object>
@@ -383,6 +386,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBActionInfo">
 								<string key="name">addPlayersToTeam:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">dismiss:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

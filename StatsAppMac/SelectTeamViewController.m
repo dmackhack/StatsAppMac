@@ -37,6 +37,16 @@
     return self;
 }
 
+- (void) refreshViews
+{
+    UIView* matchViewSubView = [[self.matchView subviews] objectAtIndex:0];
+    NSLog(@"Sub View width %f", [matchViewSubView frame].size.width);
+    NSLog(@"Match View width %f", self.matchView.bounds.size.width);
+    
+    CGRect viewFrame = CGRectMake(0.0, 0.0, self.matchView.bounds.size.width, 100);
+    matchViewSubView.frame = viewFrame;
+}
+
 - (void) reloadData
 {
     [self.checkedAvailablePlayers removeAllObjects];
@@ -51,6 +61,8 @@
     
     [[self availablePlayersTableView] reloadData];
     [[self selectedTeamTableView] reloadData];
+    
+    [self refreshViews];
 }
 
 - (void)dealloc
@@ -70,6 +82,12 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    // This is to resize the match view
+    [self refreshViews];
 }
 
 #pragma mark - View lifecycle

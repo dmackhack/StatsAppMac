@@ -15,5 +15,7 @@
 
 - (NSString*) displayName;
 - (PlayerClub*) playerClubForClub:(Club*) club;
+- (NSNumber *)nextAvailble:(NSString *)idKey forEntityName:(NSString *)entityName inContext:(NSManagedObjectContext *)context;
+
 
 @end

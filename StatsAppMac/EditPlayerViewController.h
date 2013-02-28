@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Player.h"
+#import "CPlayer.h"
 #import "Club.h"
 #import "CClub.h"
 #import "SqlLiteRepository.h"

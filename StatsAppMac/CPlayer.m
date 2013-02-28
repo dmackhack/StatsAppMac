@@ -44,4 +44,41 @@
     return playerClub;
 }
 
+- (NSNumber *)nextAvailble:(NSString*)idKey forEntityName:(NSString*)entityName inContext:(NSManagedObjectContext *)context
+{    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSManagedObjectContext *moc = context;
+    NSEntityDescription *entity = [NSEntityDescription entityForName:entityName inManagedObjectContext:moc];
+    
+    [request setEntity:entity];
+    // [request setFetchLimit:1];
+    
+    NSArray *propertiesArray = [[NSArray alloc] initWithObjects:idKey, nil];
+    [request setPropertiesToFetch:propertiesArray];
+    [propertiesArray release], propertiesArray = nil;
+    
+    NSSortDescriptor *indexSort = [[NSSortDescriptor alloc] initWithKey:idKey ascending:YES];
+    NSArray *array = [[NSArray alloc] initWithObjects:indexSort, nil];
+    [request setSortDescriptors:array];
+    [array release], array = nil;
+    [indexSort release], indexSort = nil;
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    NSManagedObject *maxIndexedObject = [results lastObject];
+    [request release], request = nil;
+    if (error) {
+        NSLog(@"Error fetching index: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
+    //NSAssert3(error == nil, @"Error fetching index: %@\n%@", [error localizedDescription], [error userInfo]);
+    
+    NSInteger myIndex = 1;
+    if (maxIndexedObject) {
+        myIndex = [[maxIndexedObject valueForKey:idKey] integerValue] + 1;
+    }
+    
+    return [NSNumber numberWithInteger:myIndex];
+} 
+
+
 @end

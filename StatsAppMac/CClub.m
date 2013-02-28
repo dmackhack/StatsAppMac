@@ -53,7 +53,7 @@
     return (NSMutableArray*)[players sortedArrayUsingDescriptors:sortDescriptors];
 }
 
-- (Player*) addNewPlayerWithRepositoryWithRepository:(SqlLiteRepository *)repo
+- (Player*) addNewPlayerWithRepository:(SqlLiteRepository *)repo
 {
     Player* playerEntity = nil;
     

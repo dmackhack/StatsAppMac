@@ -131,13 +131,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //self.playerDetailsView.layer.cornerRadius = 10;
-    //self.playerDetailsView.layer.masksToBounds = YES;
-    //self.playerDetailsView.layer.shadowOffset = CGSizeMake(1, 0);
-    //self.playerDetailsView.layer.shadowColor = [[UIColor blackColor] CGColor];
-    //self.playerDetailsView.layer.shadowRadius = 5;
-    //self.playerDetailsView.layer.shadowOpacity = 0.25;
-    
     self.playerDetailsView.layer.masksToBounds = NO;
     self.playerDetailsView.layer.cornerRadius = 10;
     self.playerDetailsView.layer.shadowOffset = CGSizeMake(-15, 20);
@@ -187,10 +180,13 @@
     Club* club = [[self session] selectedClubForEdit];
     if (self.player == nil)
     {
-        self.player = [club addNewPlayerWithRepositoryWithRepository:repo];
+        NSLog(@"Player Nil");
+        self.player = [club addNewPlayerWithRepository:repo];
+        NSNumber* userId = [self.player nextAvailble:@"userId" forEntityName:@"Player" inContext:[repo managedObjectContext]];
+        NSLog(@"New User Id: %@", userId);
+        self.player.userId = userId;
     }
-     
-    self.player.userId = [NSNumber numberWithInt:[self.userIdTextView.text intValue]];
+    
     self.player.firstName = self.firstNameTextView.text;
     self.player.lastName = self.lastNameTextView.text;
     self.player.number = [NSNumber numberWithInt:[self.numberTextView.text intValue]];
