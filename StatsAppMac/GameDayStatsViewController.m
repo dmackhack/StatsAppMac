@@ -82,7 +82,9 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select Team" style:UIBarButtonItemStylePlain target:self action:@selector(selectTeam:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
+    self.navigationItem.title = @"Match Statistics";
 }
 
 - (void)viewDidUnload
@@ -263,6 +265,20 @@
     {
         return @"%@";
     }
+}
+
+- (IBAction)selectTeam:(id)sender
+{
+    SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
+    
+    UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
+    [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    [modalNavBar pushViewController:selectTeamView animated:YES];
+}
+
+- (IBAction)dismiss:(id)sender
+{
+    [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
 @end

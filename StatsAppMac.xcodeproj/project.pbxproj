@@ -77,6 +77,8 @@
 		28C9697316E00D4200F1AD3C /* StatsAppIcon_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697216E00D4200F1AD3C /* StatsAppIcon_72x72.png */; };
 		28C9697616E00E0800F1AD3C /* StatsAppIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697516E00E0800F1AD3C /* StatsAppIcon_57x57.png */; };
 		28C9697816E00E2800F1AD3C /* StatsAppIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697716E00E2800F1AD3C /* StatsAppIcon_57x57.png */; };
+		28C9697A16E54D8500F1AD3C /* StatsAppIcon2_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697916E54D8400F1AD3C /* StatsAppIcon2_57x57.png */; };
+		28C9697C16E54F9300F1AD3C /* StatsAppIcon2_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 28C9697B16E54F9300F1AD3C /* StatsAppIcon2_72x72.png */; };
 		28C9A8421670061100BF8717 /* CMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A8411670061100BF8717 /* CMatch.m */; };
 		28C9A84616700B6700BF8717 /* CPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C9A84516700B6700BF8717 /* CPlayer.m */; };
 		28D35D4B1683447600BC74F1 /* FixtureMatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D35D491683447600BC74F1 /* FixtureMatchViewController.m */; };
@@ -173,7 +175,7 @@
 		28894B7116BCD3400074E4A6 /* StatsAppMacNotificationCentre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsAppMacNotificationCentre.h; sourceTree = "<group>"; };
 		28894B7216BCD3410074E4A6 /* StatsAppMacNotificationCentre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacNotificationCentre.m; sourceTree = "<group>"; };
 		28894B7416BCD53D0074E4A6 /* SelectedClubForEditChangedListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedClubForEditChangedListener.h; sourceTree = "<group>"; };
-		288BDE28147FB70C00002F9A /* StatsAppMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StatsAppMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		288BDE28147FB70C00002F9A /* Footy Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Footy Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		288BDE2C147FB70C00002F9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288BDE2E147FB70C00002F9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		288BDE30147FB70C00002F9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,6 +210,8 @@
 		28C9697216E00D4200F1AD3C /* StatsAppIcon_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatsAppIcon_72x72.png; sourceTree = "<group>"; };
 		28C9697516E00E0800F1AD3C /* StatsAppIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatsAppIcon_57x57.png; sourceTree = "<group>"; };
 		28C9697716E00E2800F1AD3C /* StatsAppIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = file; path = StatsAppIcon_57x57.png; sourceTree = "<group>"; };
+		28C9697916E54D8400F1AD3C /* StatsAppIcon2_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatsAppIcon2_57x57.png; sourceTree = "<group>"; };
+		28C9697B16E54F9300F1AD3C /* StatsAppIcon2_72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StatsAppIcon2_72x72.png; sourceTree = "<group>"; };
 		28C9A8401670061100BF8717 /* CMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMatch.h; sourceTree = "<group>"; };
 		28C9A8411670061100BF8717 /* CMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMatch.m; sourceTree = "<group>"; };
 		28C9A84416700B6600BF8717 /* CPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPlayer.h; sourceTree = "<group>"; };
@@ -341,7 +345,9 @@
 		288BDE1D147FB70B00002F9A = {
 			isa = PBXGroup;
 			children = (
+				28C9697916E54D8400F1AD3C /* StatsAppIcon2_57x57.png */,
 				28C9697716E00E2800F1AD3C /* StatsAppIcon_57x57.png */,
+				28C9697B16E54F9300F1AD3C /* StatsAppIcon2_72x72.png */,
 				288BDE34147FB70C00002F9A /* StatsAppMac */,
 				288BDE5D147FB70D00002F9A /* StatsAppMacTests */,
 				288BDE2B147FB70C00002F9A /* Frameworks */,
@@ -352,7 +358,7 @@
 		288BDE29147FB70C00002F9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				288BDE28147FB70C00002F9A /* StatsAppMac.app */,
+				288BDE28147FB70C00002F9A /* Footy Stats.app */,
 				288BDE56147FB70C00002F9A /* StatsAppMacTests.octest */,
 			);
 			name = Products;
@@ -487,9 +493,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		288BDE27147FB70C00002F9A /* StatsAppMac */ = {
+		288BDE27147FB70C00002F9A /* Footy Stats */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "StatsAppMac" */;
+			buildConfigurationList = 288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "Footy Stats" */;
 			buildPhases = (
 				288BDE24147FB70C00002F9A /* Sources */,
 				288BDE25147FB70C00002F9A /* Frameworks */,
@@ -499,9 +505,9 @@
 			);
 			dependencies = (
 			);
-			name = StatsAppMac;
+			name = "Footy Stats";
 			productName = StatsAppMac;
-			productReference = 288BDE28147FB70C00002F9A /* StatsAppMac.app */;
+			productReference = 288BDE28147FB70C00002F9A /* Footy Stats.app */;
 			productType = "com.apple.product-type.application";
 		};
 		288BDE55147FB70C00002F9A /* StatsAppMacTests */ = {
@@ -543,7 +549,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				288BDE27147FB70C00002F9A /* StatsAppMac */,
+				288BDE27147FB70C00002F9A /* Footy Stats */,
 				288BDE55147FB70C00002F9A /* StatsAppMacTests */,
 			);
 		};
@@ -575,6 +581,8 @@
 				28C9697316E00D4200F1AD3C /* StatsAppIcon_72x72.png in Resources */,
 				28C9697616E00E0800F1AD3C /* StatsAppIcon_57x57.png in Resources */,
 				28C9697816E00E2800F1AD3C /* StatsAppIcon_57x57.png in Resources */,
+				28C9697A16E54D8500F1AD3C /* StatsAppIcon2_57x57.png in Resources */,
+				28C9697C16E54F9300F1AD3C /* StatsAppIcon2_72x72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,7 +678,7 @@
 /* Begin PBXTargetDependency section */
 		288BDE5C147FB70D00002F9A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 288BDE27147FB70C00002F9A /* StatsAppMac */;
+			target = 288BDE27147FB70C00002F9A /* Footy Stats */;
 			targetProxy = 288BDE5B147FB70D00002F9A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -833,7 +841,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "StatsAppMac" */ = {
+		288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "Footy Stats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				288BDE6B147FB70D00002F9A /* Debug */,

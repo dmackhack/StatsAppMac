@@ -20,6 +20,7 @@
 #import "Round.h"
 #import "Season.h"
 #import "Division.h"
+#import "SelectTeamViewController.h"
 
 @class StatsAppMacAppDelegate;
 @class StatsCell;
@@ -38,5 +39,8 @@
 @property (nonatomic, retain) IBOutlet UILabel* divisionLabel;
 @property (nonatomic, retain) IBOutlet UILabel* homeTeamLabel;
 @property (nonatomic, retain) IBOutlet UILabel* awayTeamLabel;
+
+- (IBAction)selectTeam:(id)sender;
+- (IBAction)dismiss:(id)sender;
 
 @end

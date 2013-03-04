@@ -245,11 +245,14 @@
     [self session].selectedMatch = match;
     NSLog(@"selected match date: %@", [[match date] description]);
     
-    SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
+    GameDayStatsViewController* statsView = [[GameDayStatsViewController alloc] initWithNibName:@"GameDayStatsViewController" bundle:nil];
+    //SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
     
     UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
     [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
-    [modalNavBar pushViewController:selectTeamView animated:YES];
+    
+    //[modalNavBar pushViewController:selectTeamView animated:YES];
+    [modalNavBar pushViewController:statsView animated:YES];
     
     
     //[[[[self appDelegate] window] rootViewController] pushViewController:selectTeamView animated:YES];
@@ -258,7 +261,8 @@
 
     
     //[self.navBar pushViewController:selectTeamView animated:YES];
-    [selectTeamView release];
+    //[selectTeamView release];
+    [statsView release];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
