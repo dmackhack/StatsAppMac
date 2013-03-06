@@ -304,7 +304,7 @@
     NSMutableArray* toRemove = [[NSMutableArray alloc] init];
     for (NSIndexPath* index in [self checkedSelectedPlayers])
     {
-        PlayerParticipant* participant = [[[[self selectedTeamParticipant] playerParticipants] allObjects] objectAtIndex:index.row];
+        PlayerParticipant* participant = [[[[self selectedTeamParticipant] playerParticipantsByLastName] allObjects] objectAtIndex:index.row];
         [toRemove addObject:participant];
     }
     for (PlayerParticipant* participant in toRemove)
