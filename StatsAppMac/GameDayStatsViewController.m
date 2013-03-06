@@ -271,9 +271,13 @@
 {
     SelectTeamViewController* selectTeamView = [[SelectTeamViewController alloc] initWithNibName:@"SelectTeamViewController" bundle:nil];
     
-    UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
-    [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
-    [modalNavBar pushViewController:selectTeamView animated:YES];
+    [self.navigationController pushViewController:selectTeamView animated:YES];
+    
+    //UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
+    //[[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    //[modalNavBar pushViewController:selectTeamView animated:YES];
+    
+    [selectTeamView release];
 }
 
 - (IBAction)dismiss:(id)sender
