@@ -11,7 +11,7 @@
 
 @implementation GameDayStatsViewController
 
-@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_;
+@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, statsTableView=statsTableView_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -119,6 +119,8 @@
         self.homeTeamLabel.text = [[[[[self selectedMatch] homeTeam] team] club] name];
         self.awayTeamLabel.text = [[[[[self selectedMatch] awayTeam] team] club] name];
     }
+    
+    [self.statsTableView reloadData];
     
     
     NSLog(@"Number of players in viewWillAppear %i", count);

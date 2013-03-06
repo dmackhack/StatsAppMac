@@ -32,6 +32,8 @@
     UILabel* divisionLabel_;
     UILabel* homeTeamLabel_;
     UILabel* awayTeamLabel_;
+    
+    UITableView* statsTableView_;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel* roundLabel;
@@ -39,6 +41,8 @@
 @property (nonatomic, retain) IBOutlet UILabel* divisionLabel;
 @property (nonatomic, retain) IBOutlet UILabel* homeTeamLabel;
 @property (nonatomic, retain) IBOutlet UILabel* awayTeamLabel;
+@property (nonatomic, retain) IBOutlet UITableView* statsTableView;
+
 
 - (IBAction)selectTeam:(id)sender;
 - (IBAction)dismiss:(id)sender;
