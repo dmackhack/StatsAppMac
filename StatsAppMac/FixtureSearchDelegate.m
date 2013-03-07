@@ -68,6 +68,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [[self appDelegate] setDefaultClub];
 }
 
 - (void)viewDidUnload
@@ -80,6 +81,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    NSLog(@"In view did load: %@", [[[self session] selectedClub] name]);
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
