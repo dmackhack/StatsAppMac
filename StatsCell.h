@@ -13,6 +13,7 @@
 #import "PlayerParticipant.h"
 #import "CParticipant.h"
 #import "FootyPlayerStatistics.h"
+#import "CFootyPlayerStatistics.h"
 #import "SqlLiteRepository.h"
 
 @class StatsAppMacAppDelegate;
@@ -27,6 +28,9 @@
     UILabel* handballsLabel_;
     UILabel* marksLabel_;
     UILabel* tacklesLabel_;
+    UILabel* goalsLabel_;
+    UILabel* behindsLabel_;
+    UILabel* totalScoreLabel_;
 }
 
 @property (nonatomic, retain) PlayerParticipant* playerParticipant;
@@ -35,12 +39,16 @@
 @property (nonatomic, retain) IBOutlet UILabel* handballsLabel;
 @property (nonatomic, retain) IBOutlet UILabel* marksLabel;
 @property (nonatomic, retain) IBOutlet UILabel* tacklesLabel;
-
+@property (nonatomic, retain) IBOutlet UILabel* goalsLabel;
+@property (nonatomic, retain) IBOutlet UILabel* behindsLabel;
+@property (nonatomic, retain) IBOutlet UILabel* totalScoreLabel;
 
 - (IBAction)addKick:(id)sender;
 - (IBAction)addMark:(id)sender;
 - (IBAction)addHandball:(id)sender;
 - (IBAction)addTackle:(id)sender;
+- (IBAction)addGoal:(id)sender;
+- (IBAction)addBehind:(id)sender;
 
 - (void) reloadData;
 

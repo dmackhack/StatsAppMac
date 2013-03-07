@@ -10,7 +10,7 @@
 
 @implementation StatsCell
 
-@synthesize playerParticipant=playerParticipant_, playerName=playerName_, kicksLabel=kicksLabel_, marksLabel=marksLabel_, handballsLabel=handballsLabel_, tacklesLabel=tacklesLabel_;
+@synthesize playerParticipant=playerParticipant_, playerName=playerName_, kicksLabel=kicksLabel_, marksLabel=marksLabel_, handballsLabel=handballsLabel_, tacklesLabel=tacklesLabel_, goalsLabel=goalsLabel_, behindsLabel=behindsLabel_, totalScoreLabel=totalScoreLabel_;
 
 - (StatsAppMacAppDelegate*) appDelegate
 {
@@ -40,6 +40,9 @@
     [marksLabel_ release];
     [handballsLabel_ release];
     [tacklesLabel_ release];
+    [goalsLabel_ release];
+    [behindsLabel_ release];
+    [totalScoreLabel_ release];
     [super dealloc];
 }
 
@@ -81,24 +84,41 @@
     NSLog(@"tackle event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.tackles intValue]);
 }
 
+- (IBAction)addBehind:(id)sender 
+{
+    int value = [self.playerStatistics.behinds intValue];
+    self.playerStatistics.behinds = [NSNumber numberWithInt:value + 1];
+    [self reloadData];
+    NSLog(@"behind event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.behinds intValue]);
+}
+
+- (IBAction)addGoal:(id)sender 
+{
+    int value = [self.playerStatistics.goals intValue];
+    self.playerStatistics.goals = [NSNumber numberWithInt:value + 1];
+    [self reloadData];
+    NSLog(@"goal event recieved for %@: %i", self.playerParticipant.player.firstName, [self.playerStatistics.goals intValue]);
+}
+
+- (void) styleLabel:(UILabel*)label
+{
+    label.backgroundColor = [UIColor clearColor];
+    label.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    label.layer.borderWidth = 1.0;
+}
+
 - (void) styleLabels
 {
-    self.kicksLabel.backgroundColor = [UIColor clearColor];
-    self.kicksLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
-    self.kicksLabel.layer.borderWidth = 1.0;
-    
-    self.handballsLabel.backgroundColor = [UIColor clearColor];
-    self.handballsLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
-    self.handballsLabel.layer.borderWidth = 1.0;
-    
-    self.tacklesLabel.backgroundColor = [UIColor clearColor];
-    self.tacklesLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
-    self.tacklesLabel.layer.borderWidth = 1.0;
-    
-    self.marksLabel.backgroundColor = [UIColor clearColor];
-    self.marksLabel.layer.borderColor = [UIColor lightTextColor].CGColor;
-    self.marksLabel.layer.borderWidth = 1.0;
+    [self styleLabel:self.kicksLabel];
+    [self styleLabel:self.handballsLabel];
+    [self styleLabel:self.tacklesLabel];
+    [self styleLabel:self.marksLabel];
+    [self styleLabel:self.goalsLabel];
+    [self styleLabel:self.behindsLabel];
+    [self styleLabel:self.totalScoreLabel];
 }
+
+
 
 - (void) reloadData
 {
@@ -110,6 +130,9 @@
     self.marksLabel.text = [self.playerStatistics.marks stringValue];
     self.handballsLabel.text = [self.playerStatistics.handballs stringValue];
     self.tacklesLabel.text = [self.playerStatistics.tackles stringValue];
+    self.goalsLabel.text = [[[self playerStatistics] goals] stringValue];
+    self.behindsLabel.text = [[[self playerStatistics] behinds] stringValue];
+    self.totalScoreLabel.text = [[[self playerStatistics] totalScore] stringValue];
 }
 
 
