@@ -11,7 +11,7 @@
 
 @implementation GameDayStatsViewController
 
-@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, statsTableView=statsTableView_;
+@synthesize roundLabel=roundLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, statsTableView=statsTableView_, homeGoals=homeGoals_, homeBehinds=homeBehinds_, homeTotalScore=homeTotalScore_, awayGoals=awayGoals_, awayBehinds=awayBehinds_, awayTotalScore=awayTotalScore_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -50,6 +50,14 @@
     [divisionLabel_ release];
     [homeTeamLabel_ release];
     [awayTeamLabel_ release];
+    [statsTableView_ release];
+    [homeGoals_ release];
+    [homeBehinds_ release];
+    [homeTotalScore_ release];
+    [awayGoals_ release];
+    [awayBehinds_ release];
+    [awayTotalScore_ release];
+    
     [super dealloc];
 }
 
@@ -94,7 +102,41 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (void) updateScore
+{
+    TeamParticipant* homeTeam = [[self selectedMatch] homeTeam];
+    TeamParticipant* awayTeam = [[self selectedMatch] awayTeam];
+    self.homeGoals.text = [[homeTeam teamGoals] stringValue];
+    self.homeBehinds.text = [[homeTeam teamBehinds] stringValue];
+    self.homeTotalScore.text = [[homeTeam teamScore] stringValue];
+    
+    self.awayGoals.text = [[awayTeam teamGoals] stringValue];
+    self.awayBehinds.text = [[awayTeam teamBehinds] stringValue];
+    self.awayTotalScore.text = [[awayTeam teamScore] stringValue];
+}
 
+- refreshData
+{
+    if ([self selectedMatch] != nil)
+    {
+        TeamParticipant* homeTeam = [[self selectedMatch] homeTeam];
+        TeamParticipant* awayTeam = [[self selectedMatch] awayTeam];
+        self.roundLabel.text = [NSString stringWithFormat:@"%@",  [[[self selectedMatch] round] number]];
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
+        NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[[self selectedMatch] date]]];
+        self.dateLabel.text = dateLabel;
+        self.divisionLabel.text = [NSString stringWithFormat:@"%@ - %@", [self selectedMatch].round.season.division.name,  [[self selectedMatch] homeTeam].team.name];
+        self.homeTeamLabel.text = [[[homeTeam team] club] name];
+        self.awayTeamLabel.text = [[[awayTeam team] club] name];
+        
+        [self updateScore];
+        
+    } 
+    
+    [self.statsTableView reloadData];
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -106,24 +148,11 @@
     {
         count = [[self selectedPlayerParticipants] count];
     }
-    
-    if ([self selectedMatch] != nil)
-    {
-        self.roundLabel.text = [NSString stringWithFormat:@"%@",  [[[self selectedMatch] round] number]];
-        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
-        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
-        NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[[self selectedMatch] date]]];
-        self.dateLabel.text = dateLabel;
-        self.divisionLabel.text = [NSString stringWithFormat:@"%@ - %@", [self selectedMatch].round.season.division.name,  [[self selectedMatch] homeTeam].team.name];
-        self.homeTeamLabel.text = [[[[[self selectedMatch] homeTeam] team] club] name];
-        self.awayTeamLabel.text = [[[[[self selectedMatch] awayTeam] team] club] name];
-    }
-    
-    [self.statsTableView reloadData];
-    
-    
     NSLog(@"Number of players in viewWillAppear %i", count);
+    
+    [self refreshData];
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -195,6 +224,7 @@
     if ([cell isKindOfClass:[StatsCell class]])
     {
         cell.playerParticipant = playerParticipant;
+        cell.statChangedListener = self;
         [cell reloadData];
     }
     else
@@ -285,6 +315,11 @@
 - (IBAction)dismiss:(id)sender
 {
     [self.navigationController dismissModalViewControllerAnimated:YES];
+}
+
+- (void) onStatChanged
+{
+    [self updateScore];
 }
 
 @end

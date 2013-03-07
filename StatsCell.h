@@ -15,10 +15,14 @@
 #import "FootyPlayerStatistics.h"
 #import "CFootyPlayerStatistics.h"
 #import "SqlLiteRepository.h"
+#import "StatsAppMacNotificationCentre.h"
+#import "StatChangedEvent.h"
+#import "StatChangedListener.h"
 
 @class StatsAppMacAppDelegate;
 
-@interface StatsCell : UITableViewCell
+
+@interface StatsCell : UITableViewCell <StatChangedEvent>
 {
     
     PlayerParticipant* playerParticipant_;
@@ -31,6 +35,8 @@
     UILabel* goalsLabel_;
     UILabel* behindsLabel_;
     UILabel* totalScoreLabel_;
+    
+    id <StatChangedListener> statChangedListener_;
 }
 
 @property (nonatomic, retain) PlayerParticipant* playerParticipant;
@@ -42,6 +48,8 @@
 @property (nonatomic, retain) IBOutlet UILabel* goalsLabel;
 @property (nonatomic, retain) IBOutlet UILabel* behindsLabel;
 @property (nonatomic, retain) IBOutlet UILabel* totalScoreLabel;
+
+@property (nonatomic) id <StatChangedListener> statChangedListener;
 
 - (IBAction)addKick:(id)sender;
 - (IBAction)addMark:(id)sender;

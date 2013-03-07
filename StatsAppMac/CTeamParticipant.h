@@ -11,11 +11,16 @@
 #import "Player.h"
 #import "CPlayer.h"
 #import "PlayerParticipant.h"
+#import "FootyPlayerStatistics.h"
 #import "SqlLiteRepository.h"
 
 @interface TeamParticipant (CTeamParticipant)
 
 - (void) addPlayerToTeamParticipant:(Player*)player withRepository:(SqlLiteRepository*)repo;
 - (NSMutableArray*) playerParticipantsByLastName;
+
+- (NSNumber*) teamGoals;
+- (NSNumber*) teamBehinds;
+- (NSNumber*) teamScore;
 
 @end

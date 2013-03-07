@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SelectedClubForEditChangedListener.h"
+#import "StatChangedListener.h"
 
 
 
@@ -16,7 +17,6 @@
 }
 
 @property (nonatomic, retain) NSMutableArray* selectedClubForEditChangedListeners;
-
 
 - (void) addSelectClubForEditChangeListener:(id<SelectedClubForEditChangedListener>) listener;
 - (void) removeSelectClubForEditChangeListener:(id<SelectedClubForEditChangedListener>) listener;

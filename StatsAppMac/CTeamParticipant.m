@@ -41,4 +41,31 @@
     return (NSMutableArray*)[[[self playerParticipants] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
 }
 
+- (NSNumber*) teamGoals
+{
+    int goals = 0;
+    for (PlayerParticipant* participant in [self playerParticipants])
+    {
+        FootyPlayerStatistics* stats = (FootyPlayerStatistics*) participant.participantStatistics;
+        goals = goals + [stats.goals intValue];
+    }
+    return [[NSNumber alloc] initWithInt:goals];
+}
+
+- (NSNumber*) teamBehinds
+{
+    int behinds = 0;
+    for (PlayerParticipant* participant in [self playerParticipants])
+    {
+        FootyPlayerStatistics* stats = (FootyPlayerStatistics*) participant.participantStatistics;
+        behinds = behinds + [stats.behinds intValue];
+    }
+    return [[NSNumber alloc] initWithInt:behinds];
+}
+
+- (NSNumber*) teamScore
+{
+    return [[NSNumber alloc] initWithInt:([[self teamGoals] intValue] * 6) + [[self teamBehinds] intValue]];
+}
+
 @end

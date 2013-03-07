@@ -10,7 +10,8 @@
 
 @implementation StatsCell
 
-@synthesize playerParticipant=playerParticipant_, playerName=playerName_, kicksLabel=kicksLabel_, marksLabel=marksLabel_, handballsLabel=handballsLabel_, tacklesLabel=tacklesLabel_, goalsLabel=goalsLabel_, behindsLabel=behindsLabel_, totalScoreLabel=totalScoreLabel_;
+@synthesize playerParticipant=playerParticipant_, playerName=playerName_, kicksLabel=kicksLabel_, marksLabel=marksLabel_, handballsLabel=handballsLabel_, tacklesLabel=tacklesLabel_, goalsLabel=goalsLabel_, behindsLabel=behindsLabel_, totalScoreLabel=totalScoreLabel_, statChangedListener=statChangedListener_;
+
 
 - (StatsAppMacAppDelegate*) appDelegate
 {
@@ -43,6 +44,8 @@
     [goalsLabel_ release];
     [behindsLabel_ release];
     [totalScoreLabel_ release];
+    
+    [statChangedListener_ release];
     [super dealloc];
 }
 
@@ -133,6 +136,17 @@
     self.goalsLabel.text = [[[self playerStatistics] goals] stringValue];
     self.behindsLabel.text = [[[self playerStatistics] behinds] stringValue];
     self.totalScoreLabel.text = [[[self playerStatistics] totalScore] stringValue];
+    
+    [self onStatChangedPerformed];
+}
+
+
+- (void) onStatChangedPerformed
+{
+    if (self.statChangedListener != nil)
+    {
+        [self.statChangedListener onStatChanged];        
+    }
 }
 
 

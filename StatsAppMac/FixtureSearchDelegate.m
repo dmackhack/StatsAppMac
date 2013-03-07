@@ -257,7 +257,6 @@
     //[modalNavBar pushViewController:selectTeamView animated:YES];
     [modalNavBar pushViewController:statsView animated:YES];
     
-    
     //[[[[self appDelegate] window] rootViewController] pushViewController:selectTeamView animated:YES];
     //[self.navigationController pushViewController:selectTeamView animated:YES];
     

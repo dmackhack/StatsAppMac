@@ -20,6 +20,7 @@
 #import "Division.h"
 #import "SelectTeamViewController.h"
 #import "ListPlayersViewController.h"
+#import "StatsAppMacNotificationCentre.h"
 
 @class StatsAppMacAppDelegate;
 
