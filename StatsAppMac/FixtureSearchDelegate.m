@@ -143,11 +143,12 @@
     {
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
         NSLog(@"height: %f width: %f", cell.contentView.bounds.size.height, cell.contentView.bounds.size.width);
-        CGRect viewFrame = CGRectMake(0.0, 0.0, tableView.bounds.size.width, 100);
+        
         matchViewController = [[FixtureMatchViewController alloc] initWithNibName:@"FixtureMatchViewController" bundle:nil]; 
-        matchViewController.view.frame = viewFrame;
         [cell.contentView addSubview:matchViewController.view];
     }
+    CGRect viewFrame = CGRectMake(0.0, 0.0, tableView.bounds.size.width, 100);
+    matchViewController.view.frame = viewFrame;
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     
     UIView* subview = [cell.contentView.subviews objectAtIndex:0];
