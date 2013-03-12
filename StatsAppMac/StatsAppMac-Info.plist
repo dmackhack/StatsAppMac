@@ -13,7 +13,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>StatsAppIcon2_57x57.png</string>
-		<string>StatsAppIcon3_72x72.png</string>
+		<string>StatsAppIcon4_72x72.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>org.dmack.${PRODUCT_NAME:rfc1034identifier}</string>
