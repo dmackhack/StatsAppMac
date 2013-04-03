@@ -69,6 +69,34 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     [[self appDelegate] setDefaultClub];
+    
+    UIBarButtonItem* editPlayers = [[UIBarButtonItem alloc] initWithTitle:@"Players" style:UIBarButtonItemStyleBordered target:self action:@selector(editPlayers:)];
+    UIBarButtonItem* editFixture = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(editFixture:)];
+    editFixture.style = UIBarButtonItemStyleBordered;
+     
+    UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedSpace.width = 15;
+    
+    //if ([self.navigationItem respondsToSelector:@selector(rightBarButtonItems)]) {
+        //self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects:editFixture, editPlayers, nil];
+    //} else {
+        // Support iOS < 5.0: by first adding the buttons to a toolbar.
+        // Note: You could also do this by creating two UIButtons, both with the same custom background image as a UIBarButtonItem.
+        //       Give the refresh button the refresh arrow as its image and the profile button the title @"Profile".
+        //       You can get Apple's images for the UIBarButtonItem background and the refresh arrow by monkey patching -[UIImage imageNamed:] and/or other similar methods to save each image to a file on disk.
+        //       Then, run your app in the simulator or on your device, and the files will automatically appear where you programmed to save them.
+        //       You may also find these images in Apple's resources, e.g., by running the following command in Terminal `find /Applications/Xcode.app/ -name *.png`
+        //       Otherwise, you can make these images yourself.
+        UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 130.0f, 44.01f)]; // 44.01 shifts it up 1px for some reason
+       // toolBar.tintColor = [UIColor colorWithWhite:0.305f alpha:0.0f]; // closest I could get by eye to black, translucent style.
+        // anyone know how to get it perfect?
+        //toolBar.barStyle = -1; // clear background
+        toolBar.backgroundColor = [UIColor clearColor];
+    
+        [toolBar setItems:[[NSMutableArray alloc] initWithObjects:editFixture, fixedSpace, editPlayers, nil] animated:NO];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolBar];
+    //}
+    
 }
 
 - (void)viewDidUnload
@@ -272,7 +300,7 @@
 {
     if (section == 0)
     {
-        return @"Club Fixutre";
+        return @"Club Fixture";
     }
     else
     {
@@ -300,12 +328,24 @@
 
 - (IBAction)editPlayers:(id)sender
 {
-    UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
+    UINavigationController* modalNavBar = [[UINavigationController alloc] init];
+    
     ListPlayersViewController* listPlayersView = [[ListPlayersViewController alloc] initWithStyle:UITableViewStylePlain];
     [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
     [modalNavBar pushViewController:listPlayersView animated:YES];
-    //[self.navigationController pushViewController:listPlayersView animated:YES];
     [listPlayersView release];
+    [modalNavBar release];
+}
+
+- (IBAction)editFixture:(id)sender
+{
+    UINavigationController* modalNavBar = [[UINavigationController alloc] init];
+    
+    EditFixtureViewController* editFixtureView = [[EditFixtureViewController alloc] initWithNibName:@"EditFixtureViewController" bundle:nil];
+    [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    [modalNavBar pushViewController:editFixtureView animated:YES];
+    [editFixtureView release];
+    [modalNavBar release];
 }
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

@@ -21,6 +21,7 @@
 #import "SelectTeamViewController.h"
 #import "ListPlayersViewController.h"
 #import "StatsAppMacNotificationCentre.h"
+#import "EditFixtureViewController.h"
 
 @class StatsAppMacAppDelegate;
 
@@ -36,5 +37,6 @@
 
 - (void) updateFixture;
 - (IBAction)editPlayers:(id)sender;
+- (IBAction)editFixture:(id)sender;
 
 @end

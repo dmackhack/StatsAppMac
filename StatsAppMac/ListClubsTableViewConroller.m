@@ -12,7 +12,7 @@
 @implementation ListClubsTableViewConroller
 
 
-@synthesize cache=cache_, searchBar=searchBar_, listPlayersView=listPlayersView_, searchTerm=searchTerm_, fixtureSearchDelegate=fixtureSearchDelegate_;
+@synthesize searchBar=searchBar_, listPlayersView=listPlayersView_, searchTerm=searchTerm_, fixtureSearchDelegate=fixtureSearchDelegate_;
 
 - (StatsAppMacAppDelegate *) appDelegate
 {
@@ -22,6 +22,11 @@
 - (StatsAppMacSession*) session
 {
     return [[self appDelegate] session];
+}
+
+- (ClubSqlLiteRepository*) clubRepo
+{
+    return [[self appDelegate] clubRepo];
 }
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -35,10 +40,10 @@
 
 - (void)dealloc
 {
-    [cache_ release];
     [listPlayersView_ release];
     [searchBar_ release];
     [searchTerm_ release];
+    [fixtureSearchDelegate_ release];
     [super dealloc];
 }
 
@@ -133,47 +138,6 @@
     [self.tableView reloadData];
 }
 
-- (NSFetchedResultsController *) resultsController
-{
-    
-    
-    StatsAppMacAppDelegate* appDel = self.appDelegate;
-    SqlLiteRepository* repo = [appDel repo];
-    
-    NSManagedObjectContext* context = [repo managedObjectContext];
-    NSFetchRequest* fetchClubsByName = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription* playerEntityDescription = [NSEntityDescription entityForName:@"Club" inManagedObjectContext:context];
-    [fetchClubsByName setEntity:playerEntityDescription];
-    
-    //NSString* searchTerm = nil;
-    NSLog(@"Search Term: [%@]", self.searchTerm);
-    if (self.searchTerm != nil && [self.searchTerm length] > 0)
-    {    
-        NSLog(@"Appending Predicate");
-        NSPredicate* clubsByNamePredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", self.searchTerm];
-        [fetchClubsByName setPredicate:clubsByNamePredicate];
-    }
-    
-    NSSortDescriptor* clubsByNameSD = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-    [fetchClubsByName setSortDescriptors:[NSArray arrayWithObject:clubsByNameSD]];
-    
-    resultsController_ = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchClubsByName managedObjectContext:context sectionNameKeyPath:nil cacheName:[self cache]];
-    
-    resultsController_.delegate = self;
-    
-    NSError* error;
-    BOOL success = [resultsController_ performFetch:&error];
-    
-    if (!success)
-    {
-        NSLog(@"Error fetching results");
-    }
-    [fetchClubsByName release];
-    return resultsController_;
-    
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -186,8 +150,8 @@
 {
     // Return the number of rows in the section.
     
-    NSLog(@"In number of rows %i", [self.resultsController.fetchedObjects count]);
-    return [self.resultsController.fetchedObjects count];
+    NSLog(@"In number of rows %i", [[[self clubRepo] fetchClubs:self.searchTerm] count]);
+    return [[[self clubRepo] fetchClubs:self.searchTerm] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -202,7 +166,7 @@
     // Configure the cell...
     
     
-    Club* club = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
+    Club* club = [[[self clubRepo] fetchClubs:self.searchTerm] objectAtIndex:indexPath.row];
     
     NSLog(@"Club Name: %@", club.name);
     cell.textLabel.text = [NSString stringWithFormat:club.name];
@@ -262,7 +226,7 @@
      [detailViewController release];
      */
     
-    Club* club = [self.resultsController.fetchedObjects objectAtIndex:indexPath.row];
+    Club* club = [[[self clubRepo] fetchClubs:self.searchTerm] objectAtIndex:indexPath.row];
     NSLog(@"Selected Club For Edit: %@", club.name);
     
     [self session].selectedClubForEdit = club;

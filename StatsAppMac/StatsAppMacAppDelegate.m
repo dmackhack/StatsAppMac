@@ -11,8 +11,7 @@
 @implementation StatsAppMacAppDelegate
 
 
-@synthesize window=_window, repo=repo_, session=session_, notificationCentre=notificationCentre_, mainMenuNav=mainMenuNav_, modalNavBar=modalNavBar_;
-
+@synthesize window=_window, repo=repo_, session=session_, notificationCentre=notificationCentre_, mainMenuNav=mainMenuNav_, modalNavBar=modalNavBar_, clubRepo=clubRepo_;
 
 - (SqlLiteRepository*) repo
 {
@@ -21,6 +20,15 @@
         repo_ = [[SqlLiteRepository alloc] init];
     }
     return repo_;
+}
+
+- (ClubSqlLiteRepository*) clubRepo
+{
+    if (clubRepo_ == nil)
+    {
+        clubRepo_ = [[ClubSqlLiteRepository alloc] init];
+    }
+    return clubRepo_;
 }
 
 - (StatsAppMacSession*) session
