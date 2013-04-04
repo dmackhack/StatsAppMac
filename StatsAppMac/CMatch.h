@@ -11,6 +11,7 @@
 #import "TeamParticipant.h"
 #import "Club.h"
 #import "Team.h"
+#import "SqlLiteRepository.h"
 
 
 @interface Match (CMatch)
@@ -18,5 +19,6 @@
 - (TeamParticipant*) teamParticipantForClub:(Club*) club;
 - (TeamParticipant*) homeTeam;
 - (TeamParticipant*) awayTeam;
+- (void) createMatchParticipantsWithRepository:(SqlLiteRepository*)repo homeTeam:(Team*)homeTeam awayTeam:(Team*)awayTeam;
 
 @end

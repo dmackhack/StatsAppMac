@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SqlLiteRepository.h"
 #import "ClubSqlLiteRepository.h"
+#import "Round.h"
 
 @class StatsAppMacAppDelegate;
 

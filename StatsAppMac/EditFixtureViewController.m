@@ -23,6 +23,11 @@ Team* selectedAwayTeam;
     return (StatsAppMacAppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
+- (SqlLiteRepository*) repo
+{
+    return [[self appDelegate] repo];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -145,7 +150,7 @@ Team* selectedAwayTeam;
         }
         title = club.name;
     }
-    else
+    if (component == 1)
     {
         Club* club;
         NSSortDescriptor* nameSort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
@@ -175,14 +180,14 @@ Team* selectedAwayTeam;
             [self.homeTeamPicker reloadComponent:1];
             [self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:1];
         }
-        else if (pickerView == self.awayTeamPicker)
+        if (pickerView == self.awayTeamPicker)
         {
             [self.awayTeamPicker reloadComponent:1];
             [self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:1];
         }
     }
     
-    if (component == 1)
+    else if (component == 1)
     {
         Club* club;
         NSSortDescriptor* nameSort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
@@ -190,14 +195,28 @@ Team* selectedAwayTeam;
         {
             NSInteger selectedRow = [self.homeTeamPicker selectedRowInComponent:0];
             club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
-            selectedHomeTeam = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+            if ([club.teams count] > 0)
+            {
+                selectedHomeTeam = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+            }
+            else
+            {
+                selectedHomeTeam = nil;
+            }
             NSLog(@"Setting selected home team: %@ - %@", selectedHomeTeam.club.name, selectedHomeTeam.name);
         }
-        else if (pickerView == self.awayTeamPicker)
+        if (pickerView == self.awayTeamPicker)
         {
             NSInteger selectedRow = [self.awayTeamPicker selectedRowInComponent:0];
             club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
-            selectedAwayTeam = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+            if ([club.teams count] > 0)
+            {
+                selectedAwayTeam = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+            }
+            else
+            {
+                selectedAwayTeam = nil;
+            }
             NSLog(@"Setting selected away team: %@ - %@", selectedAwayTeam.club.name, selectedAwayTeam.name);
         }
         [nameSort release];
@@ -215,6 +234,18 @@ Team* selectedAwayTeam;
 {
     NSLog(@"Selected Home Team: %@ - %@", selectedHomeTeam.club.name, selectedHomeTeam.name);
     NSLog(@"Selected Away Team: %@ - %@", selectedAwayTeam.club.name, selectedAwayTeam.name);
+    
+    Match* match = [NSEntityDescription insertNewObjectForEntityForName:@"Match" inManagedObjectContext:[self repo].managedObjectContext];
+    [match createMatchParticipantsWithRepository:[self repo] homeTeam:selectedHomeTeam awayTeam:selectedAwayTeam];
+    
+    Round* round = [NSEntityDescription insertNewObjectForEntityForName:@"Round" inManagedObjectContext:[self repo].managedObjectContext];
+    round.number = [NSNumber numberWithInt:[[self.roundTextField text] integerValue]];
+    
+    match.round = round;
+    [round addMatchesObject:match];
+    
+    [[self repo] saveContext];
+    
     [self.navigationController dismissModalViewControllerAnimated:YES];
 }
 
