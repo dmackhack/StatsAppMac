@@ -85,7 +85,14 @@
         
         homeTeamLabel = [[[homeTeam team] club] name];
         awayTeamLabel = [[[awayTeam team] club] name];
-        divisionLabel = [NSString stringWithFormat:@"%@ - %@", self.match.round.season.division.name,  homeTeam.team.name];
+        if (self.match.round.season.division.name == nil)
+        {
+            divisionLabel = homeTeam.team.name;
+        }
+        else
+        {
+            divisionLabel = [NSString stringWithFormat:@"%@ - %@", self.match.round.season.division.name,  homeTeam.team.name];
+        }
     }
     
     NSLog(@"Setting values for round: %i", [self.match.round.number intValue]);

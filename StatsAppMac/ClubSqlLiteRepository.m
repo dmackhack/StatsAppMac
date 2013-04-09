@@ -79,7 +79,7 @@
         NSLog(@"Error fetching results");
     }
     [fetchClubsByName release];
-    return [resultsController_ fetchedObjects];;
+    return [resultsController_ fetchedObjects];
 }
 
 

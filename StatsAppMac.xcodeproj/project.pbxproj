@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28027BBF1713110B008981A5 /* FixtureSqlLiteRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 28027BBE1713110B008981A5 /* FixtureSqlLiteRepository.m */; };
 		280B9A4216A4BAB000F066DE /* ListClubsTableViewConroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 280B9A4116A4BAB000F066DE /* ListClubsTableViewConroller.m */; };
 		28141FF91678ABEB00EBF46C /* CTeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 28141FF81678ABEB00EBF46C /* CTeamParticipant.m */; };
 		2828EB2F16EFD02A00CC1194 /* StatsAppIcon4_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2828EB2E16EFD02900CC1194 /* StatsAppIcon4_72x72.png */; };
@@ -51,6 +52,7 @@
 		2883173F148E089A0066D319 /* MainMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2883173D148E08990066D319 /* MainMenuViewController.xib */; };
 		2884575C15F5D9A300D452D3 /* SearchGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2884575A15F5D9A300D452D3 /* SearchGamesViewController.m */; };
 		2884575D15F5D9A300D452D3 /* SearchGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2884575B15F5D9A300D452D3 /* SearchGamesViewController.xib */; };
+		28851A761712FD9B00268FFF /* RoundPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28851A751712FD9A00268FFF /* RoundPickerViewController.m */; };
 		28885AAE16B2429300079599 /* EditPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28885AAC16B2429300079599 /* EditPlayerViewController.m */; };
 		28885AAF16B2429300079599 /* EditPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28885AAD16B2429300079599 /* EditPlayerViewController.xib */; };
 		28894B7316BCD3430074E4A6 /* StatsAppMacNotificationCentre.m in Sources */ = {isa = PBXBuildFile; fileRef = 28894B7216BCD3410074E4A6 /* StatsAppMacNotificationCentre.m */; };
@@ -111,6 +113,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28027BBD1713110B008981A5 /* FixtureSqlLiteRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FixtureSqlLiteRepository.h; sourceTree = "<group>"; };
+		28027BBE1713110B008981A5 /* FixtureSqlLiteRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FixtureSqlLiteRepository.m; sourceTree = "<group>"; };
 		280B9A4016A4BAB000F066DE /* ListClubsTableViewConroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListClubsTableViewConroller.h; sourceTree = "<group>"; };
 		280B9A4116A4BAB000F066DE /* ListClubsTableViewConroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListClubsTableViewConroller.m; sourceTree = "<group>"; };
 		28141FF71678ABEB00EBF46C /* CTeamParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTeamParticipant.h; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		2884575915F5D9A300D452D3 /* SearchGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchGamesViewController.h; sourceTree = "<group>"; };
 		2884575A15F5D9A300D452D3 /* SearchGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchGamesViewController.m; sourceTree = "<group>"; };
 		2884575B15F5D9A300D452D3 /* SearchGamesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchGamesViewController.xib; sourceTree = "<group>"; };
+		28851A741712FD9A00268FFF /* RoundPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundPickerViewController.h; sourceTree = "<group>"; };
+		28851A751712FD9A00268FFF /* RoundPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundPickerViewController.m; sourceTree = "<group>"; };
 		28885AAB16B2429300079599 /* EditPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditPlayerViewController.h; sourceTree = "<group>"; };
 		28885AAC16B2429300079599 /* EditPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditPlayerViewController.m; sourceTree = "<group>"; };
 		28885AAD16B2429300079599 /* EditPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditPlayerViewController.xib; sourceTree = "<group>"; };
@@ -351,6 +357,8 @@
 				287ED20F164AE14C00048D18 /* SqlLiteRepository.m */,
 				2828EB3516F5EBFD00CC1194 /* ClubSqlLiteRepository.h */,
 				2828EB3616F5EBFD00CC1194 /* ClubSqlLiteRepository.m */,
+				28027BBD1713110B008981A5 /* FixtureSqlLiteRepository.h */,
+				28027BBE1713110B008981A5 /* FixtureSqlLiteRepository.m */,
 			);
 			name = repository;
 			sourceTree = "<group>";
@@ -506,6 +514,8 @@
 				2828EB3016F20F3300CC1194 /* EditFixtureViewController.h */,
 				2828EB3116F20F3400CC1194 /* EditFixtureViewController.m */,
 				2828EB3216F20F3500CC1194 /* EditFixtureViewController.xib */,
+				28851A741712FD9A00268FFF /* RoundPickerViewController.h */,
+				28851A751712FD9A00268FFF /* RoundPickerViewController.m */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -724,6 +734,8 @@
 				28C9698316E8B42E00F1AD3C /* CFootyPlayerStatistics.m in Sources */,
 				2828EB3316F20F3700CC1194 /* EditFixtureViewController.m in Sources */,
 				2828EB3716F5EBFD00CC1194 /* ClubSqlLiteRepository.m in Sources */,
+				28851A761712FD9B00268FFF /* RoundPickerViewController.m in Sources */,
+				28027BBF1713110B008981A5 /* FixtureSqlLiteRepository.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +837,7 @@
 				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -839,6 +852,7 @@
 				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

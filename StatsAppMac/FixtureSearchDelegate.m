@@ -77,9 +77,11 @@
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpace.width = 15;
     
-    //if ([self.navigationItem respondsToSelector:@selector(rightBarButtonItems)]) {
-        //self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects:editFixture, editPlayers, nil];
-    //} else {
+    if ([self.navigationItem respondsToSelector:@selector(rightBarButtonItems)]) {
+        self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects:editPlayers, editFixture, nil];
+    }
+    else
+    {
         // Support iOS < 5.0: by first adding the buttons to a toolbar.
         // Note: You could also do this by creating two UIButtons, both with the same custom background image as a UIBarButtonItem.
         //       Give the refresh button the refresh arrow as its image and the profile button the title @"Profile".
@@ -95,7 +97,7 @@
     
         [toolBar setItems:[[NSMutableArray alloc] initWithObjects:editFixture, fixedSpace, editPlayers, nil] animated:NO];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolBar];
-    //}
+    }
     
 }
 
@@ -342,7 +344,7 @@
     UINavigationController* modalNavBar = [[UINavigationController alloc] init];
     
     EditFixtureViewController* editFixtureView = [[EditFixtureViewController alloc] initWithNibName:@"EditFixtureViewController" bundle:nil];
-    [[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    [[[[self appDelegate] window] rootViewController] presentModalViewController:editFixtureView animated:YES];
     [modalNavBar pushViewController:editFixtureView animated:YES];
     [editFixtureView release];
     [modalNavBar release];

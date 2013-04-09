@@ -22,6 +22,7 @@
 #import "Division.h"
 #import "SelectTeamViewController.h"
 #import "StatChangedListener.h"
+#import "EditFixtureViewController.h"
 
 @class StatsAppMacAppDelegate;
 @class StatsCell;
@@ -58,7 +59,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView* statsTableView;
 
-
+- (IBAction)editFixture:(id)sender;
 - (IBAction)selectTeam:(id)sender;
 - (IBAction)dismiss:(id)sender;
 - (void) refreshData;

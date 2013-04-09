@@ -90,7 +90,11 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Select Team" style:UIBarButtonItemStylePlain target:self action:@selector(selectTeam:)];
+    
+    UIBarButtonItem* editFixutreButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(editFixture:)];
+    UIBarButtonItem* selectTeamButton = [[UIBarButtonItem alloc] initWithTitle:@"Select Team" style:UIBarButtonItemStylePlain target:self action:@selector(selectTeam:)];
+    
+    self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects: selectTeamButton, editFixutreButton, nil];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(dismiss:)];
     self.navigationItem.title = @"Match Statistics";
 }
@@ -127,7 +131,14 @@
         [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
         NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[[self selectedMatch] date]]];
         self.dateLabel.text = dateLabel;
-        self.divisionLabel.text = [NSString stringWithFormat:@"%@ - %@", [self selectedMatch].round.season.division.name,  [[self selectedMatch] homeTeam].team.name];
+        if ([self selectedMatch].round.season.division.name == nil)
+        {
+            self.divisionLabel.text = [[self selectedMatch] homeTeam].team.name;
+        }
+        else
+        {
+            self.divisionLabel.text = [NSString stringWithFormat:@"%@ - %@", [self selectedMatch].round.season.division.name,  [[self selectedMatch] homeTeam].team.name];
+        }
         self.homeTeamLabel.text = [[[homeTeam team] club] name];
         self.awayTeamLabel.text = [[[awayTeam team] club] name];
         
@@ -310,6 +321,18 @@
     //[modalNavBar pushViewController:selectTeamView animated:YES];
     
     [selectTeamView release];
+}
+
+- (IBAction)editFixture:(id)sender
+{
+    EditFixtureViewController* editFixtureView = [[EditFixtureViewController alloc] initWithNibName:@"EditFixtureViewController" bundle:nil];
+    editFixtureView.match = [self selectedMatch];
+    
+    //UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
+    //[[[[self appDelegate] window] rootViewController] presentModalViewController:editFixtureView animated:YES];
+    [self.navigationController presentModalViewController:editFixtureView animated:YES];
+    
+    [editFixtureView release];
 }
 
 - (IBAction)dismiss:(id)sender

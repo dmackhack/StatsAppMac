@@ -21,6 +21,7 @@
 #import "StatsAppMacNotificationCentre.h"
 #import "MainSplitViewController.h"
 #import "ClubSqlLiteRepository.h"
+#import "FixtureSqlLiteRepository.h"
 
 
 @interface StatsAppMacAppDelegate : NSObject <UIApplicationDelegate> 
@@ -29,6 +30,7 @@
     MainMenuViewController* mainView_;
     SqlLiteRepository* repo_;
     ClubSqlLiteRepository* clubRepo_;
+    FixtureSqlLiteRepository* fixtureRepo_;
     StatsAppMacSession* session_;
     StatsAppMacNotificationCentre* notificationCentre_;
     UINavigationController* mainMenuNav_;
@@ -39,6 +41,7 @@
 @property (nonatomic, retain) IBOutlet UINavigationController* mainMenuNav;
 @property (nonatomic, retain, readonly) SqlLiteRepository* repo;
 @property (nonatomic, retain, readonly) ClubSqlLiteRepository* clubRepo;
+@property (nonatomic, retain, readonly) FixtureSqlLiteRepository* fixtureRepo;
 @property (nonatomic, retain) StatsAppMacSession* session;
 @property (nonatomic, retain) StatsAppMacNotificationCentre* notificationCentre;
 @property (nonatomic, retain) UINavigationController* modalNavBar;
