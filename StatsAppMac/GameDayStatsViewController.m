@@ -119,7 +119,7 @@
     self.awayTotalScore.text = [[awayTeam teamScore] stringValue];
 }
 
-- refreshData
+- (void)refreshData
 {
     if ([self selectedMatch] != nil)
     {
@@ -330,7 +330,8 @@
     
     //UINavigationController* modalNavBar = [[self appDelegate] modalNavBar];
     //[[[[self appDelegate] window] rootViewController] presentModalViewController:editFixtureView animated:YES];
-    [self.navigationController presentModalViewController:editFixtureView animated:YES];
+    //[self.navigationController presentModalViewController:editFixtureView animated:YES];
+    [self.navigationController pushViewController:editFixtureView animated:YES];
     
     [editFixtureView release];
 }

@@ -15,6 +15,16 @@
 
 @class StatsAppMacAppDelegate;
 
-@interface RoundPickerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface RoundPickerViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate> {
+    Match* match_;
+    UIPickerView* roundPicker_;
+    Round* selectedRound_;
+}
+
+@property (nonatomic, retain) Match* match;
+@property (nonatomic, retain) Round* selectedRound;
+@property (nonatomic, retain) IBOutlet UIPickerView* roundPicker;
+
+- (id)initWithMatch:(Match*)match andPickerView:(UIPickerView*)pickerView;
 
 @end

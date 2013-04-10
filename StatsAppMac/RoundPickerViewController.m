@@ -14,15 +14,21 @@
 
 @implementation RoundPickerViewController
 
+@synthesize match=match_, roundPicker=roundPicker_, selectedRound=selectedRound_;
+
 const int LEAGUE_COMPONENT = 0;
 const int DIVISION_COMPONENT = 1;
 const int SEASON_COMPONENT = 2;
 const int ROUND_COMPONENT = 3;
 
 League* selectedLeague;
+int selectedLeagueIndex=0;
 Division* selectedDivision;
+int selectedDivisionIndex=0;
 Season* selectedSeason;
-Round* selectedRound;
+int selectedSeasonIndex=0;
+//Round* selectedRound;
+int selectedRoundIndex=0;
 
 NSArray* leagues;
 
@@ -39,28 +45,77 @@ NSArray* leagues;
 
 - (FixtureSqlLiteRepository*) fixtureRepo
 {
+
     return [[self appDelegate] fixtureRepo];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"RoundPickerViewController View Will Appear: %d", selectedRoundIndex);
     [super viewWillAppear:animated];
-    leagues = [[self fixtureRepo] fetchLeaguesByName:nil];
+
+    [self.roundPicker selectRow:selectedLeagueIndex inComponent:LEAGUE_COMPONENT animated:NO];
+    [self.roundPicker selectRow:selectedDivisionIndex inComponent:DIVISION_COMPONENT animated:NO];
+    [self.roundPicker selectRow:selectedSeasonIndex inComponent:SEASON_COMPONENT animated:NO];
+    [self.roundPicker selectRow:selectedRoundIndex inComponent:ROUND_COMPONENT animated:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     leagues = nil;
     selectedLeague = nil;
+    selectedDivision = nil;
+    selectedSeason = nil;
+    self.selectedRound = nil;
+    match_ = nil;
     
     [super viewWillDisappear:animated];
 }
 
 -(void)dealloc
 {
-    [selectedLeague release];
-    [leagues release];
+    [match_ release];
+    [roundPicker_ release];
+    [selectedRound_ release];
+    
     [super dealloc];
+}
+
+- (id)initWithMatch:(Match*)match andPicker:(UIPickerView*)pickerView
+{
+    self = [super init];
+    if (self) {
+        // Custom initialization
+        NSLog(@"In Init...");
+        self.roundPicker = pickerView;
+        self.match = match;
+        leagues = [[self fixtureRepo] fetchLeaguesByName:nil];
+        if (self.match != nil)
+        {
+            self.selectedRound = self.match.round;
+            selectedSeason = self.selectedRound.season;
+            selectedDivision = selectedSeason.division;
+            selectedLeague = selectedDivision.league;
+            
+            selectedRoundIndex = [[selectedSeason.rounds allObjects] indexOfObject:self.selectedRound];
+            selectedSeasonIndex = [[selectedDivision.seasons allObjects] indexOfObject:selectedSeason];
+            selectedDivisionIndex = [[selectedLeague.divisions allObjects] indexOfObject:selectedDivision];
+            selectedLeagueIndex = [leagues indexOfObject:selectedLeague];
+        }
+        else
+        {
+            self.selectedRound = nil;
+            selectedSeason = nil;
+            selectedDivision = nil;
+            selectedLeague = nil;
+            
+            selectedRoundIndex = 0;
+            selectedSeasonIndex = 0;
+            selectedDivisionIndex = 0;
+            selectedLeagueIndex = 0;
+        }
+    }
+    return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -97,7 +152,7 @@ NSArray* leagues;
     int count = 0;
     if (component == LEAGUE_COMPONENT)
     {
-        count = [[[self fixtureRepo] fetchLeaguesByName:nil] count];
+        count = [leagues count];
     }
     else if (component == DIVISION_COMPONENT)
     {
@@ -130,7 +185,7 @@ NSArray* leagues;
 
     if (component == LEAGUE_COMPONENT)
     {
-        League* league = [[[self fixtureRepo] fetchLeaguesByName:nil] objectAtIndex:row];
+        League* league = [leagues objectAtIndex:row];
         title = league.name;
     }
     else if (component == DIVISION_COMPONENT)
@@ -164,18 +219,29 @@ NSArray* leagues;
 {
     if (component == LEAGUE_COMPONENT)
     {
-        selectedLeague = [[[self fixtureRepo] fetchLeaguesByName:nil] objectAtIndex:row];
+        selectedLeague = [leagues objectAtIndex:row];
+        selectedDivision = nil;
+        selectedSeason = nil;
+        self.selectedRound = nil;
         [pickerView reloadAllComponents];
+        
     }
     else if (component == DIVISION_COMPONENT)
     {
         selectedDivision = [[[selectedLeague divisions] allObjects] objectAtIndex:row];
+        selectedSeason = nil;
+        self.selectedRound = nil;
         [pickerView reloadAllComponents];
     }
     else if (component == SEASON_COMPONENT)
     {
         selectedSeason = [[[selectedDivision seasons] allObjects] objectAtIndex:row];
+        self.selectedRound = nil;
         [pickerView reloadAllComponents];
+    }
+    else if (component == ROUND_COMPONENT)
+    {
+        self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:row];
     }
 }
 

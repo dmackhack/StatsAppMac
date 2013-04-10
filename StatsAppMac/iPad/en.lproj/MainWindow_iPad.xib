@@ -2,30 +2,30 @@
 <archive type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="7.10">
 	<data>
 		<int key="IBDocument.SystemTarget">1552</int>
-		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
-		<string key="IBDocument.AppKitVersion">1038.35</string>
-		<string key="IBDocument.HIToolboxVersion">461.00</string>
+		<string key="IBDocument.SystemVersion">12C54</string>
+		<string key="IBDocument.InterfaceBuilderVersion">3084</string>
+		<string key="IBDocument.AppKitVersion">1187.34</string>
+		<string key="IBDocument.HIToolboxVersion">625.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">300</string>
+			<string key="NS.object.0">2083</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<string>IBProxyObject</string>
 			<string>IBUIBarButtonItem</string>
+			<string>IBUICustomObject</string>
+			<string>IBUINavigationBar</string>
+			<string>IBUINavigationController</string>
 			<string>IBUINavigationItem</string>
 			<string>IBUISearchBar</string>
-			<string>IBUINavigationBar</string>
-			<string>IBUIViewController</string>
-			<string>IBUIToolbar</string>
-			<string>IBUIView</string>
-			<string>IBUIWindow</string>
-			<string>IBUINavigationController</string>
-			<string>IBProxyObject</string>
 			<string>IBUISplitViewController</string>
 			<string>IBUITableView</string>
-			<string>IBUICustomObject</string>
 			<string>IBUITableViewController</string>
+			<string>IBUIToolbar</string>
+			<string>IBUIView</string>
+			<string>IBUIViewController</string>
+			<string>IBUIWindow</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -50,8 +50,6 @@
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{768, 1024}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -122,8 +120,6 @@
 														<int key="NSvFlags">294</int>
 														<string key="NSFrame">{{12, 0}, {254, 44}}</string>
 														<reference key="NSSuperview" ref="555643855"/>
-														<reference key="NSWindow"/>
-														<reference key="NSNextKeyView"/>
 														<int key="IBUIContentMode">3</int>
 														<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 														<object class="IBUITextInputTraits" key="IBTextInputTraits">
@@ -134,7 +130,6 @@
 												</object>
 												<string key="NSFrameSize">{320, 44}</string>
 												<reference key="NSSuperview" ref="20588980"/>
-												<reference key="NSWindow"/>
 												<reference key="NSNextKeyView" ref="242104113"/>
 												<bool key="IBUIOpaque">NO</bool>
 												<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -157,7 +152,6 @@
 										</object>
 										<string key="NSFrameSize">{320, 44}</string>
 										<reference key="NSSuperview" ref="579641631"/>
-										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="555643855"/>
 										<object class="NSColor" key="IBUIBackgroundColor">
 											<int key="NSColorSpace">3</int>
@@ -169,9 +163,8 @@
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 									</object>
 								</object>
-								<string key="NSFrame">{{0, 44}, {320, 704}}</string>
+								<string key="NSFrameSize">{320, 748}</string>
 								<reference key="NSSuperview"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="20588980"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -189,7 +182,6 @@
 								<reference key="IBUITableHeaderView" ref="20588980"/>
 							</object>
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="328089866">
-								<reference key="IBUINavigationBar"/>
 								<string key="IBUITitle"/>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
@@ -231,7 +223,6 @@
 						<object class="IBUIViewController" id="299265473">
 							<string key="IBUITitle">Fixture</string>
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="597158952">
-								<reference key="IBUINavigationBar"/>
 								<string key="IBUITitle">Fixture</string>
 								<object class="IBUIBarButtonItem" key="IBUIBackBarButtonItem" id="512156868">
 									<string key="IBUITitle">Fixture</string>
@@ -257,14 +248,6 @@
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">window</string>
-						<reference key="source" ref="250404236"/>
-						<reference key="destination" ref="62075450"/>
-					</object>
-					<int key="connectionID">7</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="841351856"/>
 						<reference key="destination" ref="250404236"/>
@@ -281,19 +264,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">dataSource</string>
-						<reference key="source" ref="579641631"/>
-						<reference key="destination" ref="462564713"/>
+						<string key="label">window</string>
+						<reference key="source" ref="250404236"/>
+						<reference key="destination" ref="62075450"/>
 					</object>
-					<int key="connectionID">39</int>
+					<int key="connectionID">7</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
-						<reference key="source" ref="242104113"/>
-						<reference key="destination" ref="462564713"/>
+						<reference key="source" ref="2679209"/>
+						<reference key="destination" ref="299265473"/>
 					</object>
-					<int key="connectionID">53</int>
+					<int key="connectionID">65</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -305,14 +288,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="579641631"/>
-						<reference key="destination" ref="462564713"/>
-					</object>
-					<int key="connectionID">59</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">fixtureSearchDelegate</string>
 						<reference key="source" ref="462564713"/>
 						<reference key="destination" ref="299265473"/>
@@ -321,19 +296,35 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="579641631"/>
+						<reference key="destination" ref="462564713"/>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="579641631"/>
+						<reference key="destination" ref="462564713"/>
+					</object>
+					<int key="connectionID">59</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="242104113"/>
+						<reference key="destination" ref="462564713"/>
+					</object>
+					<int key="connectionID">53</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">navBar</string>
 						<reference key="source" ref="299265473"/>
 						<reference key="destination" ref="492231033"/>
 					</object>
 					<int key="connectionID">64</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="2679209"/>
-						<reference key="destination" ref="299265473"/>
-					</object>
-					<int key="connectionID">65</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -531,8 +522,9 @@
 					<string>6.CustomClassName</string>
 					<string>6.IBPluginDependency</string>
 					<string>71.IBPluginDependency</string>
+					<string>81.IBPluginDependency</string>
 				</object>
-				<object class="NSMutableArray" key="dict.values">
+				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>UIApplication</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -558,6 +550,7 @@
 					<string>StatsAppMacAppDelegate_iPad</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -574,176 +567,7 @@
 			<nil key="sourceID"/>
 			<int key="maxID">85</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBPartialClassDescription">
-					<string key="className">FixtureSearchDelegate</string>
-					<string key="superclassName">UITableViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>editFixture:</string>
-							<string>editPlayers:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>editFixture:</string>
-							<string>editPlayers:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">editFixture:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">editPlayers:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">navBar</string>
-						<string key="NS.object.0">UINavigationController</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">navBar</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">navBar</string>
-							<string key="candidateClassName">UINavigationController</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/FixtureSearchDelegate.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">ListClubsTableViewConroller</string>
-					<string key="superclassName">UITableViewController</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>fixtureSearchDelegate</string>
-							<string>listPlayersView</string>
-							<string>searchBar</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>FixtureSearchDelegate</string>
-							<string>ListPlayersViewController</string>
-							<string>UISearchBar</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>fixtureSearchDelegate</string>
-							<string>listPlayersView</string>
-							<string>searchBar</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">fixtureSearchDelegate</string>
-								<string key="candidateClassName">FixtureSearchDelegate</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">listPlayersView</string>
-								<string key="candidateClassName">ListPlayersViewController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">searchBar</string>
-								<string key="candidateClassName">UISearchBar</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ListClubsTableViewConroller.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">ListPlayersViewController</string>
-					<string key="superclassName">UITableViewController</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">addPlayer:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">addPlayer:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">addPlayer:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ListPlayersViewController.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">StatsAppMacAppDelegate</string>
-					<string key="superclassName">NSObject</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>mainMenuNav</string>
-							<string>window</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>UINavigationController</string>
-							<string>UIWindow</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>mainMenuNav</string>
-							<string>window</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">mainMenuNav</string>
-								<string key="candidateClassName">UINavigationController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">window</string>
-								<string key="candidateClassName">UIWindow</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/StatsAppMacAppDelegate.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">StatsAppMacAppDelegate_iPad</string>
-					<string key="superclassName">StatsAppMacAppDelegate</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/StatsAppMacAppDelegate_iPad.h</string>
-					</object>
-				</object>
-			</object>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">
@@ -756,6 +580,6 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">300</string>
+		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
 </archive>

@@ -68,11 +68,15 @@ Team* selectedAwayTeam;
     
     if (roundPickerController_ == nil)
     {
-        roundPickerController_ = [[RoundPickerViewController alloc] init];
+        roundPickerController_ = [[RoundPickerViewController alloc] initWithMatch:self.match andPicker:self.roundPicker];
     }
     
     self.roundPicker.delegate = self.roundPickerController;
     self.roundPicker.dataSource = self.roundPickerController;
+    //[self.roundPickerController init];
+    
+    UIBarButtonItem* saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(save:)];
+    self.navigationItem.rightBarButtonItem = saveButton;
 }
 
 - (void)viewDidUnload
@@ -121,6 +125,7 @@ Team* selectedAwayTeam;
     [super viewWillAppear:animated];
     selectedHomeTeam = nil;
     selectedAwayTeam = nil;
+    [self.roundPickerController viewWillAppear:animated];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -357,11 +362,18 @@ Team* selectedAwayTeam;
         match.round = round;
         [round addMatchesObject:match];
     }
-    // this will change all round numbers and dates for every team in that fixture. Really need to implment the Picker to avoid this !!!
-    match.round.number = [NSNumber numberWithInt:[[self.roundTextField text] integerValue]];
     NSDate* date = [self.datePicker date];
+    // this will change all round numbers and dates for every team in that fixture. Really need to implment the Picker to avoid this !!!
+    if (self.roundPickerController.selectedRound != nil)
+    {
+        match.round = self.roundPickerController.selectedRound;
+    }
+    else
+    {
+        match.round.number = [NSNumber numberWithInt:[[self.roundTextField text] integerValue]];
+        match.round.date = date;
+    }
     match.date = date;
-    match.round.date = date;
     
     [[self repo] saveContext];
     

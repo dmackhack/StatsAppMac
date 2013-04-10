@@ -77,21 +77,14 @@
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpace.width = 15;
     
-    if ([self.navigationItem respondsToSelector:@selector(rightBarButtonItems)]) {
+    if ([self.navigationItem respondsToSelector:@selector(rightBarButtonItems)])
+    {
         self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects:editPlayers, editFixture, nil];
     }
     else
     {
-        // Support iOS < 5.0: by first adding the buttons to a toolbar.
-        // Note: You could also do this by creating two UIButtons, both with the same custom background image as a UIBarButtonItem.
-        //       Give the refresh button the refresh arrow as its image and the profile button the title @"Profile".
-        //       You can get Apple's images for the UIBarButtonItem background and the refresh arrow by monkey patching -[UIImage imageNamed:] and/or other similar methods to save each image to a file on disk.
-        //       Then, run your app in the simulator or on your device, and the files will automatically appear where you programmed to save them.
-        //       You may also find these images in Apple's resources, e.g., by running the following command in Terminal `find /Applications/Xcode.app/ -name *.png`
-        //       Otherwise, you can make these images yourself.
         UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 130.0f, 44.01f)]; // 44.01 shifts it up 1px for some reason
        // toolBar.tintColor = [UIColor colorWithWhite:0.305f alpha:0.0f]; // closest I could get by eye to black, translucent style.
-        // anyone know how to get it perfect?
         //toolBar.barStyle = -1; // clear background
         toolBar.backgroundColor = [UIColor clearColor];
     
@@ -341,13 +334,14 @@
 
 - (IBAction)editFixture:(id)sender
 {
-    UINavigationController* modalNavBar = [[UINavigationController alloc] init];
+    //UINavigationController* modalNavBar = [[UINavigationController alloc] init];
     
     EditFixtureViewController* editFixtureView = [[EditFixtureViewController alloc] initWithNibName:@"EditFixtureViewController" bundle:nil];
-    [[[[self appDelegate] window] rootViewController] presentModalViewController:editFixtureView animated:YES];
-    [modalNavBar pushViewController:editFixtureView animated:YES];
+    //[[[[self appDelegate] window] rootViewController] presentModalViewController:editFixtureView animated:YES];
+    //[modalNavBar pushViewController:editFixtureView animated:YES];
+    [self.navigationController pushViewController:editFixtureView animated:YES];
     [editFixtureView release];
-    [modalNavBar release];
+    //[modalNavBar release];
 }
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
