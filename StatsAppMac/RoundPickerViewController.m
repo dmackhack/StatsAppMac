@@ -104,10 +104,12 @@ NSArray* leagues;
         }
         else
         {
-            self.selectedRound = nil;
-            selectedSeason = nil;
-            selectedDivision = nil;
-            selectedLeague = nil;
+            //self.selectedRound = nil;
+            //selectedSeason = nil;
+            //selectedDivision = nil;
+            //selectedLeague = nil;
+            
+            [self pickerView:self.roundPicker didSelectRow:0 inComponent:0];
             
             selectedRoundIndex = 0;
             selectedSeasonIndex = 0;
@@ -215,33 +217,86 @@ NSArray* leagues;
     return title;
 }
 
+
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     if (component == LEAGUE_COMPONENT)
     {
         selectedLeague = [leagues objectAtIndex:row];
-        selectedDivision = nil;
-        selectedSeason = nil;
-        self.selectedRound = nil;
-        [pickerView reloadAllComponents];
+        if (selectedLeague != nil && [[selectedLeague divisions] count] > 0)
+        {
+            selectedDivision = [[[selectedLeague divisions] allObjects] objectAtIndex:0];
+        }
+        else
+        {
+            selectedDivision = nil;
+        }
+        if (selectedDivision != nil && [[selectedDivision seasons] count] > 0)
+        {
+            selectedSeason = [[[selectedDivision seasons] allObjects] objectAtIndex:0];
+        }
+        else
+        {
+            selectedSeason = nil;
+        }
+        if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
+        {
+            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:0];
+        }
+        else
+        {
+            self.selectedRound = nil;
+        }
         
+        [pickerView reloadAllComponents];
+
     }
     else if (component == DIVISION_COMPONENT)
     {
         selectedDivision = [[[selectedLeague divisions] allObjects] objectAtIndex:row];
-        selectedSeason = nil;
-        self.selectedRound = nil;
+        if (selectedDivision != nil && [[selectedDivision seasons] count] > 0)
+        {
+            selectedSeason = [[[selectedDivision seasons] allObjects] objectAtIndex:0];
+        }
+        else
+        {
+            selectedSeason = nil;
+        }
+        if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
+        {
+            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:0];
+        }
+        else
+        {
+            self.selectedRound = nil;
+        }
+        
         [pickerView reloadAllComponents];
     }
     else if (component == SEASON_COMPONENT)
     {
         selectedSeason = [[[selectedDivision seasons] allObjects] objectAtIndex:row];
-        self.selectedRound = nil;
+        if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
+        {
+            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:0];
+        }
+        else
+        {
+            self.selectedRound = nil;
+        }
+        
         [pickerView reloadAllComponents];
     }
     else if (component == ROUND_COMPONENT)
     {
-        self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:row];
+        if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
+        {
+            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:row];
+        }
+        else
+        {
+            self.selectedRound = nil;
+        }
     }
 }
 
