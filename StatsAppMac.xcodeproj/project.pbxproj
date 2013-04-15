@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		28027BBF1713110B008981A5 /* FixtureSqlLiteRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 28027BBE1713110B008981A5 /* FixtureSqlLiteRepository.m */; };
+		28098906171C3EF9005FA103 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE32147FB70C00002F9A /* CoreData.framework */; };
+		28098907171C3F0F005FA103 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE30147FB70C00002F9A /* CoreGraphics.framework */; };
+		28098908171C3F54005FA103 /* FootyStatsTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 287D476C171CB34E00C85DAC /* FootyStatsTests.h */; };
 		280B9A4216A4BAB000F066DE /* ListClubsTableViewConroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 280B9A4116A4BAB000F066DE /* ListClubsTableViewConroller.m */; };
 		28141FF91678ABEB00EBF46C /* CTeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 28141FF81678ABEB00EBF46C /* CTeamParticipant.m */; };
 		2828EB2F16EFD02A00CC1194 /* StatsAppIcon4_72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = 2828EB2E16EFD02900CC1194 /* StatsAppIcon4_72x72.png */; };
@@ -17,6 +20,8 @@
 		283F32B91685D93D006F4610 /* StatsAppMac.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 283F32B81685D93D006F4610 /* StatsAppMac.sqlite */; };
 		283F32BD16A4B480006F4610 /* AdminPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F32BB16A4B47D006F4610 /* AdminPlayersViewController.m */; };
 		283F32BE16A4B480006F4610 /* AdminPlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283F32BC16A4B47E006F4610 /* AdminPlayersViewController.xib */; };
+		287992E2171C1526000DB16B /* StatsAppMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE66147FB70D00002F9A /* StatsAppMacTests.m */; };
+		287992E3171C153D000DB16B /* StatsAppMacTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE64147FB70D00002F9A /* StatsAppMacTests.h */; };
 		287BC901167D7F550025E997 /* CParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC900167D7F550025E997 /* CParticipant.m */; };
 		287BC905167E72600025E997 /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC904167E725F0025E997 /* Round.m */; };
 		287BC91F1681CCFE0025E997 /* TeamParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC91E1681CCFD0025E997 /* TeamParticipant.m */; };
@@ -32,6 +37,11 @@
 		287D087E160B11A300328B65 /* ParticipantStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D087D160B11A300328B65 /* ParticipantStatistics.m */; };
 		287D0881160B11A300328B65 /* PlayerClub.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0880160B11A300328B65 /* PlayerClub.m */; };
 		287D088A160B11A300328B65 /* FootyPlayerStatistics.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D0889160B11A300328B65 /* FootyPlayerStatistics.m */; };
+		287D4763171CB34E00C85DAC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287D4762171CB34E00C85DAC /* SenTestingKit.framework */; };
+		287D4764171CB34E00C85DAC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2C147FB70C00002F9A /* UIKit.framework */; };
+		287D4765171CB34E00C85DAC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE2E147FB70C00002F9A /* Foundation.framework */; };
+		287D476B171CB34E00C85DAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 287D4769171CB34E00C85DAC /* InfoPlist.strings */; };
+		287D476E171CB34E00C85DAC /* FootyStatsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 287D476D171CB34E00C85DAC /* FootyStatsTests.m */; };
 		287D5F12164FC95B00A7573F /* InitalData.sql in Resources */ = {isa = PBXBuildFile; fileRef = 287D5F11164FC95B00A7573F /* InitalData.sql */; };
 		287DF7F815FFDC5700D4F82B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 287DF7F715FFDC5700D4F82B /* QuartzCore.framework */; };
 		287E490C15FF64F800A830D1 /* MultiColumnTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 287E490B15FF64F800A830D1 /* MultiColumnTableCell.m */; };
@@ -73,8 +83,6 @@
 		288BDE59147FB70D00002F9A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE30147FB70C00002F9A /* CoreGraphics.framework */; };
 		288BDE5A147FB70D00002F9A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288BDE32147FB70C00002F9A /* CoreData.framework */; };
 		288BDE62147FB70D00002F9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE60147FB70D00002F9A /* InfoPlist.strings */; };
-		288BDE65147FB70D00002F9A /* StatsAppMacTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE64147FB70D00002F9A /* StatsAppMacTests.h */; };
-		288BDE67147FB70D00002F9A /* StatsAppMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE66147FB70D00002F9A /* StatsAppMacTests.m */; };
 		288BDE73147FB95A00002F9A /* GameDayStatsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE71147FB95A00002F9A /* GameDayStatsViewController.m */; };
 		288BDE74147FB95A00002F9A /* GameDayStatsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE72147FB95A00002F9A /* GameDayStatsViewController.xib */; };
 		28A9B475166E82320008B8A5 /* SelectTeamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28A9B473166E82310008B8A5 /* SelectTeamViewController.m */; };
@@ -103,12 +111,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		288BDE5B147FB70D00002F9A /* PBXContainerItemProxy */ = {
+		287D477A171CB8E700C85DAC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 288BDE1F147FB70B00002F9A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 288BDE27147FB70C00002F9A;
-			remoteInfo = StatsAppMac;
+			remoteInfo = FootyStats;
+		};
+		287D477E171CBA8C00C85DAC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 288BDE1F147FB70B00002F9A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 288BDE27147FB70C00002F9A;
+			remoteInfo = FootyStats;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -161,6 +176,13 @@
 		287D0880160B11A300328B65 /* PlayerClub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerClub.m; sourceTree = "<group>"; };
 		287D0888160B11A300328B65 /* FootyPlayerStatistics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootyPlayerStatistics.h; sourceTree = "<group>"; };
 		287D0889160B11A300328B65 /* FootyPlayerStatistics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootyPlayerStatistics.m; sourceTree = "<group>"; };
+		287D4761171CB34E00C85DAC /* FootyStatsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootyStatsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		287D4762171CB34E00C85DAC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		287D4768171CB34E00C85DAC /* FootyStatsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FootyStatsTests-Info.plist"; sourceTree = "<group>"; };
+		287D476A171CB34E00C85DAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		287D476C171CB34E00C85DAC /* FootyStatsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FootyStatsTests.h; sourceTree = "<group>"; };
+		287D476D171CB34E00C85DAC /* FootyStatsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FootyStatsTests.m; sourceTree = "<group>"; };
+		287D476F171CB34E00C85DAC /* FootyStatsTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FootyStatsTests-Prefix.pch"; sourceTree = "<group>"; };
 		287D5F11164FC95B00A7573F /* InitalData.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = InitalData.sql; sourceTree = "<group>"; };
 		287DF7F715FFDC5700D4F82B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		287E490A15FF64F800A830D1 /* MultiColumnTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiColumnTableCell.h; sourceTree = "<group>"; };
@@ -200,7 +222,7 @@
 		28894B7116BCD3400074E4A6 /* StatsAppMacNotificationCentre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsAppMacNotificationCentre.h; sourceTree = "<group>"; };
 		28894B7216BCD3410074E4A6 /* StatsAppMacNotificationCentre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacNotificationCentre.m; sourceTree = "<group>"; };
 		28894B7416BCD53D0074E4A6 /* SelectedClubForEditChangedListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedClubForEditChangedListener.h; sourceTree = "<group>"; };
-		288BDE28147FB70C00002F9A /* Footy Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Footy Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		288BDE28147FB70C00002F9A /* FootyStats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootyStats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		288BDE2C147FB70C00002F9A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288BDE2E147FB70C00002F9A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		288BDE30147FB70C00002F9A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -261,6 +283,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		287D475D171CB34E00C85DAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28098907171C3F0F005FA103 /* CoreGraphics.framework in Frameworks */,
+				28098906171C3EF9005FA103 /* CoreData.framework in Frameworks */,
+				287D4763171CB34E00C85DAC /* SenTestingKit.framework in Frameworks */,
+				287D4764171CB34E00C85DAC /* UIKit.framework in Frameworks */,
+				287D4765171CB34E00C85DAC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		288BDE25147FB70C00002F9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +373,26 @@
 			name = domain;
 			sourceTree = "<group>";
 		};
+		287D4766171CB34E00C85DAC /* FootyStatsTests */ = {
+			isa = PBXGroup;
+			children = (
+				287D476C171CB34E00C85DAC /* FootyStatsTests.h */,
+				287D476D171CB34E00C85DAC /* FootyStatsTests.m */,
+				287D4767171CB34E00C85DAC /* Supporting Files */,
+			);
+			path = FootyStatsTests;
+			sourceTree = "<group>";
+		};
+		287D4767171CB34E00C85DAC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				287D4768171CB34E00C85DAC /* FootyStatsTests-Info.plist */,
+				287D4769171CB34E00C85DAC /* InfoPlist.strings */,
+				287D476F171CB34E00C85DAC /* FootyStatsTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		287EA8CE160BBC0900D46241 /* db */ = {
 			isa = PBXGroup;
 			children = (
@@ -395,6 +449,7 @@
 				28C9697B16E54F9300F1AD3C /* StatsAppIcon2_72x72.png */,
 				288BDE34147FB70C00002F9A /* StatsAppMac */,
 				288BDE5D147FB70D00002F9A /* StatsAppMacTests */,
+				287D4766171CB34E00C85DAC /* FootyStatsTests */,
 				288BDE2B147FB70C00002F9A /* Frameworks */,
 				288BDE29147FB70C00002F9A /* Products */,
 			);
@@ -403,8 +458,9 @@
 		288BDE29147FB70C00002F9A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				288BDE28147FB70C00002F9A /* Footy Stats.app */,
+				288BDE28147FB70C00002F9A /* FootyStats.app */,
 				288BDE56147FB70C00002F9A /* StatsAppMacTests.octest */,
+				287D4761171CB34E00C85DAC /* FootyStatsTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -418,6 +474,7 @@
 				288BDE2E147FB70C00002F9A /* Foundation.framework */,
 				288BDE30147FB70C00002F9A /* CoreGraphics.framework */,
 				288BDE32147FB70C00002F9A /* CoreData.framework */,
+				287D4762171CB34E00C85DAC /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -554,9 +611,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		288BDE27147FB70C00002F9A /* Footy Stats */ = {
+		287D4760171CB34E00C85DAC /* FootyStatsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "Footy Stats" */;
+			buildConfigurationList = 287D4770171CB34E00C85DAC /* Build configuration list for PBXNativeTarget "FootyStatsTests" */;
+			buildPhases = (
+				287D475C171CB34E00C85DAC /* Sources */,
+				287D475D171CB34E00C85DAC /* Frameworks */,
+				287D475E171CB34E00C85DAC /* Resources */,
+				287D475F171CB34E00C85DAC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				287D477B171CB8E700C85DAC /* PBXTargetDependency */,
+			);
+			name = FootyStatsTests;
+			productName = FootyStatsTests;
+			productReference = 287D4761171CB34E00C85DAC /* FootyStatsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+		288BDE27147FB70C00002F9A /* FootyStats */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "FootyStats" */;
 			buildPhases = (
 				288BDE24147FB70C00002F9A /* Sources */,
 				288BDE25147FB70C00002F9A /* Frameworks */,
@@ -566,9 +642,9 @@
 			);
 			dependencies = (
 			);
-			name = "Footy Stats";
+			name = FootyStats;
 			productName = StatsAppMac;
-			productReference = 288BDE28147FB70C00002F9A /* Footy Stats.app */;
+			productReference = 288BDE28147FB70C00002F9A /* FootyStats.app */;
 			productType = "com.apple.product-type.application";
 		};
 		288BDE55147FB70C00002F9A /* StatsAppMacTests */ = {
@@ -583,7 +659,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				288BDE5C147FB70D00002F9A /* PBXTargetDependency */,
+				287D477F171CBA8C00C85DAC /* PBXTargetDependency */,
 			);
 			name = StatsAppMacTests;
 			productName = StatsAppMacTests;
@@ -610,13 +686,23 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				288BDE27147FB70C00002F9A /* Footy Stats */,
+				288BDE27147FB70C00002F9A /* FootyStats */,
 				288BDE55147FB70C00002F9A /* StatsAppMacTests */,
+				287D4760171CB34E00C85DAC /* FootyStatsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		287D475E171CB34E00C85DAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28098908171C3F54005FA103 /* FootyStatsTests.h in Resources */,
+				287D476B171CB34E00C85DAC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		288BDE26147FB70C00002F9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -659,14 +745,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				287992E3171C153D000DB16B /* StatsAppMacTests.h in Resources */,
 				288BDE62147FB70D00002F9A /* InfoPlist.strings in Resources */,
-				288BDE65147FB70D00002F9A /* StatsAppMacTests.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		287D475F171CB34E00C85DAC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		288BDE54147FB70C00002F9A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,6 +782,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		287D475C171CB34E00C85DAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				287D476E171CB34E00C85DAC /* FootyStatsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		288BDE24147FB70C00002F9A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -743,21 +850,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				288BDE67147FB70D00002F9A /* StatsAppMacTests.m in Sources */,
+				287992E2171C1526000DB16B /* StatsAppMacTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		288BDE5C147FB70D00002F9A /* PBXTargetDependency */ = {
+		287D477B171CB8E700C85DAC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 288BDE27147FB70C00002F9A /* Footy Stats */;
-			targetProxy = 288BDE5B147FB70D00002F9A /* PBXContainerItemProxy */;
+			target = 288BDE27147FB70C00002F9A /* FootyStats */;
+			targetProxy = 287D477A171CB8E700C85DAC /* PBXContainerItemProxy */;
+		};
+		287D477F171CBA8C00C85DAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 288BDE27147FB70C00002F9A /* FootyStats */;
+			targetProxy = 287D477E171CBA8C00C85DAC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		287D4769171CB34E00C85DAC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				287D476A171CB34E00C85DAC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		288BDE37147FB70C00002F9A /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -793,6 +913,71 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		287D4771171CB34E00C85DAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "${TARGET_BUILD_DIR}/FootyStats.app/FootyStats";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FootyStatsTests/FootyStatsTests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "FootyStatsTests/FootyStatsTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		287D4772171CB34E00C85DAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "${TARGET_BUILD_DIR}/FootyStats.app/FootyStats";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FootyStatsTests/FootyStatsTests-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				INFOPLIST_FILE = "FootyStatsTests/FootyStatsTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 		288BDE68147FB70D00002F9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -805,7 +990,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -820,7 +1005,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -835,6 +1020,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -850,6 +1036,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "StatsAppMac/StatsAppMac-Prefix.pch";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMac/StatsAppMac-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -863,7 +1050,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatsAppMac.app/StatsAppMac";
+				BUNDLE_LOADER = "${TARGET_BUILD_DIR}/FootyStats.app/FootyStats";
+				CONFIGURATION_TEMP_DIR = "/Users/dmackenzie/Library/Developer/Xcode/DerivedData/StatsAppMac-dhbktyiblqmjqxhijpgtiorrrusy/Build/Products/Debug-iphonesimulator/StatsAppMac.app/StatsAppMac";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -872,6 +1060,7 @@
 				GCC_PREFIX_HEADER = "StatsAppMacTests/StatsAppMacTests-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMacTests/StatsAppMacTests-Info.plist";
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
@@ -886,7 +1075,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/StatsAppMac.app/StatsAppMac";
+				BUNDLE_LOADER = "${TARGET_BUILD_DIR}/FootyStats.app/FootyStats";
+				CONFIGURATION_TEMP_DIR = "/Users/dmackenzie/Library/Developer/Xcode/DerivedData/StatsAppMac-dhbktyiblqmjqxhijpgtiorrrusy/Build/Products/Debug-iphonesimulator/StatsAppMac.app/StatsAppMac";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
@@ -895,6 +1085,7 @@
 				GCC_PREFIX_HEADER = "StatsAppMacTests/StatsAppMacTests-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "StatsAppMacTests/StatsAppMacTests-Info.plist";
+				LD_MAP_FILE_PATH = "$(TARGET_TEMP_DIR)/$(PRODUCT_NAME)-LinkMap-$(CURRENT_VARIANT)-$(CURRENT_ARCH).txt";
 				OTHER_LDFLAGS = (
 					"-framework",
 					SenTestingKit,
@@ -908,6 +1099,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		287D4770171CB34E00C85DAC /* Build configuration list for PBXNativeTarget "FootyStatsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				287D4771171CB34E00C85DAC /* Debug */,
+				287D4772171CB34E00C85DAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		288BDE22147FB70B00002F9A /* Build configuration list for PBXProject "StatsAppMac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -917,7 +1117,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "Footy Stats" */ = {
+		288BDE6A147FB70D00002F9A /* Build configuration list for PBXNativeTarget "FootyStats" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				288BDE6B147FB70D00002F9A /* Debug */,

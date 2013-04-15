@@ -45,8 +45,61 @@ NSArray* leagues;
 
 - (FixtureSqlLiteRepository*) fixtureRepo
 {
-
+    
     return [[self appDelegate] fixtureRepo];
+}
+
+- (NSArray*) fetchLeagues
+{
+    return [[self fixtureRepo] fetchLeaguesByName:nil];
+}
+
+- (NSArray*) fetchDivisions
+{
+    NSArray* divisions;
+    if (selectedLeague != nil)
+    {
+        NSSortDescriptor* nameSort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        divisions = [[[selectedLeague divisions] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]];
+        [nameSort release];
+    }
+    else
+    {
+        divisions = nil;
+    }
+    return divisions;
+}
+
+- (NSArray*) fetchSeasons
+{
+    NSArray* seasons;
+    if (selectedDivision != nil)
+    {
+        NSSortDescriptor* yearSort = [[NSSortDescriptor alloc] initWithKey:@"year" ascending:YES];
+        seasons = [[[selectedDivision seasons] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:yearSort, nil]];
+        [yearSort release];
+    }
+    else
+    {
+        seasons = nil;
+    }
+    return seasons;
+}
+
+- (NSArray*) fetchRounds
+{
+    NSArray* rounds;
+    if (selectedSeason != nil)
+    {
+        NSSortDescriptor* roundSort = [[NSSortDescriptor alloc] initWithKey:@"number" ascending:YES];
+        rounds = [[[selectedSeason rounds] allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObjects:roundSort, nil]];
+        [roundSort release];
+    }
+    else
+    {
+        rounds = nil;
+    }
+    return rounds;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,26 +142,52 @@ NSArray* leagues;
         NSLog(@"In Init...");
         self.roundPicker = pickerView;
         self.match = match;
-        leagues = [[self fixtureRepo] fetchLeaguesByName:nil];
+        leagues = [self fetchLeagues];
         if (self.match != nil)
         {
-            self.selectedRound = self.match.round;
-            selectedSeason = self.selectedRound.season;
-            selectedDivision = selectedSeason.division;
-            selectedLeague = selectedDivision.league;
-            
-            selectedRoundIndex = [[selectedSeason.rounds allObjects] indexOfObject:self.selectedRound];
-            selectedSeasonIndex = [[selectedDivision.seasons allObjects] indexOfObject:selectedSeason];
-            selectedDivisionIndex = [[selectedLeague.divisions allObjects] indexOfObject:selectedDivision];
-            selectedLeagueIndex = [leagues indexOfObject:selectedLeague];
+            if (self.match.round != nil)
+            {
+                self.selectedRound = self.match.round;
+            }
+            else
+            {
+                self.selectedRound = nil;
+                selectedRoundIndex = 0;
+            }
+            if (self.selectedRound != nil && self.selectedRound.season != nil)
+            {
+                selectedSeason = self.selectedRound.season;
+                selectedRoundIndex = [[self fetchRounds] indexOfObject:self.selectedRound];
+            }
+            else
+            {
+                selectedSeason = nil;
+                selectedSeasonIndex = 0;
+            }
+            if (selectedSeason != nil && selectedSeason.division != nil)
+            {
+                selectedDivision = selectedSeason.division;
+                selectedSeasonIndex = [[self fetchSeasons] indexOfObject:selectedSeason];
+            }
+            else
+            {
+                selectedDivision = nil;
+                selectedDivisionIndex = 0;
+            }
+            if (selectedDivision != nil && selectedDivision.league !=nil)
+            {
+                selectedLeague = selectedDivision.league;
+                selectedLeagueIndex = [leagues indexOfObject:selectedLeague];
+                selectedDivisionIndex = [[self fetchDivisions] indexOfObject:selectedDivision];
+            }
+            else
+            {
+                selectedLeague = nil;
+                selectedLeagueIndex = 0;
+            }
         }
         else
         {
-            //self.selectedRound = nil;
-            //selectedSeason = nil;
-            //selectedDivision = nil;
-            //selectedLeague = nil;
-            
             [self pickerView:self.roundPicker didSelectRow:0 inComponent:0];
             
             selectedRoundIndex = 0;
@@ -194,14 +273,14 @@ NSArray* leagues;
     {
         if (selectedLeague != nil && [selectedLeague.divisions count] > 0)
         {
-            title = [[[[selectedLeague divisions] allObjects] objectAtIndex:row] name];
+            title = [[[self fetchDivisions] objectAtIndex:row] name];
         }
     }
     else if (component == SEASON_COMPONENT)
     {
         if (selectedDivision != nil && [selectedDivision.seasons count] > 0)
         {
-            Season* season = [[selectedDivision.seasons allObjects] objectAtIndex:row];
+            Season* season = [[self fetchSeasons] objectAtIndex:row];
             title = [season year];
         }
     }
@@ -209,7 +288,7 @@ NSArray* leagues;
     {
         if (selectedSeason != nil && [selectedSeason.rounds count] > 0)
         {
-            Round* round = [[selectedSeason.rounds allObjects] objectAtIndex:row];
+            Round* round = [[self fetchRounds] objectAtIndex:row];
             title = [[round number] stringValue];
         }
     }
@@ -225,7 +304,7 @@ NSArray* leagues;
         selectedLeague = [leagues objectAtIndex:row];
         if (selectedLeague != nil && [[selectedLeague divisions] count] > 0)
         {
-            selectedDivision = [[[selectedLeague divisions] allObjects] objectAtIndex:0];
+            selectedDivision = [[self fetchDivisions] objectAtIndex:0];
         }
         else
         {
@@ -233,7 +312,7 @@ NSArray* leagues;
         }
         if (selectedDivision != nil && [[selectedDivision seasons] count] > 0)
         {
-            selectedSeason = [[[selectedDivision seasons] allObjects] objectAtIndex:0];
+            selectedSeason = [[self fetchSeasons] objectAtIndex:0];
         }
         else
         {
@@ -241,7 +320,7 @@ NSArray* leagues;
         }
         if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
         {
-            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:0];
+            self.selectedRound = [[self fetchRounds] objectAtIndex:0];
         }
         else
         {
@@ -253,10 +332,10 @@ NSArray* leagues;
     }
     else if (component == DIVISION_COMPONENT)
     {
-        selectedDivision = [[[selectedLeague divisions] allObjects] objectAtIndex:row];
+        selectedDivision = [[self fetchDivisions] objectAtIndex:row];
         if (selectedDivision != nil && [[selectedDivision seasons] count] > 0)
         {
-            selectedSeason = [[[selectedDivision seasons] allObjects] objectAtIndex:0];
+            selectedSeason = [[self fetchSeasons] objectAtIndex:0];
         }
         else
         {
@@ -264,7 +343,7 @@ NSArray* leagues;
         }
         if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
         {
-            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:0];
+            self.selectedRound = [[self fetchRounds] objectAtIndex:0];
         }
         else
         {
@@ -275,10 +354,10 @@ NSArray* leagues;
     }
     else if (component == SEASON_COMPONENT)
     {
-        selectedSeason = [[[selectedDivision seasons] allObjects] objectAtIndex:row];
+        selectedSeason = [[self fetchSeasons] objectAtIndex:row];
         if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
         {
-            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:0];
+            self.selectedRound = [[self fetchRounds] objectAtIndex:0];
         }
         else
         {
@@ -291,7 +370,7 @@ NSArray* leagues;
     {
         if (selectedSeason != nil && [[selectedSeason rounds] count] > 0)
         {
-            self.selectedRound = [[[selectedSeason rounds] allObjects] objectAtIndex:row];
+            self.selectedRound = [[self fetchRounds] objectAtIndex:row];
         }
         else
         {
