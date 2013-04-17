@@ -14,6 +14,8 @@
 @synthesize roundTextField=roundTextField_, datePicker=datePicker_, homeTeamPicker=homeTeamPicker_, awayTeamPicker=awayTeamPicker_, match=match_, roundPicker=roundPicker_, roundPickerController=roundPickerController_;
 
 
+Club* selectedHomeClub;
+Club* selectedAwayClub;
 Team* selectedHomeTeam;
 Team* selectedAwayTeam;
 
@@ -122,35 +124,22 @@ Team* selectedAwayTeam;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    selectedHomeTeam = nil;
-    selectedAwayTeam = nil;
-    [self.roundPickerController viewWillAppear:animated];
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    selectedHomeTeam = nil;
-    selectedAwayTeam = nil;
-    match_ = nil;
-    [super viewDidDisappear:animated];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
     
     if (self.match != nil)
     {
-        NSNumber* homeClubIndex = [self clubIndex:self.match.homeTeam.team.club.name];
-        NSNumber* awayClubIndex = [self clubIndex:self.match.awayTeam.team.club.name];
-        NSNumber* homeTeamIndex = [self teamIndexForClub:self.match.homeTeam.team.club andTeam:self.match.homeTeam.team.name];
-        NSNumber* awayTeamIndex = [self teamIndexForClub:self.match.awayTeam.team.club andTeam:self.match.awayTeam.team.name];
+        selectedHomeTeam = self.match.homeTeam.team;
+        selectedAwayTeam = self.match.awayTeam.team;
+        selectedHomeClub = selectedHomeTeam.club;
+        selectedAwayClub = selectedAwayTeam.club;
+        NSNumber* homeClubIndex = [self clubIndex:selectedHomeClub.name];
+        NSNumber* awayClubIndex = [self clubIndex:selectedAwayClub.name];
+        NSNumber* homeTeamIndex = [self teamIndexForClub:selectedHomeClub andTeam:selectedHomeTeam.name];
+        NSNumber* awayTeamIndex = [self teamIndexForClub:selectedAwayClub andTeam:selectedAwayTeam.name];
         
         [self.homeTeamPicker selectRow:[homeClubIndex integerValue] inComponent:0 animated:NO];
         [self.awayTeamPicker selectRow:[awayClubIndex integerValue] inComponent:0 animated:NO];
-        [self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:1];
-        [self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:1];
+        //[self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:1];
+        //[self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:1];
         [self.homeTeamPicker selectRow:[homeTeamIndex integerValue] inComponent:1 animated:NO];
         [self.awayTeamPicker selectRow:[awayTeamIndex integerValue] inComponent:1 animated:NO];
         
@@ -159,9 +148,28 @@ Team* selectedAwayTeam;
     }
     else
     {
-        [self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:1];
-        [self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:1];
+        selectedHomeClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
+        selectedAwayClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
+        //[self.homeTeamPicker selectRow:0 inComponent:0 animated:NO];
+        //[self pickerView:self.awayTeamPicker selectRow:0 inComponent:1];
     }
+    [super viewWillAppear:animated];
+    [self.roundPickerController viewWillAppear:animated];    
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    selectedHomeTeam = nil;
+    selectedAwayTeam = nil;
+    selectedHomeClub = nil;
+    selectedAwayClub = nil;
+    match_ = nil;
+    [super viewDidDisappear:animated];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
 }
 
 
@@ -181,10 +189,6 @@ Team* selectedAwayTeam;
     else if (pickerView == self.awayTeamPicker)
     {
         return 2;
-    }
-    else if (pickerView == self.roundPicker)
-    {
-        return 1;
     }
 }
 
@@ -210,21 +214,25 @@ Team* selectedAwayTeam;
             Club* club;
             if (pickerView == self.homeTeamPicker)
             {
-                NSInteger selectedRow = [self.homeTeamPicker selectedRowInComponent:0];
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
-                count = [club.teams count];
+                //NSInteger selectedRow = [self.homeTeamPicker selectedRowInComponent:0];
+                //club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
+                //count = [club.teams count];
+                if (selectedHomeClub != nil)
+                {
+                    count = [[selectedHomeClub teams] count];
+                }
             }
             else if (pickerView == self.awayTeamPicker)
             {
-                NSInteger selectedRow = [self.awayTeamPicker selectedRowInComponent:0];
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
-                count = [club.teams count];
+                //NSInteger selectedRow = [self.awayTeamPicker selectedRowInComponent:0];
+                //club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
+                //count = [club.teams count];
+                if (selectedAwayClub != nil)
+                {
+                    count = [[selectedAwayClub teams] count];
+                }
             }
         }
-    }
-    else if (pickerView == self.roundPicker)
-    {
-        count = 1;
     }
     
     return count;
@@ -237,42 +245,38 @@ Team* selectedAwayTeam;
     {
         if (component == 0)
         {
-            Club* club;
-            if (pickerView == self.homeTeamPicker)
-            {
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:row];
-            }
-            else if (pickerView == self.awayTeamPicker)
-            {
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:row];
-            }
+            Club* club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:row];
             title = club.name;
         
         }
         else if (component == 1)
         {
             Club* club;
+            NSArray* teams;
             NSSortDescriptor* nameSort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
             if (pickerView == self.homeTeamPicker)
             {
-                NSInteger selectedRow = [self.homeTeamPicker selectedRowInComponent:0];
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
+                //NSInteger selectedRow = [self.homeTeamPicker selectedRowInComponent:0];
+                //club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
+                if (selectedHomeClub != nil)
+                {
+                    teams = [selectedHomeClub.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]];
+                }
             }
             else if (pickerView == self.awayTeamPicker)
             {
-                NSInteger selectedRow = [self.awayTeamPicker selectedRowInComponent:0];
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
+                //NSInteger selectedRow = [self.awayTeamPicker selectedRowInComponent:0];
+                //club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
+                if (selectedAwayClub != nil)
+                {
+                    teams = [selectedAwayClub.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]];
+                }
             }
-            Team* team = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+            
+            //Team* team = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+            Team* team = [teams objectAtIndex:row];
             title = team.name;
             [nameSort release];
-        }
-    }
-    else if (pickerView == self.roundPicker)
-    {
-        if (component == 0)
-        {
-            title = @"1";
         }
     }
     return title;
@@ -286,11 +290,13 @@ Team* selectedAwayTeam;
         {
             if (pickerView == self.homeTeamPicker)
             {
+                selectedHomeClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:row];
                 [self.homeTeamPicker reloadComponent:1];
                 [self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:1];
             }
             else if (pickerView == self.awayTeamPicker)
             {
+                selectedAwayClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:row];
                 [self.awayTeamPicker reloadComponent:1];
                 [self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:1];
             }
@@ -298,15 +304,12 @@ Team* selectedAwayTeam;
     
         else if (component == 1)
         {
-            Club* club;
             NSSortDescriptor* nameSort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
             if (pickerView == self.homeTeamPicker)
             {
-                NSInteger selectedRow = [self.homeTeamPicker selectedRowInComponent:0];
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
-                if ([club.teams count] > 0)
+                if (selectedHomeClub != nil && [selectedHomeClub.teams count] > 0)
                 {
-                    selectedHomeTeam = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+                    selectedHomeTeam = [[selectedHomeClub.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
                 }
                 else
                 {
@@ -316,11 +319,9 @@ Team* selectedAwayTeam;
             }
             else if (pickerView == self.awayTeamPicker)
             {
-                NSInteger selectedRow = [self.awayTeamPicker selectedRowInComponent:0];
-                club = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:selectedRow];
-                if ([club.teams count] > 0)
+                if (selectedAwayClub != nil && [selectedAwayClub.teams count] > 0)
                 {
-                    selectedAwayTeam = [[club.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
+                    selectedAwayTeam = [[selectedAwayClub.teams sortedArrayUsingDescriptors:[NSArray arrayWithObjects:nameSort, nil]] objectAtIndex:row];
                 }
                 else
                 {
@@ -329,14 +330,6 @@ Team* selectedAwayTeam;
                 NSLog(@"Setting selected away team: %@ - %@", selectedAwayTeam.club.name, selectedAwayTeam.name);
             }
             [nameSort release];
-            [club release];
-        }
-    }
-    else if (pickerView == self.roundPicker)
-    {
-        if (component == 0)
-        {
-            
         }
     }
 }
@@ -377,7 +370,7 @@ Team* selectedAwayTeam;
     
     [[self repo] saveContext];
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end
