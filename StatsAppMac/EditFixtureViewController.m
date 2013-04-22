@@ -11,7 +11,7 @@
 
 @implementation EditFixtureViewController
 
-@synthesize roundTextField=roundTextField_, datePicker=datePicker_, homeTeamPicker=homeTeamPicker_, awayTeamPicker=awayTeamPicker_, match=match_, roundPicker=roundPicker_, roundPickerController=roundPickerController_;
+@synthesize roundTextField=roundTextField_, datePicker=datePicker_, homeTeamPicker=homeTeamPicker_, awayTeamPicker=awayTeamPicker_, match=match_, roundPickerController=roundPickerController_, popOver=popOver_, roundLabel=roundLabel_, editRoundButton=editRoundButton_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_;
 
 
 Club* selectedHomeClub;
@@ -46,8 +46,9 @@ Team* selectedAwayTeam;
     [datePicker_ release];
     [homeTeamPicker_ release];
     [awayTeamPicker_ release];
-    [roundPicker_ release];
+    //[roundPicker_ release];
     [match_ release];
+    [popOver_ release];
     
     [roundPickerController_ release];
     [super dealloc];
@@ -70,12 +71,29 @@ Team* selectedAwayTeam;
     
     if (roundPickerController_ == nil)
     {
-        roundPickerController_ = [[RoundPickerViewController alloc] initWithMatch:self.match andPicker:self.roundPicker];
+        roundPickerController_ = [[RoundPickerViewController alloc] initWithMatch:self.match andPicker:nil];
     }
     
-    self.roundPicker.delegate = self.roundPickerController;
-    self.roundPicker.dataSource = self.roundPickerController;
-    //[self.roundPickerController init];
+    if (homeTeamPicker_ == nil)
+    {
+        homeTeamPicker_ = [[UIPickerView alloc] init];
+        self.homeTeamPicker.delegate = self;
+        self.homeTeamPicker.dataSource = self;
+        self.homeTeamPicker.showsSelectionIndicator = YES;
+    }
+    
+    if (awayTeamPicker_ == nil)
+    {
+        awayTeamPicker_ = [[UIPickerView alloc] init];
+        self.awayTeamPicker.delegate = self;
+        self.awayTeamPicker.dataSource = self;
+        self.awayTeamPicker.showsSelectionIndicator = YES;
+    }
+    
+    if (datePicker_ == nil)
+    {
+        datePicker_ = [[UIDatePicker alloc] init];
+    }
     
     UIBarButtonItem* saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(save:)];
     self.navigationItem.rightBarButtonItem = saveButton;
@@ -122,6 +140,31 @@ Team* selectedAwayTeam;
     return [NSNumber numberWithInt:index];
 }
 
+- (void) reloadData
+{
+    self.datePicker.date = self.match.date;
+    self.roundTextField.text = self.match.round.number.stringValue;
+    
+    self.homeTeamLabel.text = self.match.homeTeam.team.club.name;
+    self.awayTeamLabel.text = self.match.awayTeam.team.club.name;
+    self.roundLabel.text = self.match.self.round.number.stringValue;
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
+    NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:[self.match date]]];
+    self.dateLabel.text = dateLabel;
+    NSString* divisionLabel;
+    if (self.match.round.season.division.name == nil)
+    {
+        divisionLabel = selectedHomeTeam.name;
+    }
+    else
+    {
+        divisionLabel = [NSString stringWithFormat:@"%@ - %@", self.match.round.season.division.name,  selectedHomeTeam.name];
+    }
+    self.divisionLabel.text = divisionLabel;
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     
@@ -134,27 +177,25 @@ Team* selectedAwayTeam;
         NSNumber* homeClubIndex = [self clubIndex:selectedHomeClub.name];
         NSNumber* awayClubIndex = [self clubIndex:selectedAwayClub.name];
         NSNumber* homeTeamIndex = [self teamIndexForClub:selectedHomeClub andTeam:selectedHomeTeam.name];
-        NSNumber* awayTeamIndex = [self teamIndexForClub:selectedAwayClub andTeam:selectedAwayTeam.name];
+        NSNumber* awayTeamIndex = [self teamIndexForClub:selectedAwayClub andTeam:selectedAwayTeam.name];        
         
         [self.homeTeamPicker selectRow:[homeClubIndex integerValue] inComponent:0 animated:NO];
         [self.awayTeamPicker selectRow:[awayClubIndex integerValue] inComponent:0 animated:NO];
-        //[self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:1];
-        //[self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:1];
+
         [self.homeTeamPicker selectRow:[homeTeamIndex integerValue] inComponent:1 animated:NO];
         [self.awayTeamPicker selectRow:[awayTeamIndex integerValue] inComponent:1 animated:NO];
         
-        self.datePicker.date = self.match.date;
-        self.roundTextField.text = self.match.round.number.stringValue;
+        [self reloadData];
     }
     else
     {
         selectedHomeClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
         selectedAwayClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
-        //[self.homeTeamPicker selectRow:0 inComponent:0 animated:NO];
-        //[self pickerView:self.awayTeamPicker selectRow:0 inComponent:1];
     }
     [super viewWillAppear:animated];
-    [self.roundPickerController viewWillAppear:animated];    
+    //self.roundPickerController.match = self.match;
+    //self.roundPickerController.roundPicker = self.roundPicker;
+    //[self.roundPickerController viewWillAppear:animated];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -356,7 +397,7 @@ Team* selectedAwayTeam;
         [round addMatchesObject:match];
     }
     NSDate* date = [self.datePicker date];
-    // this will change all round numbers and dates for every team in that fixture. Really need to implment the Picker to avoid this !!!
+
     if (self.roundPickerController.selectedRound != nil)
     {
         match.round = self.roundPickerController.selectedRound;
@@ -371,6 +412,138 @@ Team* selectedAwayTeam;
     [[self repo] saveContext];
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction) editRoundClicked:(id)sender
+{
+    CGRect pvFrame = CGRectMake(0.0, 0.0, 700, 250);
+    UIPickerView* picker = [[UIPickerView alloc] initWithFrame:pvFrame];
+    picker.showsSelectionIndicator = YES;
+    //RoundPickerViewController* rpvc = [[RoundPickerViewController alloc] initWithMatch:self.match andPicker:picker];
+    picker.dataSource = self.roundPickerController;
+    picker.delegate = self.roundPickerController;
+    self.roundPickerController.match = self.match;
+    self.roundPickerController.roundPicker = picker;
+    [self.roundPickerController viewWillAppear:YES];
+    self.roundPickerController.contentSizeForViewInPopover = CGSizeMake(picker.frame.size.width, picker.frame.size.height);
+    
+    CGRect frame = CGRectMake(0.0, 0.0, picker.frame.size.width, picker.frame.size.height);
+    UIView* popOverView = [[UIView alloc] initWithFrame:frame];
+    [popOverView addSubview:picker];
+    
+    self.roundPickerController.view = popOverView;
+    self.popOver = [[UIPopoverController alloc] initWithContentViewController:self.roundPickerController];
+    self.popOver.delegate = self;
+    
+    [self.popOver presentPopoverFromRect:self.editRoundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    //[rpvc release];
+    [popOverView release];
+}
+
+- (IBAction) editDateClicked:(id)sender
+{
+    UIViewController* popoverContentContoller = [[UIViewController alloc] init];
+    CGRect frame = CGRectMake(0.0, 0.0, self.datePicker.frame.size.width, self.datePicker.frame.size.height);
+    UIView* popOverView = [[UIView alloc] initWithFrame:frame];
+    popoverContentContoller.view = popOverView;
+    
+    [popOverView addSubview:self.datePicker];
+    
+    popoverContentContoller.contentSizeForViewInPopover = CGSizeMake(self.datePicker.frame.size.width, self.datePicker.frame.size.height);
+    
+    self.popOver = [[UIPopoverController alloc] initWithContentViewController:popoverContentContoller];
+    self.popOver.delegate = self;
+    
+    [self.popOver presentPopoverFromRect:self.editDateButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    [popOverView release];
+    [popoverContentContoller release];
+}
+
+- (IBAction) editHomeTeamClicked:(id)sender
+{
+    
+    UIViewController* popoverContentContoller = [[UIViewController alloc] init];
+    CGRect frame = CGRectMake(0.0, 0.0, self.homeTeamPicker.frame.size.width, self.homeTeamPicker.frame.size.height);
+    UIView* popOverView = [[UIView alloc] initWithFrame:frame];
+    popoverContentContoller.view = popOverView;
+
+    [popOverView addSubview:self.homeTeamPicker];
+    
+    popoverContentContoller.contentSizeForViewInPopover = CGSizeMake(self.homeTeamPicker.frame.size.width, self.homeTeamPicker.frame.size.height);
+    
+    self.popOver = [[UIPopoverController alloc] initWithContentViewController:popoverContentContoller];
+    self.popOver.delegate = self;
+    
+    [self.popOver presentPopoverFromRect:self.editHomeTeamButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    [popOverView release];
+    [popoverContentContoller release];
+}
+
+- (IBAction) editAwayTeamClicked:(id)sender
+{
+    UIViewController* popoverContentContoller = [[UIViewController alloc] init];
+    CGRect frame = CGRectMake(0.0, 0.0, self.awayTeamPicker.frame.size.width, self.awayTeamPicker.frame.size.height);
+    UIView* popOverView = [[UIView alloc] initWithFrame:frame];
+    popoverContentContoller.view = popOverView;
+    
+    [popOverView addSubview:self.awayTeamPicker];
+    
+    popoverContentContoller.contentSizeForViewInPopover = CGSizeMake(self.awayTeamPicker.frame.size.width, self.awayTeamPicker.frame.size.height);
+    
+    self.popOver = [[UIPopoverController alloc] initWithContentViewController:popoverContentContoller];
+    self.popOver.delegate = self;
+    
+    [self.popOver presentPopoverFromRect:self.editAwayTeamButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    
+    [popOverView release];
+    [popoverContentContoller release];
+    
+}
+
+
+
+-(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    NSString* divisionLabel = nil;
+    if (self.roundPickerController.selectedRound != nil)
+    {
+        self.roundLabel.text = [self.roundPickerController.selectedRound.number stringValue];
+        if (self.roundPickerController.selectedRound.season.division.name == nil)
+        {
+            divisionLabel = selectedHomeTeam.name;
+        }
+        else
+        {
+            divisionLabel = [NSString stringWithFormat:@"%@ - %@", self.roundPickerController.selectedRound.season.division.name,  selectedHomeTeam.name];
+        }
+        
+    }
+    if (divisionLabel == nil && selectedHomeTeam != nil)
+    {
+        divisionLabel = selectedHomeTeam.name;
+    }
+    else if (divisionLabel == nil && selectedAwayTeam != nil)
+    {
+        divisionLabel = selectedAwayTeam.name;
+    }
+    self.divisionLabel.text = divisionLabel;
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
+    NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:self.datePicker.date]];
+    self.dateLabel.text = dateLabel;
+        
+    if (selectedHomeClub != nil)
+    {
+        self.homeTeamLabel.text = selectedHomeClub.name;
+    }
+    if (selectedAwayClub != nil)
+    {
+        self.awayTeamLabel.text = selectedAwayClub.name;
+    }
 }
 
 @end

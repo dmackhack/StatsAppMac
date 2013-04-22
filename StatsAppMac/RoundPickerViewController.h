@@ -25,6 +25,6 @@
 @property (nonatomic, retain) Round* selectedRound;
 @property (nonatomic, retain) IBOutlet UIPickerView* roundPicker;
 
-- (id)initWithMatch:(Match*)match andPickerView:(UIPickerView*)pickerView;
+- (id)initWithMatch:(Match*)match andPicker:(UIPickerView*)pickerView;
 
 @end

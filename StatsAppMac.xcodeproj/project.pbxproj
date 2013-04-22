@@ -55,6 +55,7 @@
 		28813A4615EF73EF00417416 /* TeamSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28813A4415EF73EF00417416 /* TeamSelectionViewController.m */; };
 		28813A4715EF73EF00417416 /* TeamSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */; };
 		288145611655709100813E90 /* StatsAppMacSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 288145601655709100813E90 /* StatsAppMacSession.m */; };
+		2881CD4A171EF02200FBB86E /* spanner.png in Resources */ = {isa = PBXBuildFile; fileRef = 2881CD49171EF02200FBB86E /* spanner.png */; };
 		2881F51E1682776D00569778 /* fixture-vafa-premier-b-2013.sql in Resources */ = {isa = PBXBuildFile; fileRef = 2881F51D1682776D00569778 /* fixture-vafa-premier-b-2013.sql */; };
 		2881F5231682A1E900569778 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 2881F5221682A1E900569778 /* Player.m */; };
 		2881F5271682A3B100569778 /* players-vafa-b-grade.sql in Resources */ = {isa = PBXBuildFile; fileRef = 2881F5261682A3B100569778 /* players-vafa-b-grade.sql */; };
@@ -204,6 +205,7 @@
 		28813A4515EF73EF00417416 /* TeamSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamSelectionViewController.xib; sourceTree = "<group>"; };
 		2881455F1655709100813E90 /* StatsAppMacSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsAppMacSession.h; sourceTree = "<group>"; };
 		288145601655709100813E90 /* StatsAppMacSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsAppMacSession.m; sourceTree = "<group>"; };
+		2881CD49171EF02200FBB86E /* spanner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spanner.png; sourceTree = "<group>"; };
 		2881F51D1682776D00569778 /* fixture-vafa-premier-b-2013.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "fixture-vafa-premier-b-2013.sql"; sourceTree = "<group>"; };
 		2881F5211682A1E900569778 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		2881F5221682A1E900569778 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		287FCFC515DCE98800854148 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2881CD48171EF00900FBB86E /* icons */,
 				639E634B16E8C48400304E6F /* arrows */,
 				28C9697D16E8ACEE00F1AD3C /* StatsAppIcon3_72x72.png */,
 				28C9697516E00E0800F1AD3C /* StatsAppIcon_57x57.png */,
@@ -427,6 +430,14 @@
 				287FCFC715DCE9E700854148 /* afl-logo.jpg */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		2881CD48171EF00900FBB86E /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				2881CD49171EF02200FBB86E /* spanner.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 		28894B7016BCD2180074E4A6 /* events */ = {
@@ -738,6 +749,7 @@
 				639E635316E8C49700304E6F /* arrow-up.png in Resources */,
 				2828EB2F16EFD02A00CC1194 /* StatsAppIcon4_72x72.png in Resources */,
 				2828EB3416F20F3700CC1194 /* EditFixtureViewController.xib in Resources */,
+				2881CD4A171EF02200FBB86E /* spanner.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

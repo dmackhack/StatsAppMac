@@ -27,7 +27,6 @@ Division* selectedDivision;
 int selectedDivisionIndex=0;
 Season* selectedSeason;
 int selectedSeasonIndex=0;
-//Round* selectedRound;
 int selectedRoundIndex=0;
 
 NSArray* leagues;
@@ -106,6 +105,59 @@ NSArray* leagues;
 {
     NSLog(@"RoundPickerViewController View Will Appear: %d", selectedRoundIndex);
     [super viewWillAppear:animated];
+    
+    if (self.match != nil)
+    {
+        if (self.match.round != nil)
+        {
+            self.selectedRound = self.match.round;
+        }
+        else
+        {
+            self.selectedRound = nil;
+            selectedRoundIndex = 0;
+        }
+        if (self.selectedRound != nil && self.selectedRound.season != nil)
+        {
+            selectedSeason = self.selectedRound.season;
+            selectedRoundIndex = [[self fetchRounds] indexOfObject:self.selectedRound];
+        }
+        else
+        {
+            selectedSeason = nil;
+            selectedSeasonIndex = 0;
+        }
+        if (selectedSeason != nil && selectedSeason.division != nil)
+        {
+            selectedDivision = selectedSeason.division;
+            selectedSeasonIndex = [[self fetchSeasons] indexOfObject:selectedSeason];
+        }
+        else
+        {
+            selectedDivision = nil;
+            selectedDivisionIndex = 0;
+        }
+        if (selectedDivision != nil && selectedDivision.league !=nil)
+        {
+            selectedLeague = selectedDivision.league;
+            selectedLeagueIndex = [leagues indexOfObject:selectedLeague];
+            selectedDivisionIndex = [[self fetchDivisions] indexOfObject:selectedDivision];
+        }
+        else
+        {
+            selectedLeague = nil;
+            selectedLeagueIndex = 0;
+        }
+    }
+    else
+    {
+        [self pickerView:self.roundPicker didSelectRow:0 inComponent:0];
+        
+        selectedRoundIndex = 0;
+        selectedSeasonIndex = 0;
+        selectedDivisionIndex = 0;
+        selectedLeagueIndex = 0;
+    }
 
     [self.roundPicker selectRow:selectedLeagueIndex inComponent:LEAGUE_COMPONENT animated:NO];
     [self.roundPicker selectRow:selectedDivisionIndex inComponent:DIVISION_COMPONENT animated:NO];
@@ -115,13 +167,6 @@ NSArray* leagues;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    leagues = nil;
-    selectedLeague = nil;
-    selectedDivision = nil;
-    selectedSeason = nil;
-    self.selectedRound = nil;
-    match_ = nil;
-    
     [super viewWillDisappear:animated];
 }
 
@@ -143,58 +188,6 @@ NSArray* leagues;
         self.roundPicker = pickerView;
         self.match = match;
         leagues = [self fetchLeagues];
-        if (self.match != nil)
-        {
-            if (self.match.round != nil)
-            {
-                self.selectedRound = self.match.round;
-            }
-            else
-            {
-                self.selectedRound = nil;
-                selectedRoundIndex = 0;
-            }
-            if (self.selectedRound != nil && self.selectedRound.season != nil)
-            {
-                selectedSeason = self.selectedRound.season;
-                selectedRoundIndex = [[self fetchRounds] indexOfObject:self.selectedRound];
-            }
-            else
-            {
-                selectedSeason = nil;
-                selectedSeasonIndex = 0;
-            }
-            if (selectedSeason != nil && selectedSeason.division != nil)
-            {
-                selectedDivision = selectedSeason.division;
-                selectedSeasonIndex = [[self fetchSeasons] indexOfObject:selectedSeason];
-            }
-            else
-            {
-                selectedDivision = nil;
-                selectedDivisionIndex = 0;
-            }
-            if (selectedDivision != nil && selectedDivision.league !=nil)
-            {
-                selectedLeague = selectedDivision.league;
-                selectedLeagueIndex = [leagues indexOfObject:selectedLeague];
-                selectedDivisionIndex = [[self fetchDivisions] indexOfObject:selectedDivision];
-            }
-            else
-            {
-                selectedLeague = nil;
-                selectedLeagueIndex = 0;
-            }
-        }
-        else
-        {
-            [self pickerView:self.roundPicker didSelectRow:0 inComponent:0];
-            
-            selectedRoundIndex = 0;
-            selectedSeasonIndex = 0;
-            selectedDivisionIndex = 0;
-            selectedLeagueIndex = 0;
-        }
     }
     return self;
 }
