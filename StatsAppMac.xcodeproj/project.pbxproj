@@ -20,6 +20,8 @@
 		283F32B91685D93D006F4610 /* StatsAppMac.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 283F32B81685D93D006F4610 /* StatsAppMac.sqlite */; };
 		283F32BD16A4B480006F4610 /* AdminPlayersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 283F32BB16A4B47D006F4610 /* AdminPlayersViewController.m */; };
 		283F32BE16A4B480006F4610 /* AdminPlayersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 283F32BC16A4B47E006F4610 /* AdminPlayersViewController.xib */; };
+		2850C72A1728EB2E001C7BF9 /* EditClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2850C7281728EB2E001C7BF9 /* EditClubViewController.m */; };
+		2850C72B1728EB2E001C7BF9 /* EditClubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2850C7291728EB2E001C7BF9 /* EditClubViewController.xib */; };
 		287992E2171C1526000DB16B /* StatsAppMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 288BDE66147FB70D00002F9A /* StatsAppMacTests.m */; };
 		287992E3171C153D000DB16B /* StatsAppMacTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 288BDE64147FB70D00002F9A /* StatsAppMacTests.h */; };
 		287BC901167D7F550025E997 /* CParticipant.m in Sources */ = {isa = PBXBuildFile; fileRef = 287BC900167D7F550025E997 /* CParticipant.m */; };
@@ -147,6 +149,9 @@
 		283F32BA16A4B47C006F4610 /* AdminPlayersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdminPlayersViewController.h; sourceTree = "<group>"; };
 		283F32BB16A4B47D006F4610 /* AdminPlayersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdminPlayersViewController.m; sourceTree = "<group>"; };
 		283F32BC16A4B47E006F4610 /* AdminPlayersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdminPlayersViewController.xib; sourceTree = "<group>"; };
+		2850C7271728EB2D001C7BF9 /* EditClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditClubViewController.h; sourceTree = "<group>"; };
+		2850C7281728EB2E001C7BF9 /* EditClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditClubViewController.m; sourceTree = "<group>"; };
+		2850C7291728EB2E001C7BF9 /* EditClubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditClubViewController.xib; sourceTree = "<group>"; };
 		287BC8FF167D7F540025E997 /* CParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CParticipant.h; sourceTree = "<group>"; };
 		287BC900167D7F550025E997 /* CParticipant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CParticipant.m; sourceTree = "<group>"; };
 		287BC903167E725E0025E997 /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
@@ -584,6 +589,9 @@
 				2828EB3216F20F3500CC1194 /* EditFixtureViewController.xib */,
 				28851A741712FD9A00268FFF /* RoundPickerViewController.h */,
 				28851A751712FD9A00268FFF /* RoundPickerViewController.m */,
+				2850C7271728EB2D001C7BF9 /* EditClubViewController.h */,
+				2850C7281728EB2E001C7BF9 /* EditClubViewController.m */,
+				2850C7291728EB2E001C7BF9 /* EditClubViewController.xib */,
 			);
 			name = iPad;
 			sourceTree = "<group>";
@@ -750,6 +758,7 @@
 				2828EB2F16EFD02A00CC1194 /* StatsAppIcon4_72x72.png in Resources */,
 				2828EB3416F20F3700CC1194 /* EditFixtureViewController.xib in Resources */,
 				2881CD4A171EF02200FBB86E /* spanner.png in Resources */,
+				2850C72B1728EB2E001C7BF9 /* EditClubViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,6 +864,7 @@
 				2828EB3716F5EBFD00CC1194 /* ClubSqlLiteRepository.m in Sources */,
 				28851A761712FD9B00268FFF /* RoundPickerViewController.m in Sources */,
 				28027BBF1713110B008981A5 /* FixtureSqlLiteRepository.m in Sources */,
+				2850C72A1728EB2E001C7BF9 /* EditClubViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

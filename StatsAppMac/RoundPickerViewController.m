@@ -187,6 +187,10 @@ NSArray* leagues;
         NSLog(@"In Init...");
         self.roundPicker = pickerView;
         self.match = match;
+        if (self.match.round != nil)
+        {
+            self.selectedRound = self.match.round;
+        }
         leagues = [self fetchLeagues];
     }
     return self;

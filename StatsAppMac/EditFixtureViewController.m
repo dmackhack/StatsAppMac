@@ -11,7 +11,7 @@
 
 @implementation EditFixtureViewController
 
-@synthesize roundTextField=roundTextField_, datePicker=datePicker_, homeTeamPicker=homeTeamPicker_, awayTeamPicker=awayTeamPicker_, match=match_, roundPickerController=roundPickerController_, popOver=popOver_, roundLabel=roundLabel_, editRoundButton=editRoundButton_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_;
+@synthesize roundTextField=roundTextField_, datePicker=datePicker_, homeTeamPicker=homeTeamPicker_, awayTeamPicker=awayTeamPicker_, match=match_, roundPickerController=roundPickerController_, popOver=popOver_, roundLabel=roundLabel_, editRoundButton=editRoundButton_, homeTeamLabel=homeTeamLabel_, awayTeamLabel=awayTeamLabel_, dateLabel=dateLabel_, divisionLabel=divisionLabel_, fixtureDetailsView=fixtureDetailsView_;
 
 
 Club* selectedHomeClub;
@@ -51,6 +51,14 @@ Team* selectedAwayTeam;
     [popOver_ release];
     
     [roundPickerController_ release];
+    [roundLabel_ release];
+    [editRoundButton_ release];
+    [homeTeamLabel_ release];
+    [awayTeamLabel_ release];
+    [dateLabel_ release];
+    [divisionLabel_ release];
+    [fixtureDetailsView_ release];
+    
     [super dealloc];
 }
 
@@ -97,6 +105,12 @@ Team* selectedAwayTeam;
     
     UIBarButtonItem* saveButton = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleBordered target:self action:@selector(save:)];
     self.navigationItem.rightBarButtonItem = saveButton;
+    
+    self.fixtureDetailsView.layer.masksToBounds = NO;
+    self.fixtureDetailsView.layer.cornerRadius = 10;
+    self.fixtureDetailsView.layer.shadowOffset = CGSizeMake(-15, 20);
+    self.fixtureDetailsView.layer.shadowRadius = 5;
+    self.fixtureDetailsView.layer.shadowOpacity = 0.5;
 }
 
 - (void)viewDidUnload
@@ -189,13 +203,21 @@ Team* selectedAwayTeam;
     }
     else
     {
-        selectedHomeClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
-        selectedAwayClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
+        //selectedHomeClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
+        //selectedAwayClub = [[[[self appDelegate] clubRepo] fetchClubs:nil] objectAtIndex:0];
+        
+        [self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:0];
+        [self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:0];
+        [self pickerView:self.homeTeamPicker didSelectRow:0 inComponent:1];
+        [self pickerView:self.awayTeamPicker didSelectRow:0 inComponent:1];
+        //[self.homeTeamPicker selectRow:0 inComponent:0 animated:NO];
+        //[self.awayTeamPicker selectRow:0 inComponent:0 animated:NO];
+        
+        //[self.homeTeamPicker selectRow:0 inComponent:1 animated:NO];
+        //[self.awayTeamPicker selectRow:0 inComponent:1 animated:NO];
+        
     }
     [super viewWillAppear:animated];
-    //self.roundPickerController.match = self.match;
-    //self.roundPickerController.roundPicker = self.roundPicker;
-    //[self.roundPickerController viewWillAppear:animated];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -435,7 +457,7 @@ Team* selectedAwayTeam;
     self.popOver = [[UIPopoverController alloc] initWithContentViewController:self.roundPickerController];
     self.popOver.delegate = self;
     
-    [self.popOver presentPopoverFromRect:self.editRoundButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.popOver presentPopoverFromRect:self.editRoundButton.frame inView:self.fixtureDetailsView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     //[rpvc release];
     [popOverView release];
 }
@@ -454,7 +476,7 @@ Team* selectedAwayTeam;
     self.popOver = [[UIPopoverController alloc] initWithContentViewController:popoverContentContoller];
     self.popOver.delegate = self;
     
-    [self.popOver presentPopoverFromRect:self.editDateButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.popOver presentPopoverFromRect:self.editDateButton.frame inView:self.fixtureDetailsView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
     [popOverView release];
     [popoverContentContoller release];
@@ -475,7 +497,7 @@ Team* selectedAwayTeam;
     self.popOver = [[UIPopoverController alloc] initWithContentViewController:popoverContentContoller];
     self.popOver.delegate = self;
     
-    [self.popOver presentPopoverFromRect:self.editHomeTeamButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.popOver presentPopoverFromRect:self.editHomeTeamButton.frame inView:self.fixtureDetailsView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
     [popOverView release];
     [popoverContentContoller release];
@@ -495,7 +517,7 @@ Team* selectedAwayTeam;
     self.popOver = [[UIPopoverController alloc] initWithContentViewController:popoverContentContoller];
     self.popOver.delegate = self;
     
-    [self.popOver presentPopoverFromRect:self.editAwayTeamButton.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    [self.popOver presentPopoverFromRect:self.editAwayTeamButton.frame inView:self.fixtureDetailsView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     
     [popOverView release];
     [popoverContentContoller release];
@@ -506,43 +528,63 @@ Team* selectedAwayTeam;
 
 -(void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {
-    NSString* divisionLabel = nil;
-    if (self.roundPickerController.selectedRound != nil)
+    if ([[popoverController contentViewController] isKindOfClass:[RoundPickerViewController class]])
     {
-        self.roundLabel.text = [self.roundPickerController.selectedRound.number stringValue];
-        if (self.roundPickerController.selectedRound.season.division.name == nil)
+        if (self.roundPickerController.selectedRound != nil)
+        {
+            self.roundLabel.text = [self.roundPickerController.selectedRound.number stringValue];
+        }
+    }
+    else if ([popoverController contentViewController].view.subviews[0] == self.homeTeamPicker)
+    {
+        NSLog(@"homeTeamPicker");
+        if (selectedHomeClub != nil)
+        {
+            self.homeTeamLabel.text = selectedHomeClub.name;
+        }
+    }
+    else if ([popoverController contentViewController].view.subviews[0] == self.awayTeamPicker)
+    {
+        NSLog(@"awayTeamPicker");
+        if (selectedAwayClub != nil)
+        {
+            self.awayTeamLabel.text = selectedAwayClub.name;
+        }
+    }
+    else if ([popoverController contentViewController].view.subviews[0] == self.datePicker)
+    {
+        NSLog(@"datePicker");
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
+        [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
+        NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:self.datePicker.date]];
+        self.dateLabel.text = dateLabel;
+    }
+    else
+    {
+        NSLog(@"Unknown poperController");
+    }
+    
+    NSString* divisionLabel = nil;
+    if (self.roundPickerController.selectedRound != nil && self.roundPickerController.selectedRound.season.division.name != nil)
+    {
+        divisionLabel = [NSString stringWithFormat:@"%@ - %@", self.roundPickerController.selectedRound.season.division.name,  selectedHomeTeam.name];
+    }
+    else
+    {
+        if (selectedHomeTeam != nil)
         {
             divisionLabel = selectedHomeTeam.name;
         }
-        else
+        else if (selectedAwayTeam != nil)
         {
-            divisionLabel = [NSString stringWithFormat:@"%@ - %@", self.roundPickerController.selectedRound.season.division.name,  selectedHomeTeam.name];
+            divisionLabel = selectedAwayTeam.name;
         }
-        
     }
-    if (divisionLabel == nil && selectedHomeTeam != nil)
-    {
-        divisionLabel = selectedHomeTeam.name;
-    }
-    else if (divisionLabel == nil && selectedAwayTeam != nil)
-    {
-        divisionLabel = selectedAwayTeam.name;
-    }
-    self.divisionLabel.text = divisionLabel;
     
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEE dd MMM yyyy hh:mm aa"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3540]];
-    NSString* dateLabel = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:self.datePicker.date]];
-    self.dateLabel.text = dateLabel;
-        
-    if (selectedHomeClub != nil)
+    if (divisionLabel != nil)
     {
-        self.homeTeamLabel.text = selectedHomeClub.name;
-    }
-    if (selectedAwayClub != nil)
-    {
-        self.awayTeamLabel.text = selectedAwayClub.name;
+        self.divisionLabel.text = divisionLabel;
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import "SqlLiteRepository.h"
 #import "ClubSqlLiteRepository.h"
 #import "Round.h"
@@ -17,6 +18,8 @@
 @interface EditFixtureViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource, UIPopoverControllerDelegate> {
     
     Match* match_;
+    
+    UIView* fixtureDetailsView_;
     
     UITextField* roundTextField_;
     UIDatePicker* datePicker_;
@@ -45,6 +48,7 @@
 
 @property (nonatomic, retain) Match* match;
 
+@property (nonatomic, retain) IBOutlet UIView* fixtureDetailsView;
 @property (nonatomic, retain) IBOutlet UITextField* roundTextField;
 @property (nonatomic, retain) IBOutlet UIDatePicker* datePicker;
 @property (nonatomic, retain) IBOutlet UIPickerView* homeTeamPicker;
