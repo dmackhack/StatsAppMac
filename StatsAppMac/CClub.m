@@ -76,4 +76,27 @@
     return playerEntity;
 }
 
+- (Team*) addNewTeam:(NSString*)name withRepository:(SqlLiteRepository*) repo
+{
+    Team* newTeam = nil;
+    bool exists = false;
+    for (Team* team in self.teams)
+    {
+        if ([team.name isEqualToString:name])
+        {
+            exists = true;
+            break;
+        }
+    }
+    if (!exists)
+    {
+        newTeam = [NSEntityDescription insertNewObjectForEntityForName:@"Team" inManagedObjectContext:repo.managedObjectContext];
+        newTeam.name = name;
+        newTeam.club = self;
+        [self addTeamsObject:newTeam];
+        NSLog(@"Adding Team: %@. Number of teams %d", newTeam.name, [self.teams count]);
+    }
+    return newTeam;
+}
+
 @end

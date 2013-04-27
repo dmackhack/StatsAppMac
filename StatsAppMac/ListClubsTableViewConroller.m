@@ -24,6 +24,11 @@
     return [[self appDelegate] session];
 }
 
+- (SqlLiteRepository*) repo
+{
+    return [[self appDelegate] repo];
+}
+
 - (ClubSqlLiteRepository*) clubRepo
 {
     return [[self appDelegate] clubRepo];
@@ -216,16 +221,7 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
-    
+{    
     Club* club = [[[self clubRepo] fetchClubs:self.searchTerm] objectAtIndex:indexPath.row];
     NSLog(@"Selected Club For Edit: %@", club.name);
     
@@ -242,7 +238,25 @@
     
     StatsAppMacNotificationCentre* noticicationCentre = [[self appDelegate] notificationCentre];
     [noticicationCentre onChange];
-    
+
 }
+
+- (void) editClubClicked:(id)sender
+{
+    NSLog(@"editClubClicked");
+    
+    UINavigationController* modalNavBar = [[UINavigationController alloc] init];
+    
+    EditClubViewController* editClubViewController = [[EditClubViewController alloc] initWithNibName:@"EditClubViewController" bundle:nil];
+    Club* club = [NSEntityDescription insertNewObjectForEntityForName:@"Club" inManagedObjectContext:[self repo].managedObjectContext];
+    editClubViewController.club = club;
+    
+    [self.navigationController presentModalViewController:modalNavBar animated:YES];
+    //[[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    [modalNavBar pushViewController:editClubViewController animated:YES];
+    [editClubViewController release];
+    [modalNavBar release];
+}
+
 
 @end

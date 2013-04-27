@@ -22,5 +22,6 @@
 - (NSMutableArray*) currentPlayers;
 - (NSMutableArray*) allPlayers;
 - (Player*) addNewPlayerWithRepository:(SqlLiteRepository *)repo;
+- (Team*) addNewTeam:(NSString*)name withRepository:(SqlLiteRepository*) repo;
 
 @end

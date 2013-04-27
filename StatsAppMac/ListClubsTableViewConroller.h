@@ -14,6 +14,7 @@
 #import "ListPlayersViewController.h"
 #import "FixtureSearchDelegate.h"
 #import "ClubSqlLiteRepository.h"
+#import "EditClubViewController.h"
 
 @class StatsAppMacAppDelegate;
 
@@ -31,5 +32,7 @@
 @property (nonatomic, retain) IBOutlet ListPlayersViewController* listPlayersView;
 @property (nonatomic, retain) IBOutlet FixtureSearchDelegate* fixtureSearchDelegate;
 @property (nonatomic, retain) NSString* searchTerm;
+
+- (IBAction)editClubClicked:(id)sender;
 
 @end

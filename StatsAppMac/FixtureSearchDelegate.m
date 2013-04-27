@@ -73,13 +73,16 @@
     UIBarButtonItem* editPlayers = [[UIBarButtonItem alloc] initWithTitle:@"Players" style:UIBarButtonItemStyleBordered target:self action:@selector(editPlayers:)];
     UIBarButtonItem* editFixture = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(editFixture:)];
     editFixture.style = UIBarButtonItemStyleBordered;
+    UIBarButtonItem* editClub = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editClub:)];
      
     UIBarButtonItem *fixedSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedSpace.width = 15;
+    UIBarButtonItem *fixedSpace2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
     fixedSpace.width = 15;
     
     if ([self.navigationItem respondsToSelector:@selector(rightBarButtonItems)])
     {
-        self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects:editPlayers, editFixture, nil];
+        self.navigationItem.rightBarButtonItems = [[NSMutableArray alloc] initWithObjects:editPlayers, editFixture, editClub, nil];
     }
     else
     {
@@ -88,7 +91,7 @@
         //toolBar.barStyle = -1; // clear background
         toolBar.backgroundColor = [UIColor clearColor];
     
-        [toolBar setItems:[[NSMutableArray alloc] initWithObjects:editFixture, fixedSpace, editPlayers, nil] animated:NO];
+        [toolBar setItems:[[NSMutableArray alloc] initWithObjects:editFixture, fixedSpace, editPlayers, fixedSpace2, editClub, nil] animated:NO];
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:toolBar];
     }
     
@@ -342,6 +345,20 @@
     [self.navigationController pushViewController:editFixtureView animated:YES];
     [editFixtureView release];
     //[modalNavBar release];
+}
+
+- (IBAction)editClub:(id)sender
+{
+    UINavigationController* modalNavBar = [[UINavigationController alloc] init];
+    
+    EditClubViewController* editClubViewController = [[EditClubViewController alloc] initWithNibName:@"EditClubViewController" bundle:nil];
+    editClubViewController.club = [[self session] selectedClub];
+    
+    [self.navigationController presentModalViewController:modalNavBar animated:YES];
+    //[[[[self appDelegate] window] rootViewController] presentModalViewController:modalNavBar animated:YES];
+    [modalNavBar pushViewController:editClubViewController animated:YES];
+    [editClubViewController release];
+    [modalNavBar release];
 }
 
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
