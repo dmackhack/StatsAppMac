@@ -174,7 +174,14 @@
     Club* club = [[[self clubRepo] fetchClubs:self.searchTerm] objectAtIndex:indexPath.row];
     
     NSLog(@"Club Name: %@", club.name);
-    cell.textLabel.text = [NSString stringWithFormat:club.name];
+    if (club != nil && club.name != nil)
+    {
+        cell.textLabel.text = [NSString stringWithFormat:club.name];
+    }
+    else
+    {
+        cell.textLabel.text = @"";
+    }
     
     return cell;
 }
@@ -235,7 +242,6 @@
     {
         [self.fixtureSearchDelegate updateFixture];
     }
-    
     StatsAppMacNotificationCentre* noticicationCentre = [[self appDelegate] notificationCentre];
     [noticicationCentre onChange];
 

@@ -130,7 +130,7 @@ Team* selectedTeam;
 
 - (IBAction)cancel:(id)sender
 {
-    [[[self repo] managedObjectContext] undo];
+    [[[self repo] managedObjectContext] rollback];
     [self dismissModalViewControllerAnimated:YES];
 }
 
